@@ -30,3 +30,33 @@ export async function GET(request) {
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
   }
 }
+
+export async function POST(request) {
+  try {
+    const supabase = createServerSupabaseClient()
+    const body = await request.json()
+    
+    // Auto-generate slug if not provided
+    if (!body.slug && body.title) {
+      body.slug = body.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
+    }
+
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .insert(body)
+      .select()
+      .single()
+
+    if (error) {
+      if (error.code === '23505') {
+        return NextResponse.json({ error: 'A post with this slug already exists.' }, { status: 400 })
+      }
+      throw error
+    }
+
+    return NextResponse.json(data)
+  } catch (err) {
+    console.error('API Route Error:', err)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+  }
+}

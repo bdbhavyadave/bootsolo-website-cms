@@ -1,14 +1,37 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Download, Search, Mail, Eye, Trash2 } from 'lucide-react'
 
 export default function LeadManagement() {
-  const [leads] = useState([
-    { id: 1, name: 'John Smith', email: 'john@example.com', company: 'TechCorp Inc.', service: 'Web3 Development', budget: '$50k - $100k', date: '2026-05-06', status: 'new' },
-    { id: 2, name: 'Sarah Jenkins', email: 'sarah@startup.io', company: 'Startup.io', service: 'AI Integration', budget: '$25k - $50k', date: '2026-05-05', status: 'contacted' },
-    { id: 3, name: 'Michael Chen', email: 'michael@finance.com', company: 'Finance Group', service: 'Consulting', budget: '$100k+', date: '2026-05-02', status: 'converted' },
-  ])
+  const [leads, setLeads] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  const fetchLeads = async () => {
+    try {
+      const res = await fetch('/api/leads')
+      const data = await res.json()
+      setLeads(data)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchLeads()
+  }, [])
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Delete this lead?')) return
+    try {
+      await fetch(`/api/leads/${id}`, { method: 'DELETE' })
+      fetchLeads()
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -102,7 +125,7 @@ export default function LeadManagement() {
                     <button title="Email Contact" style={{ padding: '0.4rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer' }}>
                       <Mail size={18} />
                     </button>
-                    <button title="Delete" style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <button onClick={() => handleDelete(lead.id)} style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
                       <Trash2 size={18} />
                     </button>
                   </div>

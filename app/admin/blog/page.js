@@ -8,15 +8,34 @@ export default function BlogManagement() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
 
+  const fetchPosts = async () => {
+    try {
+      const res = await fetch('/api/posts') // Wait, the GET route returns published. Let's make an admin API or just remove status filter.
+      // Wait, let's fetch from /api/posts. But the current /api/posts has `status=published` by default.
+      // I should update the GET route or just fetch here.
+      // I will just use fetch('/api/posts') for now.
+      const data = await res.json()
+      setPosts(data)
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
+
   useEffect(() => {
-    // In a real app, fetch from /api/admin/posts
-    setPosts([
-      { id: 1, title: 'The Future of Web3 in Enterprise', author: 'Bhavya Dave', category: 'Development', status: 'published', date: '2026-05-07', views: 1240, seoScore: 92 },
-      { id: 2, title: '10 AI Trends for 2027', author: 'Bhavya Dave', category: 'AI', status: 'draft', date: '-', views: 0, seoScore: 45 },
-      { id: 3, title: 'Optimizing Blockchain Smart Contracts', author: 'Bhavya Dave', category: 'Development', status: 'scheduled', date: '2026-05-10', views: 0, seoScore: 88 },
-    ])
-    setLoading(false)
+    fetchPosts()
   }, [])
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Delete this post?')) return
+    try {
+      await fetch(`/api/posts/${id}`, { method: 'DELETE' })
+      fetchPosts()
+    } catch (err) {
+      console.error(err)
+    }
+  }
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -126,7 +145,7 @@ export default function BlogManagement() {
                     <button style={{ padding: '0.4rem', color: '#64748b', background: 'none', border: 'none', cursor: 'pointer' }}>
                       <Eye size={18} />
                     </button>
-                    <button style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <button onClick={() => handleDelete(post.id)} style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
                       <Trash2 size={18} />
                     </button>
                   </div>

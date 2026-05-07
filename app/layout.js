@@ -1,5 +1,7 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ThemeProvider from '@/components/ThemeProvider'
+import { createServerSupabaseClient } from '@/lib/supabase'
 import './globals.css'
 
 export const metadata = {
@@ -8,10 +10,20 @@ export const metadata = {
   keywords: 'blockchain development, AI consulting, Web3 services, digital marketing',
 }
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const supabase = createServerSupabaseClient()
+  
+  // Fetch default color palette
+  const { data: defaultPalette } = await supabase
+    .from('color_palettes')
+    .select('*')
+    .eq('is_default', true)
+    .single()
+
   return (
     <html lang="en">
       <body>
+        <ThemeProvider initialPalette={defaultPalette} />
         <Header />
         <main>{children}</main>
         <Footer />

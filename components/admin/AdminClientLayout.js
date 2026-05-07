@@ -1,6 +1,7 @@
 'use client'
 
 import Sidebar from '@/components/admin/Sidebar'
+import Topbar from '@/components/admin/Topbar'
 import { usePathname } from 'next/navigation'
 
 export default function AdminClientLayout({ children }) {
@@ -18,9 +19,12 @@ export default function AdminClientLayout({ children }) {
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#f5f5f5' }}>
       <Sidebar />
-      <main style={{ flex: 1, marginLeft: '260px', padding: '2rem' }}>
-        {children}
-      </main>
+      <div style={{ flex: 1, marginLeft: '260px', display: 'flex', flexDirection: 'column' }}>
+        <Topbar />
+        <main style={{ flex: 1, padding: '2rem' }}>
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

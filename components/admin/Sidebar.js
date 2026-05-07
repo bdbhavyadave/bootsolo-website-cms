@@ -9,7 +9,8 @@ import {
   Users, 
   BarChart, 
   Settings, 
-  LogOut 
+  LogOut,
+  UserCog
 } from 'lucide-react'
 
 export default function Sidebar() {
@@ -76,6 +77,7 @@ export default function Sidebar() {
           <NavItem href="/admin/analytics" icon={BarChart}>Analytics</NavItem>
           
           <div style={{ marginTop: '1rem', marginBottom: '0.5rem', paddingLeft: '1rem', fontSize: '0.75rem', textTransform: 'uppercase', color: '#666', fontWeight: 600 }}>System</div>
+          <NavItem href="/admin/users" icon={UserCog}>User Management</NavItem>
           <NavItem href="/admin/settings" icon={Settings}>Settings</NavItem>
         </ul>
       </nav>

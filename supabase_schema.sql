@@ -95,3 +95,28 @@ CREATE TABLE IF NOT EXISTS leads (
 INSERT INTO users (email, password_hash, role, first_name, last_name)
 VALUES ('bdbhavyadave@gmail.com', '$2a$10$pnSnPgu4hAE8a0.pSpIG7.8Ss/AYeudA04zklxbNdptkO5/YBchZm', 'admin', 'Bhavya', 'Dave')
 ON CONFLICT (email) DO NOTHING;
+
+-- Settings Table
+CREATE TABLE IF NOT EXISTS settings (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  key VARCHAR UNIQUE NOT NULL,
+  value JSONB NOT NULL,
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Color Palettes Table
+CREATE TABLE IF NOT EXISTS color_palettes (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name VARCHAR NOT NULL,
+  primary_color VARCHAR NOT NULL,
+  secondary_color VARCHAR NOT NULL,
+  accent_color VARCHAR NOT NULL,
+  background_color VARCHAR NOT NULL,
+  is_default BOOLEAN DEFAULT false,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Insert a default palette
+INSERT INTO color_palettes (name, primary_color, secondary_color, accent_color, background_color, is_default)
+VALUES ('Default Light', '#0f172a', '#64748b', '#3b82f6', '#f8fafc', true)
+ON CONFLICT DO NOTHING;
