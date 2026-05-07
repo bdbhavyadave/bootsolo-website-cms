@@ -3,8 +3,9 @@ import Footer from '@/components/Footer'
 import './globals.css'
 
 export const metadata = {
-  title: process.env.NEXT_PUBLIC_SITE_NAME,
-  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION,
+  title: `Enterprise Blockchain, AI & Web3 Development | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Agency'}`,
+  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Premium blockchain development, AI solutions, and digital marketing for enterprises in US, Europe, Middle East & Asia.',
+  keywords: 'blockchain development, AI consulting, Web3 services, digital marketing',
 }
 
 export default function RootLayout({ children }) {

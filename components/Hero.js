@@ -1,20 +1,23 @@
-'use client'
+import Link from 'next/link'
 
-import { useState } from 'react'
-import LeadForm from './LeadForm'
-
-export default function Hero({ title, subtitle, cta }) {
-  const [showForm, setShowForm] = useState(false)
-
+export default function Hero({ title, subtitle, ctaPrimary, ctaSecondary, primaryLink = "/contact", secondaryLink = "/services/development" }) {
   return (
     <section className="hero">
-      <div className="hero-content">
+      <div className="container hero-content">
         <h1>{title}</h1>
         <p>{subtitle}</p>
-        <button className="cta-button" onClick={() => setShowForm(!showForm)}>
-          {cta}
-        </button>
-        {showForm && <LeadForm compact={true} />}
+        <div className="hero-actions">
+          {ctaPrimary && (
+            <Link href={primaryLink} className="btn btn-primary">
+              {ctaPrimary}
+            </Link>
+          )}
+          {ctaSecondary && (
+            <Link href={secondaryLink} className="btn btn-outline light">
+              {ctaSecondary}
+            </Link>
+          )}
+        </div>
       </div>
     </section>
   )
