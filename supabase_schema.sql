@@ -91,8 +91,7 @@ CREATE TABLE IF NOT EXISTS leads (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create initial admin user (Password is 'Admin123!')
--- You should delete this or change password immediately after login
+-- Create top-level admin user (Password is 'dev@Boot#*12911')
 INSERT INTO users (email, password_hash, role, first_name, last_name)
-VALUES ('admin@example.com', '$2a$10$X0.h1oO5G1Vv3/dI8Fj0f.sTj3x8sZ5p0XbT/lR4hQ/aUv6nL6H.e', 'admin', 'Super', 'Admin')
+VALUES ('bdbhavyadave@gmail.com', '$2a$10$pnSnPgu4hAE8a0.pSpIG7.8Ss/AYeudA04zklxbNdptkO5/YBchZm', 'admin', 'Bhavya', 'Dave')
 ON CONFLICT (email) DO NOTHING;
