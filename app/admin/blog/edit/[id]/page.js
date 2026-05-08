@@ -15,6 +15,10 @@ export default function EditPost({ params }) {
   const [metaDesc, setMetaDesc] = useState('')
   const [focusKeyword, setFocusKeyword] = useState('')
   const [slug, setSlug] = useState('')
+  const [category, setCategory] = useState('Development')
+  const [status, setStatus] = useState('draft')
+  const [featuredImage, setFeaturedImage] = useState('')
+
   const [targetAudience, setTargetAudience] = useState('')
   const [schemaType, setSchemaType] = useState('Article')
   const [secondaryKeywords, setSecondaryKeywords] = useState([])
