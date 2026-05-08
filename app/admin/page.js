@@ -5,6 +5,28 @@ import { FileText, Users, Eye, TrendingUp } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 export default function AdminDashboard() {
+  const [stats, setStats] = useState({ posts: 0, leads: 0, views: '45.2k', readingTime: '4m 12s' })
+  const [recentPosts, setRecentPosts] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await fetch('/api/admin/dashboard')
+        const data = await res.json()
+        if (res.ok && data.totals) {
+          setStats(data.totals)
+          setRecentPosts(data.recentPosts || [])
+        }
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchStats()
+  }, [])
+
   // Mock data for analytics
   const trafficData = [
     { name: 'Mon', views: 400 },
@@ -29,7 +51,7 @@ export default function AdminDashboard() {
         )}
       </div>
       <div style={{ background: '#f5f5f5', padding: '1rem', borderRadius: '50%' }}>
-        <Icon size={24} color="var(--accent)" />
+        <Icon size={24} color="var(--accent, #0f172a)" />
       </div>
     </div>
   )
@@ -44,10 +66,10 @@ export default function AdminDashboard() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-        <StatCard title="Total Published Posts" value="24" icon={FileText} trend={12} />
-        <StatCard title="Total Leads" value="156" icon={Users} trend={8} />
-        <StatCard title="Total Blog Views" value="45.2k" icon={Eye} trend={24} />
-        <StatCard title="Avg. Reading Time" value="4m 12s" icon={TrendingUp} />
+        <StatCard title="Total Published Posts" value={loading ? '...' : stats.posts} icon={FileText} trend={12} />
+        <StatCard title="Total Leads" value={loading ? '...' : stats.leads} icon={Users} trend={8} />
+        <StatCard title="Total Blog Views" value={stats.views} icon={Eye} trend={24} />
+        <StatCard title="Avg. Reading Time" value={stats.readingTime} icon={TrendingUp} />
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem' }}>
@@ -72,14 +94,26 @@ export default function AdminDashboard() {
         <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem' }}>Recent Posts</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '1rem', borderBottom: i !== 4 ? '1px solid #eee' : 'none' }}>
+            {recentPosts.length === 0 ? (
+              <p style={{ color: '#888', fontSize: '0.875rem' }}>No recent posts found.</p>
+            ) : recentPosts.map((post, i) => (
+              <div key={post.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '1rem', borderBottom: i !== recentPosts.length - 1 ? '1px solid #eee' : 'none' }}>
                 <div>
-                  <h4 style={{ fontWeight: 600, fontSize: '0.9rem' }}>The Future of Web3 in Enterprise</h4>
-                  <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.25rem' }}>Published 2 hours ago • Category: Development</p>
+                  <h4 style={{ fontWeight: 600, fontSize: '0.9rem' }}>{post.title}</h4>
+                  <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.25rem' }}>
+                    {new Date(post.created_at).toLocaleDateString()} • Category: {post.category || 'N/A'}
+                  </p>
                 </div>
-                <div style={{ background: '#e0f2fe', color: '#0369a1', padding: '0.25rem 0.5rem', borderRadius: '4px', fontSize: '0.75rem', fontWeight: 600 }}>
-                  Published
+                <div style={{ 
+                  background: post.status === 'published' ? '#dcfce7' : '#f1f5f9', 
+                  color: post.status === 'published' ? '#166534' : '#475569', 
+                  padding: '0.25rem 0.5rem', 
+                  borderRadius: '4px', 
+                  fontSize: '0.75rem', 
+                  fontWeight: 600,
+                  textTransform: 'capitalize' 
+                }}>
+                  {post.status}
                 </div>
               </div>
             ))}

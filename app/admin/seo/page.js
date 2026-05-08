@@ -76,47 +76,91 @@ export default function SeoManagement() {
     </div>
   )
 
-  const KeywordsTab = () => (
-    <div style={{ background: 'white', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-      <div style={{ padding: '1.5rem', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between' }}>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Tracked Keywords</h3>
-        <button style={{ background: 'var(--accent)', color: 'white', padding: '0.5rem 1rem', borderRadius: '6px', border: 'none', cursor: 'pointer', fontWeight: 600 }}>Add Keywords</button>
-      </div>
-      <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-        <thead>
-          <tr style={{ background: '#f8fafc', borderBottom: '1px solid #eee', textAlign: 'left', color: '#64748b', fontSize: '0.875rem' }}>
-            <th style={{ padding: '1rem 1.5rem' }}>Keyword</th>
-            <th style={{ padding: '1rem 1.5rem' }}>Volume</th>
-            <th style={{ padding: '1rem 1.5rem' }}>Current Rank</th>
-            <th style={{ padding: '1rem 1.5rem' }}>Difficulty</th>
-          </tr>
-        </thead>
-        <tbody>
-          {[
-            { kw: 'b2b agency', vol: '12,500', rank: 4, diff: 65 },
-            { kw: 'web3 development firm', vol: '3,200', rank: 1, diff: 42 },
-            { kw: 'enterprise ai solutions', vol: '8,400', rank: 12, diff: 78 },
-          ].map((item, i) => (
-            <tr key={i} style={{ borderBottom: '1px solid #eee' }}>
-              <td style={{ padding: '1rem 1.5rem', fontWeight: 600 }}>{item.kw}</td>
-              <td style={{ padding: '1rem 1.5rem', color: '#64748b' }}>{item.vol}</td>
-              <td style={{ padding: '1rem 1.5rem' }}>
-                <span style={{ color: item.rank <= 3 ? '#10b981' : item.rank <= 10 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>
-                  #{item.rank}
-                </span>
-              </td>
-              <td style={{ padding: '1rem 1.5rem' }}>
-                <div style={{ width: '100px', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
-                  <div style={{ width: `${item.diff}%`, height: '100%', background: item.diff > 70 ? '#ef4444' : '#f59e0b' }}></div>
-                </div>
-                <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{item.diff} / 100</span>
-              </td>
+  const KeywordsTab = () => {
+    const [keywords, setKeywords] = useState([])
+    const [newKeyword, setNewKeyword] = useState('')
+
+    const fetchKeywords = async () => {
+      const res = await fetch('/api/admin/keywords')
+      const data = await res.json()
+      if (res.ok) setKeywords(data)
+    }
+
+    const handleAddKeyword = async () => {
+      if (!newKeyword) return
+      const res = await fetch('/api/admin/keywords', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ keyword: newKeyword })
+      })
+      if (res.ok) {
+        setNewKeyword('')
+        fetchKeywords()
+      }
+    }
+
+    const handleDeleteKeyword = async (id) => {
+      await fetch(`/api/admin/keywords/${id}`, { method: 'DELETE' })
+      fetchKeywords()
+    }
+
+    useState(() => {
+      fetchKeywords()
+    }, [])
+
+    return (
+      <div style={{ background: 'white', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+        <div style={{ padding: '1.5rem', borderBottom: '1px solid #eee', display: 'flex', justifyContent: 'space-between' }}>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Tracked Keywords</h3>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <input 
+              type="text" 
+              placeholder="Enter keyword..." 
+              value={newKeyword} 
+              onChange={e => setNewKeyword(e.target.value)} 
+              style={{ padding: '0.5rem', border: '1px solid #ddd', borderRadius: '6px' }}
+            />
+            <button onClick={handleAddKeyword} style={{ background: 'var(--accent, #0f172a)', color: 'white', padding: '0.5rem 1rem', borderRadius: '6px', border: 'none', cursor: 'pointer', fontWeight: 600 }}>Add Keyword</button>
+          </div>
+        </div>
+        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+          <thead>
+            <tr style={{ background: '#f8fafc', borderBottom: '1px solid #eee', textAlign: 'left', color: '#64748b', fontSize: '0.875rem' }}>
+              <th style={{ padding: '1rem 1.5rem' }}>Keyword</th>
+              <th style={{ padding: '1rem 1.5rem' }}>Volume</th>
+              <th style={{ padding: '1rem 1.5rem' }}>Current Rank</th>
+              <th style={{ padding: '1rem 1.5rem' }}>Difficulty</th>
+              <th style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
+          </thead>
+          <tbody>
+            {keywords.map((item) => (
+              <tr key={item.id} style={{ borderBottom: '1px solid #eee' }}>
+                <td style={{ padding: '1rem 1.5rem', fontWeight: 600 }}>{item.keyword}</td>
+                <td style={{ padding: '1rem 1.5rem', color: '#64748b' }}>{item.search_volume.toLocaleString()}</td>
+                <td style={{ padding: '1rem 1.5rem' }}>
+                  <span style={{ color: item.current_rank <= 3 ? '#10b981' : item.current_rank <= 10 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>
+                    #{item.current_rank}
+                  </span>
+                </td>
+                <td style={{ padding: '1rem 1.5rem' }}>
+                  <div style={{ width: '100px', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
+                    <div style={{ width: `${item.difficulty_score}%`, height: '100%', background: item.difficulty_score > 70 ? '#ef4444' : '#f59e0b' }}></div>
+                  </div>
+                  <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{item.difficulty_score} / 100</span>
+                </td>
+                <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
+                  <button onClick={() => handleDeleteKeyword(item.id)} style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <AlertTriangle size={16} /> Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
 
   const LlmsTxtTab = () => (
     <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>

@@ -1,11 +1,15 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Save, Calendar, Send, Image as ImageIcon, Sparkles } from 'lucide-react'
 import RichTextEditor from '@/components/admin/RichTextEditor'
 import SeoPanel from '@/components/admin/SeoPanel'
+import { useRouter } from 'next/navigation'
 
-export default function EditPost() {
+export default function EditPost({ params }) {
+  const router = useRouter()
+  const isNew = params.id === 'new'
+
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [metaDesc, setMetaDesc] = useState('')
@@ -14,27 +18,99 @@ export default function EditPost() {
   const [category, setCategory] = useState('Development')
   const [status, setStatus] = useState('draft')
   const [featuredImage, setFeaturedImage] = useState('')
+  const [loading, setLoading] = useState(!isNew)
+  const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    if (!isNew) {
+      fetchPost()
+    }
+  }, [isNew])
+
+  const fetchPost = async () => {
+    try {
+      const res = await fetch(`/api/posts/${params.id}`)
+      const data = await res.json()
+      if (res.ok) {
+        setTitle(data.title || '')
+        setContent(data.content || '')
+        setMetaDesc(data.seo_description || '')
+        setFocusKeyword(data.focus_keyword || '')
+        setSlug(data.slug || '')
+        setCategory(data.category || 'Development')
+        setStatus(data.status || 'draft')
+        setFeaturedImage(data.featured_image_url || '')
+      }
+    } catch (err) {
+      console.error(err)
+    } finally {
+      setLoading(false)
+    }
+  }
 
   const handleTitleChange = (e) => {
     const newTitle = e.target.value
     setTitle(newTitle)
-    if (!slug || slug === '') {
+    if (isNew && (!slug || slug === '')) {
       setSlug(newTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, ''))
     }
   }
+
+  const handleSave = async (saveStatus) => {
+    setSaving(true)
+    try {
+      const postData = {
+        title,
+        content,
+        seo_description: metaDesc,
+        focus_keyword: focusKeyword,
+        slug,
+        category,
+        status: saveStatus || status,
+        featured_image_url: featuredImage
+      }
+
+      const url = isNew ? '/api/posts' : `/api/posts/${params.id}`
+      const method = isNew ? 'POST' : 'PUT'
+
+      const res = await fetch(url, {
+        method,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(postData)
+      })
+
+      if (res.ok) {
+        if (isNew) {
+          const newPost = await res.json()
+          router.push(`/admin/blog/edit/${newPost.id}`)
+        } else {
+          alert('Post saved successfully!')
+        }
+      } else {
+        const error = await res.json()
+        alert(`Error: ${error.error}`)
+      }
+    } catch (err) {
+      console.error(err)
+      alert('An error occurred while saving.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  if (loading) return <div style={{ padding: '2rem' }}>Loading post...</div>
 
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
         <div>
-          <h1 style={{ fontSize: '1.875rem', fontWeight: 700 }}>Edit Post</h1>
-          <p style={{ color: '#666', marginTop: '0.25rem' }}>Draft saved just now</p>
+          <h1 style={{ fontSize: '1.875rem', fontWeight: 700 }}>{isNew ? 'New Post' : 'Edit Post'}</h1>
         </div>
         <div style={{ display: 'flex', gap: '1rem' }}>
-          <button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'white', border: '1px solid #ddd', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
+          <button onClick={() => handleSave('draft')} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'white', border: '1px solid #ddd', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
             <Save size={18} /> Save Draft
           </button>
-          <button style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'var(--accent)', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
+          <button onClick={() => handleSave('published')} disabled={saving} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.75rem 1.5rem', background: 'var(--accent, #0f172a)', color: 'white', border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' }}>
             <Send size={18} /> Publish
           </button>
         </div>
