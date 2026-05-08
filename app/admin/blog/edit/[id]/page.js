@@ -15,9 +15,13 @@ export default function EditPost({ params }) {
   const [metaDesc, setMetaDesc] = useState('')
   const [focusKeyword, setFocusKeyword] = useState('')
   const [slug, setSlug] = useState('')
-  const [category, setCategory] = useState('Development')
-  const [status, setStatus] = useState('draft')
-  const [featuredImage, setFeaturedImage] = useState('')
+  const [targetAudience, setTargetAudience] = useState('')
+  const [schemaType, setSchemaType] = useState('Article')
+  const [secondaryKeywords, setSecondaryKeywords] = useState([])
+  const [longTailKeywords, setLongTailKeywords] = useState([])
+  const [lsiKeywords, setLsiKeywords] = useState([])
+  const [faqs, setFaqs] = useState([])
+  
   const [loading, setLoading] = useState(!isNew)
   const [saving, setSaving] = useState(false)
 
@@ -40,6 +44,14 @@ export default function EditPost({ params }) {
         setCategory(data.category || 'Development')
         setStatus(data.status || 'draft')
         setFeaturedImage(data.featured_image_url || '')
+        
+        // Advanced SEO
+        setTargetAudience(data.target_audience || '')
+        setSchemaType(data.schema_type || 'Article')
+        setSecondaryKeywords(data.secondary_keywords || [])
+        setLongTailKeywords(data.long_tail_keywords || [])
+        setLsiKeywords(data.lsi_keywords || [])
+        setFaqs(data.faqs || [])
       }
     } catch (err) {
       console.error(err)
@@ -67,7 +79,13 @@ export default function EditPost({ params }) {
         slug,
         category,
         status: saveStatus || status,
-        featured_image_url: featuredImage
+        featured_image_url: featuredImage,
+        target_audience: targetAudience,
+        schema_type: schemaType,
+        secondary_keywords: secondaryKeywords,
+        long_tail_keywords: longTailKeywords,
+        lsi_keywords: lsiKeywords,
+        faqs: faqs
       }
 
       const url = isNew ? '/api/posts' : `/api/posts/${params.id}`
@@ -96,6 +114,20 @@ export default function EditPost({ params }) {
     } finally {
       setSaving(false)
     }
+  }
+
+  const addFaq = () => {
+    setFaqs([...faqs, { question: '', answer: '' }])
+  }
+
+  const updateFaq = (index, field, value) => {
+    const newFaqs = [...faqs]
+    newFaqs[index][field] = value
+    setFaqs(newFaqs)
+  }
+
+  const removeFaq = (index) => {
+    setFaqs(faqs.filter((_, i) => i !== index))
   }
 
   if (loading) return <div style={{ padding: '2rem' }}>Loading post...</div>
@@ -143,7 +175,7 @@ export default function EditPost({ params }) {
                 <button onClick={() => setFeaturedImage('')} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.9)', border: 'none', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: 600, cursor: 'pointer' }}>Remove</button>
               </div>
             ) : (
-              <div style={{ border: '2px dashed #ddd', borderRadius: '8px', padding: '3rem', textAlign: 'center', color: '#888', cursor: 'pointer', hover: { borderColor: 'var(--accent)', color: 'var(--accent)' } }}>
+              <div style={{ border: '2px dashed #ddd', borderRadius: '8px', padding: '3rem', textAlign: 'center', color: '#888', cursor: 'pointer' }}>
                 <ImageIcon size={48} style={{ margin: '0 auto 1rem' }} />
                 <p>Click to upload or drag and drop</p>
                 <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>SVG, PNG, JPG or WebP (max. 5MB)</p>
@@ -175,6 +207,46 @@ export default function EditPost({ params }) {
           {/* Editor */}
           <div style={{ background: 'white', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
             <RichTextEditor content={content} onChange={setContent} />
+          </div>
+
+          {/* FAQ Builder */}
+          <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>FAQ Schema Builder</h3>
+                <p style={{ color: '#64748b', fontSize: '0.875rem', marginTop: '0.25rem' }}>Add frequently asked questions to generate FAQPage Schema automatically.</p>
+              </div>
+              <button onClick={addFaq} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', padding: '0.5rem 1rem', borderRadius: '6px', fontWeight: 600, cursor: 'pointer' }}>+ Add Question</button>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              {faqs.map((faq, idx) => (
+                <div key={idx} style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '1rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                    <label style={{ fontSize: '0.875rem', fontWeight: 600 }}>Question {idx + 1}</label>
+                    <button onClick={() => removeFaq(idx)} style={{ color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer', fontSize: '0.875rem' }}>Remove</button>
+                  </div>
+                  <input 
+                    type="text" 
+                    value={faq.question}
+                    onChange={(e) => updateFaq(idx, 'question', e.target.value)}
+                    placeholder="e.g. How does blockchain secure file transfers?"
+                    style={{ width: '100%', padding: '0.6rem', border: '1px solid #ddd', borderRadius: '6px', marginBottom: '0.5rem' }}
+                  />
+                  <textarea 
+                    value={faq.answer}
+                    onChange={(e) => updateFaq(idx, 'answer', e.target.value)}
+                    placeholder="Provide a comprehensive but concise answer..."
+                    rows={3}
+                    style={{ width: '100%', padding: '0.6rem', border: '1px solid #ddd', borderRadius: '6px', resize: 'vertical' }}
+                  />
+                </div>
+              ))}
+              {faqs.length === 0 && (
+                <div style={{ textAlign: 'center', padding: '2rem', border: '2px dashed #e2e8f0', borderRadius: '8px', color: '#94a3b8' }}>
+                  No FAQs added yet. Click "+ Add Question" to start building your FAQ schema.
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -237,6 +309,16 @@ export default function EditPost({ params }) {
               setFocusKeyword={setFocusKeyword}
               slug={slug}
               setSlug={setSlug}
+              secondaryKeywords={secondaryKeywords}
+              setSecondaryKeywords={setSecondaryKeywords}
+              longTailKeywords={longTailKeywords}
+              setLongTailKeywords={setLongTailKeywords}
+              lsiKeywords={lsiKeywords}
+              setLsiKeywords={setLsiKeywords}
+              targetAudience={targetAudience}
+              setTargetAudience={setTargetAudience}
+              schemaType={schemaType}
+              setSchemaType={setSchemaType}
             />
           </div>
 

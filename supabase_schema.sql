@@ -37,6 +37,12 @@ CREATE TABLE IF NOT EXISTS blog_posts (
   reading_time INTEGER,
   word_count INTEGER,
   seo_score INTEGER DEFAULT 0,
+  schema_type VARCHAR DEFAULT 'Article',
+  target_audience VARCHAR,
+  secondary_keywords TEXT[],
+  long_tail_keywords TEXT[],
+  lsi_keywords TEXT[],
+  faqs JSONB,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
