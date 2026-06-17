@@ -42,8 +42,9 @@ export default function BrandingPage() {
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="Branding Packages" lead="" kick="Pricing" tiers={PRICING_BRANDING} />
+      <Pricing title="Branding Packages" lead="" kick="Pricing" tiers={PRICING_BRANDING} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );

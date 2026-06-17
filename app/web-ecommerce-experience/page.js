@@ -62,11 +62,10 @@ export default function WebEcommercePage() {
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="Web Designing Packages" lead="" kick="Pricing" tiers={PRICING_WEB} />
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Ecommerce Packages" lead="" kick="" tiers={PRICING_ECOM} />
-      </div>
+      <Pricing title="Web Designing Packages" lead="" kick="Pricing" tiers={PRICING_WEB} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Ecommerce Packages" lead="" kick="" tiers={PRICING_ECOM} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );

@@ -42,8 +42,9 @@ export default function SeoAeoGeoPage() {
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="Search & Visibility Packages" lead="" kick="Pricing" tiers={PRICING_SEO} />
+      <Pricing title="Search & Visibility Packages" lead="" kick="Pricing" tiers={PRICING_SEO} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );

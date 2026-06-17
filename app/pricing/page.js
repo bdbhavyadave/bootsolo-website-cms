@@ -35,7 +35,7 @@ const MASTER_PRICING = [
     ]
   },
   {
-    category: "Content, Video & TL",
+    category: "Content, Video & Thought Leadership",
     slug: "/content-video-thought-leadership#pricing",
     gist: "High-converting copy, short-form video, and executive branding.",
     subcategories: [
@@ -74,7 +74,7 @@ export default function MasterPricingPage() {
         kick="Pricing Directory"
       />
       
-      <section className="section" style={{ paddingTop: 0 }}>
+      <section className="section" style={{ paddingBottom: 0 }}>
         <div className="wrap">
           <div className="svc-grid">
             {MASTER_PRICING.map((cat, i) => (

@@ -54,13 +54,13 @@ const PRICING_VIDEO = [
 
 const PRICING_TL = [
   {
-    name: "TL Ghostwriting Lite", amt: "$450", per: "", feat: false,
+    name: "Thought Leadership Ghostwriting Lite", amt: "$450", per: "", feat: false,
     desc: "Good",
     feats: ["2 LinkedIn posts or 1 article/month", "1 founder interview per quarter"],
     cta: "Request custom quote", btn: "btn-ghost"
   },
   {
-    name: "TL Authority Builder", amt: "$750", per: "", feat: true,
+    name: "Thought Leadership Authority Builder", amt: "$750", per: "", feat: true,
     desc: "Better",
     feats: ["4 LinkedIn posts and 1 article", "Thematic narrative arcs", "Profile optimization suggestions"],
     cta: "Start the climb", btn: "btn-primary"
@@ -77,21 +77,18 @@ export default function ContentVideoPage() {
   return (
     <>
       <ServiceHero 
-        title="Content, Video & TL" 
+        title="Content, Video & Thought Leadership" 
         subtitle="Build authority and audience with high-quality content, video, and executive thought leadership."
         kick="Services"
       />
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="Content Marketing Packages" lead="" kick="Pricing" tiers={PRICING_CONTENT} />
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Video & Motion Packages" lead="" kick="" tiers={PRICING_VIDEO} />
-      </div>
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Thought Leadership Packages" lead="" kick="" tiers={PRICING_TL} />
-      </div>
+      <Pricing title="Content Marketing Packages" lead="" kick="Pricing" tiers={PRICING_CONTENT} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Video & Motion Packages" lead="" kick="" tiers={PRICING_VIDEO} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Thought Leadership Packages" lead="" kick="" tiers={PRICING_TL} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );

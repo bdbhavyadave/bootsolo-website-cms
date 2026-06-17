@@ -41,10 +41,12 @@ export default function Pricing({
   title = "Priced for a backpack, not a boardroom", 
   lead = "Start free. Upgrade when it's paying for itself. Cancel any time — no contracts, no guilt.",
   kick = "Pricing",
-  tiers = DEFAULT_TIERS 
+  tiers = DEFAULT_TIERS,
+  className = "section",
+  style = {}
 }) {
   return (
-    <section className="section" id="pricing">
+    <section className={className} id="pricing" style={style}>
       <div className="wrap">
         <div className="sec-head">
           <span className="kick">{kick}</span>

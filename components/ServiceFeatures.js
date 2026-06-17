@@ -1,6 +1,6 @@
-export default function ServiceFeatures({ features, title, lead, kick }) {
+export default function ServiceFeatures({ features, title, lead, kick, className = "section", style = {} }) {
   return (
-    <section className="section">
+    <section className={className} style={style}>
       <div className="wrap">
         <div className="sec-head">
           {kick && <span className="kick">{kick}</span>}

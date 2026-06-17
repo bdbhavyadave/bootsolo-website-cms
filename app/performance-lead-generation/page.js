@@ -106,17 +106,12 @@ export default function PerformanceLeadGenPage() {
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="Paid Social Packages" lead="" kick="Pricing" tiers={PRICING_SOCIAL} />
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Paid Search Packages" lead="" kick="" tiers={PRICING_SEARCH} />
-      </div>
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="CRO Packages" lead="" kick="" tiers={PRICING_CRO} />
-      </div>
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Lead Gen Packages" lead="" kick="" tiers={PRICING_LEADGEN} />
-      </div>
+      <Pricing title="Paid Social Packages" lead="" kick="Pricing" tiers={PRICING_SOCIAL} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Paid Search Packages" lead="" kick="" tiers={PRICING_SEARCH} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="CRO Packages" lead="" kick="" tiers={PRICING_CRO} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Lead Gen Packages" lead="" kick="" tiers={PRICING_LEADGEN} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );

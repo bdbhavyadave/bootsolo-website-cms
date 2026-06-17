@@ -84,14 +84,11 @@ export default function AIPoweredMarketingPage() {
       <ServiceFeatures 
         title="What's included" 
         features={FEATURES} 
+        style={{ paddingBottom: '60px' }}
       />
-      <Pricing title="AI-Powered Marketing Packages" lead="" kick="Pricing" tiers={PRICING_AI_MKT} />
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Vibe Marketing Packages" lead="" kick="" tiers={PRICING_VIBE} />
-      </div>
-      <div style={{ padding: '0 0 60px' }}>
-        <Pricing title="Marketing Automation Packages" lead="" kick="" tiers={PRICING_AUTOMATION} />
-      </div>
+      <Pricing title="AI-Powered Marketing Packages" lead="" kick="Pricing" tiers={PRICING_AI_MKT} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Vibe Marketing Packages" lead="" kick="" tiers={PRICING_VIBE} className="" style={{ paddingBottom: '80px' }} />
+      <Pricing title="Marketing Automation Packages" lead="" kick="" tiers={PRICING_AUTOMATION} className="" style={{ paddingBottom: '120px' }} />
       <CTA />
     </>
   );
