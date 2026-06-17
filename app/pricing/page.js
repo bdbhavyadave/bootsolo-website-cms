@@ -107,7 +107,9 @@ export default function MasterPricingPage() {
       {/* Custom Quote CTA */}
       <CTA 
         title="Need a custom bundle?" 
-        subtitle="If you need to mix and match services across categories or need an enterprise scope, let's talk. Fill out the form and we'll build a custom route map tailored to your exact terrain."
+        subtitle="If you need to mix and match services across categories or need an enterprise scope, let's talk. We'll build a custom route map tailored to your exact terrain."
+        btnText="Build custom quote"
+        href="/custom-quote"
       />
     </>
   );
