@@ -266,3 +266,66 @@ a{color:inherit;text-decoration:none;}
   .svc-grid,.price-grid,.cases,.steps{grid-template-columns:1fr;}
   .h-display{font-size:54px;}
 }
+
+/* Mega Menu */
+.nav-item-has-mega {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 66px; /* Match nav-inner height to maintain hover area */
+}
+.mega-menu {
+  position: absolute;
+  top: 66px;
+  left: 0;
+  width: 800px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  box-shadow: var(--shadow-2);
+  padding: 32px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--dur) var(--ease), visibility var(--dur) var(--ease), transform var(--dur) var(--ease);
+  z-index: 100;
+  cursor: default;
+}
+.nav-item-has-mega:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.mega-item {
+  display: block;
+  padding: 16px;
+  border-radius: var(--r-sm);
+  transition: background var(--dur) var(--ease);
+  text-decoration: none;
+  color: inherit;
+}
+.mega-item:hover {
+  background: var(--bg-hover);
+}
+.mega-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--fg1);
+  margin-bottom: 4px;
+}
+.mega-item-headline {
+  font-size: 14px;
+  color: var(--fg2);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.mega-item-services {
+  font-size: 13px;
+  color: var(--fg3);
+  line-height: 1.4;
+}
