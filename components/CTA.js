@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import ContactForm from './ContactForm'
+import { ArrowRight } from 'lucide-react'
 
 export default function CTA({ 
   title = "Your first step is free.", 
