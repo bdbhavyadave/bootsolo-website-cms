@@ -71,7 +71,7 @@ export default function Header() {
           <Link href="#work" style={{ display: 'flex', alignItems: 'center' }}>Work</Link>
         </div>
         <div className="nav-spacer"></div>
-        <Link className="btn btn-ghost btn-sm" href="#request-quote">Request custom quote</Link>
+        <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request custom quote</Link>
         <Link className="btn btn-primary btn-sm" href="#cta">Start the climb</Link>
       </div>
     </nav>
