@@ -66,9 +66,10 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="#how" style={{ display: 'flex', alignItems: 'center' }}>How it works</Link>
           <Link href="/pricing" style={{ display: 'flex', alignItems: 'center' }}>Pricing</Link>
-          <Link href="#work" style={{ display: 'flex', alignItems: 'center' }}>Work</Link>
+          <Link href="/work" style={{ display: 'flex', alignItems: 'center' }}>Work</Link>
+          <Link href="/resources" style={{ display: 'flex', alignItems: 'center' }}>Resources</Link>
+          <Link href="/blogs" style={{ display: 'flex', alignItems: 'center' }}>Blogs</Link>
         </div>
         <div className="nav-spacer"></div>
         <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request custom quote</Link>
