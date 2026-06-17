@@ -54,16 +54,14 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '32px', borderRadius: '16px', border: '1px solid var(--border)' }}>
-      <h3 style={{ fontSize: '24px', fontWeight: 600, color: '#EEF3F8', marginBottom: '24px' }}>Let's talk</h3>
-      
+    <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label className="form-label">Name <span style={{ color: 'var(--primary)' }}>*</span></label>
+        <label className="form-label">Name <span style={{ color: 'var(--brand)' }}>*</span></label>
         <input type="text" className="form-control" placeholder="Jane Doe" required />
       </div>
       
       <div className="form-group">
-        <label className="form-label">Phone Number <span style={{ color: 'var(--primary)' }}>*</span></label>
+        <label className="form-label">Phone Number <span style={{ color: 'var(--brand)' }}>*</span></label>
         <div className="input-group" style={{ position: 'relative' }} ref={dropdownRef}>
           <button 
             type="button" 
@@ -109,12 +107,12 @@ export default function ContactForm() {
       </div>
       
       <div className="form-group">
-        <label className="form-label">Email <span style={{ color: 'var(--primary)' }}>*</span></label>
+        <label className="form-label">Email <span style={{ color: 'var(--brand)' }}>*</span></label>
         <input type="email" className="form-control" placeholder="jane@example.com" required />
       </div>
       
       <div className="form-group">
-        <label className="form-label">Service of Interest <span style={{ color: 'var(--primary)' }}>*</span></label>
+        <label className="form-label">Service of Interest <span style={{ color: 'var(--brand)' }}>*</span></label>
         <select className="form-select" required defaultValue="">
           <option value="" disabled>Select a service</option>
           <option value="AI-Powered Marketing">AI-Powered Marketing</option>

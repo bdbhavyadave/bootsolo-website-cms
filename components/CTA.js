@@ -3,24 +3,18 @@ import ContactForm from './ContactForm'
 
 export default function CTA({ 
   title = "Your first step is free.", 
-  subtitle = "Tell us where you're stuck. We'll map your next three moves — no cost, no pitch you have to sit through. Fill out the form and our team will get back to you with a custom route map tailored to your exact terrain."
+  subtitle = "Tell us where you're stuck. We'll map your next three moves — no cost, no pitch you have to sit through."
 }) {
   return (
-    <section className="cta dark" id="contact">
+    <section className="cta dark" id="cta">
       <div className="wrap">
-        <div className="cta-box" style={{ textAlign: 'left', padding: '64px' }}>
+        <div className="cta-box">
           <div className="cta-glow"></div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', position: 'relative' }}>
-            <div>
-              <h2 className="cta-t" style={{ fontSize: '48px' }}>{title}</h2>
-              <p className="cta-s" style={{ fontSize: '18px', lineHeight: 1.6, color: 'var(--fg2)', marginTop: '24px', maxWidth: '400px' }}>
-                {subtitle}
-              </p>
-            </div>
-            <div>
-              <ContactForm />
-            </div>
-          </div>
+          <h2 className="cta-t">{title}</h2>
+          <p className="cta-s">{subtitle}</p>
+          <Link className="btn btn-primary" href="#global-contact" style={{ position: "relative", height: 48, padding: "0 24px" }}>
+            Let's talk <ArrowRight size={16} />
+          </Link>
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import GlobalContact from '@/components/GlobalContact'
 import './globals.css'
 import { DM_Sans, JetBrains_Mono } from 'next/font/google'
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main>{children}</main>
+        <GlobalContact />
         <Footer />
       </body>
     </html>
