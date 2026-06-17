@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootsolo — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   BOOTSOLO — TOKENS (Summit). This block is the single source of truth.
+   Copy it into your project's :root, or link colors_and_type.css.
+   ============================================================================ */
+:root{
+  /* primitive colors */
+  --sunrise:#FF6B35; --sunrise-700:#E8551F; --sunrise-300:#FF9A6B;
+  --summit:#0E1A2B; --ice:#38B6F5; --ice-700:#1E97DB; --ice-300:#8FD6FA;
+  --frost:#E9F4FE; --snow:#F7F5F1; --summit-gold:#F4B740;
+  --success:#1FBF75; --destructive:#E2483D; --warn:#F4B740;
+  /* navy ramp */
+  --navy-900:#0A1320; --navy-850:#0E1A2B; --navy-800:#132236; --navy-700:#1B2D45;
+  --navy-600:#243A57; --navy-500:#35506F; --navy-400:#4E6B8A; --navy-300:#8AA0B8;
+  --navy-200:#BCC9D8; --navy-100:#E2E8F0; --white:#FFFFFF;
+  /* semantic — light (default) */
+  --bg:var(--snow); --bg-elevated:var(--white); --bg-inset:#EFEDE8; --bg-hover:#EFEDE8;
+  --fg1:var(--summit); --fg2:#51606F; --fg3:#8A97A4;
+  --border:rgba(14,26,43,0.12); --border-strong:rgba(14,26,43,0.20);
+  --brand:var(--sunrise); --brand-fg:var(--sunrise-700); --accent:var(--ice-700);
+  --focus-ring:rgba(255,107,53,0.30);
+  /* type */
+  --font-sans:'DM Sans',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --text-display:76px; --text-h1:54px; --text-h2:40px; --text-h3:26px; --text-h4:20px;
+  --text-lg:18px; --text-body:16px; --text-sm:14px; --text-xs:13px; --text-label:12px;
+  --w-regular:400; --w-medium:500; --w-semi:600; --w-bold:700;
+  --track-display:-0.03em; --track-tight:-0.02em; --track-normal:-0.01em; --track-label:0.10em;
+  /* radii / borders */
+  --r-sm:6px; --r-card:14px; --r-md:18px; --r-pill:999px; --bw:1px;
+  /* spacing */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:20px; --s-6:24px;
+  --s-8:32px; --s-10:40px; --s-12:48px; --s-16:64px; --s-20:80px; --s-24:96px; --s-32:128px;
+  /* elevation */
+  --shadow-1:0 1px 2px rgba(14,26,43,0.08);
+  --shadow-2:0 10px 30px rgba(14,26,43,0.12);
+  --shadow-pop:0 24px 60px rgba(14,26,43,0.22);
+  --glow-sunrise:0 8px 28px rgba(255,107,53,0.30);
+  /* motion */
+  --ease:cubic-bezier(0.22,1,0.36,1); --dur:170ms;
+}
+.dark{
+  --bg:var(--summit); --bg-elevated:var(--navy-800); --bg-inset:var(--navy-850); --bg-hover:var(--navy-700);
+  --fg1:#EEF3F8; --fg2:var(--navy-300); --fg3:var(--navy-400);
+  --border:rgba(255,255,255,0.10); --border-strong:rgba(255,255,255,0.18);
+  --brand-fg:var(--sunrise-300); --accent:var(--ice); --focus-ring:rgba(255,107,53,0.45);
+}
+
+/* ----- doc chrome ----- */
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--snow);color:var(--summit);font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;font-size:16px;line-height:1.6;}
+a{color:inherit;}
+.layout{display:grid;grid-template-columns:248px 1fr;}
+
+/* sidebar nav */
+.sidenav{position:sticky;top:0;height:100vh;border-right:1px solid var(--border);
+  background:var(--summit);color:#EEF3F8;padding:28px 20px;overflow-y:auto;}
+.sidenav .brand{display:flex;align-items:center;gap:11px;font-size:20px;font-weight:600;letter-spacing:-0.7px;margin-bottom:4px;}
+.sidenav .brand .tile{width:34px;height:34px;border-radius:9px;background:var(--navy-800);display:flex;align-items:center;justify-content:center;}
+.sidenav .sub{font-size:12px;color:var(--navy-300);margin-bottom:26px;letter-spacing:0.02em;}
+.sidenav .navlabel{font-size:10.5px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--navy-400);margin:22px 0 8px;}
+.sidenav a{display:block;text-decoration:none;color:var(--navy-200);font-size:14px;padding:7px 10px;border-radius:8px;transition:background var(--dur),color var(--dur);}
+.sidenav a:hover{background:var(--navy-800);color:#fff;}
+
+main{min-width:0;}
+.section{padding:84px 72px;border-bottom:1px solid var(--border);max-width:1180px;}
+.section.tight{padding-top:56px;padding-bottom:56px;}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--sunrise-700);margin:0 0 14px;}
+.dark .eyebrow{color:var(--sunrise-300);}
+h2.sec{font-size:40px;line-height:1.1;font-weight:500;letter-spacing:-0.02em;margin:0 0 14px;}
+.sec-lead{font-size:18px;line-height:1.55;color:var(--fg2);max-width:640px;margin:0 0 40px;}
+h3.sub{font-size:15px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--fg3);margin:40px 0 18px;}
+h3.sub:first-of-type{margin-top:0;}
+p{max-width:680px;}
+.muted{color:var(--fg2);}
+
+/* cover band */
+.cover{background:var(--summit);color:#EEF3F8;padding:96px 72px 88px;position:relative;overflow:hidden;}
+.cover .eyebrow{color:var(--sunrise-300);}
+.cover h1{font-size:80px;line-height:1.0;font-weight:500;letter-spacing:-0.03em;margin:16px 0 0;max-width:820px;}
+.cover h1 .o{color:var(--sunrise);}
+.cover .tag{font-size:21px;color:var(--navy-200);margin-top:24px;max-width:560px;line-height:1.5;}
+.cover .meta{display:flex;gap:40px;margin-top:48px;font-size:13px;}
+.cover .meta .k{color:var(--navy-400);text-transform:uppercase;letter-spacing:0.08em;font-size:10.5px;font-weight:600;}
+.cover .meta .v{margin-top:5px;font-weight:500;}
+
+/* color grid */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(186px,1fr));gap:14px;}
+.sw{border-radius:var(--r-card);overflow:hidden;border:1px solid var(--border);background:var(--white);box-shadow:var(--shadow-1);}
+.sw .chip{height:88px;}
+.sw .info{padding:12px 14px 14px;}
+.sw .nm{font-size:14px;font-weight:600;}
+.sw .vr{font-family:var(--font-mono);font-size:11.5px;color:var(--fg3);margin-top:4px;}
+.sw .hx{font-family:var(--font-mono);font-size:12px;color:var(--fg2);margin-top:2px;text-transform:uppercase;}
+.sw .role{font-size:12px;color:var(--fg2);margin-top:8px;line-height:1.4;}
+
+/* ramp */
+.ramp{display:flex;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-1);}
+.ramp .step{flex:1;height:70px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;font-family:var(--font-mono);font-size:10px;}
+.ramplabels{display:flex;margin-top:8px;}
+.ramplabels span{flex:1;text-align:center;font-family:var(--font-mono);font-size:10.5px;color:var(--fg3);}
+
+/* type specimens */
+.specimen{padding:22px 0;border-bottom:1px solid var(--border);display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:baseline;}
+.specimen:last-child{border-bottom:none;}
+.specimen .tk{font-family:var(--font-mono);font-size:11.5px;color:var(--fg3);line-height:1.5;}
+.specimen .tk b{display:block;color:var(--fg2);font-weight:500;}
+.sp-display{font-size:64px;font-weight:500;letter-spacing:-0.03em;line-height:1.02;}
+.sp-h1{font-size:48px;font-weight:500;letter-spacing:-0.03em;}
+.sp-h2{font-size:36px;font-weight:500;letter-spacing:-0.02em;}
+.sp-h3{font-size:24px;font-weight:600;letter-spacing:-0.02em;}
+.sp-body{font-size:16px;font-weight:400;}
+.sp-label{font-size:12px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--sunrise-700);}
+.sp-mono{font-family:var(--font-mono);font-size:18px;}
+
+/* generic cards row */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;}
+.demo-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-card);padding:20px;box-shadow:var(--shadow-1);}
+.demo-card .ci{width:42px;height:42px;border-radius:11px;background:var(--frost);display:flex;align-items:center;justify-content:center;color:var(--sunrise-700);margin-bottom:14px;}
+.demo-card .ci svg{width:21px;height:21px;}
+.demo-card .ct{font-size:16px;font-weight:600;letter-spacing:-0.01em;}
+.demo-card .cd{font-size:13.5px;color:var(--fg2);margin-top:7px;line-height:1.5;}
+
+/* buttons */
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+.btn{height:44px;padding:0 20px;border-radius:11px;font-family:var(--font-sans);font-weight:600;font-size:15px;
+  letter-spacing:-0.01em;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;
+  transition:transform var(--dur) var(--ease),background var(--dur),border-color var(--dur),color var(--dur);}
+.btn:hover{transform:translateY(-1px);}
+.btn svg{width:16px;height:16px;}
+.btn-primary{background:var(--sunrise);color:#fff;box-shadow:var(--glow-sunrise);}
+.btn-primary:hover{background:var(--sunrise-700);}
+.btn-ghost{background:transparent;border-color:var(--border-strong);color:var(--summit);}
+.btn-ghost:hover{border-color:var(--sunrise);color:var(--sunrise-700);}
+.btn-ice{background:var(--ice);color:#04243a;}
+.btn-ice:hover{background:var(--ice-700);color:#fff;}
+.btn-dest{background:var(--destructive);color:#fff;}
+.btn-sm{height:36px;font-size:14px;padding:0 14px;}
+
+/* inputs */
+.field{max-width:340px;}
+.field label{display:block;font-size:12px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--fg2);margin-bottom:8px;}
+.field input{width:100%;height:46px;padding:0 15px;background:var(--white);border:1px solid var(--border-strong);
+  border-radius:12px;color:var(--summit);font-family:var(--font-sans);font-size:15px;outline:none;
+  transition:border-color var(--dur),box-shadow var(--dur);}
+.field input::placeholder{color:var(--fg3);}
+.field input:focus{border-color:var(--sunrise);box-shadow:0 0 0 4px var(--focus-ring);}
+
+/* badges */
+.badges{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.badge{font-size:12px;font-weight:600;padding:4px 11px;border-radius:999px;}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;padding:6px 13px;border-radius:999px;border:1px solid var(--border-strong);color:var(--fg2);}
+.pill .dot{width:7px;height:7px;border-radius:999px;}
+
+/* token tables */
+.tbl{width:100%;border-collapse:collapse;max-width:760px;}
+.tbl th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--fg3);padding:0 14px 11px;border-bottom:1px solid var(--border);}
+.tbl td{padding:13px 14px;border-bottom:1px solid var(--border);font-size:14px;vertical-align:middle;}
+.tbl tr:last-child td{border-bottom:none;}
+.tbl .mono{font-family:var(--font-mono);font-size:12.5px;color:var(--fg2);}
+.box-demo{display:inline-block;background:var(--navy-100);border:1px solid var(--border-strong);}
+
+/* radii demo */
+.radrow{display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap;}
+.radrow .ri{text-align:center;}
+.radrow .rb{width:92px;height:64px;background:var(--frost);border:1px solid var(--ice-300);}
+.radrow .rn{font-size:13px;font-weight:600;margin-top:10px;}
+.radrow .rv{font-family:var(--font-mono);font-size:11px;color:var(--fg3);margin-top:2px;}
+
+/* elevation demo */
+.elevrow{display:flex;gap:26px;flex-wrap:wrap;}
+.elevrow .ei{text-align:center;}
+.elevrow .eb{width:120px;height:78px;background:var(--white);border-radius:var(--r-card);border:1px solid var(--border);}
+.elevrow .en{font-size:13px;font-weight:600;margin-top:14px;}
+.elevrow .ev{font-family:var(--font-mono);font-size:10.5px;color:var(--fg3);margin-top:3px;}
+
+/* spacing demo */
+.spacedemo{display:flex;flex-direction:column;gap:8px;}
+.spacedemo .sr{display:flex;align-items:center;gap:14px;}
+.spacedemo .bar{height:16px;background:var(--sunrise);border-radius:3px;}
+.spacedemo .lab{font-family:var(--font-mono);font-size:11.5px;color:var(--fg2);width:90px;}
+
+/* code block */
+pre{background:var(--summit);color:#D7E2EE;border-radius:var(--r-card);padding:24px 26px;overflow-x:auto;
+  font-family:var(--font-mono);font-size:12.5px;line-height:1.7;border:1px solid var(--navy-700);}
+pre .c{color:var(--navy-400);}
+pre .v{color:var(--sunrise-300);}
+pre .p{color:var(--ice-300);}
+code.inline{font-family:var(--font-mono);font-size:0.88em;background:var(--bg-inset);padding:2px 7px;border-radius:6px;color:var(--brand-fg);}
+
+/* do / dont */
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:840px;}
+.dd .cell{border-radius:var(--r-card);border:1px solid var(--border);padding:18px 20px;background:var(--white);}
+.dd .hd{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.dd .do .hd{color:var(--success);}
+.dd .dont .hd{color:var(--destructive);}
+.dd ul{margin:0;padding-left:18px;font-size:14px;color:var(--fg2);line-height:1.7;}
+
+/* logo lockup band */
+.logoband{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.logocard{border-radius:var(--r-card);border:1px solid var(--border);overflow:hidden;}
+.logocard .stage{height:160px;display:flex;align-items:center;justify-content:center;padding:24px;}
+.logocard .cap{padding:11px 16px;font-size:12px;color:var(--fg2);border-top:1px solid var(--border);background:var(--white);font-family:var(--font-mono);}
+
+/* voice table */
+.voice{width:100%;border-collapse:collapse;max-width:860px;}
+.voice td{padding:13px 16px;border-bottom:1px solid var(--border);font-size:14.5px;vertical-align:top;width:50%;line-height:1.5;}
+.voice .good{color:var(--summit);} .voice .bad{color:var(--fg3);}
+.voice .gh{color:var(--success);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+.voice .bh{color:var(--destructive);font-weight:700;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;}
+
+.heroshot{border-radius:var(--r-md);overflow:hidden;border:1px solid var(--border);box-shadow:var(--shadow-2);max-width:760px;}
+.heroshot svg, .heroshot img{display:block;width:100%;height:auto;}
+
+@media (max-width:920px){
+  .layout{grid-template-columns:1fr;}
+  .sidenav{display:none;}
+  .section,.cover{padding-left:32px;padding-right:32px;}
+  .cover h1{font-size:52px;}
+  .logoband,.dd{grid-template-columns:1fr;}
+}
+@media print{
+  .sidenav{display:none;} .layout{grid-template-columns:1fr;}
+  .section{break-inside:avoid;}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- ============ SIDE NAV ============ -->
+  <nav class="sidenav">
+    <div class="brand">
+      <span class="tile">
+        <svg width="20" height="20" viewBox="0 0 72 72" fill="none">
+          <path d="M36 14 L62 70 H10 L36 14 Z" fill="#FF6B35"/>
+          <path d="M36 14 L48 42 L36 36 L24 42 L36 14 Z" fill="#F7F5F1"/>
+          <circle cx="62" cy="26" r="7" fill="#F4B740"/>
+        </svg>
+      </span>
+      bootsolo
+    </div>
+    <div class="sub">Brand Guidelines</div>
+    <div class="navlabel">Foundations</div>
+    <a href="#essence">Brand essence</a>
+    <a href="#voice">Voice &amp; tone</a>
+    <a href="#logo">Logo</a>
+    <a href="#color">Color</a>
+    <a href="#type">Typography</a>
+    <div class="navlabel">System</div>
+    <a href="#spacing">Spacing &amp; grid</a>
+    <a href="#radii">Radii &amp; borders</a>
+    <a href="#elevation">Elevation &amp; motion</a>
+    <a href="#icons">Iconography</a>
+    <a href="#imagery">Imagery</a>
+    <div class="navlabel">Components</div>
+    <a href="#buttons">Buttons</a>
+    <a href="#forms">Forms</a>
+    <a href="#cards">Cards &amp; badges</a>
+    <div class="navlabel">For developers</div>
+    <a href="#tokens">CSS tokens</a>
+  </nav>
+
+  <main>
+    <!-- ============ COVER ============ -->
+    <header class="cover dark">
+      <p class="eyebrow">Brand Guidelines · v2 “Summit” · June 2026</p>
+      <h1>Start solo.<br><span class="o">Climb fast.</span></h1>
+      <p class="tag">AI-native marketing for bootstrapped solopreneurs. The complete brand system — colors, type, components, and voice — in one file your code and AI IDE can follow.</p>
+      <div class="meta">
+        <div><div class="k">Audience</div><div class="v">Bootstrapped solo founders</div></div>
+        <div><div class="k">Personality</div><div class="v">Young · Vibrant · ROI-focused</div></div>
+        <div><div class="k">Theme</div><div class="v">Light + dark mixed</div></div>
+      </div>
+    </header>
+
+    <!-- ============ ESSENCE ============ -->
+    <section class="section" id="essence">
+      <p class="eyebrow">01 — Brand essence</p>
+      <h2 class="sec">The team that ropes you in</h2>
+      <p class="sec-lead">Bootsolo picks up the marketing work where a one-person team's time and budget run out. We're young, AI-ready, and ROI-obsessed — a mix of fresh graduates and experienced leaders who've climbed the mountain before.</p>
+
+      <h3 class="sub">What we stand for</h3>
+      <div class="cards">
+        <div class="demo-card"><div class="ci"><i data-lucide="mountain"></i></div><div class="ct">The climb</div><div class="cd">A solo ascent of a snowy summit at sunrise, with a tracked route to the top. It drives the logo, the palette, and the product language.</div></div>
+        <div class="demo-card"><div class="ci"><i data-lucide="trending-up"></i></div><div class="ct">P&amp;L positive</div><div class="cd">Every recommendation ties to a founder's bottom line. ROI-focused, never vanity metrics.</div></div>
+        <div class="demo-card"><div class="ci"><i data-lucide="backpack"></i></div><div class="ct">Backpack budget</div><div class="cd">Priced for a backpack, not a boardroom. Built for founders doing it solo on limited cash.</div></div>
+        <div class="demo-card"><div class="ci"><i data-lucide="sunrise"></i></div><div class="ct">Optimistic</div><div class="cd">Encouraging, founder-to-founder. Warm and direct — a guide rooting for you, never corporate.</div></div>
+      </div>
+
+      <h3 class="sub">Product language follows the climb</h3>
+      <p class="muted">Pricing tiers and product surfaces lean into the metaphor — used for rhythm, never forced: <code class="inline">Basecamp</code> (free) → <code class="inline">Climber</code> (popular middle) → <code class="inline">Summit</code>.</p>
+    </section>
+
+    <!-- ============ VOICE ============ -->
+    <section class="section" id="voice">
+      <p class="eyebrow">02 — Voice &amp; tone</p>
+      <h2 class="sec">Encouraging, founder-to-founder, still direct</h2>
+      <p class="sec-lead">One founder talking to another, not an agency addressing a market. Warm, plain-spoken, confident without bragging. Always “you” (the reader) and “we” (us).</p>
+
+      <h3 class="sub">Rules</h3>
+      <ul class="muted" style="max-width:680px;line-height:1.9;">
+        <li><b>Sentence case everywhere</b> — headlines, buttons, nav, titles. The only uppercase is the tracked label/eyebrow (0.10em).</li>
+        <li><b>Outcome-first, but human.</b> Lead with the win and what it means for a solo founder.</li>
+        <li><b>A little climb metaphor goes a long way</b> — use it for rhythm, don't overdo it.</li>
+        <li><b>Never emoji.</b> Energy comes from color, the illustration, and the writing.</li>
+        <li><b>Banned words:</b> leverage, synergize, ecosystem, cutting-edge, solutions, empower, unlock, seamless, robust, best-in-class, revolutionary, game-changing.</li>
+      </ul>
+
+      <h3 class="sub">Say this, not that</h3>
+      <table class="voice">
+        <tr><td class="gh">Bootsolo</td><td class="bh">Not Bootsolo</td></tr>
+        <tr><td class="good">“Start solo. Climb fast.”</td><td class="bad">“Accelerate your growth trajectory.”</td></tr>
+        <tr><td class="good">“You're wearing every hat already. Hand us the marketing one.”</td><td class="bad">“We provide comprehensive marketing solutions.”</td></tr>
+        <tr><td class="good">“Priced for a backpack, not a boardroom.”</td><td class="bad">“Flexible enterprise-grade pricing tiers.”</td></tr>
+        <tr><td class="good">“Your first step is free.”</td><td class="bad">“Sign up for a complimentary trial today!”</td></tr>
+        <tr><td class="good">“We pick up where your budget runs out.”</td><td class="bad">“Scalable solutions for businesses of all sizes.”</td></tr>
+      </table>
+    </section>
+
+    <!-- ============ LOGO ============ -->
+    <section class="section" id="logo">
+      <p class="eyebrow">03 — Logo</p>
+      <h2 class="sec">The peak mark</h2>
+      <p class="sec-lead">An original mountain-peak mark: a Sunrise-orange peak with a snow cap and a gold sun, on a deep navy tile. It reads as a summit and as the “A” of ascent.</p>
+
+      <h3 class="sub">Lockups</h3>
+      <div class="logoband">
+        <div class="logocard">
+          <div class="stage" style="background:var(--snow);">
+            <svg width="240" height="66" viewBox="0 0 350 96" fill="none">
+              <rect x="0" y="12" width="72" height="72" rx="16" fill="#132236"/>
+              <path d="M36 31 L52 67 H20 L36 31 Z" fill="#FF6B35"/>
+              <path d="M36 31 L43.5 48 L36 44.5 L28.5 48 L36 31 Z" fill="#F7F5F1"/>
+              <circle cx="53" cy="38" r="5.5" fill="#F4B740"/>
+              <text x="90" y="62" font-family="DM Sans, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.4" fill="#0E1A2B">bootsolo</text>
+            </svg>
+          </div>
+          <div class="cap">logo-wordmark-dark.svg · on light</div>
+        </div>
+        <div class="logocard">
+          <div class="stage" style="background:var(--summit);">
+            <svg width="240" height="66" viewBox="0 0 350 96" fill="none">
+              <rect x="0" y="12" width="72" height="72" rx="16" fill="#0E1A2B"/>
+              <path d="M36 31 L52 67 H20 L36 31 Z" fill="#FF6B35"/>
+              <path d="M36 31 L43.5 48 L36 44.5 L28.5 48 L36 31 Z" fill="#F7F5F1"/>
+              <circle cx="53" cy="38" r="5.5" fill="#F4B740"/>
+              <text x="90" y="62" font-family="DM Sans, sans-serif" font-size="40" font-weight="600" letter-spacing="-1.4" fill="#EEF3F8">bootsolo</text>
+            </svg>
+          </div>
+          <div class="cap">logo-wordmark-light.svg · on navy</div>
+        </div>
+      </div>
+
+      <h3 class="sub">Mark only</h3>
+      <div class="radrow" style="gap:18px;">
+        <div class="ri"><div style="width:96px;height:96px;border-radius:22px;background:#0E1A2B;display:flex;align-items:center;justify-content:center;">
+          <svg width="56" height="56" viewBox="0 0 120 120" fill="none"><path d="M60 28 L86 88 H34 L60 28 Z" fill="#FF6B35"/><path d="M60 28 L72 56 L60 50 L48 56 L60 28 Z" fill="#F7F5F1"/><circle cx="88" cy="40" r="9" fill="#F4B740"/></svg>
+        </div><div class="rv" style="margin-top:10px;">navy tile</div></div>
+        <div class="ri"><div style="width:64px;height:64px;border-radius:15px;background:#0E1A2B;display:flex;align-items:center;justify-content:center;">
+          <svg width="38" height="38" viewBox="0 0 120 120" fill="none"><path d="M60 28 L86 88 H34 L60 28 Z" fill="#FF6B35"/><path d="M60 28 L72 56 L60 50 L48 56 L60 28 Z" fill="#F7F5F1"/><circle cx="88" cy="40" r="9" fill="#F4B740"/></svg>
+        </div><div class="rv" style="margin-top:10px;">favicon</div></div>
+      </div>
+
+      <h3 class="sub">Do &amp; don't</h3>
+      <div class="dd">
+        <div class="cell do"><div class="hd"><i data-lucide="check"></i> Do</div><ul>
+          <li>Keep clear space of at least the sun's diameter around the mark.</li>
+          <li>Use the navy tile on photos or busy backgrounds.</li>
+          <li>Pair the wordmark in DM Sans 600, lowercase.</li>
+        </ul></div>
+        <div class="cell dont"><div class="hd"><i data-lucide="x"></i> Don't</div><ul>
+          <li>Recolor the peak away from Sunrise orange.</li>
+          <li>Add gradients, shadows, or outlines to the mark.</li>
+          <li>Stretch, rotate, or Title-Case the wordmark.</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <!-- ============ COLOR ============ -->
+    <section class="section" id="color">
+      <p class="eyebrow">04 — Color</p>
+      <h2 class="sec">Sunrise on a snowy peak</h2>
+      <p class="sec-lead">Light-first and vibrant, with dramatic deep-navy bands for hero, CTA, and footer. Flat fills only — the one gradient anywhere is a soft glow behind a CTA.</p>
+
+      <h3 class="sub">Brand &amp; accent</h3>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#FF6B35;"></div><div class="info"><div class="nm">Sunrise</div><div class="vr">--sunrise</div><div class="hx">#FF6B35</div><div class="role">Primary brand &amp; CTA. Buttons, accent word, focus, the route line.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#0E1A2B;"></div><div class="info"><div class="nm">Summit</div><div class="vr">--summit</div><div class="hx">#0E1A2B</div><div class="role">Deep altitude navy. Dark canvas for hero, CTA, footer, dashboard.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#38B6F5;"></div><div class="info"><div class="nm">Ice</div><div class="vr">--ice</div><div class="hx">#38B6F5</div><div class="role">Alpine-sky accent. Secondary highlights, data, links on dark.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#F4B740;"></div><div class="info"><div class="nm">Summit gold</div><div class="vr">--summit-gold</div><div class="hx">#F4B740</div><div class="role">The sun. Tertiary warm highlight; doubles as warning.</div></div></div>
+      </div>
+
+      <h3 class="sub">Surfaces &amp; tints</h3>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#F7F5F1;border-bottom:1px solid var(--border);"></div><div class="info"><div class="nm">Snow</div><div class="vr">--snow</div><div class="hx">#F7F5F1</div><div class="role">Warm off-white. Default light surface / page background.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#E9F4FE;"></div><div class="info"><div class="nm">Frost</div><div class="vr">--frost</div><div class="hx">#E9F4FE</div><div class="role">Soft ice wash. Icon tiles, subtle highlight fills.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--border);"></div><div class="info"><div class="nm">White</div><div class="vr">--white</div><div class="hx">#FFFFFF</div><div class="role">Elevated surface — cards, inputs, menus.</div></div></div>
+      </div>
+
+      <h3 class="sub">Status</h3>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#1FBF75;"></div><div class="info"><div class="nm">Success</div><div class="vr">--success</div><div class="hx">#1FBF75</div></div></div>
+        <div class="sw"><div class="chip" style="background:#F4B740;"></div><div class="info"><div class="nm">Warning</div><div class="vr">--warn</div><div class="hx">#F4B740</div></div></div>
+        <div class="sw"><div class="chip" style="background:#E2483D;"></div><div class="info"><div class="nm">Destructive</div><div class="vr">--destructive</div><div class="hx">#E2483D</div></div></div>
+      </div>
+
+      <h3 class="sub">Summit navy ramp</h3>
+      <p class="muted" style="margin-top:-6px;">Cool deep-blue neutrals for dark surfaces and hairlines.</p>
+      <div class="ramp">
+        <div class="step" style="background:#0A1320;color:#8AA0B8;">900</div>
+        <div class="step" style="background:#0E1A2B;color:#8AA0B8;">850</div>
+        <div class="step" style="background:#132236;color:#8AA0B8;">800</div>
+        <div class="step" style="background:#1B2D45;color:#8AA0B8;">700</div>
+        <div class="step" style="background:#243A57;color:#BCC9D8;">600</div>
+        <div class="step" style="background:#35506F;color:#E2E8F0;">500</div>
+        <div class="step" style="background:#4E6B8A;color:#fff;">400</div>
+        <div class="step" style="background:#8AA0B8;color:#0E1A2B;">300</div>
+        <div class="step" style="background:#BCC9D8;color:#0E1A2B;">200</div>
+        <div class="step" style="background:#E2E8F0;color:#0E1A2B;">100</div>
+      </div>
+
+      <h3 class="sub">Light + dark</h3>
+      <p class="muted">The site is light by default. Add <code class="inline">class="dark"</code> (or <code class="inline">.theme-dark</code>) to flip the semantic variables for navy bands. The dashboard runs fully dark. Semantic roles — <code class="inline">--bg</code>, <code class="inline">--bg-elevated</code>, <code class="inline">--fg1/2/3</code>, <code class="inline">--border</code>, <code class="inline">--brand</code>, <code class="inline">--accent</code> — resolve automatically in each theme.</p>
+    </section>
+
+    <!-- ============ TYPE ============ -->
+    <section class="section" id="type">
+      <p class="eyebrow">05 — Typography</p>
+      <h2 class="sec">DM Sans &amp; JetBrains Mono</h2>
+      <p class="sec-lead">Geometric, friendly, youthful. Display and headlines at 500 weight with tight −0.03em tracking. Labels uppercase at 0.10em. Mono carries every metric and stat.</p>
+
+      <div class="specimen"><div class="tk"><b>Display</b>76 / 500<br>−0.03em</div><div class="sp-display">Climb fast</div></div>
+      <div class="specimen"><div class="tk"><b>H1</b>54 / 500<br>−0.03em</div><div class="sp-h1">Start solo, scale smart</div></div>
+      <div class="specimen"><div class="tk"><b>H2</b>40 / 500<br>−0.02em</div><div class="sp-h2">Priced for a backpack</div></div>
+      <div class="specimen"><div class="tk"><b>H3</b>26 / 600<br>−0.02em</div><div class="sp-h3">Your first step is free</div></div>
+      <div class="specimen"><div class="tk"><b>Body</b>16 / 400<br>1.6</div><div class="sp-body">We pick up the marketing work where your time and budget run out — getting you found, running your agents, and spending campaign dollars that actually pull their weight.</div></div>
+      <div class="specimen"><div class="tk"><b>Label</b>12 / 600<br>0.10em · upper</div><div class="sp-label">How it works</div></div>
+      <div class="specimen"><div class="tk"><b>Mono</b>JetBrains<br>data &amp; metrics</div><div class="sp-mono">+312% &nbsp; $48.2k MRR &nbsp; rank 1.2</div></div>
+    </section>
+
+    <!-- ============ SPACING ============ -->
+    <section class="section" id="spacing">
+      <p class="eyebrow">06 — Spacing &amp; grid</p>
+      <h2 class="sec">4px base, generous air</h2>
+      <p class="sec-lead">Everything aligns to a 4px grid. Marketing sections breathe at ~100px vertical rhythm; max content width ~1200px, hero copy capped ~520–600px for line length.</p>
+      <div class="spacedemo">
+        <div class="sr"><span class="lab">--s-1 · 4</span><span class="bar" style="width:4px;"></span></div>
+        <div class="sr"><span class="lab">--s-2 · 8</span><span class="bar" style="width:8px;"></span></div>
+        <div class="sr"><span class="lab">--s-4 · 16</span><span class="bar" style="width:16px;"></span></div>
+        <div class="sr"><span class="lab">--s-6 · 24</span><span class="bar" style="width:24px;"></span></div>
+        <div class="sr"><span class="lab">--s-8 · 32</span><span class="bar" style="width:32px;"></span></div>
+        <div class="sr"><span class="lab">--s-12 · 48</span><span class="bar" style="width:48px;"></span></div>
+        <div class="sr"><span class="lab">--s-16 · 64</span><span class="bar" style="width:64px;"></span></div>
+        <div class="sr"><span class="lab">--s-24 · 96</span><span class="bar" style="width:96px;"></span></div>
+      </div>
+    </section>
+
+    <!-- ============ RADII ============ -->
+    <section class="section" id="radii">
+      <p class="eyebrow">07 — Radii &amp; borders</p>
+      <h2 class="sec">Friendly rounding</h2>
+      <p class="sec-lead">Youthful, soft corners — 14px on cards, 18px on large containers, 10–11px on buttons, pill on tags. Borders are a single 1px hairline.</p>
+      <div class="radrow">
+        <div class="ri"><div class="rb" style="border-radius:6px;"></div><div class="rn">sm</div><div class="rv">6px · controls</div></div>
+        <div class="ri"><div class="rb" style="border-radius:11px;"></div><div class="rn">button</div><div class="rv">10–11px</div></div>
+        <div class="ri"><div class="rb" style="border-radius:14px;"></div><div class="rn">card</div><div class="rv">14px</div></div>
+        <div class="ri"><div class="rb" style="border-radius:18px;"></div><div class="rn">md</div><div class="rv">18px</div></div>
+        <div class="ri"><div class="rb" style="border-radius:999px;width:64px;"></div><div class="rn">pill</div><div class="rv">999px</div></div>
+      </div>
+    </section>
+
+    <!-- ============ ELEVATION ============ -->
+    <section class="section" id="elevation">
+      <p class="eyebrow">08 — Elevation &amp; motion</p>
+      <h2 class="sec">Soft lift, micro-motion</h2>
+      <p class="sec-lead">Resting cards get a faint shadow on light; hover lifts to a larger shadow with a 3px translate. The Sunrise glow marks the one featured element. Motion is hover-only — 170ms, <code class="inline">cubic-bezier(0.22,1,0.36,1)</code>. No bounces, parallax, or ambient loops.</p>
+      <div class="elevrow">
+        <div class="ei"><div class="eb" style="box-shadow:var(--shadow-1);"></div><div class="en">shadow-1</div><div class="ev">resting card</div></div>
+        <div class="ei"><div class="eb" style="box-shadow:var(--shadow-2);"></div><div class="en">shadow-2</div><div class="ev">hover lift</div></div>
+        <div class="ei"><div class="eb" style="box-shadow:var(--shadow-pop);"></div><div class="en">shadow-pop</div><div class="ev">modals</div></div>
+        <div class="ei"><div class="eb" style="box-shadow:var(--glow-sunrise);border-color:var(--sunrise);"></div><div class="en">glow-sunrise</div><div class="ev">featured</div></div>
+      </div>
+    </section>
+
+    <!-- ============ ICONS ============ -->
+    <section class="section" id="icons">
+      <p class="eyebrow">09 — Iconography</p>
+      <h2 class="sec">Lucide, stroke-only</h2>
+      <p class="sec-lead">Clean ~1.75px stroke, rounded joins, no fill. Icon color follows text; Sunrise or Ice is reserved for highlighted/feature icons. No emoji, no multicolor or filled packs.</p>
+      <div class="btnrow" style="gap:22px;color:var(--summit);">
+        <i data-lucide="mountain" style="width:26px;height:26px;"></i>
+        <i data-lucide="rocket" style="width:26px;height:26px;"></i>
+        <i data-lucide="trending-up" style="width:26px;height:26px;"></i>
+        <i data-lucide="route" style="width:26px;height:26px;"></i>
+        <i data-lucide="bot" style="width:26px;height:26px;"></i>
+        <i data-lucide="radar" style="width:26px;height:26px;"></i>
+        <i data-lucide="compass" style="width:26px;height:26px;"></i>
+        <i data-lucide="flag" style="width:26px;height:26px;color:var(--sunrise-700);"></i>
+        <i data-lucide="sunrise" style="width:26px;height:26px;color:var(--sunrise-700);"></i>
+      </div>
+      <p class="muted" style="margin-top:22px;">Load: <code class="inline">&lt;script src="https://unpkg.com/lucide@latest"&gt;&lt;/script&gt;</code> then <code class="inline">lucide.createIcons()</code>. Unicode arrows (→) are fine inside buttons and links.</p>
+    </section>
+
+    <!-- ============ IMAGERY ============ -->
+    <section class="section" id="imagery">
+      <p class="eyebrow">10 — Imagery</p>
+      <h2 class="sec">The tracked summit climb</h2>
+      <p class="sec-lead">No stock photos. The signature image is the summit illustration — a flat, geometric, color-blocked scene: navy dawn sky, a gold sun, ice-blue ranges, a snow-capped hero peak, and a dashed Sunrise route switchbacking to a tracker pin at the top.</p>
+      <div class="heroshot">
+        <svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg">
+          <rect width="960" height="720" fill="#0E1A2B"/>
+          <g fill="#EEF3F8" opacity="0.6">
+            <circle cx="80" cy="90" r="2"/><circle cx="160" cy="150" r="1.5"/><circle cx="120" cy="220" r="1.5"/>
+            <circle cx="250" cy="80" r="1.5"/><circle cx="320" cy="170" r="2"/><circle cx="60" cy="300" r="1.5"/>
+          </g>
+          <circle cx="730" cy="180" r="98" fill="#F4B740" opacity="0.13"/>
+          <circle cx="730" cy="180" r="62" fill="#F4B740"/>
+          <polygon points="0,480 140,360 250,450 380,330 520,440 640,350 780,450 900,370 960,440 960,720 0,720" fill="#35506F"/>
+          <polygon points="380,330 430,400 350,400" fill="#E2E8F0" opacity="0.85"/>
+          <polygon points="640,350 685,415 595,415" fill="#E2E8F0" opacity="0.85"/>
+          <polygon points="660,300 880,650 460,650" fill="#1B2D45"/>
+          <polygon points="660,300 705,375 620,375" fill="#E2E8F0" opacity="0.9"/>
+          <polygon points="400,120 770,650 50,650" fill="#16263B"/>
+          <polygon points="400,120 500,312 444,292 400,332 356,300 300,322 400,120" fill="#F7F5F1"/>
+          <path d="M300,632 L470,566 L300,500 L470,432 L325,366 L445,300 L362,238 L400,168" fill="none" stroke="#FF6B35" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 16"/>
+          <circle cx="470" cy="566" r="7" fill="#FF6B35"/>
+          <circle cx="325" cy="366" r="11" fill="#FF6B35" stroke="#0E1A2B" stroke-width="3"/>
+          <circle cx="325" cy="366" r="3.5" fill="#fff"/>
+          <path d="M400 100 a20 20 0 0 1 20 20 c0 15 -20 40 -20 40 c0 0 -20 -25 -20 -40 a20 20 0 0 1 20 -20 Z" fill="#FF6B35"/>
+          <circle cx="400" cy="120" r="8" fill="#fff"/>
+          <polygon points="0,648 220,612 440,656 660,616 960,652 960,720 0,720" fill="#E2E8F0"/>
+          <polygon points="0,672 260,648 520,680 760,652 960,676 960,720 0,720" fill="#F7F5F1"/>
+        </svg>
+      </div>
+      <p class="muted" style="margin-top:18px;"><code class="inline">assets/hero-summit.svg</code> — build new illustrations in the same flat, geometric, sunrise-palette style. No gradients, no noise/grain.</p>
+    </section>
+
+    <!-- ============ BUTTONS ============ -->
+    <section class="section" id="buttons">
+      <p class="eyebrow">11 — Buttons</p>
+      <h2 class="sec">Buttons</h2>
+      <p class="sec-lead">600 weight, sentence case, 44px default height, 11px radius. Primary carries the Sunrise glow. Hover lifts 1px and darkens to the −700 tone.</p>
+      <div class="btnrow">
+        <button class="btn btn-primary">Start free <i data-lucide="arrow-right"></i></button>
+        <button class="btn btn-ghost">See the routes</button>
+        <button class="btn btn-ice">Get my free route</button>
+        <button class="btn btn-dest">Cancel plan</button>
+      </div>
+      <div class="btnrow" style="margin-top:18px;">
+        <button class="btn btn-primary btn-sm">Start free</button>
+        <button class="btn btn-ghost btn-sm">Sign in</button>
+      </div>
+    </section>
+
+    <!-- ============ FORMS ============ -->
+    <section class="section" id="forms">
+      <p class="eyebrow">12 — Forms</p>
+      <h2 class="sec">Inputs</h2>
+      <p class="sec-lead">46px height, 12px radius, 1px border that warms to Sunrise on focus with a 4px ring. Uppercase tracked labels.</p>
+      <div class="btnrow" style="gap:32px;align-items:flex-start;">
+        <div class="field"><label>Work email</label><input placeholder="you@startup.com"></div>
+        <div class="field"><label>What are you climbing?</label><input value="Indie SaaS, $0 marketing budget"></div>
+      </div>
+    </section>
+
+    <!-- ============ CARDS + BADGES ============ -->
+    <section class="section" id="cards">
+      <p class="eyebrow">13 — Cards &amp; badges</p>
+      <h2 class="sec">Cards &amp; badges</h2>
+      <p class="sec-lead">White elevated cards, 14px radius, faint resting shadow, Frost icon tile. Badges and pills are fully rounded.</p>
+      <div class="cards" style="margin-bottom:34px;">
+        <div class="demo-card"><div class="ci"><i data-lucide="radar"></i></div><div class="ct">Get found by AI</div><div class="cd">Show up when buyers ask ChatGPT, Perplexity, and Google's AI.</div></div>
+        <div class="demo-card"><div class="ci"><i data-lucide="bot"></i></div><div class="ct">Your AI team</div><div class="cd">Agents that research, write, and launch while you build the product.</div></div>
+        <div class="demo-card"><div class="ci"><i data-lucide="route"></i></div><div class="ct">A tracked route</div><div class="cd">Every dollar tied to a metric that moves your bottom line.</div></div>
+      </div>
+      <div class="badges">
+        <span class="badge" style="background:#FFE9DF;color:#E8551F;">Popular</span>
+        <span class="badge" style="background:#E0F7EE;color:#0E9460;">Live</span>
+        <span class="badge" style="background:#E9F4FE;color:#1E97DB;">Basecamp · free</span>
+        <span class="badge" style="background:#FDF1D6;color:#9A7212;">Beta</span>
+        <span class="pill"><span class="dot" style="background:var(--success);"></span>Agent running</span>
+        <span class="pill" style="border-color:var(--sunrise);color:var(--sunrise-700);">On the climb</span>
+      </div>
+    </section>
+
+    <!-- ============ TOKENS / DEV ============ -->
+    <section class="section" id="tokens">
+      <p class="eyebrow">14 — For developers</p>
+      <h2 class="sec">Drop-in CSS tokens</h2>
+      <p class="sec-lead">Paste this <code class="inline">:root</code> block into your project (or link <code class="inline">colors_and_type.css</code>). Every value above maps to one of these variables — point your AI IDE at this file and reference tokens by name.</p>
+      <pre><span class="c">/* Bootsolo — Summit tokens. Add .dark on an ancestor to flip themes. */</span>
+<span class="p">:root</span> {
+  <span class="c">/* brand + accent */</span>
+  <span class="v">--sunrise</span>:#FF6B35; <span class="v">--sunrise-700</span>:#E8551F; <span class="v">--sunrise-300</span>:#FF9A6B;
+  <span class="v">--summit</span>:#0E1A2B; <span class="v">--ice</span>:#38B6F5; <span class="v">--ice-700</span>:#1E97DB; <span class="v">--ice-300</span>:#8FD6FA;
+  <span class="v">--frost</span>:#E9F4FE; <span class="v">--snow</span>:#F7F5F1; <span class="v">--summit-gold</span>:#F4B740;
+  <span class="v">--success</span>:#1FBF75; <span class="v">--destructive</span>:#E2483D; <span class="v">--warn</span>:#F4B740;
+  <span class="c">/* navy ramp */</span>
+  <span class="v">--navy-900</span>:#0A1320; <span class="v">--navy-800</span>:#132236; <span class="v">--navy-700</span>:#1B2D45;
+  <span class="v">--navy-600</span>:#243A57; <span class="v">--navy-500</span>:#35506F; <span class="v">--navy-400</span>:#4E6B8A;
+  <span class="v">--navy-300</span>:#8AA0B8; <span class="v">--navy-200</span>:#BCC9D8; <span class="v">--navy-100</span>:#E2E8F0;
+  <span class="c">/* semantic — light (default) */</span>
+  <span class="v">--bg</span>:var(--snow); <span class="v">--bg-elevated</span>:#fff; <span class="v">--bg-inset</span>:#EFEDE8;
+  <span class="v">--fg1</span>:var(--summit); <span class="v">--fg2</span>:#51606F; <span class="v">--fg3</span>:#8A97A4;
+  <span class="v">--border</span>:rgba(14,26,43,.12); <span class="v">--border-strong</span>:rgba(14,26,43,.20);
+  <span class="v">--brand</span>:var(--sunrise); <span class="v">--brand-fg</span>:var(--sunrise-700); <span class="v">--accent</span>:var(--ice-700);
+  <span class="c">/* type */</span>
+  <span class="v">--font-sans</span>:'DM Sans',system-ui,sans-serif; <span class="v">--font-mono</span>:'JetBrains Mono',monospace;
+  <span class="v">--text-display</span>:76px; <span class="v">--text-h1</span>:54px; <span class="v">--text-h2</span>:40px; <span class="v">--text-h3</span>:26px;
+  <span class="v">--text-body</span>:16px; <span class="v">--text-label</span>:12px;
+  <span class="v">--track-display</span>:-.03em; <span class="v">--track-label</span>:.10em;
+  <span class="c">/* radii / borders / motion */</span>
+  <span class="v">--r-sm</span>:6px; <span class="v">--r-card</span>:14px; <span class="v">--r-md</span>:18px; <span class="v">--r-pill</span>:999px; <span class="v">--bw</span>:1px;
+  <span class="v">--shadow-1</span>:0 1px 2px rgba(14,26,43,.08); <span class="v">--shadow-2</span>:0 10px 30px rgba(14,26,43,.12);
+  <span class="v">--glow-sunrise</span>:0 8px 28px rgba(255,107,53,.30);
+  <span class="v">--ease</span>:cubic-bezier(.22,1,.36,1); <span class="v">--dur</span>:170ms;
+}
+<span class="p">.dark</span> {
+  <span class="v">--bg</span>:var(--summit); <span class="v">--bg-elevated</span>:var(--navy-800); <span class="v">--bg-inset</span>:#0E1A2B;
+  <span class="v">--fg1</span>:#EEF3F8; <span class="v">--fg2</span>:var(--navy-300); <span class="v">--fg3</span>:var(--navy-400);
+  <span class="v">--border</span>:rgba(255,255,255,.10); <span class="v">--brand-fg</span>:var(--sunrise-300); <span class="v">--accent</span>:var(--ice);
+}</pre>
+      <h3 class="sub">Recipes</h3>
+      <pre><span class="c">/* primary button */</span>
+.btn-primary{ background:<span class="v">var(--sunrise)</span>; color:#fff; font:<span class="v">var(--w-semi)</span> 15px/1 <span class="v">var(--font-sans)</span>;
+  height:44px; padding:0 20px; border-radius:11px; box-shadow:<span class="v">var(--glow-sunrise)</span>;
+  transition:transform <span class="v">var(--dur)</span> <span class="v">var(--ease)</span>, background <span class="v">var(--dur)</span>; }
+.btn-primary:hover{ background:<span class="v">var(--sunrise-700)</span>; transform:translateY(-1px); }
+
+<span class="c">/* card */</span>
+.card{ background:<span class="v">var(--bg-elevated)</span>; border:1px solid <span class="v">var(--border)</span>;
+  border-radius:<span class="v">var(--r-card)</span>; box-shadow:<span class="v">var(--shadow-1)</span>; padding:20px; }
+
+<span class="c">/* eyebrow / label */</span>
+.eyebrow{ font:<span class="v">var(--w-semi)</span> 12px/1 <span class="v">var(--font-sans)</span>; letter-spacing:<span class="v">var(--track-label)</span>;
+  text-transform:uppercase; color:<span class="v">var(--brand-fg)</span>; }</pre>
+      <p class="muted" style="margin-top:24px;">Full source lives in <code class="inline">colors_and_type.css</code> (tokens + <code class="inline">.ds-*</code> type roles), with components in <code class="inline">ui_kits/website/</code> and <code class="inline">ui_kits/dashboard/</code>. Fonts: DM Sans + JetBrains Mono via Google Fonts. Icons: Lucide via CDN.</p>
+    </section>
+
+    <footer class="cover dark" style="padding:48px 72px;border-top:1px solid var(--navy-700);">
+      <div class="brand" style="display:flex;align-items:center;gap:11px;font-size:18px;font-weight:600;letter-spacing:-0.5px;">
+        <svg width="22" height="22" viewBox="0 0 120 120" fill="none"><path d="M60 28 L86 88 H34 L60 28 Z" fill="#FF6B35"/><path d="M60 28 L72 56 L60 50 L48 56 L60 28 Z" fill="#F7F5F1"/><circle cx="88" cy="40" r="9" fill="#F4B740"/></svg>
+        bootsolo
+      </div>
+      <p style="color:var(--navy-300);font-size:13px;margin-top:14px;">Brand Guidelines · “Summit” · For the ones who started solo.</p>
+    </footer>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>window.addEventListener('load',()=>{ if(window.lucide) lucide.createIcons(); });</script>
+</body>
+</html>

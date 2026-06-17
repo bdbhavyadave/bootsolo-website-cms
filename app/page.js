@@ -4,7 +4,6 @@ import ServiceCard from '@/components/ServiceCard'
 import BlogCard from '@/components/BlogCard'
 import LeadForm from '@/components/LeadForm'
 import { createServerSupabaseClient } from '@/lib/supabase'
-import { Globe, Shield, Users, BarChart } from 'lucide-react'
 
 export const revalidate = 60 // Revalidate every 60 seconds
 
@@ -21,45 +20,45 @@ export default async function Home() {
 
   const services = [
     {
-      title: 'Blockchain & AI Development',
-      description: 'Enterprise-grade software development with proven expertise in blockchain, AI, and web technologies. From MVPs to full-scale production systems.',
-      icon: 'code',
-      link: '/services/development',
-      pricing: 'Starting at $2,500+',
-      subservices: [
-        'Blockchain/Web3 Solutions',
-        'AI & Gen AI Development',
-        'Web2/Web3 Applications',
-        'Custom Website Development',
-        'Mobile App Development'
-      ]
-    },
-    {
-      title: 'Digital Marketing & Growth',
-      description: 'Data-driven marketing strategies designed to scale your digital presence. We specialize in emerging tech niches and high-growth markets.',
-      icon: 'rocket',
+      title: 'Get found by AI',
+      description: 'Show up when buyers ask ChatGPT, Perplexity, and Google\'s AI.',
+      icon: 'radar',
       link: '/services/marketing',
-      pricing: 'Starting at $1,000+',
+      pricing: 'Climber tier · $2k/mo',
+      badge: 'Popular',
       subservices: [
-        'Web3 Marketing Strategy',
-        'AI-Powered Marketing Automation',
-        'Growth Consulting',
-        'Performance Marketing',
-        'Content Strategy & SEO'
+        'AI Search Engine Optimization',
+        'LLM Context Injection',
+        'Knowledge Graph Building',
+        'Conversational Placement'
       ]
     },
     {
-      title: 'Business & Tech Consulting',
-      description: 'Strategic guidance for enterprises navigating blockchain, AI, and digital transformation. Our consultants bring 15+ years of industry experience.',
-      icon: 'briefcase',
-      link: '/services/consulting',
-      pricing: 'From $500+ or free initial audit',
+      title: 'Your AI team',
+      description: 'Agents that research, write, and launch while you build the product.',
+      icon: 'bot',
+      link: '/services/development',
+      pricing: 'Basecamp · free',
+      badge: 'Start here',
       subservices: [
-        'Blockchain Strategy & Readiness',
-        'AI Implementation Planning',
-        'Tech Stack Evaluation',
-        'Digital Transformation',
-        'Growth Strategy'
+        'Automated Content Marketing',
+        'Social Media Agents',
+        'Outreach Automations',
+        '24/7 Execution'
+      ]
+    },
+    {
+      title: 'A tracked route',
+      description: 'Every dollar tied to a metric that moves your bottom line.',
+      icon: 'route',
+      link: '/services/consulting',
+      pricing: 'Summit · Custom',
+      badge: 'Pro',
+      subservices: [
+        'P&L Positive Strategy',
+        'Backpack Budget Planning',
+        'Weekly Metric Tracking',
+        'Founder-to-Founder Advice'
       ]
     }
   ]
@@ -67,44 +66,22 @@ export default async function Home() {
   return (
     <>
       <Hero 
-        title="Enterprise Blockchain, AI & Web3 Development"
-        subtitle="Premium digital solutions trusted by companies across the US, Europe, Middle East, and Asia"
-        ctaPrimary="Start Free Consultation"
-        ctaSecondary="View Our Services"
+        eyebrow="AI-Native Marketing"
+        title="Start solo."
+        highlightTitle="Climb fast."
+        tag="AI-native marketing for bootstrapped solopreneurs. We pick up the marketing work where your time and budget run out — getting you found, running your agents, and spending campaign dollars that actually pull their weight."
+        ctaPrimary="Start free"
+        ctaSecondary="See the routes"
       />
 
-      <section className="trust-section">
-        <div className="container trust-grid">
-          <div className="trust-item">
-            <Globe className="trust-icon" size={36} />
-            <h4>Global Reach</h4>
-            <p>Clients across 4 continents</p>
-          </div>
-          <div className="trust-item">
-            <Shield className="trust-icon" size={36} />
-            <h4>Enterprise-Grade</h4>
-            <p>Bank-level security & scale</p>
-          </div>
-          <div className="trust-item">
-            <Users className="trust-icon" size={36} />
-            <h4>Expert Team</h4>
-            <p>15+ years average experience</p>
-          </div>
-          <div className="trust-item">
-            <BarChart className="trust-icon" size={36} />
-            <h4>Proven Results</h4>
-            <p>ROI-focused delivery</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: 'var(--light)' }}>
+      <section className="section" style={{ background: 'var(--snow)' }}>
         <div className="container">
-          <div className="section-header">
-            <h2>Our Core Services</h2>
-            <p style={{ color: '#666', fontSize: '1.125rem' }}>Comprehensive solutions for the modern enterprise</p>
+          <div className="text-center" style={{ marginBottom: 'var(--s-16)' }}>
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>01 — The Routes</span>
+            <h2 className="sec-title">Pick your path to the summit</h2>
+            <p className="sec-lead" style={{ margin: '0 auto' }}>Priced for a backpack, not a boardroom. We built these tiers for founders doing it solo on limited cash.</p>
           </div>
-          <div className="services-grid">
+          <div className="grid-3">
             {services.map(service => (
               <ServiceCard key={service.title} {...service} />
             ))}
@@ -112,33 +89,37 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="blog-section">
+      <section className="section">
         <div className="container">
-          <div className="section-header">
-            <h2>Latest Insights from Our Team</h2>
-            <p style={{ color: '#666', fontSize: '1.125rem' }}>Industry trends, case studies, and expert analysis</p>
+          <div className="text-center" style={{ marginBottom: 'var(--s-16)' }}>
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>02 — Dispatch</span>
+            <h2 className="sec-title">Notes from basecamp</h2>
+            <p className="sec-lead" style={{ margin: '0 auto' }}>Real stories and tactics from indie founders climbing the same mountain.</p>
           </div>
-          <div className="blog-grid">
+          <div className="grid-3">
             {posts && posts.length > 0 ? (
               posts.map(post => (
                 <BlogCard key={post.id} post={post} />
               ))
             ) : (
-              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: '4rem', background: '#fff', borderRadius: 8 }}>
-                <p style={{ color: '#666' }}>Articles coming soon. Check back later.</p>
+              <div style={{ gridColumn: '1 / -1', textAlign: 'center', padding: 'var(--s-10)', background: 'var(--white)', borderRadius: 'var(--r-card)' }}>
+                <p className="muted">Articles coming soon. Check back later.</p>
               </div>
             )}
           </div>
-          <div className="text-center" style={{ marginTop: '3rem' }}>
-            <Link href="/blog" className="btn btn-outline">View All Articles →</Link>
+          <div className="text-center" style={{ marginTop: 'var(--s-10)' }}>
+            <Link href="/blog" className="btn btn-ghost">Read all notes →</Link>
           </div>
         </div>
       </section>
 
-      <section className="lead-capture-section">
+      <section className="section" style={{ background: 'var(--frost)', borderBottom: 'none' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Get Your Free Consultation</h2>
-          <p style={{ fontSize: '1.25rem', opacity: 0.9, marginBottom: '3rem' }}>Start with a free 1-2 day consultation. No strings attached.</p>
+          <div className="text-center" style={{ marginBottom: 'var(--s-10)' }}>
+            <span className="eyebrow" style={{ justifyContent: 'center' }}>03 — First step</span>
+            <h2 className="sec-title">Your first step is free</h2>
+            <p className="sec-lead" style={{ margin: '0 auto' }}>You're wearing every hat already. Hand us the marketing one. Let's map your route.</p>
+          </div>
           <LeadForm />
         </div>
       </section>

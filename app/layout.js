@@ -1,29 +1,21 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ThemeProvider from '@/components/ThemeProvider'
-import { createServerSupabaseClient } from '@/lib/supabase'
 import './globals.css'
+import { DM_Sans, JetBrains_Mono } from 'next/font/google'
+
+const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' })
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 
 export const metadata = {
-  title: `Enterprise Blockchain, AI & Web3 Development | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Agency'}`,
-  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION || 'Premium blockchain development, AI solutions, and digital marketing for enterprises in US, Europe, Middle East & Asia.',
-  keywords: 'blockchain development, AI consulting, Web3 services, digital marketing',
+  title: `Start Solo. Climb Fast. | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Bootsolo'}`,
+  description: 'AI-native marketing for bootstrapped solopreneurs. Start solo, scale smart.',
+  keywords: 'solopreneur, indie hacker, AI marketing, startup growth',
 }
 
-export default async function RootLayout({ children }) {
-  const supabase = createServerSupabaseClient()
-  
-  // Fetch default color palette
-  const { data: defaultPalette } = await supabase
-    .from('color_palettes')
-    .select('*')
-    .eq('is_default', true)
-    .single()
-
+export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <ThemeProvider initialPalette={defaultPalette} />
         <Header />
         <main>{children}</main>
         <Footer />

@@ -1,38 +1,45 @@
 import Link from 'next/link'
-import { Code2, Rocket, Briefcase } from 'lucide-react'
+import { Mountain, Rocket, TrendingUp, Compass, Radar, Bot, Route } from 'lucide-react'
 
-export default function ServiceCard({ title, description, subservices, icon, link, pricing }) {
+export default function ServiceCard({ title, description, subservices, icon, link, pricing, badge }) {
   
   const getIcon = () => {
     switch(icon) {
-      case 'code': return <Code2 size={32} />
-      case 'rocket': return <Rocket size={32} />
-      case 'briefcase': return <Briefcase size={32} />
-      default: return <Code2 size={32} />
+      case 'mountain': return <Mountain size={21} />
+      case 'rocket': return <Rocket size={21} />
+      case 'trending-up': return <TrendingUp size={21} />
+      case 'radar': return <Radar size={21} />
+      case 'bot': return <Bot size={21} />
+      case 'route': return <Route size={21} />
+      case 'compass': return <Compass size={21} />
+      default: return <Mountain size={21} />
     }
   }
 
   return (
-    <div className="service-card">
-      <div className="service-icon-wrapper">
+    <div className="card">
+      <div className="ci">
         {getIcon()}
       </div>
-      <h3>{title}</h3>
-      <p className="service-desc">{description}</p>
+      <div className="ct" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        {title}
+        {badge && <span className="badge" style={{ background: '#E9F4FE', color: '#1E97DB' }}>{badge}</span>}
+      </div>
+      <p className="cd">{description}</p>
       
       {subservices && (
-        <ul className="service-list">
+        <ul className="muted" style={{ margin: 0, paddingLeft: '18px', fontSize: '14px', lineHeight: '1.7', marginBottom: 'var(--s-6)', flexGrow: 1 }}>
           {subservices.map((item, i) => (
             <li key={i}>{item}</li>
           ))}
         </ul>
       )}
       
-      {pricing && <p className="service-pricing">{pricing}</p>}
+      {pricing && <p className="text-mono" style={{ fontSize: '13px', color: 'var(--fg2)', marginBottom: 'var(--s-4)', marginTop: subservices ? '0' : 'auto' }}>{pricing}</p>}
       
-      <div style={{ marginTop: 'auto', paddingTop: '1.5rem' }}>
-        <Link href={link} className="btn btn-outline" style={{ width: '100%' }}>
-          Learn More
+      <div>
+        <Link href={link} className="btn btn-ghost btn-sm" style={{ width: '100%', borderColor: 'var(--border-strong)' }}>
+          See the route
         </Link>
       </div>
     </div>

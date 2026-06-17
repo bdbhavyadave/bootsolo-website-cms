@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export default function Footer() {
-  const companyName = process.env.NEXT_PUBLIC_SITE_NAME || "Agency"
+  const companyName = process.env.NEXT_PUBLIC_SITE_NAME || "bootsolo"
   const email = process.env.ADMIN_EMAIL || "contact@example.com"
   
   return (
@@ -9,15 +9,15 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <h3>{companyName}</h3>
-            <p>Premium blockchain, AI, Web3 development and digital marketing solutions.</p>
+            <h3 style={{ fontSize: '18px', fontWeight: 'var(--w-semi)', marginBottom: 'var(--s-3)', color: '#EEF3F8' }}>{companyName}</h3>
+            <p style={{ color: 'var(--navy-300)', fontSize: '14px', lineHeight: '1.6' }}>Start solo. Climb fast. AI-native marketing for bootstrapped solopreneurs.</p>
           </div>
           
           <div className="footer-section">
-            <h4>Quick Links</h4>
+            <h4>Routes</h4>
             <ul className="footer-links">
               <li><Link href="/">Home</Link></li>
-              <li><Link href="/services/development">Services</Link></li>
+              <li><Link href="/services/development">Development</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/contact">Contact</Link></li>
             </ul>
@@ -26,18 +26,18 @@ export default function Footer() {
           <div className="footer-section">
             <h4>Services</h4>
             <ul className="footer-links">
-              <li><Link href="/services/development">Development</Link></li>
-              <li><Link href="/services/marketing">Marketing</Link></li>
-              <li><Link href="/services/consulting">Consulting</Link></li>
+              <li><Link href="/services/development">MVP Building</Link></li>
+              <li><Link href="/services/marketing">AI Marketing</Link></li>
+              <li><Link href="/services/consulting">Scale Consulting</Link></li>
             </ul>
           </div>
           
           <div className="footer-section footer-contact">
-            <h4>Contact</h4>
-            <p>Email: {email}</p>
-            <p>Global Reach. Enterprise-Grade.</p>
-            <div style={{ marginTop: '1rem' }}>
-              <Link href="/contact" className="btn btn-outline light" style={{ padding: '0.5rem 1rem' }}>
+            <h4>Basecamp</h4>
+            <p style={{ color: 'var(--navy-300)', fontSize: '14px', marginBottom: 'var(--s-2)' }}>Email: {email}</p>
+            <p style={{ color: 'var(--navy-300)', fontSize: '14px' }}>Remote, asynchronous, built for solo founders.</p>
+            <div style={{ marginTop: 'var(--s-4)' }}>
+              <Link href="/contact" className="btn btn-ice btn-sm">
                 Get in Touch
               </Link>
             </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
+          <p style={{ color: 'var(--navy-400)', fontSize: '13px' }}>&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
         </div>
       </div>
     </footer>
