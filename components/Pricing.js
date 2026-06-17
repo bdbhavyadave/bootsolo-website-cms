@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Check } from 'lucide-react'
 
-const TIERS = [
+const DEFAULT_TIERS = [
   {
     name: "Basecamp", amt: "Free", per: "", feat: false,
     desc: "Your route map and first wins. No card, no catch — just somewhere to start.",
@@ -22,7 +22,7 @@ const TIERS = [
   },
 ];
 
-function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
+export function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
   return (
     <div className={"price-card" + (feat ? " feat" : "")}>
       {feat && <div className="price-tag">Most popular</div>}
@@ -30,24 +30,29 @@ function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
       <div className="price-amt">{amt}{per && <span> {per}</span>}</div>
       <div className="price-desc">{desc}</div>
       <ul className="price-feats">
-        {feats.map(f => <li key={f}><Check size={17} />{f}</li>)}
+        {feats.map((f, i) => <li key={i}><Check size={17} />{f}</li>)}
       </ul>
-      <Link className={"btn " + btn} href="#cta" style={{ width: "100%", justifyContent: "center" }}>{cta}</Link>
+      <Link className={"btn " + (btn || "btn-ghost")} href="#cta" style={{ width: "100%", justifyContent: "center" }}>{cta || "Start the climb"}</Link>
     </div>
   );
 }
 
-export default function Pricing() {
+export default function Pricing({ 
+  title = "Priced for a backpack, not a boardroom", 
+  lead = "Start free. Upgrade when it's paying for itself. Cancel any time — no contracts, no guilt.",
+  kick = "Pricing",
+  tiers = DEFAULT_TIERS 
+}) {
   return (
     <section className="section" id="pricing">
       <div className="wrap">
         <div className="sec-head">
-          <span className="kick">Pricing</span>
-          <h2 className="sec-title">Priced for a backpack, not a boardroom</h2>
-          <p className="sec-lead">Start free. Upgrade when it's paying for itself. Cancel any time — no contracts, no guilt.</p>
+          <span className="kick">{kick}</span>
+          <h2 className="sec-title">{title}</h2>
+          {lead && <p className="sec-lead">{lead}</p>}
         </div>
         <div className="price-grid">
-          {TIERS.map(t => <PriceCard key={t.name} {...t} />)}
+          {tiers.map((t, i) => <PriceCard key={i} {...t} />)}
         </div>
       </div>
     </section>

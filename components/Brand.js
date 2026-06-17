@@ -12,7 +12,7 @@ export function Bolt({ size = 18 }) {
 
 export default function Brand() {
   return (
-    <Link className="brand" href="#top">
+    <Link className="brand" href="/">
       <span className="tile"><Bolt /></span>
       bootsolo
     </Link>
