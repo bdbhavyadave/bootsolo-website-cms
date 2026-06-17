@@ -365,12 +365,12 @@ a{color:inherit;text-decoration:none;}
 .input-group {
   display: flex;
 }
-.input-group .form-control:first-child {
+.input-group > .form-control:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
 }
-.input-group .form-control:last-child {
+.input-group > .form-control:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -385,6 +385,8 @@ a{color:inherit;text-decoration:none;}
   color: var(--fg1);
   cursor: pointer;
   border-right: none;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .country-dropdown-menu {
   position: absolute;

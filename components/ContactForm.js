@@ -42,6 +42,24 @@ export default function ContactForm() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    async function fetchCountry() {
+      try {
+        const res = await fetch('https://get.geojs.io/v1/ip/country.json');
+        const data = await res.json();
+        if (data && data.name) {
+          const matched = COUNTRIES.find(c => c.name.toLowerCase() === data.name.toLowerCase());
+          if (matched) {
+            setSelectedCountry(matched);
+          }
+        }
+      } catch (err) {
+        console.error("Failed to fetch IP location", err);
+      }
+    }
+    fetchCountry();
+  }, []);
+
   const filteredCountries = COUNTRIES.filter(c => 
     c.name.toLowerCase().includes(search.toLowerCase()) || 
     c.code.includes(search)
