@@ -23,6 +23,7 @@ const DEFAULT_TIERS = [
 ];
 
 export function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
+  const linkHref = cta?.toLowerCase().includes("custom quote") ? "/custom-quote" : "#global-contact";
   return (
     <div className={"price-card" + (feat ? " feat" : "")}>
       {feat && <div className="price-tag">Most popular</div>}
@@ -32,7 +33,7 @@ export function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
       <ul className="price-feats">
         {feats.map((f, i) => <li key={i}><Check size={17} />{f}</li>)}
       </ul>
-      <Link className={"btn " + (btn || "btn-ghost")} href="#cta" style={{ width: "100%", justifyContent: "center" }}>{cta || "Start the climb"}</Link>
+      <Link className={"btn " + (btn || "btn-ghost")} href={linkHref} style={{ width: "100%", justifyContent: "center" }}>{cta || "Start the climb"}</Link>
     </div>
   );
 }
