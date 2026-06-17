@@ -1,81 +1,124 @@
-import Link from 'next/link'
-import ServiceHero from '@/components/ServiceHero'
-import CTA from '@/components/CTA'
-import { ArrowRight } from 'lucide-react'
+"use client";
 
-export const metadata = {
-  title: 'Our Work | Bootsolo',
-  description: 'Case studies and portfolio of brands scaled by Bootsolo.',
-}
+import React from 'react';
+import Motif from '@/components/Motif';
+import CTA from '@/components/CTA';
+import { Award, ArrowRight } from 'lucide-react';
 
-const PLACEHOLDER_WORK = [
-  {
-    title: "Scaling a SaaS to $1M ARR",
-    client: "TechFlow",
-    category: "Performance & Lead Gen",
-    excerpt: "How we completely rebuilt their paid search strategy and integrated AI-driven CRM workflows to triple their enterprise pipeline.",
-    metrics: ["+210% Pipeline", "-40% CAC", "3x ROI"],
-    slug: "#"
-  },
-  {
-    title: "Local Domination for a Medical Group",
-    client: "Apex Health",
-    category: "SEO / AEO / GEO",
-    excerpt: "Dominating local search and map packs across 15 locations using our proprietary Authority Suite and localized AI content engines.",
-    metrics: ["+450% Map Views", "1.2k New Leads", "#1 Ranking"],
-    slug: "#"
-  },
-  {
-    title: "Full Brand System & Web Experience",
-    client: "Lumina Edge",
-    category: "Branding & Web",
-    excerpt: "A complete zero-to-one rebrand, including visual identity, custom Framer website, and high-converting copy.",
-    metrics: ["2 Week Launch", "+85% Conversion", "Award Winning"],
-    slug: "#"
-  }
+const SECTORS = ["All", "Solo SaaS", "D2C", "Indie app", "Newsletter"];
+
+const METRICS = [
+  { mv: "120+", mk: "founders climbing with us" },
+  { mv: "3.4×", mk: "median signup lift in 90 days" },
+  { mv: "−54%", mk: "average cost per acquisition" },
 ];
 
-export default function WorkPage() {
+const FEATURED_CASE = {
+  metric: "+312%", unit: "signups in one quarter", sector: "Solo SaaS",
+  company: "Northwind", logo: "N", palette: "dawn",
+  quote: "I was the founder, the engineer, and the marketing department. Bootsolo became the marketing department — and it cost less than a part-time hire.",
+  who: "Sam R., founder",
+  tags: ["Get found by AI", "Content engine", "Lifecycle"],
+};
+
+const CASES = [
+  { metric: "−58%", ice: true, label: "cost per sale", company: "Parallel", logo: "P", sector: "D2C", title: "A bootstrapped skincare brand halved its cost per sale", tags: ["Campaigns", "Automation"] },
+  { metric: "4.1×", ice: false, label: "AI answer visibility", company: "Loomly", logo: "L", sector: "Indie app", title: "From invisible to the AI answer box in 60 days", tags: ["Get found by AI"] },
+  { metric: "0→1.2k", ice: true, label: "signups, no ad spend", company: "Pier9", logo: "P9", sector: "Solo SaaS", title: "Zero to 1,200 signups on a $0 ad budget", tags: ["Content engine", "GEO"] },
+  { metric: "+89%", ice: false, label: "open rate", company: "Cortex", logo: "C", sector: "Newsletter", title: "A solo writer doubled engagement with lifecycle automation", tags: ["Automation", "Lifecycle"] },
+  { metric: "2.7×", ice: true, label: "qualified demos", company: "Vantage", logo: "V", sector: "Solo SaaS", title: "Tripled qualified demos without hiring a marketer", tags: ["Campaigns", "GEO"] },
+  { metric: "−41%", ice: false, label: "time on marketing", company: "Indie Maker", logo: "IM", sector: "Indie app", title: "Got 6 hours a week back by handing off the busywork", tags: ["Automation"] },
+];
+
+function FeaturedCase() {
+  const c = FEATURED_CASE;
+  return (
+    <article className="featured">
+      <div className="feat-art"><Motif palette={c.palette} h={400} /></div>
+      <div className="feat-body">
+        <span className="feat-cat" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <Award size={14} /> {c.sector} · case study
+        </span>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginTop: 18 }}>
+          <span style={{ fontFamily: "var(--font-mono)", fontSize: 56, fontWeight: 500, letterSpacing: "-0.03em", lineHeight: 1, color: "var(--brand-fg)" }}>{c.metric}</span>
+          <span style={{ fontSize: 16, color: "var(--fg2)" }}>{c.unit}</span>
+        </div>
+        <p className="feat-ex" style={{ fontSize: 18, fontStyle: "italic", color: "var(--fg1)" }}>“{c.quote}”</p>
+        <div className="feat-meta">
+          <span className="who"><span className="av">{c.logo}</span> {c.company}</span>
+          <span className="sep"></span><span>{c.who}</span>
+        </div>
+        <div className="wtags" style={{ marginTop: 22 }}>
+          {c.tags.map(t => <span className="wtag" key={t}>{t}</span>)}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+function WCard({ metric, ice, label, company, logo, sector, title, tags }) {
+  return (
+    <article className="wcard">
+      <div className="wthumb">
+        <span className={"big" + (ice ? " ice" : "")}>{metric}</span>
+        <span className="blbl">{label}</span>
+      </div>
+      <div className="wbody">
+        <div className="wco">
+          <span className="logo">{logo}</span>
+          <span className="nm">{company}</span>
+          <span className="sector">{sector}</span>
+        </div>
+        <h3 className="wtitle">{title}</h3>
+        <div className="wtags">
+          {tags.map(t => <span className="wtag" key={t}>{t}</span>)}
+        </div>
+        <div className="wlink" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          Read the story <ArrowRight size={14} />
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default function WorkIndex() {
+  const [sector, setSector] = React.useState("All");
+  const shown = sector === "All" ? CASES : CASES.filter(c => c.sector === sector);
+
   return (
     <>
-      <ServiceHero 
-        title="Our Work" 
-        subtitle="We don't just talk strategy — we execute. Here are a few examples of how we've helped bootstrapped founders reach the summit."
-        kick="Portfolio & Case Studies"
-      />
-      
-      <section className="section" style={{ background: 'var(--bg)' }}>
+      <section className="page-head">
+        <div className="wrap ph-inner">
+          <span className="kick">The work</span>
+          <h1 className="ph-title">Founders who kept climbing</h1>
+          <p className="ph-lead">Real routes, real numbers. No logos we can't back up with a story — every one of these started solo, on a budget that fit in a backpack.</p>
+        </div>
+      </section>
+
+      <section className="section" style={{ paddingTop: 40 }}>
         <div className="wrap">
-          <div className="svc-grid">
-            {PLACEHOLDER_WORK.map((work, i) => (
-              <Link href={work.slug} className="svc-card" key={i} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--fg3)', marginBottom: '8px', fontWeight: 600 }}>{work.client}</div>
-                <div className="svc-t" style={{ fontSize: '24px', marginBottom: '8px' }}>{work.title}</div>
-                <div style={{ fontSize: '14px', color: 'var(--brand)', marginBottom: '16px', fontWeight: 500 }}>{work.category}</div>
-                <div className="svc-d" style={{ marginBottom: '24px', flex: 1 }}>{work.excerpt}</div>
-                
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '24px' }}>
-                  {work.metrics.map((metric, j) => (
-                    <div key={j} style={{ background: 'var(--frost)', padding: '8px', borderRadius: '8px', textAlign: 'center', fontSize: '12px', fontWeight: 600, color: 'var(--fg1)' }}>
-                      {metric}
-                    </div>
-                  ))}
-                </div>
-                
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border)', paddingTop: '16px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--fg1)', fontSize: '14px', fontWeight: 500 }}>
-                    View case study <ArrowRight size={14} />
-                  </div>
-                </div>
-              </Link>
+          <div className="metrics" style={{ marginBottom: 56 }}>
+            {METRICS.map(m => (
+              <div className="metric" key={m.mk}><div className="mv">{m.mv}</div><div className="mk">{m.mk}</div></div>
             ))}
+          </div>
+          <FeaturedCase />
+          <div className="filters">
+            {SECTORS.map(s => (
+              <button key={s} className={"filter" + (sector === s ? " on" : "")} onClick={() => setSector(s)}>{s}</button>
+            ))}
+          </div>
+          <div className="work-grid">
+            {shown.map(c => <WCard key={c.company} {...c} />)}
           </div>
         </div>
       </section>
       
       <CTA 
-        title="Want your brand to be next?" 
-        subtitle="Let's build a custom route map tailored to your exact terrain."
+        title="Ready to add your logo?"
+        subtitle="We're looking for the next 5 bootstrapped founders to partner with this quarter."
+        href="/custom-quote"
+        btnText="Build custom quote"
       />
     </>
   );

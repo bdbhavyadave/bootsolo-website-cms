@@ -2,6 +2,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GlobalContact from '@/components/GlobalContact'
 import './globals.css'
+import './pages.css'
 import { DM_Sans, JetBrains_Mono } from 'next/font/google'
 
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' })
