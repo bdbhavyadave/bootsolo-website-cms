@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import ServiceHero from '@/components/ServiceHero'
-import { ArrowRight, ChevronRight } from 'lucide-react'
+import CTA from '@/components/CTA'
+import { ChevronRight } from 'lucide-react'
 
 const MASTER_PRICING = [
   {
@@ -104,18 +105,10 @@ export default function MasterPricingPage() {
       </section>
 
       {/* Custom Quote CTA */}
-      <section className="cta dark" id="request-quote">
-        <div className="wrap">
-          <div className="cta-box">
-            <div className="cta-glow"></div>
-            <h2 className="cta-t">Need a custom bundle?</h2>
-            <p className="cta-s">If you need to mix and match services across categories or need an enterprise scope, let's talk. We'll build a custom route map tailored to your exact terrain.</p>
-            <Link className="btn btn-primary" href="#contact" style={{ position: "relative", height: 48, padding: "0 24px" }}>
-              Request a custom quote <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTA 
+        title="Need a custom bundle?" 
+        subtitle="If you need to mix and match services across categories or need an enterprise scope, let's talk. Fill out the form and we'll build a custom route map tailored to your exact terrain."
+      />
     </>
   );
 }
