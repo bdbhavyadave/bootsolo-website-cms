@@ -67,7 +67,7 @@ export default function Header() {
           </div>
 
           <Link href="#how" style={{ display: 'flex', alignItems: 'center' }}>How it works</Link>
-          <Link href="#pricing" style={{ display: 'flex', alignItems: 'center' }}>Pricing</Link>
+          <Link href="/pricing" style={{ display: 'flex', alignItems: 'center' }}>Pricing</Link>
           <Link href="#work" style={{ display: 'flex', alignItems: 'center' }}>Work</Link>
         </div>
         <div className="nav-spacer"></div>
