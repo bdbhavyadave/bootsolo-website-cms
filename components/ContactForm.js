@@ -3,28 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Send } from 'lucide-react';
 
-const COUNTRIES = [
-  { code: "+1", flag: "🇺🇸", name: "United States" },
-  { code: "+1", flag: "🇨🇦", name: "Canada" },
-  { code: "+44", flag: "🇬🇧", name: "United Kingdom" },
-  { code: "+61", flag: "🇦🇺", name: "Australia" },
-  { code: "+91", flag: "🇮🇳", name: "India" },
-  { code: "+49", flag: "🇩🇪", name: "Germany" },
-  { code: "+33", flag: "🇫🇷", name: "France" },
-  { code: "+81", flag: "🇯🇵", name: "Japan" },
-  { code: "+86", flag: "🇨🇳", name: "China" },
-  { code: "+55", flag: "🇧🇷", name: "Brazil" },
-  { code: "+52", flag: "🇲🇽", name: "Mexico" },
-  { code: "+34", flag: "🇪🇸", name: "Spain" },
-  { code: "+39", flag: "🇮🇹", name: "Italy" },
-  { code: "+7", flag: "🇷🇺", name: "Russia" },
-  { code: "+27", flag: "🇿🇦", name: "South Africa" },
-  { code: "+82", flag: "🇰🇷", name: "South Korea" },
-  { code: "+31", flag: "🇳🇱", name: "Netherlands" },
-  { code: "+46", flag: "🇸🇪", name: "Sweden" },
-  { code: "+41", flag: "🇨🇭", name: "Switzerland" },
-  { code: "+64", flag: "🇳🇿", name: "New Zealand" },
-];
+import { COUNTRIES } from '../lib/countries';
 
 export default function ContactForm() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -98,25 +77,28 @@ export default function ContactForm() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 autoFocus
+                style={{ marginBottom: '8px' }}
               />
-              {filteredCountries.map((c, i) => (
-                <div 
-                  key={i} 
-                  className="country-option"
-                  onClick={() => {
-                    setSelectedCountry(c);
-                    setShowDropdown(false);
-                    setSearch("");
-                  }}
-                >
-                  <span>{c.flag}</span>
-                  <span>{c.name}</span>
-                  <span style={{ color: 'var(--fg3)', marginLeft: 'auto' }}>{c.code}</span>
-                </div>
-              ))}
-              {filteredCountries.length === 0 && (
-                <div style={{ padding: '8px', color: 'var(--fg3)', fontSize: '13px' }}>No countries found</div>
-              )}
+              <div className="country-options-list" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                {filteredCountries.map((c, i) => (
+                  <div 
+                    key={i} 
+                    className="country-option"
+                    onClick={() => {
+                      setSelectedCountry(c);
+                      setShowDropdown(false);
+                      setSearch("");
+                    }}
+                  >
+                    <span>{c.flag}</span>
+                    <span>{c.name}</span>
+                    <span style={{ color: 'var(--fg3)', marginLeft: 'auto' }}>{c.code}</span>
+                  </div>
+                ))}
+                {filteredCountries.length === 0 && (
+                  <div style={{ padding: '8px', color: 'var(--fg3)', fontSize: '13px' }}>No countries found</div>
+                )}
+              </div>
             </div>
           )}
           
