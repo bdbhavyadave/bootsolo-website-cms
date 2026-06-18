@@ -1,7 +1,7 @@
 const STEPS = [
-  { n: "01", st: "Base camp", sd: "We look at where you are today — your site, your funnel, where buyers can't find you. You keep the map whether or not we climb together." },
-  { n: "02", st: "Gear up", sd: "We set up your AI agents and automation around your product and your people. Content, campaigns, and the plumbing behind them." },
-  { n: "03", st: "Keep climbing", sd: "Leads grow, costs drop, and the system keeps optimizing itself. You watch every step move in your dashboard." },
+  { n: "01", st: "Audit the terrain", sd: "We review your website, visibility, funnel, content, and current channels to identify the biggest growth gaps and quickest wins." },
+  { n: "02", st: "Build the system", sd: "We set up the core foundations: positioning, search and AI visibility, content priorities, automation flows, campaigns, and conversion improvements." },
+  { n: "03", st: "Scale what works", sd: "Once the engine starts moving, we optimize relentlessly - improving rankings, increasing qualified traffic, reducing wasted spend, and turning insights into the next growth sprint." },
 ];
 
 export default function HowItWorks() {
@@ -10,7 +10,7 @@ export default function HowItWorks() {
       <div className="wrap">
         <div className="sec-head">
           <span className="kick">How it works</span>
-          <h2 className="sec-title">Three steps. You could start this week.</h2>
+          <h2 className="sec-title">Simple to start. Built to compound.</h2>
         </div>
         <div className="steps">
           {STEPS.map(s => (

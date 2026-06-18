@@ -3,32 +3,32 @@ import { Check } from 'lucide-react'
 
 const DEFAULT_TIERS = [
   {
-    name: "Basecamp", amt: "Free", per: "", feat: false,
-    desc: "Your route map and first wins. No card, no catch — just somewhere to start.",
-    feats: ["Marketing route map", "AI visibility check", "3 next-move recommendations", "Founder community"],
-    cta: "Start free", btn: "btn-ghost",
+    name: "Starter Sprint", amt: "", per: "", feat: false,
+    desc: "Best for founders who need clarity, a roadmap, and first fixes.",
+    feats: ["Marketing route map", "AI visibility check", "Core positioning", "Quick conversion fixes"],
+    cta: "Get started", btn: "btn-ghost",
   },
   {
-    name: "Climber", amt: "$290", per: "/ mo", feat: true,
-    desc: "Your AI marketing team. Where most bootstrapped founders start the climb.",
-    feats: ["Everything in Basecamp", "AI agents writing & launching", "Get-found-by-AI setup", "Email & lifecycle automation", "Plain-language dashboard"],
-    cta: "Start the climb", btn: "btn-primary",
+    name: "Growth Engine", amt: "", per: "", feat: true,
+    desc: "Best for teams ready for ongoing SEO, content, AI visibility, and automation support.",
+    feats: ["AI and search visibility", "Content production engine", "Lifecycle automation", "Monthly growth sprints"],
+    cta: "Start the engine", btn: "btn-primary",
   },
   {
-    name: "Summit", amt: "$690", per: "/ mo", feat: false,
-    desc: "More firepower when you've found traction and want to move faster.",
-    feats: ["Everything in Climber", "Paid campaign management", "Custom agent workflows", "Monthly strategy call", "Priority support"],
-    cta: "Talk to us", btn: "btn-ghost",
+    name: "Performance Plus", amt: "", per: "", feat: false,
+    desc: "Best for businesses that want integrated paid, organic, and conversion-focused execution.",
+    feats: ["Everything in Growth Engine", "Paid campaign management", "Landing page optimization", "Advanced CRO"],
+    cta: "Scale faster", btn: "btn-ghost",
   },
 ];
 
 export function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
-  const linkHref = cta?.toLowerCase().includes("custom quote") ? "/custom-quote" : "#global-contact";
+  const linkHref = "/custom-quote";
   return (
     <div className={"price-card" + (feat ? " feat" : "")}>
       {feat && <div className="price-tag">Most popular</div>}
       <div className="price-name">{name}</div>
-      <div className="price-amt">{amt}{per && <span> {per}</span>}</div>
+      {amt && <div className="price-amt">{amt}{per && <span> {per}</span>}</div>}
       <div className="price-desc">{desc}</div>
       <ul className="price-feats">
         {feats.map((f, i) => <li key={i}><Check size={17} />{f}</li>)}
@@ -39,8 +39,8 @@ export function PriceCard({ name, amt, per, desc, feats, cta, btn, feat }) {
 }
 
 export default function Pricing({ 
-  title = "Priced for a backpack, not a boardroom", 
-  lead = "Start free. Upgrade when it's paying for itself. Cancel any time — no contracts, no guilt.",
+  title = "Flexible engagement models for growing teams", 
+  lead = "",
   kick = "Pricing",
   tiers = DEFAULT_TIERS,
   className = "section",
@@ -56,6 +56,13 @@ export default function Pricing({
         </div>
         <div className="price-grid">
           {tiers.map((t, i) => <PriceCard key={i} {...t} />)}
+        </div>
+        
+        <div style={{ textAlign: 'center', marginTop: '48px' }}>
+          <p className="ds-body" style={{ color: 'var(--fg2)' }}>
+            Need a custom mix of services? We'll build a lean plan around your goals, stage, and budget.
+          </p>
+          <Link href="/custom-quote" style={{ color: 'var(--brand)', fontWeight: 600, marginTop: '8px', display: 'inline-block' }}>Build a custom quote &rarr;</Link>
         </div>
       </div>
     </section>

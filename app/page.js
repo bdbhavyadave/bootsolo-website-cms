@@ -1,9 +1,11 @@
 import Hero from '../components/Hero';
 import ProofBar from '../components/ProofBar';
+import Problem from '../components/Problem';
 import Services from '../components/Services';
 import HowItWorks from '../components/HowItWorks';
-import Pricing from '../components/Pricing';
+import Audience from '../components/Audience';
 import Cases from '../components/Cases';
+import Pricing from '../components/Pricing';
 import FAQ from '../components/FAQ';
 import CTA from '../components/CTA';
 
@@ -12,10 +14,12 @@ export default function Home() {
     <>
       <Hero />
       <ProofBar />
+      <Problem />
       <Services />
       <HowItWorks />
-      <Pricing />
+      <Audience />
       <Cases />
+      <Pricing />
       <FAQ />
       <CTA />
     </>

@@ -35,21 +35,27 @@ export default function Hero() {
     <header className="hero dark" id="top">
       <div className="wrap hero-inner">
         <div className="hero-copy">
-          <span className="kick">Marketing for bootstrapped founders</span>
-          <h1 className="h-display">
-            Start solo.<br />
-            <span className="accent">Climb fast.</span>
+          <span className="kick">AI-ready marketing for lean teams</span>
+          <h1 className="h-display" style={{ fontSize: '64px', lineHeight: 1.1 }}>
+            Start solo. Get found.<br />
+            <span className="accent">Grow faster.</span>
           </h1>
           <p className="h-sub">
-            You've got a budget that fits in a backpack and a mountain to climb. We're the
-            AI-native marketing team that gets you moving — no agency retainer, no fluff,
-            just the next step up.
+            Bootsolo helps startups and bootstrapped founders build an AI-ready marketing engine across SEO, GEO, AEO, content, automation, and performance marketing without bloated retainers or big-agency overhead.
+          </p>
+          <p className="h-sub" style={{ fontSize: '16px', marginTop: '-12px', marginBottom: '32px' }}>
+            When buyers search on Google, ask ChatGPT, compare on LinkedIn, or click an ad, your brand needs to show up clearly and convert confidently. We build the systems that make that happen.
           </p>
           <div className="h-cta">
-            <Link className="btn btn-primary" href="#cta">Start the climb <ArrowRight size={16} /></Link>
-            <Link className="btn btn-ghost" href="#work">See the routes</Link>
+            <Link className="btn btn-primary" href="/custom-quote">Get your free growth roadmap <ArrowRight size={16} /></Link>
+            <Link className="btn btn-ghost" href="#services">See services</Link>
           </div>
-          <div className="h-note"><Check size={15} color="var(--success)" /> No retainers. Cancel anytime. Built for limited budgets.</div>
+          <div className="h-note" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', opacity: 0.8 }}>
+            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> Built for bootstrapped founders</span>
+            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> AI-native workflows</span>
+            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> No long-term contracts</span>
+            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> Clear reporting</span>
+          </div>
         </div>
         <div className="hero-art"><SummitArt /></div>
       </div>

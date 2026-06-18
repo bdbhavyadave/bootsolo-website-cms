@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { Plus } from 'lucide-react'
 
 const QS = [
-  { q: "I'm a team of one. Is this overkill?", a: "That's exactly who we built this for. Basecamp is free and gets you a route map plus your first wins — no commitment. You add the AI team when you're ready, not before." },
-  { q: "What does 'get found by AI' actually mean?", a: "When someone asks ChatGPT or Perplexity for a tool like yours, you want to be in the answer. We set up your site and content so the AI engines recommend you — it's the new word of mouth." },
-  { q: "How fast will I see something?", a: "Your route map lands in days. Real movement in signups and cost usually shows in the first 60–90 days. We won't promise overnight — but every step compounds." },
-  { q: "Am I locked into a contract?", a: "Never. Everything's month to month, and Basecamp is free for as long as you want. If it ever stops being worth it, you walk — no hard feelings." },
+  { q: "What makes Bootsolo different from a traditional agency?", a: "We combine strategy, AI-native execution, and lean operating models to help smaller teams move faster without paying for unnecessary layers." },
+  { q: "Do you only work with startups?", a: "No. We work best with lean, growth-focused teams - especially startups, service businesses, and brands that want measurable marketing systems." },
+  { q: "What does AI-ready marketing actually mean?", a: "It means your website, content, structure, and campaigns are built for both human buyers and the new discovery layer driven by AI search and answer engines." },
+  { q: "Can you support one project instead of a monthly retainer?", a: "Yes. We can start with an audit, homepage rewrite, funnel review, campaign setup, or a focused growth sprint." },
 ];
 
 function FAQItem({ q, a, open, onClick }) {

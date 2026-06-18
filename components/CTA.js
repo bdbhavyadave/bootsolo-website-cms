@@ -2,10 +2,11 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export default function CTA({ 
-  title = "Your first step is free.", 
-  subtitle = "Tell us where you're stuck. We'll map your next three moves — no cost, no pitch you have to sit through.",
-  btnText = "Let's talk",
-  href = "#global-contact"
+  title = "Get your next three growth moves", 
+  subtitle = "Tell us about your business, goals, and current bottlenecks. We'll send a focused roadmap with practical opportunities across visibility, content, campaigns, automation, and conversion.",
+  btnText = "Request your free roadmap",
+  href = "/custom-quote",
+  microcopy = "No pressure. No bloated proposal. Just strategic direction you can actually use."
 }) {
   return (
     <section className="cta dark" id="cta">
@@ -17,6 +18,11 @@ export default function CTA({
           <Link className="btn btn-primary" href={href} style={{ position: "relative", height: 48, padding: "0 24px" }}>
             {btnText} <ArrowRight size={16} />
           </Link>
+          {microcopy && (
+            <p style={{ marginTop: '16px', fontSize: '13px', color: 'var(--fg3)', opacity: 0.8 }}>
+              {microcopy}
+            </p>
+          )}
         </div>
       </div>
     </section>

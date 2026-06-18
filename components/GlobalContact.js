@@ -15,7 +15,7 @@ export default function GlobalContact() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
           <div>
             <h2 className="sec-title" style={{ marginBottom: '24px' }}>
-              {isCustomQuotePage ? "Or request a single service" : "Ready to climb?"}
+              {isCustomQuotePage ? "Or request a single service" : "Get your free growth roadmap"}
             </h2>
             
             {!isCustomQuotePage ? (
@@ -41,7 +41,7 @@ export default function GlobalContact() {
             )}
           </div>
           <div style={{ background: 'var(--bg-elevated)', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-1)', border: '1px solid var(--border)' }}>
-            <h3 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--fg1)', marginBottom: '24px' }}>Let's talk</h3>
+            <h3 style={{ fontSize: '24px', fontWeight: 600, color: 'var(--fg1)', marginBottom: '24px' }}>Get your AI-ready marketing plan</h3>
             <ContactForm />
           </div>
         </div>
