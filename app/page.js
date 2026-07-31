@@ -1,12 +1,12 @@
 import Hero from '../components/Hero';
 import ProofBar from '../components/ProofBar';
-import Problem from '../components/Problem';
+import ResultsSnapshot from '../components/ResultsSnapshot';
+import AiEra from '../components/AiEra';
+import WhyBootsolo from '../components/WhyBootsolo';
 import Services from '../components/Services';
-import HowItWorks from '../components/HowItWorks';
-import Audience from '../components/Audience';
-import Cases from '../components/Cases';
-import Pricing from '../components/Pricing';
-import FAQ from '../components/FAQ';
+import Assessment from '../components/Assessment';
+import RoiCalculator from '../components/RoiCalculator';
+import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 
 export default function Home() {
@@ -14,13 +14,13 @@ export default function Home() {
     <>
       <Hero />
       <ProofBar />
-      <Problem />
+      <ResultsSnapshot />
+      <AiEra />
+      <WhyBootsolo />
       <Services />
-      <HowItWorks />
-      <Audience />
-      <Cases />
-      <Pricing />
-      <FAQ />
+      <Assessment />
+      <RoiCalculator />
+      <Testimonials />
       <CTA />
     </>
   );

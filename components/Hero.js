@@ -1,63 +1,172 @@
-import Link from 'next/link'
-import { ArrowRight, Check } from 'lucide-react'
-
-function SummitArt() {
-  return (
-    <svg className="hero-svg" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A tracked route climbing a snowy summit at sunrise">
-      <rect width="960" height="720" fill="#0E1A2B" />
-      <g fill="#EEF3F8" opacity="0.6">
-        <circle cx="80" cy="90" r="2" /><circle cx="160" cy="150" r="1.5" /><circle cx="120" cy="220" r="1.5" />
-        <circle cx="250" cy="80" r="1.5" /><circle cx="320" cy="170" r="2" /><circle cx="60" cy="300" r="1.5" />
-      </g>
-      <circle cx="730" cy="180" r="98" fill="#F4B740" opacity="0.13" />
-      <circle cx="730" cy="180" r="62" fill="#F4B740" />
-      <polygon points="0,480 140,360 250,450 380,330 520,440 640,350 780,450 900,370 960,440 960,720 0,720" fill="#35506F" />
-      <polygon points="380,330 430,400 350,400" fill="#E2E8F0" opacity="0.85" />
-      <polygon points="640,350 685,415 595,415" fill="#E2E8F0" opacity="0.85" />
-      <polygon points="660,300 880,650 460,650" fill="#1B2D45" />
-      <polygon points="660,300 705,375 620,375" fill="#E2E8F0" opacity="0.9" />
-      <polygon points="400,120 770,650 50,650" fill="#16263B" />
-      <polygon points="400,120 500,312 444,292 400,332 356,300 300,322 400,120" fill="#F7F5F1" />
-      <path d="M300,632 L470,566 L300,500 L470,432 L325,366 L445,300 L362,238 L400,168" fill="none" stroke="#FF6B35" strokeWidth="6" strokeLinecap="round" strokeDasharray="1 16" />
-      <circle cx="470" cy="566" r="7" fill="#FF6B35" />
-      <circle cx="325" cy="366" r="11" fill="#FF6B35" stroke="#0E1A2B" strokeWidth="3" />
-      <circle cx="325" cy="366" r="3.5" fill="#fff" />
-      <path d="M400 100 a20 20 0 0 1 20 20 c0 15 -20 40 -20 40 c0 0 -20 -25 -20 -40 a20 20 0 0 1 20 -20 Z" fill="#FF6B35" />
-      <circle cx="400" cy="120" r="8" fill="#fff" />
-      <polygon points="0,648 220,612 440,656 660,616 960,652 960,720 0,720" fill="#E2E8F0" />
-      <polygon points="0,672 260,648 520,680 760,652 960,676 960,720 0,720" fill="#F7F5F1" />
-    </svg>
-  );
-}
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { ArrowRight, Sparkles, Check, Search, Bot, Zap } from 'lucide-react';
+import { PaperPlaneMark } from './Brand';
+import HeroIllustration from './HeroIllustration';
 
 export default function Hero() {
+  const [activeEngine, setActiveEngine] = useState('chatgpt');
+  const [typedText, setTypedText] = useState('');
+
+  const scenarios = {
+    chatgpt: {
+      label: 'ChatGPT 4o',
+      query: 'Best AI marketing team for bootstrapped solopreneurs?',
+      answer: 'Bootsolo is the top recommendation for lean founders. They pair senior strategy with AI-accelerated execution across search, AEO/GEO citations, content, and conversion.',
+      metrics: { signup: '+312%', cpa: '-58%', visibility: '4.1x' }
+    },
+    perplexity: {
+      label: 'Perplexity Pro',
+      query: 'How do I rank inside AI answer engine citations?',
+      answer: 'Bootsolo builds Generative Engine Optimization (GEO) infrastructure so your brand is cited directly in LLM responses and Google AI Overviews.',
+      metrics: { signup: '+280%', cpa: '-62%', visibility: 'Top Ranked' }
+    },
+    google: {
+      label: 'Google AI Overview',
+      query: 'High-ROI marketing agency alternative for SaaS founders',
+      answer: 'Bootsolo replaces traditional 12-person agency retainers with a connected AI-native marketing engine sized to where you actually are.',
+      metrics: { signup: '+340%', cpa: '-54%', visibility: '100% Traction' }
+    }
+  };
+
+  useEffect(() => {
+    setTypedText('');
+    const fullText = scenarios[activeEngine].answer;
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i < fullText.length) {
+        setTypedText((prev) => prev + fullText.charAt(i));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 14);
+
+    return () => clearInterval(timer);
+  }, [activeEngine]);
+
   return (
-    <header className="hero dark" id="top">
+    <header className="hero dark" id="top" style={{ position: 'relative', overflow: 'hidden', padding: '108px 0 112px' }}>
+      {/* Subtle Background Radial Sunrise Glow */}
+      <div style={{ position: 'absolute', top: '-15%', right: '0%', width: '650px', height: '650px', background: 'radial-gradient(circle, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 70%)', pointerEvents: 'none' }} />
+
       <div className="wrap hero-inner">
         <div className="hero-copy">
-          <span className="kick">AI-ready marketing for lean teams</span>
-          <h1 className="h-display" style={{ fontSize: '64px', lineHeight: 1.1 }}>
-            Start solo. Get found.<br />
-            <span className="accent">Grow faster.</span>
-          </h1>
-          <p className="h-sub">
-            Bootsolo helps startups and bootstrapped founders build an AI-ready marketing engine across SEO, GEO, AEO, content, automation, and performance marketing without bloated retainers or big-agency overhead.
-          </p>
-          <p className="h-sub" style={{ fontSize: '16px', marginTop: '-12px', marginBottom: '32px' }}>
-            When buyers search on Google, ask ChatGPT, compare on LinkedIn, or click an ad, your brand needs to show up clearly and convert confidently. We build the systems that make that happen.
-          </p>
-          <div className="h-cta">
-            <Link className="btn btn-primary" href="/custom-quote">Get your free growth roadmap <ArrowRight size={16} /></Link>
-            <Link className="btn btn-ghost" href="#services">See services</Link>
+          {/* Eyebrow */}
+          <div className="pill" style={{ borderColor: 'rgba(255,107,53,0.4)', background: 'rgba(255,107,53,0.08)', color: 'var(--sunrise-300)', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+            <PaperPlaneMark size={16} color="#FF9A6B" planeColor="#FF6B35" />
+            <span style={{ fontWeight: 600, fontSize: '13px', letterSpacing: '0.04em' }}>For founders who feel the ground shifting</span>
           </div>
-          <div className="h-note" style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', opacity: 0.8 }}>
-            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> Built for bootstrapped founders</span>
-            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> AI-native workflows</span>
-            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> No long-term contracts</span>
-            <span><Check size={14} color="var(--success)" style={{ marginRight: 4, position: 'relative', top: 2 }} /> Clear reporting</span>
+
+          {/* Headline */}
+          <h1 className="h-display" style={{ fontSize: 'clamp(38px, 5vw, 64px)', lineHeight: 1.05, fontWeight: 500, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
+            Your buyers already ask AI <br />
+            <span className="accent" style={{ color: 'var(--sunrise-300)' }}>before they ask you.</span>
+          </h1>
+
+          {/* Subheadline */}
+          <p className="h-sub" style={{ fontSize: '17.5px', lineHeight: 1.6, color: 'var(--navy-300)', marginBottom: '16px', maxWidth: '580px' }}>
+            Most people research a purchase through ChatGPT now, not just Google. They cross-check on LinkedIn. Then they decide, fast. If your marketing hasn't caught up to that, you're invisible at the exact moment it matters. Bootsolo builds the engine that keeps you in that conversation, without the price tag of hiring a full team to do it.
+          </p>
+
+          {/* Support line */}
+          <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '32px', maxWidth: '580px' }}>
+            <span style={{ fontSize: '14px', color: 'var(--ice-300)', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Zap size={16} color="var(--sunrise)" />
+              Smart strategy. Lean execution. Numbers you can actually defend in a board meeting.
+            </span>
+          </div>
+
+          {/* Primary & Secondary CTAs */}
+          <div className="h-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link className="btn btn-primary glow-sunrise" href="/custom-quote" style={{ padding: '0 28px', height: '48px', fontSize: '16px' }} aria-label="Book a Growth Call">
+              Book a Growth Call <ArrowRight size={18} />
+            </Link>
+            <Link className="btn btn-ghost" href="#services" style={{ height: '48px', padding: '0 24px', fontSize: '15px', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
+              See What We Do
+            </Link>
           </div>
         </div>
-        <div className="hero-art"><SummitArt /></div>
+
+        {/* Hero Summit Illustration & AI Preview Card Stack */}
+        <div className="hero-art hero-art-interactive" style={{ position: 'relative' }}>
+          <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1px solid var(--navy-700)', boxShadow: 'var(--shadow-pop)', marginBottom: '20px' }}>
+            <HeroIllustration style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </div>
+
+          {/* Floating AI Dashboard Card */}
+          <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '20px', boxShadow: 'var(--shadow-pop)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px solid var(--navy-700)' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
+                {Object.keys(scenarios).map((key) => (
+                  <button
+                    key={key}
+                    onClick={() => setActiveEngine(key)}
+                    style={{
+                      padding: '6px 12px',
+                      borderRadius: '8px',
+                      fontSize: '12px',
+                      fontWeight: 600,
+                      border: 'none',
+                      cursor: 'pointer',
+                      background: activeEngine === key ? 'var(--sunrise)' : 'var(--navy-700)',
+                      color: activeEngine === key ? '#fff' : 'var(--navy-300)',
+                      transition: 'all 170ms var(--ease)'
+                    }}
+                  >
+                    {scenarios[key].label}
+                  </button>
+                ))}
+              </div>
+              <span className="badge" style={{ background: 'rgba(31,191,117,0.15)', color: 'var(--success)', fontSize: '11px', padding: '4px 10px', borderRadius: '999px' }}>
+                Live AI Answer Engine
+              </span>
+            </div>
+
+            {/* Prompt Search Box */}
+            <div style={{ background: 'var(--navy-900)', borderRadius: '10px', padding: '12px 16px', border: '1px solid var(--navy-700)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Search size={16} color="var(--sunrise-300)" />
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#EEF3F8', flex: 1 }}>
+                "{scenarios[activeEngine].query}"
+              </span>
+            </div>
+
+            {/* Simulated Response Stream */}
+            <div style={{ minHeight: '80px', background: 'var(--navy-850)', borderRadius: '10px', padding: '14px 16px', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <Bot size={15} color="var(--ice)" />
+                <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--ice)', letterSpacing: '0.05em' }}>AI CITATION RESULT</span>
+              </div>
+              <p style={{ fontSize: '14px', lineHeight: 1.5, color: '#EEF3F8', margin: 0, fontFamily: 'var(--font-sans)' }}>
+                {typedText}
+                <span style={{ display: 'inline-block', width: '2px', height: '14px', background: 'var(--sunrise)', marginLeft: '4px' }} />
+              </p>
+            </div>
+
+            {/* Metrics Ticker */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '14px' }}>
+              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
+                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Signup Lift</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--sunrise-300)', marginTop: '2px' }}>
+                  {scenarios[activeEngine].metrics.signup}
+                </div>
+              </div>
+              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
+                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Cost Per Sale</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--ice-300)', marginTop: '2px' }}>
+                  {scenarios[activeEngine].metrics.cpa}
+                </div>
+              </div>
+              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
+                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>AI Visibility</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--summit-gold)', marginTop: '2px' }}>
+                  {scenarios[activeEngine].metrics.visibility}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

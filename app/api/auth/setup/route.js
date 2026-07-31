@@ -2,6 +2,8 @@ import { createServerSupabaseClient } from '@/lib/supabase'
 import bcrypt from 'bcryptjs'
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET() {
   try {
     const supabase = createServerSupabaseClient()

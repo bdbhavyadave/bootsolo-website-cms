@@ -3,6 +3,8 @@ import { createSession } from '@/lib/auth'
 import bcrypt from 'bcryptjs'
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 export async function POST(request) {
   try {
     const { email, password } = await request.json()

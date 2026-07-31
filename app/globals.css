@@ -440,3 +440,79 @@ a{color:inherit;text-decoration:none;}
   .desktop-submit-only { display: none; }
   .mobile-submit-only { display: flex; }
 }
+
+/* ============================================================================
+   SIGNATURE INTERACTIONS & ACCESSIBILITY ENHANCEMENTS
+   ============================================================================ */
+
+/* Focus rings for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--sunrise);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px var(--focus-ring);
+}
+
+/* Featured Sunrise Glow Utility */
+.glow-sunrise {
+  border-color: var(--sunrise) !important;
+  box-shadow: var(--glow-sunrise) !important;
+}
+
+/* Paper Plane Cursor canvas overlay */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+  .custom-cursor-active input,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+/* Paper Plane Intro overlay - non-blocking & transparent */
+.paper-plane-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 300ms var(--ease), visibility 300ms var(--ease);
+}
+.paper-plane-intro-overlay.dismissed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Hero Micro-Hover Interactivity */
+.hero-art-interactive {
+  transition: transform 170ms var(--ease);
+}
+.hero-art-interactive:hover {
+  transform: translateY(-4px) scale(1.005);
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .hero-art-interactive:hover {
+    transform: none !important;
+  }
+  .paper-plane-intro-overlay {
+    display: none !important;
+  }
+}
+

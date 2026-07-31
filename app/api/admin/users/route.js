@@ -3,6 +3,8 @@ import { getSession } from '@/lib/auth'
 import { NextResponse } from 'next/server'
 import bcrypt from 'bcryptjs'
 
+export const dynamic = 'force-dynamic'
+
 export async function GET(request) {
   try {
     const session = await getSession()

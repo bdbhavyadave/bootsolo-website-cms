@@ -72,8 +72,10 @@ export default function Header() {
           <Link href="/blogs" style={{ display: 'flex', alignItems: 'center' }}>Blogs</Link>
         </div>
         <div className="nav-spacer"></div>
-        <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request custom quote</Link>
-        <Link className="btn btn-primary btn-sm" href="#cta">Start the climb</Link>
+        <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request Custom Quote</Link>
+        <Link className="btn btn-primary btn-sm glow-sunrise" href="/custom-quote" aria-label="Book a Growth Call">
+          Book a Growth Call
+        </Link>
       </div>
     </nav>
   );

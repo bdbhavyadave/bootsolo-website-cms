@@ -33411,10 +33411,11 @@ Object.assign(window, { CTA, Footer });
 
 function Bolt({ size = 18 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" fill="none">
-      <path d="M26 12 L46 52 H6 L26 12 Z" fill="#FF6B35" />
-      <path d="M26 12 L34 30 L26 26 L18 30 L26 12 Z" fill="#F7F5F1" />
-      <circle cx="47" cy="20" r="6" fill="#F4B740" />
+    <svg width={size} height={size} viewBox="420 220 330 145" fill="none">
+      <path fill="#F37321" fillRule="evenodd" clipRule="evenodd" d="M599.61,310.96l9.42-17.78l3.68,9.6L599.61,310.96z M620.09,282.79l100.36-40.3l-65.33,77.54L620.09,282.79z M690.81,233.71l-84.53,24.33l-7.46,2.15l-22.72-24.15L690.81,233.71z M743.64,225.71l-135.55,54.43l-26.66,50.34l39.79-24.86l-7.46-19.46l41.65,44.28L743.64,225.71l-183.26,3.72l36.3,38.59l0.28-0.08l-6.5,28.88l12.91-30.73L743.64,225.71z"/>
+      <polygon fill="#EEF3F8" points="434.6,361.16 578.33,313.88 576.39,308 423.99,358.13 423.99,361.16"/>
+      <rect x="471.28" y="289.53" transform="matrix(0.9499 -0.3126 0.3126 0.9499 -65.1008 179.2003)" fill="#EEF3F8" width="110.09" height="6.19"/>
+      <path fill="#EEF3F8" d="M423.99,347.77l118.95-39L541,302.9l-117.86,38.64c0.53,0.73,0.85,1.63,0.85,2.61V347.77z"/>
     </svg>
   );
 }
