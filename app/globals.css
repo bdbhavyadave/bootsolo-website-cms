@@ -458,14 +458,8 @@ a{color:inherit;text-decoration:none;}
   box-shadow: var(--glow-sunrise) !important;
 }
 
-/* Paper Plane Cursor canvas overlay */
+/* Paper Plane Cursor canvas overlay settings */
 @media (hover: hover) and (pointer: fine) {
-  .custom-cursor-active,
-  .custom-cursor-active a,
-  .custom-cursor-active button,
-  .custom-cursor-active [role="button"] {
-    cursor: none !important;
-  }
   .custom-cursor-active input,
   .custom-cursor-active textarea,
   .custom-cursor-active [contenteditable="true"] {
@@ -517,18 +511,21 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* Custom Paper Plane Cursor Base CSS */
-@media (hover: hover) and (pointer: fine) {
-  body.custom-cursor-active,
-  body.custom-cursor-active button,
-  body.custom-cursor-active a,
-  body.custom-cursor-active [role="button"] {
-    cursor: none !important;
-  }
-  body.custom-cursor-active input,
-  body.custom-cursor-active textarea,
-  body.custom-cursor-active [contenteditable] {
-    cursor: text !important;
-  }
+body.custom-cursor-active,
+body.custom-cursor-active *,
+.custom-cursor-active button,
+.custom-cursor-active a,
+.custom-cursor-active [role="button"],
+.custom-cursor-active div,
+.custom-cursor-active section {
+  cursor: none !important;
+}
+
+body.custom-cursor-active input:not([type="submit"]):not([type="button"]):not([type="reset"]),
+body.custom-cursor-active textarea,
+body.custom-cursor-active select,
+body.custom-cursor-active [contenteditable="true"] {
+  cursor: text !important;
 }
 
 /* Expanding Sunrise Click Pulse Ring */

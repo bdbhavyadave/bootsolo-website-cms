@@ -1,45 +1,44 @@
 'use client';
+
 import { useState } from 'react';
-import { Check, X } from 'lucide-react';
 import { PaperPlaneMark } from './Brand';
 
 export default function WhyBootsolo() {
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Verbatim 4 Comparison Cards
   const options = [
     {
       id: 'agency',
       title: 'Traditional agency',
-      description: 'too many layers, slow turnaround, reporting that looks polished but rarely says what to do next',
+      description: 'Too many layers, slow turnaround, reporting that looks polished but rarely says what to do next.',
       featured: false
     },
     {
       id: 'freelancers',
       title: 'A pile of freelancers',
-      description: 'fine for one task, falls apart once SEO, content, ads, automation, and conversion all need to move together, since nobody owns the whole picture',
+      description: 'Fine for one task, falls apart once SEO, content, ads, automation, and conversion all need to move together, since nobody owns the whole picture.',
       featured: false
     },
     {
       id: 'inhouse',
       title: 'Hiring in-house too early',
-      description: 'right eventually, but expensive now, and unfair to whoever gets handed six channels and one job title',
+      description: 'Right eventually, but expensive now, and unfair to whoever gets handed six channels and one job title.',
       featured: false
     },
     {
       id: 'bootsolo',
       title: 'Bootsolo',
-      description: 'one lean partner running AI visibility, content, campaigns, automation, and conversion as a single connected system',
+      description: 'One lean partner running AI visibility, content, campaigns, automation, and conversion as a single connected system.',
       featured: true
     }
   ];
 
   return (
-    <section className="section" id="why-bootsolo" style={{ background: 'var(--snow)', padding: '100px 0' }}>
+    <section className="section" id="why-bootsolo" style={{ background: 'var(--snow)', padding: '96px 0' }}>
       <div className="wrap">
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 64px' }}>
+        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
           <p className="eyebrow">Built differently, on purpose</p>
-          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0' }}>
+          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0', color: 'var(--summit)' }}>
             Why founders pick Bootsolo over the usual options
           </h2>
         </div>

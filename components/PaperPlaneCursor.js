@@ -9,11 +9,11 @@ export default function PaperPlaneCursor() {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // Disable custom cursor strictly on touch devices & non-fine pointer devices
-    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Disable custom cursor strictly on pure touch devices (mobiles without mouse)
+    const isPureTouch = typeof window !== 'undefined' && ('ontouchstart' in window) && (navigator.maxTouchPoints > 0) && !window.matchMedia('(pointer: fine)').matches;
+    const isReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!isFinePointer) return;
+    if (isPureTouch) return;
 
     setIsActive(true);
     const canvas = canvasRef.current;
@@ -291,18 +291,20 @@ export default function PaperPlaneCursor() {
           ctx.save();
           ctx.lineCap = 'round';
           ctx.lineJoin = 'round';
+          ctx.shadowColor = '#FF6B35';
+          ctx.shadowBlur = 8;
 
-          // Smooth curve passing through points
+          // Smooth curve passing through points with glowing trail tail
           for (let i = 1; i < trailPoints.length; i++) {
             const p1 = trailPoints[i - 1];
             const p2 = trailPoints[i];
             const age = now - p2.time;
             const progress = i / trailPoints.length; // 0 (tail end) to 1 (near nose)
-            const alpha = Math.max(0, (1 - age / 450) * progress * 0.85 * trailOpacityMult);
-            const strokeWidth = 1.8 + progress * (speed > 8 ? 1.4 : 0.8);
+            const alpha = Math.max(0, (1 - age / 450) * progress * 0.95 * trailOpacityMult);
+            const strokeWidth = 2.2 + progress * (speed > 6 ? 2.5 : 1.5);
 
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(255, 107, 53, ${alpha.toFixed(3)})`;
+            ctx.strokeStyle = `rgba(255, 107, 53, ${Math.min(1, alpha * 1.2).toFixed(3)})`;
             ctx.lineWidth = strokeWidth;
 
             if (i === 1) {
@@ -327,15 +329,15 @@ export default function PaperPlaneCursor() {
 
             // Tiny white dot with Sunrise orange outer ring
             ctx.beginPath();
-            ctx.globalAlpha = alpha * 0.85;
+            ctx.globalAlpha = alpha * 0.9;
             ctx.fillStyle = '#FFFFFF';
-            ctx.arc(m.x, m.y, 2, 0, Math.PI * 2);
+            ctx.arc(m.x, m.y, 2.5, 0, Math.PI * 2);
             ctx.fill();
 
             ctx.beginPath();
             ctx.strokeStyle = '#FF6B35';
-            ctx.lineWidth = 1.2;
-            ctx.arc(m.x, m.y, 3.5, 0, Math.PI * 2);
+            ctx.lineWidth = 1.5;
+            ctx.arc(m.x, m.y, 4, 0, Math.PI * 2);
             ctx.stroke();
           }
 
@@ -379,8 +381,6 @@ export default function PaperPlaneCursor() {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
-
-  if (!isActive) return null;
 
   return (
     <>
