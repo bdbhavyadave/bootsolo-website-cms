@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, Check, Search, Bot, Zap } from 'lucide-react';
 import { PaperPlaneMark } from './Brand';
+import PaperPlaneIntro from './PaperPlaneIntro';
 
 export default function Hero({ onOpenModal }) {
   const [activeEngine, setActiveEngine] = useState('chatgpt');
@@ -117,6 +118,7 @@ export default function Hero({ onOpenModal }) {
                 ))}
               </div>
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                <PaperPlaneIntro />
                 <span className="mono" style={{ position: 'relative', zIndex: 2, fontSize: '11px', color: '#1FBF75', display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(14,26,43,0.9)', padding: '2px 6px', borderRadius: '6px' }}>
                   <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1FBF75' }} />
                   Live AI Answer Engine

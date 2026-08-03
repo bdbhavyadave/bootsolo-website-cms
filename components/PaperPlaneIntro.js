@@ -27,10 +27,10 @@ export default function PaperPlaneIntro() {
     window.addEventListener('scroll', handleSkip, { once: true, passive: true });
     window.addEventListener('keydown', handleSkip, { once: true });
 
-    // Flight duration ~1.8s for smooth flight across screen -> round turn -> landing behind tile
+    // Flight duration: finishes in exactly 2 seconds (2000ms)
     const timer = setTimeout(() => {
       setState('settled');
-    }, 1800);
+    }, 2000);
 
     return () => {
       window.removeEventListener('click', handleSkip);
@@ -45,50 +45,48 @@ export default function PaperPlaneIntro() {
   return (
     <>
       <style jsx global>{`
-        /* Professional 6-Step Flight Path:
-           1. Enters from offscreen-left
-           2. Flies across the screen
-           3. Begins turn upward
-           4. Executes round turn arc in the sky
-           5. Descends toward destination
-           6. Stops directly behind the Live AI Answer Engine tile
+        /* 2-Second Welcome Animation Sequence:
+           1. Enters from bottom-left screen edge as a HUGE plane (scale 3.8)
+           2. Sweeps into the middle of the screen and executes a smooth round turn arc
+           3. Descends smoothly toward the dashboard card
+           4. Settles tucked directly behind the Live AI Answer Engine tile as its background image/watermark
         */
-        @keyframes paperPlane6StepFlight {
+        @keyframes paperPlaneWelcomeFlight2s {
           0% {
-            transform: translate3d(calc(-100vw + 60px), 180px, 0) rotate(0deg) scale(1.35);
+            /* Huge plane entering from bottom-left */
+            transform: translate3d(calc(-90vw + 20px), 65vh, 0) rotate(-18deg) scale(3.8);
             opacity: 0;
           }
-          15% {
+          18% {
             opacity: 1;
-            transform: translate3d(-460px, 120px, 0) rotate(4deg) scale(1.25);
+            transform: translate3d(calc(-65vw + 40px), 35vh, 0) rotate(10deg) scale(3.2);
           }
-          35% {
-            transform: translate3d(-300px, 30px, 0) rotate(8deg) scale(1.2);
-            opacity: 1;
-          }
-          55% {
-            transform: translate3d(-160px, -60px, 0) rotate(9deg) scale(1.1);
+          40% {
+            /* Sweeping into the middle of the screen, taking rounds */
+            transform: translate3d(-40vw, 8vh, 0) rotate(22deg) scale(2.4);
             opacity: 1;
           }
-          75% {
-            transform: translate3d(-60px, -75px, 0) rotate(-6deg) scale(1.0);
+          60% {
+            /* Round turn arc in middle screen */
+            transform: translate3d(-22vw, -12vh, 0) rotate(-16deg) scale(1.7);
             opacity: 1;
           }
-          90% {
-            transform: translate3d(-12px, -15px, 0) rotate(-2deg) scale(0.9);
+          82% {
+            /* Approaching destination badge */
+            transform: translate3d(-6vw, -4vh, 0) rotate(-6deg) scale(1.1);
             opacity: 0.95;
           }
           100% {
-            /* Final position behind badge, slightly offset left */
-            transform: translate3d(-30px, -4px, 0) rotate(0deg) scale(0.85);
-            opacity: 0.95;
+            /* Resting tucked behind the tile as background watermark */
+            transform: translate3d(0, 0, 0) rotate(0deg) scale(0.85);
+            opacity: 0.85;
           }
         }
 
-        /* Flight Route Dashed Arc Animation */
-        @keyframes paperPlaneDashedRouteArc {
+        /* Flight Route Dashed Arc Animation (2 seconds) */
+        @keyframes paperPlaneDashedRouteArc2s {
           0% {
-            stroke-dashoffset: 950;
+            stroke-dashoffset: 1200;
             opacity: 0;
           }
           15% {
@@ -105,7 +103,7 @@ export default function PaperPlaneIntro() {
         }
       `}</style>
 
-      {/* Dashed Flight Route Arc SVG (active during flight) */}
+      {/* Dashed Flight Route Arc SVG (active during 2s flight) */}
       {isAnimating && (
         <svg
           style={{
@@ -120,20 +118,20 @@ export default function PaperPlaneIntro() {
           }}
         >
           <path
-            d="M 10 380 Q 420 190 780 110 T 1280 230"
+            d="M 20 680 Q 450 250 820 180 T 1280 200"
             fill="none"
             stroke="#FF6B35"
-            strokeWidth="2.2"
-            strokeDasharray="6 6"
+            strokeWidth="2.5"
+            strokeDasharray="8 8"
             style={{
-              strokeDashoffset: 950,
-              animation: 'paperPlaneDashedRouteArc 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards'
+              strokeDashoffset: 1200,
+              animation: 'paperPlaneDashedRouteArc2s 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards'
             }}
           />
         </svg>
       )}
 
-      {/* Paper Plane Character — flies across screen -> round turn -> settles behind Live AI Answer Engine tile */}
+      {/* Paper Plane Character — starts huge from bottom-left, loops in middle, settles behind Live AI Answer Engine tile */}
       <div
         aria-hidden="true"
         style={{
@@ -142,13 +140,13 @@ export default function PaperPlaneIntro() {
           top: '0',
           zIndex: 1,
           pointerEvents: 'none',
-          opacity: 0.95,
+          opacity: 0.85,
           transform: isAnimating ? 'none' : 'rotate(0deg) scale(0.85)',
-          animation: isAnimating ? 'paperPlane6StepFlight 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards' : 'none',
+          animation: isAnimating ? 'paperPlaneWelcomeFlight2s 2.0s cubic-bezier(0.25, 1, 0.5, 1) forwards' : 'none',
           willChange: 'transform, opacity'
         }}
       >
-        <PaperPlaneMark size={24} color="#FF9A6B" planeColor="#FF6B35" />
+        <PaperPlaneMark size={28} color="#FF9A6B" planeColor="#FF6B35" />
       </div>
     </>
   );
