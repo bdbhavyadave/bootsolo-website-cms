@@ -65,14 +65,6 @@ export default function Hero({ onOpenModal }) {
             Most people research a purchase through ChatGPT now, not just Google. They cross-check on LinkedIn. Then they decide, fast. If your marketing hasn't caught up to that, you're invisible at the exact moment it matters. Bootsolo builds the engine that keeps you in that conversation, without the price tag of hiring a full team to do it.
           </p>
 
-          {/* Support line */}
-          <div style={{ padding: '14px 18px', borderRadius: '12px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', marginBottom: '32px', maxWidth: '580px' }}>
-            <span style={{ fontSize: '14px', color: 'var(--ice-300)', fontWeight: 500, display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <Zap size={16} color="var(--sunrise)" />
-              Smart strategy. Lean execution. Numbers you can actually defend in a board meeting.
-            </span>
-          </div>
-
           {/* Primary & Secondary CTAs */}
           <div className="h-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button
