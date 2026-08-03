@@ -7,7 +7,6 @@ import WhyBootsolo from '@/components/WhyBootsolo';
 import Services from '@/components/Services';
 import Testimonials from '@/components/Testimonials';
 import FaqAccordion from '@/components/FaqAccordion';
-import StickyCtaBar from '@/components/StickyCtaBar';
 import GrowthCallModal from '@/components/GrowthCallModal';
 
 export default function Home() {
@@ -49,8 +48,7 @@ export default function Home() {
       {/* 7. Objection-Handling FAQ Accordion */}
       <FaqAccordion />
 
-      {/* Sticky Conversion Bar & Modal Scheduler */}
-      <StickyCtaBar onOpenModal={handleOpenModal} />
+      {/* Modal Scheduler */}
       <GrowthCallModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
