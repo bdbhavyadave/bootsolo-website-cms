@@ -27,7 +27,7 @@ export default function PaperPlaneIntro() {
     window.addEventListener('scroll', handleSkip, { once: true, passive: true });
     window.addEventListener('keydown', handleSkip, { once: true });
 
-    // Flight duration: finishes in exactly 2 seconds (2000ms)
+    // Flight duration: finishes in 2 seconds (2000ms)
     const timer = setTimeout(() => {
       setState('settled');
     }, 2000);
@@ -44,65 +44,6 @@ export default function PaperPlaneIntro() {
 
   return (
     <>
-      <style jsx global>{`
-        /* 2-Second Welcome Animation Sequence:
-           1. Enters from bottom-left screen edge as a HUGE plane (scale 3.8)
-           2. Sweeps into the middle of the screen and executes a smooth round turn arc
-           3. Descends smoothly toward the dashboard card
-           4. Settles tucked directly behind the Live AI Answer Engine tile as its background image/watermark
-        */
-        @keyframes paperPlaneWelcomeFlight2s {
-          0% {
-            /* Huge plane entering from bottom-left */
-            transform: translate3d(calc(-90vw + 20px), 65vh, 0) rotate(-18deg) scale(3.8);
-            opacity: 0;
-          }
-          18% {
-            opacity: 1;
-            transform: translate3d(calc(-65vw + 40px), 35vh, 0) rotate(10deg) scale(3.2);
-          }
-          40% {
-            /* Sweeping into the middle of the screen, taking rounds */
-            transform: translate3d(-40vw, 8vh, 0) rotate(22deg) scale(2.4);
-            opacity: 1;
-          }
-          60% {
-            /* Round turn arc in middle screen */
-            transform: translate3d(-22vw, -12vh, 0) rotate(-16deg) scale(1.7);
-            opacity: 1;
-          }
-          82% {
-            /* Approaching destination badge */
-            transform: translate3d(-6vw, -4vh, 0) rotate(-6deg) scale(1.1);
-            opacity: 0.95;
-          }
-          100% {
-            /* Resting tucked behind the tile as background watermark */
-            transform: translate3d(0, 0, 0) rotate(0deg) scale(0.85);
-            opacity: 0.85;
-          }
-        }
-
-        /* Flight Route Dashed Arc Animation (2 seconds) */
-        @keyframes paperPlaneDashedRouteArc2s {
-          0% {
-            stroke-dashoffset: 1200;
-            opacity: 0;
-          }
-          15% {
-            opacity: 0.75;
-          }
-          85% {
-            stroke-dashoffset: 0;
-            opacity: 0.45;
-          }
-          100% {
-            stroke-dashoffset: 0;
-            opacity: 0;
-          }
-        }
-      `}</style>
-
       {/* Dashed Flight Route Arc SVG (active during 2s flight) */}
       {isAnimating && (
         <svg
@@ -113,7 +54,7 @@ export default function PaperPlaneIntro() {
             width: '100vw',
             height: '100vh',
             pointerEvents: 'none',
-            zIndex: 9999,
+            zIndex: 90,
             overflow: 'visible'
           }}
         >
