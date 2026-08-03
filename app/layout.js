@@ -2,7 +2,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import GlobalContact from '@/components/GlobalContact'
 import PaperPlaneCursor from '@/components/PaperPlaneCursor'
-import PaperPlaneIntro from '@/components/PaperPlaneIntro'
 import './globals.css'
 import './pages.css'
 import { DM_Sans, JetBrains_Mono } from 'next/font/google'
@@ -20,7 +19,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <PaperPlaneIntro />
         <PaperPlaneCursor />
         <Header />
         <main>{children}</main>
