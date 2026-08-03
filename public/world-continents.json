@@ -1,0 +1,26 @@
+{
+  "type": "Topology",
+  "objects": {
+    "continents": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {"type": "Polygon","properties": {"name": "North America"},"arcs": [[0]]},
+        {"type": "Polygon","properties": {"name": "South America"},"arcs": [[1]]},
+        {"type": "Polygon","properties": {"name": "Europe"},"arcs": [[2]]},
+        {"type": "Polygon","properties": {"name": "Africa"},"arcs": [[3]]},
+        {"type": "Polygon","properties": {"name": "Asia"},"arcs": [[4]]},
+        {"type": "Polygon","properties": {"name": "Australia"},"arcs": [[5]]},
+        {"type": "Polygon","properties": {"name": "Antarctica"},"arcs": [[6]]}
+      ]
+    }
+  },
+  "arcs": [
+    [[-100,40],[-80,40],[-80,20],[-100,20],[-100,40]],
+    [[-80,-15],[-55,-15],[-55,-35],[-80,-35],[-80,-15]],
+    [[15,50],[30,50],[30,40],[15,40],[15,50]],
+    [[20,5],[35,5],[35,-15],[20,-15],[20,5]],
+    [[95,35],[115,35],[115,15],[95,15],[95,35]],
+    [[135,-25],[150,-25],[150,-40],[135,-40],[135,-25]],
+    [[0,-75],[30,-75],[30,-90],[0,-90],[0,-75]]
+  ]
+}

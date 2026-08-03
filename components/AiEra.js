@@ -60,14 +60,14 @@ export default function AiEra() {
               return (
                 <div
                   key={step.number}
-                  onClick={() => setSelectedStep(idx)}
+                  onMouseEnter={() => setSelectedStep(idx)}
                   style={{
                     padding: '20px 24px',
                     borderRadius: 'var(--r-card)',
                     background: isActive ? 'var(--summit)' : 'var(--snow)',
                     color: isActive ? '#fff' : 'var(--fg1)',
                     border: `1px solid ${isActive ? 'var(--summit)' : 'var(--border)'}`,
-                    cursor: 'pointer',
+                    cursor: 'default',
                     transition: 'all 170ms var(--ease)',
                     display: 'flex',
                     alignItems: 'center',
@@ -142,8 +142,7 @@ export default function AiEra() {
           </div>
         </div>
 
-        {/* Additive Flat-Geometric AI Visibility Map */}
-        <AiVisibilityMap />
+        {/* End of Closing Block */}
       </div>
     </section>
   );

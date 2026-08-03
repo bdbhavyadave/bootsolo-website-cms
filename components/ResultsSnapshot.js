@@ -1,8 +1,9 @@
 'use client';
+
 import { useState } from 'react';
 import { ArrowRight, CheckCircle, X } from 'lucide-react';
 
-export default function ResultsSnapshot() {
+export default function ResultsSnapshot({ onOpenModal }) {
   const [selectedCase, setSelectedCase] = useState(null);
 
   const metrics = [
@@ -22,8 +23,7 @@ export default function ResultsSnapshot() {
           'Organic acquisition became #1 growth driver',
           'Ranked in top 3 ChatGPT recommendations for target industry queries'
         ]
-      },
-      chartPoints: '0,38 25,32 50,22 75,18 100,4'
+      }
     },
     {
       id: 'cost',
@@ -41,8 +41,7 @@ export default function ResultsSnapshot() {
           'Landing page conversion rate jumped from 1.4% to 4.6%',
           'Funnel achieved net positive cash flow on day 1'
         ]
-      },
-      chartPoints: '0,5 25,12 50,20 75,28 100,42'
+      }
     },
     {
       id: 'visibility',
@@ -60,8 +59,7 @@ export default function ResultsSnapshot() {
           'Featured in 80%+ of relevant conversational search queries',
           'Organic inbound signups doubled within 2 months'
         ]
-      },
-      chartPoints: '0,35 25,28 50,20 75,12 100,2'
+      }
     }
   ];
 
@@ -124,20 +122,6 @@ export default function ResultsSnapshot() {
                 — {item.summary}
               </p>
 
-              {/* Sparkline Graph */}
-              <div style={{ height: '40px', background: 'var(--bg-inset)', borderRadius: '8px', padding: '6px 14px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                <span style={{ fontSize: '11px', color: 'var(--fg3)', fontFamily: 'var(--font-mono)' }}>METRIC TRAJECTORY</span>
-                <svg width="90" height="24" viewBox="0 0 100 40">
-                  <polyline
-                    fill="none"
-                    stroke="var(--sunrise)"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    points={item.chartPoints}
-                  />
-                </svg>
-              </div>
-
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '14px', fontWeight: 600, color: 'var(--brand-fg)' }}>
                 <span>Read the stories</span>
                 <ArrowRight size={15} />
@@ -178,39 +162,80 @@ export default function ResultsSnapshot() {
             >
               <button
                 onClick={() => setSelectedCase(null)}
-                style={{ position: 'absolute', top: '20px', right: '20px', background: 'var(--bg-inset)', border: 'none', borderRadius: '999px', width: '32px', height: '32px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  background: 'var(--snow)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '50%',
+                  width: '32px',
+                  height: '32px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer'
+                }}
               >
                 <X size={18} color="var(--fg2)" />
               </button>
 
-              <span className="eyebrow">{selectedCase.category}</span>
-              <h3 className="ds-h3" style={{ fontSize: '26px', marginTop: '6px', marginBottom: '8px' }}>
-                {selectedCase.details.client}
-              </h3>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '36px', fontWeight: 600, color: 'var(--sunrise)', marginBottom: '20px' }}>
+              <span className="badge" style={{ background: 'var(--frost)', color: 'var(--brand-fg)', marginBottom: '12px', display: 'inline-block' }}>
+                {selectedCase.category} · {selectedCase.timeframe}
+              </span>
+
+              <h3 style={{ fontSize: '32px', fontWeight: 600, color: 'var(--sunrise)', margin: '8px 0 16px', fontFamily: 'var(--font-mono)' }}>
                 {selectedCase.value} {selectedCase.label}
+              </h3>
+
+              <div style={{ fontSize: '15px', color: 'var(--fg2)', lineHeight: 1.6, marginBottom: '24px' }}>
+                {selectedCase.summary}
               </div>
 
-              <div style={{ marginBottom: '16px' }}>
-                <h4 style={{ fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--fg3)', marginBottom: '6px' }}>The Challenge</h4>
-                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: 0 }}>{selectedCase.details.problem}</p>
-              </div>
-
-              <div style={{ marginBottom: '20px' }}>
-                <h4 style={{ fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--fg3)', marginBottom: '6px' }}>The Solution</h4>
-                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: 0 }}>{selectedCase.details.solution}</p>
-              </div>
-
-              <div style={{ background: 'var(--snow)', borderRadius: '12px', padding: '20px', border: '1px solid var(--border)' }}>
-                <h4 style={{ fontSize: '13px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--sunrise-700)', marginBottom: '10px' }}>Key Verified Results</h4>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                  {selectedCase.details.results.map((res, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14px', color: 'var(--fg1)' }}>
-                      <CheckCircle size={16} color="var(--success)" />
-                      <span>{res}</span>
-                    </div>
-                  ))}
+              <div style={{ background: 'var(--snow)', borderRadius: '12px', padding: '20px', marginBottom: '24px', border: '1px solid var(--border)' }}>
+                <h4 style={{ fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--summit)', marginBottom: '12px' }}>
+                  Execution Details
+                </h4>
+                <div style={{ fontSize: '14px', color: 'var(--fg2)', marginBottom: '8px' }}>
+                  <strong>Client Type:</strong> {selectedCase.details.client}
                 </div>
+                <div style={{ fontSize: '14px', color: 'var(--fg2)', marginBottom: '8px' }}>
+                  <strong>Challenge:</strong> {selectedCase.details.problem}
+                </div>
+                <div style={{ fontSize: '14px', color: 'var(--fg2)' }}>
+                  <strong>Engine Solution:</strong> {selectedCase.details.solution}
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '28px' }}>
+                <h4 style={{ fontSize: '14px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--summit)', marginBottom: '12px' }}>
+                  Verified Key Outcomes
+                </h4>
+                {selectedCase.details.results.map((res, idx) => (
+                  <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--fg1)', marginBottom: '8px' }}>
+                    <CheckCircle size={16} color="var(--sunrise)" />
+                    <span>{res}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ display: 'flex', gap: '12px' }}>
+                <button
+                  onClick={() => {
+                    setSelectedCase(null);
+                    if (onOpenModal) onOpenModal();
+                  }}
+                  className="btn btn-primary glow-sunrise"
+                  style={{ flex: 1, justifyContent: 'center' }}
+                >
+                  Book a Growth Call →
+                </button>
+                <button
+                  onClick={() => setSelectedCase(null)}
+                  className="btn btn-secondary"
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>

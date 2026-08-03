@@ -1,11 +1,11 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ArrowRight, Sparkles, Check, Search, Bot, Zap } from 'lucide-react';
 import { PaperPlaneMark } from './Brand';
-import HeroIllustration from './HeroIllustration';
 
-export default function Hero() {
+export default function Hero({ onOpenModal }) {
   const [activeEngine, setActiveEngine] = useState('chatgpt');
   const [typedText, setTypedText] = useState('');
 
@@ -36,8 +36,9 @@ export default function Hero() {
     let i = 0;
     const timer = setInterval(() => {
       if (i < fullText.length) {
-        setTypedText((prev) => prev + fullText.charAt(i));
+        const char = fullText.charAt(i);
         i++;
+        setTypedText((prev) => prev + char);
       } else {
         clearInterval(timer);
       }
@@ -47,18 +48,12 @@ export default function Hero() {
   }, [activeEngine]);
 
   return (
-    <header className="hero dark" id="top" style={{ position: 'relative', overflow: 'hidden', padding: '108px 0 112px' }}>
+    <header className="hero dark" id="top" style={{ position: 'relative', overflow: 'hidden', padding: '60px 0 64px' }}>
       {/* Subtle Background Radial Sunrise Glow */}
       <div style={{ position: 'absolute', top: '-15%', right: '0%', width: '650px', height: '650px', background: 'radial-gradient(circle, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 70%)', pointerEvents: 'none' }} />
 
       <div className="wrap hero-inner">
         <div className="hero-copy">
-          {/* Eyebrow */}
-          <div className="pill" style={{ borderColor: 'rgba(255,107,53,0.4)', background: 'rgba(255,107,53,0.08)', color: 'var(--sunrise-300)', marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-            <PaperPlaneMark size={16} color="#FF9A6B" planeColor="#FF6B35" />
-            <span style={{ fontWeight: 600, fontSize: '13px', letterSpacing: '0.04em' }}>For founders who feel the ground shifting</span>
-          </div>
-
           {/* Headline */}
           <h1 className="h-display" style={{ fontSize: 'clamp(38px, 5vw, 64px)', lineHeight: 1.05, fontWeight: 500, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
             Your buyers already ask AI <br />
@@ -80,23 +75,25 @@ export default function Hero() {
 
           {/* Primary & Secondary CTAs */}
           <div className="h-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Link className="btn btn-primary glow-sunrise" href="/custom-quote" style={{ padding: '0 28px', height: '48px', fontSize: '16px' }} aria-label="Book a Growth Call">
+            <button
+              type="button"
+              onClick={onOpenModal}
+              className="btn btn-primary glow-sunrise"
+              style={{ padding: '0 28px', height: '48px', fontSize: '16px', cursor: 'pointer' }}
+              aria-label="Book a Growth Call"
+            >
               Book a Growth Call <ArrowRight size={18} />
-            </Link>
+            </button>
             <Link className="btn btn-ghost" href="#services" style={{ height: '48px', padding: '0 24px', fontSize: '15px', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
               See What We Do
             </Link>
           </div>
         </div>
 
-        {/* Hero Summit Illustration & AI Preview Card Stack */}
+        {/* Hero Stack — Interactive AI Preview Card */}
         <div className="hero-art hero-art-interactive" style={{ position: 'relative' }}>
-          <div style={{ borderRadius: '18px', overflow: 'hidden', border: '1px solid var(--navy-700)', boxShadow: 'var(--shadow-pop)', marginBottom: '20px' }}>
-            <HeroIllustration style={{ width: '100%', height: 'auto', display: 'block' }} />
-          </div>
-
           {/* Floating AI Dashboard Card */}
-          <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '20px', boxShadow: 'var(--shadow-pop)' }}>
+          <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '24px', boxShadow: 'var(--shadow-pop)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px solid var(--navy-700)' }}>
               <div style={{ display: 'flex', gap: '8px' }}>
                 {Object.keys(scenarios).map((key) => (
@@ -119,50 +116,43 @@ export default function Hero() {
                   </button>
                 ))}
               </div>
-              <span className="badge" style={{ background: 'rgba(31,191,117,0.15)', color: 'var(--success)', fontSize: '11px', padding: '4px 10px', borderRadius: '999px' }}>
-                Live AI Answer Engine
-              </span>
-            </div>
-
-            {/* Prompt Search Box */}
-            <div style={{ background: 'var(--navy-900)', borderRadius: '10px', padding: '12px 16px', border: '1px solid var(--navy-700)', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <Search size={16} color="var(--sunrise-300)" />
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', color: '#EEF3F8', flex: 1 }}>
-                "{scenarios[activeEngine].query}"
-              </span>
-            </div>
-
-            {/* Simulated Response Stream */}
-            <div style={{ minHeight: '80px', background: 'var(--navy-850)', borderRadius: '10px', padding: '14px 16px', border: '1px solid rgba(255,255,255,0.06)' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
-                <Bot size={15} color="var(--ice)" />
-                <span style={{ fontSize: '11px', fontWeight: 600, color: 'var(--ice)', letterSpacing: '0.05em' }}>AI CITATION RESULT</span>
+              <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
+                <span className="mono" style={{ position: 'relative', zIndex: 2, fontSize: '11px', color: '#1FBF75', display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(14,26,43,0.9)', padding: '2px 6px', borderRadius: '6px' }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1FBF75' }} />
+                  Live AI Answer Engine
+                </span>
               </div>
-              <p style={{ fontSize: '14px', lineHeight: 1.5, color: '#EEF3F8', margin: 0, fontFamily: 'var(--font-sans)' }}>
+            </div>
+
+            <div style={{ background: 'var(--navy-900)', borderRadius: '10px', padding: '14px', marginBottom: '16px', border: '1px solid var(--navy-700)' }}>
+              <div style={{ fontSize: '12px', color: 'var(--navy-400)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Search size={13} color="var(--ice)" /> Buyer Prompt:
+              </div>
+              <div style={{ fontSize: '13.5px', color: '#fff', fontWeight: 500 }}>"{scenarios[activeEngine].query}"</div>
+            </div>
+
+            <div style={{ background: 'rgba(56,182,245,0.06)', borderRadius: '10px', padding: '14px', border: '1px solid rgba(56,182,245,0.2)', marginBottom: '16px' }}>
+              <div style={{ fontSize: '12px', color: 'var(--ice-300)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Bot size={14} color="var(--ice)" /> AI Citation Engine Output:
+              </div>
+              <div style={{ fontSize: '13.5px', color: 'var(--navy-100)', lineHeight: 1.5, minHeight: '44px' }}>
                 {typedText}
-                <span style={{ display: 'inline-block', width: '2px', height: '14px', background: 'var(--sunrise)', marginLeft: '4px' }} />
-              </p>
+                <span className="cursor-blink" style={{ display: 'inline-block', width: '6px', height: '14px', background: 'var(--sunrise)', marginLeft: '4px', verticalAlign: 'middle' }} />
+              </div>
             </div>
 
-            {/* Metrics Ticker */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', marginTop: '14px' }}>
-              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Signup Lift</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--sunrise-300)', marginTop: '2px' }}>
-                  {scenarios[activeEngine].metrics.signup}
-                </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', paddingTop: '10px', borderTop: '1px solid var(--navy-700)' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Signup Growth</div>
+                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: 'var(--sunrise-300)', marginTop: '2px' }}>{scenarios[activeEngine].metrics.signup}</div>
               </div>
-              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Cost Per Sale</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--ice-300)', marginTop: '2px' }}>
-                  {scenarios[activeEngine].metrics.cpa}
-                </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cost Per Sale</div>
+                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: 'var(--ice-300)', marginTop: '2px' }}>{scenarios[activeEngine].metrics.cpa}</div>
               </div>
-              <div style={{ background: 'var(--navy-900)', borderRadius: '8px', padding: '10px', border: '1px solid var(--navy-700)', textAlign: 'center' }}>
-                <div style={{ fontSize: '10px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>AI Visibility</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '16px', fontWeight: 600, color: 'var(--summit-gold)', marginTop: '2px' }}>
-                  {scenarios[activeEngine].metrics.visibility}
-                </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AI Citation</div>
+                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: '#1FBF75', marginTop: '2px' }}>{scenarios[activeEngine].metrics.visibility}</div>
               </div>
             </div>
           </div>

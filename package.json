@@ -9,19 +9,22 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "@tiptap/react": "^2.1.12",
+    "@tiptap/starter-kit": "^2.1.12",
+    "axios": "^1.5.0",
+    "bcryptjs": "^2.4.3",
+    "d3-geo": "^3.1.1",
+    "date-fns": "^3.0.0",
+    "lucide-react": "^0.292.0",
     "next": "^14.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@supabase/supabase-js": "^2.38.0",
-    "bcryptjs": "^2.4.3",
-    "axios": "^1.5.0",
-    "slugify": "^1.6.6",
-    "lucide-react": "^0.292.0",
-    "@tiptap/react": "^2.1.12",
-    "@tiptap/starter-kit": "^2.1.12",
     "recharts": "^2.10.0",
-    "date-fns": "^3.0.0",
-    "jose": "^5.2.0"
+    "slugify": "^1.6.6",
+    "three": "^0.185.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "^8.50.0",
