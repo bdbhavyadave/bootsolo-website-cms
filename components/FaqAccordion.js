@@ -35,10 +35,10 @@ export default function FaqAccordion() {
         <div className="section-header text-center">
           <div className="section-eyebrow inline-flex align-center gap-2">
             <HelpCircle size={14} color="var(--sunrise)" />
-            <span>Clear Answers [new microcopy — not in original brief]</span>
+            <span>Clear Answers</span>
           </div>
           <h2 className="h2 font-heading text-summit">
-            Frequently Asked Questions [new microcopy — not in original brief]
+            Frequently Asked Questions
           </h2>
           <p className="section-subhead text-fg2">
             Everything founders ask before booking their first growth strategy call.

@@ -54,13 +54,13 @@ export default function GrowthCallModal({ isOpen, onClose }) {
     <div
       className="modal-backdrop"
       onClick={(e) => e.target.classList.contains('modal-backdrop') && onClose()}
-      aria-label="Growth Call Booking Modal [new microcopy — not in original brief]"
+      aria-label="Growth Call Booking Modal"
     >
       <div className="modal-card shadow-pop">
         <button
           onClick={onClose}
           className="modal-close-btn"
-          aria-label="Close modal [new microcopy — not in original brief]"
+          aria-label="Close modal"
         >
           <X size={20} />
         </button>
@@ -80,7 +80,7 @@ export default function GrowthCallModal({ isOpen, onClose }) {
               <div className="summary-row"><Building2 size={16} /> <span>{formData.teamSize}</span></div>
             </div>
             <button onClick={handleReset} className="btn btn-primary btn-full">
-              Done [new microcopy — not in original brief]
+              Done
             </button>
           </div>
         ) : (
