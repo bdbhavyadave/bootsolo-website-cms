@@ -48,11 +48,22 @@ export default function Hero({ onOpenModal }) {
   }, [activeEngine]);
 
   return (
-    <header className="hero dark" id="top" style={{ position: 'relative', overflow: 'hidden', padding: '60px 0 64px' }}>
+    <header
+      className="hero dark"
+      id="top"
+      style={{
+        position: 'relative',
+        overflow: 'hidden',
+        minHeight: 'calc(100vh - 66px)',
+        display: 'flex',
+        alignItems: 'center',
+        padding: '60px 0'
+      }}
+    >
       {/* Subtle Background Radial Sunrise Glow */}
       <div style={{ position: 'absolute', top: '-15%', right: '0%', width: '650px', height: '650px', background: 'radial-gradient(circle, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 70%)', pointerEvents: 'none' }} />
 
-      <div className="wrap hero-inner">
+      <div className="wrap hero-inner" style={{ width: '100%' }}>
         <div className="hero-copy">
           {/* Headline */}
           <h1 className="h-display" style={{ fontSize: 'clamp(38px, 5vw, 64px)', lineHeight: 1.05, fontWeight: 500, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
