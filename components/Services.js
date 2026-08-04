@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import InteractiveGlobe from './InteractiveGlobe';
 import {
   CheckCircle2,
   ArrowRight,
   MapPin,
+  ChevronRight,
   X,
   Bot,
   Search,
@@ -14,15 +15,14 @@ import {
   Video,
   Monitor,
   Sparkles,
-  GraduationCap,
-  Sparkle
+  GraduationCap
 } from 'lucide-react';
 
 export const MODULES_HUB_DATA = [
   {
     id: 1,
+    number: '01',
     title: 'AI-Powered Marketing',
-    collapsedTitle: '01. AI-Powered Marketing',
     slug: '/ai-powered-marketing',
     icon: Bot,
     nodeBadge: 'SAN FRANCISCO, USA — North America Node',
@@ -43,8 +43,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 2,
+    number: '02',
     title: 'SEO, AEO & GEO',
-    collapsedTitle: '02. SEO, AEO & GEO',
     slug: '/seo-aeo-geo',
     icon: Search,
     nodeBadge: 'LONDON, UNITED KINGDOM — Europe Node',
@@ -65,8 +65,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 3,
+    number: '03',
     title: 'Performance & Lead Generation',
-    collapsedTitle: '03. Performance & Lead Gen',
     slug: '/performance-lead-generation',
     icon: TrendingUp,
     nodeBadge: 'TOKYO, JAPAN — Asia-Pacific Node',
@@ -87,8 +87,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 4,
+    number: '04',
     title: 'Content, Video & Authority',
-    collapsedTitle: '04. Content, Video & Authority',
     slug: '/content-video-thought-leadership',
     icon: Video,
     nodeBadge: 'BERLIN, GERMANY — Central Europe Node',
@@ -109,8 +109,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 5,
+    number: '05',
     title: 'Web & Ecommerce Experience',
-    collapsedTitle: '05. Web & Ecommerce Experience',
     slug: '/web-ecommerce-experience',
     icon: Monitor,
     nodeBadge: 'SÃO PAULO, BRAZIL — South America Node',
@@ -131,8 +131,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 6,
+    number: '06',
     title: 'Branding',
-    collapsedTitle: '06. Branding',
     slug: '/branding',
     icon: Sparkles,
     nodeBadge: 'SYDNEY, AUSTRALIA — Oceania Node',
@@ -153,8 +153,8 @@ export const MODULES_HUB_DATA = [
   },
   {
     id: 7,
+    number: '07',
     title: 'AI Enablement & Training',
-    collapsedTitle: '07. AI Enablement & Training',
     slug: '/ai-enablement-training',
     icon: GraduationCap,
     nodeBadge: 'SINGAPORE — Global Enablement Hub',
@@ -176,17 +176,21 @@ export const MODULES_HUB_DATA = [
 ];
 
 export default function Services() {
-  const [expandedId, setExpandedId] = useState(1); // Default active module 1 expanded
+  // Active module ID (1 to 7) for single shared detail panel
+  const [activeModuleId, setActiveModuleId] = useState(1);
+  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true);
 
-  const handleToggle = (id, e) => {
-    if (e) e.stopPropagation();
-    setExpandedId((prev) => (prev === id ? null : id));
+  const activeModule = MODULES_HUB_DATA.find((m) => m.id === activeModuleId) || MODULES_HUB_DATA[0];
+
+  const handleSelectModule = (id) => {
+    setActiveModuleId(id);
+    setIsMobilePanelOpen(true);
   };
 
   const handleKeyDown = (id, e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      setExpandedId((prev) => (prev === id ? null : id));
+      handleSelectModule(id);
     }
   };
 
@@ -209,7 +213,7 @@ export default function Services() {
           <InteractiveGlobe />
         </div>
 
-        {/* 2. Redesigned AI Citation Hub Immersive Tile Grid */}
+        {/* 2. Menu List + Single Shared Detail Panel Layout (Replaces all card decks & grids) */}
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid var(--border)' }}>
           <div style={{ marginBottom: '36px', textAlign: 'left' }}>
             <span style={{ fontSize: '12px', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--brand-fg)', fontWeight: 700 }}>
@@ -218,344 +222,342 @@ export default function Services() {
             <h3 className="ds-h3" style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', marginTop: '6px', color: 'var(--summit)' }}>
               Explore Our Core Service Modules
             </h3>
-            <p style={{ fontSize: '14.5px', color: 'var(--fg2)', marginTop: '8px' }}>
-              Hover or tap any tile below to inspect live AI Citation Nodes, deliverables, and traction statistics.
+            <p style={{ fontSize: '14.5px', color: 'var(--fg2)', marginTop: '6px' }}>
+              Hover or tap any module in the left menu to inspect its live AI Citation Node details.
             </p>
           </div>
 
-          {/* Immersive Responsive Tile Grid */}
+          {/* Side-by-Side Layout on Desktop (Grid: 380px left menu, 1fr right detail panel) */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))',
-              gap: '24px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
+              gap: '40px',
               alignItems: 'start'
             }}
           >
-            {MODULES_HUB_DATA.map((module) => {
-              const Icon = module.icon;
-              const isExpanded = expandedId === module.id;
+            {/* LEFT COLUMN: Module Menu (Table of Contents Style List) */}
+            <div
+              role="tablist"
+              aria-label="Core Service Modules Menu"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px'
+              }}
+            >
+              {MODULES_HUB_DATA.map((module) => {
+                const isActive = activeModuleId === module.id;
+                const Icon = module.icon;
 
-              return (
-                <div
-                  key={module.id}
-                  role="button"
-                  tabIndex={0}
-                  aria-expanded={isExpanded}
-                  aria-label={`${module.title} Module Card`}
-                  onMouseEnter={() => setExpandedId(module.id)}
-                  onClick={(e) => handleToggle(module.id, e)}
-                  onKeyDown={(e) => handleKeyDown(module.id, e)}
-                  style={{
-                    position: 'relative',
-                    borderRadius: '18px',
-                    overflow: 'hidden',
-                    background: 'var(--summit)',
-                    color: '#EEF3F8',
-                    border: `1px solid ${isExpanded ? 'var(--sunrise)' : 'var(--navy-700)'}`,
-                    boxShadow: isExpanded ? 'var(--glow-sunrise)' : 'var(--shadow-1)',
-                    transition: 'all 280ms cubic-bezier(0.22, 1, 0.36, 1)',
-                    cursor: 'pointer',
-                    outline: 'none',
-                    minHeight: isExpanded ? 'auto' : '110px'
-                  }}
-                >
-                  {/* Soft Coral/Orange Top-Left Gradient Glow (Matches Reference Image) */}
+                return (
                   <div
+                    key={module.id}
+                    role="tab"
+                    id={`module-tab-${module.id}`}
+                    aria-selected={isActive}
+                    aria-controls="module-detail-panel"
+                    tabIndex={0}
+                    onMouseEnter={() => handleSelectModule(module.id)}
+                    onClick={() => handleSelectModule(module.id)}
+                    onKeyDown={(e) => handleKeyDown(module.id, e)}
                     style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      background: 'radial-gradient(circle at 0% 0%, rgba(255,107,53,0.22) 0%, transparent 65%)',
-                      pointerEvents: 'none',
-                      opacity: isExpanded ? 1 : 0.4,
-                      transition: 'opacity 280ms ease'
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      padding: '16px 20px',
+                      borderRadius: '12px',
+                      background: isActive ? 'var(--snow)' : 'transparent',
+                      borderLeft: `4px solid ${isActive ? 'var(--sunrise)' : 'transparent'}`,
+                      borderTop: '1px solid var(--border)',
+                      borderRight: '1px solid var(--border)',
+                      borderBottom: '1px solid var(--border)',
+                      cursor: 'pointer',
+                      transition: 'all 200ms var(--ease)',
+                      outline: 'none',
+                      userSelect: 'none'
                     }}
-                  />
-
-                  {/* =========================================================
-                      COLLAPSED STATE VIEW (Clean resting tile)
-                     ========================================================= */}
-                  {!isExpanded ? (
-                    <div
-                      style={{
-                        padding: '24px 28px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        height: '100%',
-                        position: 'relative',
-                        zIndex: 2
-                      }}
-                    >
-                      <div
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <span
+                        className="ds-mono"
                         style={{
-                          width: '46px',
-                          height: '46px',
-                          borderRadius: '12px',
-                          background: 'var(--navy-800)',
-                          color: 'var(--sunrise-300)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          border: '1px solid var(--navy-700)',
-                          flexShrink: 0
+                          fontSize: '13px',
+                          fontWeight: 700,
+                          color: isActive ? 'var(--sunrise)' : 'var(--fg3)',
+                          transition: 'color 200ms ease'
                         }}
                       >
-                        <Icon size={22} />
-                      </div>
-
-                      <div style={{ textAlign: 'right', paddingLeft: '16px' }}>
+                        {module.number}
+                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <Icon size={18} color={isActive ? 'var(--sunrise)' : 'var(--fg2)'} />
                         <span
-                          className="ds-mono"
                           style={{
-                            fontSize: '11px',
-                            fontWeight: 700,
-                            color: 'var(--sunrise-300)',
-                            letterSpacing: '0.08em',
-                            display: 'block',
-                            marginBottom: '4px'
-                          }}
-                        >
-                          MODULE 0{module.id}
-                        </span>
-                        <h4
-                          style={{
-                            fontSize: '18px',
-                            fontWeight: 600,
-                            color: '#FFFFFF',
-                            margin: 0,
-                            lineHeight: 1.3
+                            fontSize: '16px',
+                            fontWeight: isActive ? 600 : 500,
+                            color: isActive ? 'var(--summit)' : 'var(--fg1)',
+                            transition: 'color 200ms ease'
                           }}
                         >
                           {module.title}
-                        </h4>
+                        </span>
                       </div>
                     </div>
-                  ) : (
-                    /* =========================================================
-                       HOVER / EXPANDED STATE VIEW (Matches Attached Spec)
-                       ========================================================= */
+
+                    <ChevronRight
+                      size={18}
+                      color={isActive ? 'var(--sunrise)' : 'var(--fg3)'}
+                      style={{
+                        transform: isActive ? 'translateX(3px)' : 'translateX(0)',
+                        transition: 'transform 200ms var(--ease), color 200ms var(--ease)'
+                      }}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* RIGHT COLUMN: Single Shared Detail Panel (Matches Attached Reference Spec) */}
+            {isMobilePanelOpen && activeModule && (
+              <div
+                id="module-detail-panel"
+                role="tabpanel"
+                aria-labelledby={`module-tab-${activeModule.id}`}
+                style={{
+                  position: 'relative',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  background: 'var(--summit)',
+                  color: '#EEF3F8',
+                  border: '1px solid var(--sunrise)',
+                  boxShadow: 'var(--glow-sunrise)',
+                  padding: 'clamp(24px, 4vw, 36px)',
+                  transition: 'all 250ms cubic-bezier(0.22, 1, 0.36, 1)',
+                  animation: 'fadeIn 250ms var(--ease)'
+                }}
+              >
+                {/* Soft Coral/Orange Top-Left Radial Gradient Glow */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(circle at 0% 0%, rgba(255,107,53,0.22) 0%, transparent 65%)',
+                    pointerEvents: 'none'
+                  }}
+                />
+
+                <div style={{ position: 'relative', zIndex: 2 }}>
+                  {/* Top Header Row: Pill Badge + Circular Close Button */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '12px',
+                      marginBottom: '20px'
+                    }}
+                  >
                     <div
                       style={{
-                        padding: 'clamp(24px, 4vw, 32px)',
-                        position: 'relative',
-                        zIndex: 2,
-                        animation: 'fadeIn 250ms var(--ease)'
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        background: 'rgba(255,107,53,0.15)',
+                        color: 'var(--sunrise-300)',
+                        border: '1px solid rgba(255,107,53,0.30)',
+                        padding: '6px 14px',
+                        borderRadius: '999px',
+                        fontSize: '11.5px',
+                        fontWeight: 700,
+                        fontFamily: 'var(--font-mono), monospace',
+                        letterSpacing: '0.04em'
                       }}
                     >
-                      {/* Top Header Row: Location/Context Pill Badge + Close Button */}
+                      <MapPin size={14} color="var(--sunrise)" />
+                      <span>{activeModule.nodeBadge}</span>
+                    </div>
+
+                    {/* Circular Close Button (for touch/mobile collapse) */}
+                    <button
+                      onClick={() => setIsMobilePanelOpen(false)}
+                      aria-label="Close detail panel"
+                      style={{
+                        width: '32px',
+                        height: '32px',
+                        borderRadius: '50%',
+                        background: 'var(--navy-800)',
+                        border: '1px solid var(--navy-600)',
+                        color: 'var(--navy-300)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        flexShrink: 0,
+                        transition: 'all 170ms var(--ease)'
+                      }}
+                      className="btn-hover-sunrise"
+                    >
+                      <X size={16} />
+                    </button>
+                  </div>
+
+                  {/* Main Hub Title */}
+                  <h4
+                    style={{
+                      fontSize: 'clamp(22px, 3vw, 28px)',
+                      lineHeight: 1.25,
+                      fontWeight: 600,
+                      color: '#FFFFFF',
+                      margin: '0 0 20px',
+                      letterSpacing: '-0.02em'
+                    }}
+                  >
+                    {activeModule.hubTitle}
+                  </h4>
+
+                  {/* 2-Column Stat Box with Thin Vertical Line Divider */}
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 1fr',
+                      gap: '16px',
+                      alignItems: 'center',
+                      padding: '18px 24px',
+                      background: 'var(--navy-900)',
+                      borderRadius: '14px',
+                      border: '1px solid var(--navy-700)',
+                      marginBottom: '20px'
+                    }}
+                  >
+                    {/* Left Column: Orange Stat */}
+                    <div>
                       <div
                         style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'space-between',
-                          gap: '12px',
-                          marginBottom: '20px'
+                          fontSize: '10.5px',
+                          fontWeight: 700,
+                          fontFamily: 'var(--font-mono), monospace',
+                          color: 'var(--navy-400)',
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase'
                         }}
                       >
-                        <div
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            background: 'rgba(255,107,53,0.15)',
-                            color: 'var(--sunrise-300)',
-                            border: '1px solid rgba(255,107,53,0.30)',
-                            padding: '6px 14px',
-                            borderRadius: '999px',
-                            fontSize: '11.5px',
-                            fontWeight: 700,
-                            fontFamily: 'var(--font-mono), monospace',
-                            letterSpacing: '0.04em'
-                          }}
-                        >
-                          <MapPin size={14} color="var(--sunrise)" />
-                          <span>{module.nodeBadge}</span>
-                        </div>
-
-                        {/* Circular Close Button */}
-                        <button
-                          onClick={(e) => handleToggle(module.id, e)}
-                          aria-label="Collapse tile"
-                          style={{
-                            width: '32px',
-                            height: '32px',
-                            borderRadius: '50%',
-                            background: 'var(--navy-800)',
-                            border: '1px solid var(--navy-600)',
-                            color: 'var(--navy-300)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            cursor: 'pointer',
-                            flexShrink: 0,
-                            transition: 'all 170ms var(--ease)'
-                          }}
-                          className="btn-hover-sunrise"
-                        >
-                          <X size={16} />
-                        </button>
+                        {activeModule.statLabel}
                       </div>
-
-                      {/* Main Hub Title */}
-                      <h4
+                      <div
+                        className="mono"
                         style={{
-                          fontSize: 'clamp(20px, 2.5vw, 24px)',
-                          lineHeight: 1.25,
+                          fontSize: 'clamp(26px, 3.5vw, 32px)',
+                          fontWeight: 800,
+                          color: 'var(--sunrise-300)',
+                          marginTop: '2px',
+                          lineHeight: 1.1
+                        }}
+                      >
+                        {activeModule.statValue}
+                      </div>
+                    </div>
+
+                    {/* Vertical Line Divider + Right Column: White Model */}
+                    <div
+                      style={{
+                        borderLeft: '1px solid var(--navy-700)',
+                        paddingLeft: '20px'
+                      }}
+                    >
+                      <div
+                        style={{
+                          fontSize: '10.5px',
+                          fontWeight: 700,
+                          fontFamily: 'var(--font-mono), monospace',
+                          color: 'var(--navy-400)',
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase'
+                        }}
+                      >
+                        {activeModule.modelLabel}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: '15px',
                           fontWeight: 600,
                           color: '#FFFFFF',
-                          margin: '0 0 20px',
-                          letterSpacing: '-0.02em'
+                          marginTop: '4px',
+                          lineHeight: 1.3
                         }}
                       >
-                        {module.hubTitle}
-                      </h4>
-
-                      {/* Stat Box: 2 Columns with Vertical Line Divider */}
-                      <div
-                        style={{
-                          display: 'grid',
-                          gridTemplateColumns: '1fr 1fr',
-                          gap: '16px',
-                          alignItems: 'center',
-                          padding: '16px 20px',
-                          background: 'var(--navy-900)',
-                          borderRadius: '14px',
-                          border: '1px solid var(--navy-700)',
-                          marginBottom: '20px'
-                        }}
-                      >
-                        {/* Left Column: Orange Stat */}
-                        <div>
-                          <div
-                            style={{
-                              fontSize: '10.5px',
-                              fontWeight: 700,
-                              fontFamily: 'var(--font-mono), monospace',
-                              color: 'var(--navy-400)',
-                              letterSpacing: '0.08em',
-                              textTransform: 'uppercase'
-                            }}
-                          >
-                            {module.statLabel}
-                          </div>
-                          <div
-                            className="mono"
-                            style={{
-                              fontSize: 'clamp(24px, 3vw, 28px)',
-                              fontWeight: 800,
-                              color: 'var(--sunrise-300)',
-                              marginTop: '2px',
-                              lineHeight: 1.1
-                            }}
-                          >
-                            {module.statValue}
-                          </div>
-                        </div>
-
-                        {/* Vertical Line Divider + Right Column: White Model */}
-                        <div
-                          style={{
-                            borderLeft: '1px solid var(--navy-700)',
-                            paddingLeft: '16px'
-                          }}
-                        >
-                          <div
-                            style={{
-                              fontSize: '10.5px',
-                              fontWeight: 700,
-                              fontFamily: 'var(--font-mono), monospace',
-                              color: 'var(--navy-400)',
-                              letterSpacing: '0.08em',
-                              textTransform: 'uppercase'
-                            }}
-                          >
-                            {module.modelLabel}
-                          </div>
-                          <div
-                            style={{
-                              fontSize: '14px',
-                              fontWeight: 600,
-                              color: '#FFFFFF',
-                              marginTop: '4px',
-                              lineHeight: 1.3
-                            }}
-                          >
-                            {module.modelValue}
-                          </div>
-                        </div>
+                        {activeModule.modelValue}
                       </div>
-
-                      {/* Description Sentence */}
-                      <p
-                        style={{
-                          fontSize: '14px',
-                          lineHeight: 1.55,
-                          color: 'var(--navy-300)',
-                          margin: '0 0 20px'
-                        }}
-                      >
-                        {module.description}
-                      </p>
-
-                      {/* Live Traction Highlights Box */}
-                      <div
-                        style={{
-                          background: 'var(--navy-800)',
-                          borderRadius: '14px',
-                          padding: '18px',
-                          border: '1px solid var(--navy-700)',
-                          marginBottom: '24px'
-                        }}
-                      >
-                        <h5
-                          style={{
-                            fontSize: '11px',
-                            fontWeight: 700,
-                            fontFamily: 'var(--font-mono), monospace',
-                            letterSpacing: '0.08em',
-                            textTransform: 'uppercase',
-                            color: 'var(--navy-400)',
-                            margin: '0 0 14px'
-                          }}
-                        >
-                          {module.highlightsTitle}
-                        </h5>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                          {module.deliverables.map((item, idx) => (
-                            <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                              <CheckCircle2 size={16} color="var(--sunrise)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                              <span style={{ fontSize: '13.5px', color: '#EEF3F8', lineHeight: 1.4 }}>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Link to Dedicated Module Page */}
-                      <Link
-                        href={module.slug}
-                        className="btn btn-primary glow-sunrise"
-                        onClick={(e) => e.stopPropagation()}
-                        style={{
-                          width: '100%',
-                          justifyContent: 'center',
-                          height: '46px',
-                          fontSize: '14px',
-                          fontWeight: 600,
-                          borderRadius: '11px'
-                        }}
-                      >
-                        <span>{module.ctaText}</span>
-                        <ArrowRight size={16} />
-                      </Link>
                     </div>
-                  )}
+                  </div>
+
+                  {/* Description Sentence */}
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      lineHeight: 1.6,
+                      color: 'var(--navy-300)',
+                      margin: '0 0 24px'
+                    }}
+                  >
+                    {activeModule.description}
+                  </p>
+
+                  {/* Live Traction Highlights Box */}
+                  <div
+                    style={{
+                      background: 'var(--navy-800)',
+                      borderRadius: '14px',
+                      padding: '20px',
+                      border: '1px solid var(--navy-700)',
+                      marginBottom: '28px'
+                    }}
+                  >
+                    <h5
+                      style={{
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        fontFamily: 'var(--font-mono), monospace',
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        color: 'var(--navy-400)',
+                        margin: '0 0 14px'
+                      }}
+                    >
+                      {activeModule.highlightsTitle}
+                    </h5>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                      {activeModule.deliverables.map((item, idx) => (
+                        <div key={idx} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                          <CheckCircle2 size={17} color="var(--sunrise)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                          <span style={{ fontSize: '14px', color: '#EEF3F8', lineHeight: 1.45 }}>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Navigation CTA Button */}
+                  <Link
+                    href={activeModule.slug}
+                    className="btn btn-primary glow-sunrise"
+                    style={{
+                      width: '100%',
+                      justifyContent: 'center',
+                      height: '48px',
+                      fontSize: '15px',
+                      fontWeight: 600,
+                      borderRadius: '12px'
+                    }}
+                  >
+                    <span>{activeModule.ctaText}</span>
+                    <ArrowRight size={18} />
+                  </Link>
                 </div>
-              );
-            })}
+              </div>
+            )}
           </div>
         </div>
       </div>
