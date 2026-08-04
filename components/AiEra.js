@@ -225,9 +225,9 @@ export default function AiEra({ onOpenModal }) {
 
       // SCENE 01: Google Search Bar morphing into AI Chat Prompt Interface
       if (vizType === 'google-to-ai') {
-        const barWidth = Math.min(380, width - 60);
+        const barWidth = Math.min(360, width - 40);
         const barX = (width - barWidth) / 2;
-        const barY = 40;
+        const barY = Math.max(180, height - 70);
 
         // Search Bar container
         ctx.fillStyle = 'rgba(19, 34, 54, 0.9)';
@@ -778,11 +778,9 @@ export default function AiEra({ onOpenModal }) {
                   <div
                     key={i}
                     style={{
-                      background: 'rgba(19, 34, 54, 0.85)',
-                      backdropFilter: 'blur(8px)',
-                      border: '1px solid var(--navy-700)',
-                      borderRadius: 'var(--r-sm)',
-                      padding: 'var(--s-3) var(--s-4)'
+                      background: 'transparent',
+                      border: 'none',
+                      padding: '0'
                     }}
                   >
                     <div
