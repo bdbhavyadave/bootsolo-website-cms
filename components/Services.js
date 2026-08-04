@@ -180,8 +180,8 @@ export default function Services() {
   return (
     <section className="section" id="services" style={{ background: 'var(--white)', padding: '96px 0' }}>
       <div className="wrap">
-        {/* Main Section Header */}
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
+        {/* Main Section Header (Currently Hidden) */}
+        {/* <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
           <p className="eyebrow">What We Do</p>
           <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', margin: '12px 0 16px', color: 'var(--summit)', lineHeight: 1.1 }}>
             Seven ways we drive your growth
@@ -189,7 +189,7 @@ export default function Services() {
           <p className="ds-lead" style={{ fontSize: '17px', color: 'var(--fg2)', lineHeight: 1.6 }}>
             We run the whole marketing engine, start to finish, and we build it so every piece feeds the next one.
           </p>
-        </div>
+        </div> */}
 
         {/* 1. Global AI Citation & Traction Footprint Interactive 3D Globe (Currently Hidden) */}
         {/* <div style={{ marginBottom: '80px' }}>
