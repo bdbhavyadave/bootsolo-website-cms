@@ -97,8 +97,8 @@ export default function Hero({ onOpenModal }) {
         <div className="hero-art hero-art-interactive" style={{ position: 'relative' }}>
           {/* Floating AI Dashboard Card */}
           <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '24px', boxShadow: 'var(--shadow-pop)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px solid var(--navy-700)' }}>
-              <div style={{ display: 'flex', gap: '8px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px solid var(--navy-700)', flexWrap: 'wrap', gap: '10px' }}>
+              <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', maxWidth: '100%' }}>
                 {Object.keys(scenarios).map((key) => (
                   <button
                     key={key}

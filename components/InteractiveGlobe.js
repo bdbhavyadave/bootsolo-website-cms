@@ -544,77 +544,101 @@ export default function InteractiveGlobe() {
           </div>
         </div>
 
-        {/* Floating / Active Service Detail Panel */}
+        {/* Active Service Detail Panel (Desktop Card / Mobile Bottom Sheet) */}
         {selectedService && (
-          <div
-            style={{
-              background: 'var(--summit)',
-              color: '#EEF3F8',
-              borderRadius: 'var(--r-md)',
-              padding: '40px',
-              border: '1px solid var(--sunrise)',
-              boxShadow: 'var(--glow-sunrise)',
-              position: 'relative',
-              animation: 'fadeIn 250ms var(--ease)'
-            }}
-          >
-            <button
+          <>
+            {/* Mobile Backdrop Overlay */}
+            <div
               onClick={() => setSelectedServiceIdx(null)}
               style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                background: 'var(--navy-700)',
-                border: '1px solid var(--navy-600)',
-                color: '#fff',
-                width: '32px',
-                height: '32px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer'
+                position: 'fixed',
+                inset: 0,
+                background: 'rgba(14,26,43,0.7)',
+                backdropFilter: 'blur(4px)',
+                zIndex: 998,
+                display: isTouch || (typeof window !== 'undefined' && window.innerWidth < 768) ? 'block' : 'none'
               }}
-              aria-label="Close panel"
+              aria-hidden="true"
+            />
+            <div
+              style={{
+                background: 'var(--summit)',
+                color: '#EEF3F8',
+                borderRadius: 'var(--r-md)',
+                padding: 'clamp(20px, 4vw, 40px)',
+                border: '1px solid var(--sunrise)',
+                boxShadow: 'var(--glow-sunrise)',
+                position: typeof window !== 'undefined' && window.innerWidth < 768 ? 'fixed' : 'relative',
+                bottom: typeof window !== 'undefined' && window.innerWidth < 768 ? '0' : 'auto',
+                left: typeof window !== 'undefined' && window.innerWidth < 768 ? '0' : 'auto',
+                right: typeof window !== 'undefined' && window.innerWidth < 768 ? '0' : 'auto',
+                maxHeight: typeof window !== 'undefined' && window.innerWidth < 768 ? '85vh' : 'none',
+                overflowY: typeof window !== 'undefined' && window.innerWidth < 768 ? 'auto' : 'visible',
+                zIndex: typeof window !== 'undefined' && window.innerWidth < 768 ? 999 : 1,
+                borderBottomLeftRadius: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : 'var(--r-md)',
+                borderBottomRightRadius: typeof window !== 'undefined' && window.innerWidth < 768 ? 0 : 'var(--r-md)',
+                animation: 'fadeIn 250ms var(--ease)'
+              }}
             >
-              <X size={16} />
-            </button>
+              <button
+                onClick={() => setSelectedServiceIdx(null)}
+                style={{
+                  position: 'absolute',
+                  top: '16px',
+                  right: '16px',
+                  background: 'var(--navy-700)',
+                  border: '1px solid var(--navy-600)',
+                  color: '#fff',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 10
+                }}
+                aria-label="Close panel"
+              >
+                <X size={18} />
+              </button>
 
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,107,53,0.15)', color: 'var(--sunrise-300)', padding: '6px 14px', borderRadius: '999px', fontSize: '12px', fontWeight: 600, marginBottom: '18px' }}>
-              <Globe size={14} />
-              <span>MODULE 0{selectedService.id} — {selectedService.continent.toUpperCase()}</span>
-            </div>
-
-            <h3 style={{ fontSize: '26px', lineHeight: 1.2, fontWeight: 500, margin: '0 0 12px', color: '#fff' }}>
-              {selectedService.title}
-            </h3>
-
-            <p style={{ fontSize: '15px', color: 'var(--sunrise-300)', fontWeight: 500, margin: '0 0 16px' }}>
-              {selectedService.eyebrow}
-            </p>
-
-            <p style={{ fontSize: '15.5px', lineHeight: 1.6, color: 'var(--navy-300)', marginBottom: '28px' }}>
-              {selectedService.headline}
-            </p>
-
-            <div style={{ background: 'var(--navy-800)', borderRadius: '12px', padding: '24px', border: '1px solid var(--navy-700)', marginBottom: '28px' }}>
-              <h4 style={{ fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--navy-400)', fontWeight: 600, margin: '0 0 16px' }}>
-                Key Deliverables & Capabilities
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {selectedService.deliverables.map((del, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                    <CheckCircle2 size={16} color="var(--sunrise)" style={{ flexShrink: 0, marginTop: '3px' }} />
-                    <span style={{ fontSize: '14.5px', color: '#EEF3F8', lineHeight: 1.4 }}>{del}</span>
-                  </div>
-                ))}
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255,107,53,0.15)', color: 'var(--sunrise-300)', padding: '6px 14px', borderRadius: '999px', fontSize: '12px', fontWeight: 600, marginBottom: '18px' }}>
+                <Globe size={14} />
+                <span>MODULE 0{selectedService.id} — {selectedService.continent.toUpperCase()}</span>
               </div>
-            </div>
 
-            <Link className="btn btn-primary glow-sunrise" href={selectedService.slug} style={{ width: '100%', justifyContent: 'center' }}>
-              {selectedService.ctaText}
-            </Link>
-          </div>
+              <h3 style={{ fontSize: 'clamp(20px, 4vw, 26px)', lineHeight: 1.2, fontWeight: 500, margin: '0 0 12px', color: '#fff' }}>
+                {selectedService.title}
+              </h3>
+
+              <p style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', fontWeight: 500, margin: '0 0 16px' }}>
+                {selectedService.eyebrow}
+              </p>
+
+              <p style={{ fontSize: '15px', lineHeight: 1.6, color: 'var(--navy-300)', marginBottom: '24px' }}>
+                {selectedService.headline}
+              </p>
+
+              <div style={{ background: 'var(--navy-800)', borderRadius: '12px', padding: '18px', border: '1px solid var(--navy-700)', marginBottom: '24px' }}>
+                <h4 style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--navy-400)', fontWeight: 600, margin: '0 0 12px' }}>
+                  Key Deliverables & Capabilities
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {selectedService.deliverables.map((del, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                      <CheckCircle2 size={16} color="var(--sunrise)" style={{ flexShrink: 0, marginTop: '3px' }} />
+                      <span style={{ fontSize: '14px', color: '#EEF3F8', lineHeight: 1.4 }}>{del}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Link className="btn btn-primary glow-sunrise" href={selectedService.slug} style={{ width: '100%', justifyContent: 'center' }}>
+                {selectedService.ctaText}
+              </Link>
+            </div>
+          </>
         )}
       </div>
 

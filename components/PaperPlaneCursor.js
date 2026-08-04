@@ -9,11 +9,15 @@ export default function PaperPlaneCursor() {
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    // Disable custom cursor strictly on pure touch devices (mobiles without mouse)
-    const isPureTouch = typeof window !== 'undefined' && ('ontouchstart' in window) && (navigator.maxTouchPoints > 0) && !window.matchMedia('(pointer: fine)').matches;
+    // Disable custom cursor on touch devices and small viewports
+    const isPureTouch = typeof window !== 'undefined' && (
+      window.matchMedia('(pointer: coarse)').matches ||
+      ('ontouchstart' in window && window.innerWidth <= 1024) ||
+      !window.matchMedia('(pointer: fine)').matches
+    );
     const isReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (isPureTouch) return;
+    if (isPureTouch || isReducedMotion) return;
 
     setIsActive(true);
     const canvas = canvasRef.current;

@@ -1,13 +1,16 @@
+'use client';
+
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Brand from './Brand'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
 
 const SERVICES_MEGA = [
   {
     title: "AI-Powered Marketing",
     slug: "/ai-powered-marketing",
     headline: "AI-Powered Campaigns & Automation",
-    services: "AI powered marketing; Vibe Marketing; Marketing Automation and automated funnel optimization"
+    services: "AI powered marketing; Vibe Marketing; Marketing Automation"
   },
   {
     title: "SEO / AEO / GEO",
@@ -22,13 +25,13 @@ const SERVICES_MEGA = [
     services: "Paid search; Paid social; CRO; Lead Gen"
   },
   {
-    title: "Content, Video & Thought Leadership",
+    title: "Content, Video & Authority",
     slug: "/content-video-thought-leadership",
     headline: "Content, Video & Authority Building",
-    services: "Content Marketing; Video and motion designing; Thought leadership"
+    services: "Content Marketing; Motion design; Thought leadership"
   },
   {
-    title: "Web & Ecommerce Experience",
+    title: "Web & Ecommerce",
     slug: "/web-ecommerce-experience",
     headline: "Web Design, UX & Ecommerce Experiences",
     services: "Web designing; Ecommerce"
@@ -42,12 +45,43 @@ const SERVICES_MEGA = [
 ];
 
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  // Close drawer on window resize above 992px or on Escape key
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 992) setIsOpen(false);
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsOpen(false);
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
     <nav className="nav">
       <div className="wrap nav-inner">
         <Brand />
+
+        {/* Desktop Navigation Links */}
         <div className="nav-links">
-          
           <div className="nav-item-has-mega">
             <Link href="#services" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               Services <ChevronDown size={14} />
@@ -71,11 +105,85 @@ export default function Header() {
           <Link href="/resources" style={{ display: 'flex', alignItems: 'center' }}>Resources</Link>
           <Link href="/blogs" style={{ display: 'flex', alignItems: 'center' }}>Blogs</Link>
         </div>
+
         <div className="nav-spacer"></div>
-        <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request Custom Quote</Link>
-        <Link className="btn btn-primary btn-sm glow-sunrise" href="/custom-quote" aria-label="Book a Growth Call">
-          Book a Growth Call
-        </Link>
+
+        {/* Desktop CTAs */}
+        <div className="nav-desktop-cta" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request Custom Quote</Link>
+          <Link className="btn btn-primary btn-sm glow-sunrise" href="/custom-quote" aria-label="Book a Growth Call">
+            Book a Growth Call
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Toggle Button */}
+        <button
+          type="button"
+          className="mobile-nav-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <X size={22} /> : <Menu size={22} />}
+        </button>
+
+        {/* Backdrop Overlay */}
+        <div
+          className={`mobile-drawer-backdrop ${isOpen ? 'active' : ''}`}
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+
+        {/* Slide-In Mobile Navigation Drawer */}
+        <div className={`mobile-drawer ${isOpen ? 'active' : ''}`}>
+          <div className="mobile-drawer-links">
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="mobile-drawer-link"
+              style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
+            >
+              <span>Services</span>
+              <ChevronDown size={18} style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' }} />
+            </button>
+
+            {isServicesOpen && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: '12px', marginBottom: '8px' }}>
+                {SERVICES_MEGA.map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={item.slug}
+                    onClick={closeMenu}
+                    style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+              </div>
+            )}
+
+            <Link href="/pricing" className="mobile-drawer-link" onClick={closeMenu}>
+              Pricing <ArrowRight size={16} />
+            </Link>
+            <Link href="/work" className="mobile-drawer-link" onClick={closeMenu}>
+              Work <ArrowRight size={16} />
+            </Link>
+            <Link href="/resources" className="mobile-drawer-link" onClick={closeMenu}>
+              Resources <ArrowRight size={16} />
+            </Link>
+            <Link href="/blogs" className="mobile-drawer-link" onClick={closeMenu}>
+              Blogs <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '20px', borderTop: '1px solid var(--navy-700)' }}>
+            <Link className="btn btn-ghost" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
+              Request Custom Quote
+            </Link>
+            <Link className="btn btn-primary glow-sunrise" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center' }}>
+              Book a Growth Call
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );
