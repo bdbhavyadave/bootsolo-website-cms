@@ -7,8 +7,6 @@ import {
   CheckCircle2,
   ArrowRight,
   MapPin,
-  ChevronRight,
-  X,
   Bot,
   Search,
   TrendingUp,
@@ -18,11 +16,11 @@ import {
   GraduationCap
 } from 'lucide-react';
 
-export const MODULES_HUB_DATA = [
+const MODULES = [
   {
     id: 1,
     number: '01',
-    title: 'AI-Powered Marketing',
+    name: 'AI-Powered Marketing',
     slug: '/ai-powered-marketing',
     icon: Bot,
     nodeBadge: 'SAN FRANCISCO, USA — North America Node',
@@ -44,7 +42,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 2,
     number: '02',
-    title: 'SEO, AEO & GEO',
+    name: 'SEO, AEO & GEO',
     slug: '/seo-aeo-geo',
     icon: Search,
     nodeBadge: 'LONDON, UNITED KINGDOM — Europe Node',
@@ -66,7 +64,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 3,
     number: '03',
-    title: 'Performance & Lead Generation',
+    name: 'Performance & Lead Generation',
     slug: '/performance-lead-generation',
     icon: TrendingUp,
     nodeBadge: 'TOKYO, JAPAN — Asia-Pacific Node',
@@ -88,7 +86,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 4,
     number: '04',
-    title: 'Content, Video & Authority',
+    name: 'Content, Video & Authority',
     slug: '/content-video-thought-leadership',
     icon: Video,
     nodeBadge: 'BERLIN, GERMANY — Central Europe Node',
@@ -110,7 +108,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 5,
     number: '05',
-    title: 'Web & Ecommerce Experience',
+    name: 'Web & Ecommerce Experience',
     slug: '/web-ecommerce-experience',
     icon: Monitor,
     nodeBadge: 'SÃO PAULO, BRAZIL — South America Node',
@@ -132,7 +130,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 6,
     number: '06',
-    title: 'Branding',
+    name: 'Branding',
     slug: '/branding',
     icon: Sparkles,
     nodeBadge: 'SYDNEY, AUSTRALIA — Oceania Node',
@@ -154,7 +152,7 @@ export const MODULES_HUB_DATA = [
   {
     id: 7,
     number: '07',
-    title: 'AI Enablement & Training',
+    name: 'AI Enablement & Training',
     slug: '/ai-enablement-training',
     icon: GraduationCap,
     nodeBadge: 'SINGAPORE — Global Enablement Hub',
@@ -176,23 +174,8 @@ export const MODULES_HUB_DATA = [
 ];
 
 export default function Services() {
-  // Active module ID (1 to 7) for single shared detail panel
-  const [activeModuleId, setActiveModuleId] = useState(1);
-  const [isMobilePanelOpen, setIsMobilePanelOpen] = useState(true);
-
-  const activeModule = MODULES_HUB_DATA.find((m) => m.id === activeModuleId) || MODULES_HUB_DATA[0];
-
-  const handleSelectModule = (id) => {
-    setActiveModuleId(id);
-    setIsMobilePanelOpen(true);
-  };
-
-  const handleKeyDown = (id, e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      handleSelectModule(id);
-    }
-  };
+  // Single piece of state for the active module (single source of truth)
+  const [activeModule, setActiveModule] = useState(MODULES[0]);
 
   return (
     <section className="section" id="services" style={{ background: 'var(--white)', padding: '96px 0' }}>
@@ -213,7 +196,7 @@ export default function Services() {
           <InteractiveGlobe />
         </div>
 
-        {/* 2. Menu List + Single Shared Detail Panel Layout (Replaces all card decks & grids) */}
+        {/* 2. Menu List + Single Shared Detail Panel Component */}
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid var(--border)' }}>
           <div style={{ marginBottom: '36px', textAlign: 'left' }}>
             <span style={{ fontSize: '12px', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--brand-fg)', fontWeight: 700 }}>
@@ -223,107 +206,65 @@ export default function Services() {
               Explore Our Core Service Modules
             </h3>
             <p style={{ fontSize: '14.5px', color: 'var(--fg2)', marginTop: '6px' }}>
-              Hover or tap any module in the left menu to inspect its live AI Citation Node details.
+              Hover or tap any module in the left menu list to inspect its live AI Citation Node details.
             </p>
           </div>
 
-          {/* Side-by-Side Layout on Desktop (Grid: 380px left menu, 1fr right detail panel) */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 340px), 1fr))',
-              gap: '40px',
-              alignItems: 'start'
-            }}
-          >
-            {/* LEFT COLUMN: Module Menu (Table of Contents Style List) */}
-            <div
-              role="tablist"
-              aria-label="Core Service Modules Menu"
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '8px'
-              }}
-            >
-              {MODULES_HUB_DATA.map((module) => {
-                const isActive = activeModuleId === module.id;
-                const Icon = module.icon;
-
+          {/* TWO-REGION LAYOUT: Menu List on Left (1/3), ONE Single Shared Detail Card on Right (2/3) */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }} className="md:flex-row">
+            
+            {/* REGION 1: LEFT MENU — plain text list, 7 items, NO cards, NO icons, NO grid */}
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }} className="md:w-1/3">
+              {MODULES.map((m) => {
+                const isActive = activeModule.id === m.id;
                 return (
-                  <div
-                    key={module.id}
-                    role="tab"
-                    id={`module-tab-${module.id}`}
-                    aria-selected={isActive}
-                    aria-controls="module-detail-panel"
+                  <li
+                    key={m.id}
+                    onMouseEnter={() => setActiveModule(m)}
+                    onFocus={() => setActiveModule(m)}
+                    onClick={() => setActiveModule(m)}
                     tabIndex={0}
-                    onMouseEnter={() => handleSelectModule(module.id)}
-                    onClick={() => handleSelectModule(module.id)}
-                    onKeyDown={(e) => handleKeyDown(module.id, e)}
                     style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '16px 20px',
-                      borderRadius: '12px',
-                      background: isActive ? 'var(--snow)' : 'transparent',
-                      borderLeft: `4px solid ${isActive ? 'var(--sunrise)' : 'transparent'}`,
-                      borderTop: '1px solid var(--border)',
-                      borderRight: '1px solid var(--border)',
-                      borderBottom: '1px solid var(--border)',
+                      padding: '14px 18px',
+                      borderRadius: '10px',
                       cursor: 'pointer',
-                      transition: 'all 200ms var(--ease)',
+                      borderLeft: isActive ? '4px solid var(--sunrise)' : '4px solid transparent',
+                      background: isActive ? 'var(--snow)' : 'transparent',
+                      transition: 'all 200ms ease',
                       outline: 'none',
                       userSelect: 'none'
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                      <span
-                        className="ds-mono"
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: 700,
-                          color: isActive ? 'var(--sunrise)' : 'var(--fg3)',
-                          transition: 'color 200ms ease'
-                        }}
-                      >
-                        {module.number}
-                      </span>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                        <Icon size={18} color={isActive ? 'var(--sunrise)' : 'var(--fg2)'} />
-                        <span
-                          style={{
-                            fontSize: '16px',
-                            fontWeight: isActive ? 600 : 500,
-                            color: isActive ? 'var(--summit)' : 'var(--fg1)',
-                            transition: 'color 200ms ease'
-                          }}
-                        >
-                          {module.title}
-                        </span>
-                      </div>
-                    </div>
-
-                    <ChevronRight
-                      size={18}
-                      color={isActive ? 'var(--sunrise)' : 'var(--fg3)'}
+                    <span
                       style={{
-                        transform: isActive ? 'translateX(3px)' : 'translateX(0)',
-                        transition: 'transform 200ms var(--ease), color 200ms var(--ease)'
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '12px',
+                        fontWeight: 700,
+                        color: isActive ? 'var(--sunrise)' : 'var(--fg3)',
+                        letterSpacing: '0.05em'
                       }}
-                    />
-                  </div>
+                    >
+                      MODULE 0{m.id}
+                    </span>
+                    <div
+                      style={{
+                        fontSize: '16px',
+                        fontWeight: isActive ? 600 : 500,
+                        color: isActive ? 'var(--summit)' : 'var(--fg1)',
+                        marginTop: '3px'
+                      }}
+                    >
+                      {m.name}
+                    </div>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
 
-            {/* RIGHT COLUMN: Single Shared Detail Panel (Matches Attached Reference Spec) */}
-            {isMobilePanelOpen && activeModule && (
+            {/* REGION 2: RIGHT DETAIL PANEL — EXACTLY ONE card element in DOM, content swaps via activeModule */}
+            <div className="md:w-2/3">
               <div
-                id="module-detail-panel"
-                role="tabpanel"
-                aria-labelledby={`module-tab-${activeModule.id}`}
+                key={activeModule.id}
                 style={{
                   position: 'relative',
                   borderRadius: '20px',
@@ -334,7 +275,7 @@ export default function Services() {
                   boxShadow: 'var(--glow-sunrise)',
                   padding: 'clamp(24px, 4vw, 36px)',
                   transition: 'all 250ms cubic-bezier(0.22, 1, 0.36, 1)',
-                  animation: 'fadeIn 250ms var(--ease)'
+                  animation: 'fadeIn 250ms ease'
                 }}
               >
                 {/* Soft Coral/Orange Top-Left Radial Gradient Glow */}
@@ -351,16 +292,8 @@ export default function Services() {
                 />
 
                 <div style={{ position: 'relative', zIndex: 2 }}>
-                  {/* Top Header Row: Pill Badge + Circular Close Button */}
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      gap: '12px',
-                      marginBottom: '20px'
-                    }}
-                  >
+                  {/* Top Header Row: Pill Badge */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px', marginBottom: '20px' }}>
                     <div
                       style={{
                         display: 'inline-flex',
@@ -380,46 +313,14 @@ export default function Services() {
                       <MapPin size={14} color="var(--sunrise)" />
                       <span>{activeModule.nodeBadge}</span>
                     </div>
-
-                    {/* Circular Close Button (for touch/mobile collapse) */}
-                    <button
-                      onClick={() => setIsMobilePanelOpen(false)}
-                      aria-label="Close detail panel"
-                      style={{
-                        width: '32px',
-                        height: '32px',
-                        borderRadius: '50%',
-                        background: 'var(--navy-800)',
-                        border: '1px solid var(--navy-600)',
-                        color: 'var(--navy-300)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        cursor: 'pointer',
-                        flexShrink: 0,
-                        transition: 'all 170ms var(--ease)'
-                      }}
-                      className="btn-hover-sunrise"
-                    >
-                      <X size={16} />
-                    </button>
                   </div>
 
                   {/* Main Hub Title */}
-                  <h4
-                    style={{
-                      fontSize: 'clamp(22px, 3vw, 28px)',
-                      lineHeight: 1.25,
-                      fontWeight: 600,
-                      color: '#FFFFFF',
-                      margin: '0 0 20px',
-                      letterSpacing: '-0.02em'
-                    }}
-                  >
+                  <h4 style={{ fontSize: 'clamp(22px, 3vw, 28px)', lineHeight: 1.25, fontWeight: 600, color: '#FFFFFF', margin: '0 0 20px', letterSpacing: '-0.02em' }}>
                     {activeModule.hubTitle}
                   </h4>
 
-                  {/* 2-Column Stat Box with Thin Vertical Line Divider */}
+                  {/* 2-Column Stat Box with Vertical Divider */}
                   <div
                     style={{
                       display: 'grid',
@@ -433,100 +334,33 @@ export default function Services() {
                       marginBottom: '20px'
                     }}
                   >
-                    {/* Left Column: Orange Stat */}
                     <div>
-                      <div
-                        style={{
-                          fontSize: '10.5px',
-                          fontWeight: 700,
-                          fontFamily: 'var(--font-mono), monospace',
-                          color: 'var(--navy-400)',
-                          letterSpacing: '0.08em',
-                          textTransform: 'uppercase'
-                        }}
-                      >
+                      <div style={{ fontSize: '10.5px', fontWeight: 700, fontFamily: 'var(--font-mono), monospace', color: 'var(--navy-400)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                         {activeModule.statLabel}
                       </div>
-                      <div
-                        className="mono"
-                        style={{
-                          fontSize: 'clamp(26px, 3.5vw, 32px)',
-                          fontWeight: 800,
-                          color: 'var(--sunrise-300)',
-                          marginTop: '2px',
-                          lineHeight: 1.1
-                        }}
-                      >
+                      <div className="mono" style={{ fontSize: 'clamp(26px, 3.5vw, 32px)', fontWeight: 800, color: 'var(--sunrise-300)', marginTop: '2px', lineHeight: 1.1 }}>
                         {activeModule.statValue}
                       </div>
                     </div>
 
-                    {/* Vertical Line Divider + Right Column: White Model */}
-                    <div
-                      style={{
-                        borderLeft: '1px solid var(--navy-700)',
-                        paddingLeft: '20px'
-                      }}
-                    >
-                      <div
-                        style={{
-                          fontSize: '10.5px',
-                          fontWeight: 700,
-                          fontFamily: 'var(--font-mono), monospace',
-                          color: 'var(--navy-400)',
-                          letterSpacing: '0.08em',
-                          textTransform: 'uppercase'
-                        }}
-                      >
+                    <div style={{ borderLeft: '1px solid var(--navy-700)', paddingLeft: '20px' }}>
+                      <div style={{ fontSize: '10.5px', fontWeight: 700, fontFamily: 'var(--font-mono), monospace', color: 'var(--navy-400)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                         {activeModule.modelLabel}
                       </div>
-                      <div
-                        style={{
-                          fontSize: '15px',
-                          fontWeight: 600,
-                          color: '#FFFFFF',
-                          marginTop: '4px',
-                          lineHeight: 1.3
-                        }}
-                      >
+                      <div style={{ fontSize: '15px', fontWeight: 600, color: '#FFFFFF', marginTop: '4px', lineHeight: 1.3 }}>
                         {activeModule.modelValue}
                       </div>
                     </div>
                   </div>
 
                   {/* Description Sentence */}
-                  <p
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: 1.6,
-                      color: 'var(--navy-300)',
-                      margin: '0 0 24px'
-                    }}
-                  >
+                  <p style={{ fontSize: '15px', lineHeight: 1.6, color: 'var(--navy-300)', margin: '0 0 24px' }}>
                     {activeModule.description}
                   </p>
 
                   {/* Live Traction Highlights Box */}
-                  <div
-                    style={{
-                      background: 'var(--navy-800)',
-                      borderRadius: '14px',
-                      padding: '20px',
-                      border: '1px solid var(--navy-700)',
-                      marginBottom: '28px'
-                    }}
-                  >
-                    <h5
-                      style={{
-                        fontSize: '11px',
-                        fontWeight: 700,
-                        fontFamily: 'var(--font-mono), monospace',
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        color: 'var(--navy-400)',
-                        margin: '0 0 14px'
-                      }}
-                    >
+                  <div style={{ background: 'var(--navy-800)', borderRadius: '14px', padding: '20px', border: '1px solid var(--navy-700)', marginBottom: '28px' }}>
+                    <h5 style={{ fontSize: '11px', fontWeight: 700, fontFamily: 'var(--font-mono), monospace', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--navy-400)', margin: '0 0 14px' }}>
                       {activeModule.highlightsTitle}
                     </h5>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -543,21 +377,15 @@ export default function Services() {
                   <Link
                     href={activeModule.slug}
                     className="btn btn-primary glow-sunrise"
-                    style={{
-                      width: '100%',
-                      justifyContent: 'center',
-                      height: '48px',
-                      fontSize: '15px',
-                      fontWeight: 600,
-                      borderRadius: '12px'
-                    }}
+                    style={{ width: '100%', justifyContent: 'center', height: '48px', fontSize: '15px', fontWeight: 600, borderRadius: '12px' }}
                   >
                     <span>{activeModule.ctaText}</span>
                     <ArrowRight size={18} />
                   </Link>
                 </div>
               </div>
-            )}
+            </div>
+
           </div>
         </div>
       </div>
