@@ -137,7 +137,9 @@
   font-size: var(--text-label); line-height: var(--lh-label);
   letter-spacing: var(--track-label); text-transform: uppercase; }
 .ds-mono { font-family: var(--font-mono); font-weight: var(--w-regular);
-  font-size: var(--text-sm); line-height: var(--lh-sm); lett/* Bootsolo — Marketing website kit. Light-first with dark hero/CTA/footer bands.
+  font-size: var(--text-sm); line-height: var(--lh-sm); letter-spacing: 0; }
+
+/* Bootsolo — Marketing website kit. Light-first with dark hero/CTA/footer bands.
    Tokens from colors_and_type.css. ".dark" flips theme vars for dark bands. */
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth; width: 100%; max-width: 100vw; overflow-x: hidden;}
