@@ -44,7 +44,7 @@ export default function WhyBootsolo() {
         </div>
 
         {/* 4 Comparison Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px', alignItems: 'stretch' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '20px', alignItems: 'stretch' }}>
           {options.map((opt) => {
             const isBootsolo = opt.featured;
             return (
