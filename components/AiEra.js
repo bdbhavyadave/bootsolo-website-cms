@@ -615,78 +615,20 @@ export default function AiEra({ onOpenModal }) {
               minHeight: '380px'
             }}
           >
-            {/* Background Content-Matched Motion Video Canvas + Dark Overlay */}
-            {!prefersReducedMotion ? (
-              <>
-                {/* Content-Matched Animated Motion Graphic Canvas (60 FPS) */}
-                <canvas
-                  ref={canvasRef}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    zIndex: 1,
-                    pointerEvents: 'none'
-                  }}
-                />
-
-                {/* HTML5 Video Layer (loads themed mp4 video file when provided) */}
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  aria-hidden="true"
-                  key={activeItem.id}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    zIndex: 2,
-                    pointerEvents: 'none',
-                    opacity: 0.65,
-                    transition: 'opacity var(--dur) var(--ease)'
-                  }}
-                >
-                  <source src={activeItem.videoMp4} type="video/mp4" />
-                  <source src={activeItem.videoWebm} type="video/webm" />
-                </video>
-
-                {/* Brand Overlay Tint (--summit #0E1A2B @ ~60% opacity for clear motion + crisp text legibility) */}
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: 'linear-gradient(135deg, rgba(14,26,43,0.65) 0%, rgba(14,26,43,0.50) 100%)',
-                    zIndex: 3,
-                    pointerEvents: 'none'
-                  }}
-                />
-              </>
-            ) : (
-              /* Reduced Motion Static Fallback Frame */
-              <div
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'var(--summit)',
-                  backgroundImage: 'radial-gradient(circle at 80% 20%, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 60%)',
-                  zIndex: 1,
-                  pointerEvents: 'none'
-                }}
-              />
-            )}
+            {/* Clean Background Frame with Subtle Sunrise Ambient Radial Glow */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                background: 'var(--summit)',
+                backgroundImage: 'radial-gradient(circle at 85% 15%, rgba(255,107,53,0.12) 0%, rgba(14,26,43,0) 60%)',
+                zIndex: 1,
+                pointerEvents: 'none'
+              }}
+            />
 
             {/* Content Container (Layered above video, motion engine & overlay at z-index: 4) */}
             <div style={{ position: 'relative', zIndex: 4 }}>
