@@ -191,10 +191,10 @@ export default function Services() {
           </p>
         </div>
 
-        {/* 1. Global AI Citation & Traction Footprint Interactive 3D Globe */}
-        <div style={{ marginBottom: '80px' }}>
+        {/* 1. Global AI Citation & Traction Footprint Interactive 3D Globe (Currently Hidden) */}
+        {/* <div style={{ marginBottom: '80px' }}>
           <InteractiveGlobe />
-        </div>
+        </div> */}
 
         {/* 2. Menu List + Single Shared Detail Panel Component */}
         <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid var(--border)' }}>
@@ -210,11 +210,11 @@ export default function Services() {
             </p>
           </div>
 
-          {/* TWO-REGION LAYOUT: Menu List on Left (1/3), ONE Single Shared Detail Card on Right (2/3) */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }} className="md:flex-row">
+          {/* TWO-REGION LAYOUT: Menu List on Left (30%), ONE Single Shared Detail Card on Right (70%) */}
+          <div className="modules-explorer-layout">
             
             {/* REGION 1: LEFT MENU — plain text list, 7 items, NO cards, NO icons, NO grid */}
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }} className="md:w-1/3">
+            <ul className="modules-menu-list">
               {MODULES.map((m) => {
                 const isActive = activeModule.id === m.id;
                 return (
@@ -262,7 +262,7 @@ export default function Services() {
             </ul>
 
             {/* REGION 2: RIGHT DETAIL PANEL — EXACTLY ONE card element in DOM, content swaps via activeModule */}
-            <div className="md:w-2/3">
+            <div className="module-detail-container">
               <div
                 key={activeModule.id}
                 style={{
