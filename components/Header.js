@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Brand from './Brand'
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react'
@@ -45,6 +46,8 @@ const SERVICES_MEGA = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 

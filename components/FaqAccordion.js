@@ -23,7 +23,7 @@ const FAQS = [
 ];
 
 export default function FaqAccordion() {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState(-1);
 
   const toggleFaq = (idx) => {
     setOpenIndex(openIndex === idx ? -1 : idx);
@@ -129,6 +129,10 @@ export default function FaqAccordion() {
           margin-top: 1rem;
           padding-top: 1rem;
           border-top: 1px solid var(--border);
+          overflow-wrap: break-word;
+          word-break: break-word;
+          box-sizing: border-box;
+          max-width: 100%;
           animation: fadeIn 170ms ease;
         }
         @keyframes fadeIn {

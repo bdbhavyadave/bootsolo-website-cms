@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Custom Quote | Interactive Configurator — Bootsolo</title>
+  <meta name="description" content="Configure a tailored marketing package with real-time price estimates for bootstrapped startups and solopreneurs.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <!-- Navigation Bar -->
+  <!-- Navigation Bar (White Background + Previous Bootsolo Paper Plane Logo) -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand-link" href="index.html" aria-label="Bootsolo Home" style="display:inline-flex;align-items:center;text-decoration:none;">
+        <svg height="30" viewBox="90 220 660 240" fill="none" style="height:30px;width:auto;display:block;" aria-label="Bootsolo Logo">
+          <g fill="#0E1A2B">
+            <path d="M153.3,364.34c21.77,0,38.8,17.35,38.8,45.11c0,27.76-17.19,45.43-38.8,45.43c-12.93,0-22.24-5.84-27.13-13.57v12.3H99.2V336.89h26.97v41.17C131.06,370.17,140.69,364.34,153.3,364.34z M145.26,387.84c-10.1,0-19.24,7.73-19.24,21.77s9.15,21.77,19.24,21.77c10.25,0,19.4-7.89,19.4-21.93C164.66,395.41,155.51,387.84,145.26,387.84z"/>
+            <path d="M240.06,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S265.92,454.88,240.06,454.88z M240.06,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C222.07,424.43,230.28,431.53,240.06,431.53z"/>
+            <path d="M334.22,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S360.09,454.88,334.22,454.88z M334.22,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C316.24,424.43,324.44,431.53,334.22,431.53z"/>
+            <path d="M392.58,388h-10.73v-22.4h10.73l26.97-21.45l0,0v21.45h17.67V388h-17.67v35.33c0,5.21,2.21,7.41,8.2,7.41h9.62v22.87h-13.72c-18.3,0-31.07-7.73-31.07-30.6V388z"/>
+            <path d="M481.86,454.88c-23.5,0-39.28-13.09-40.54-30.13h26.66c0.63,6.15,6.15,10.25,13.57,10.25c6.94,0,10.57-3.15,10.57-7.1c0-14.2-47.95-3.94-47.95-36.28c0-14.98,12.78-27.29,35.81-27.29c22.71,0,35.33,12.62,37.07,29.97h-24.92c-0.79-5.99-5.36-9.94-12.93-9.94c-6.31,0-9.78,2.52-9.78,6.78c0,14.04,47.64,4.1,48.11,36.91C517.51,443.36,503.94,454.88,481.86,454.88z"/>
+            <path d="M564.67,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S590.54,454.88,564.67,454.88z M564.67,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C546.69,424.43,554.89,431.53,564.67,431.53z"/>
+            <path d="M615.62,336.89h26.97v116.72h-26.97V336.89z"/>
+            <path d="M692.75,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S718.62,454.88,692.75,454.88z M692.75,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C674.77,424.43,682.97,431.53,692.75,431.53z"/>
+            <polygon points="434.6,361.16 578.33,313.88 576.39,308 423.99,358.13 423.99,361.16"/>
+            <rect x="471.28" y="289.53" transform="matrix(0.9499 -0.3126 0.3126 0.9499 -65.1008 179.2003)" width="110.09" height="6.19"/>
+            <path d="M423.99,347.77l118.95-39L541,302.9l-117.86,38.64c0.53,0.73,0.85,1.63,0.85,2.61V347.77z"/>
+          </g>
+          <path fill="#F37321" fill-rule="evenodd" clip-rule="evenodd" d="M599.61,310.96l9.42-17.78l3.68,9.6L599.61,310.96z M620.09,282.79l100.36-40.3l-65.33,77.54L620.09,282.79z M690.81,233.71l-84.53,24.33l-7.46,2.15l-22.72-24.15L690.81,233.71z M743.64,225.71l-135.55,54.43l-26.66,50.34l39.79-24.86l-7.46-19.46l41.65,44.28L743.64,225.71l-183.26,3.72l36.3,38.59l0.28-0.08l-6.5,28.88l12.91-30.73L743.64,225.71z"/>
+        </svg>
+      </a>
+
+      <div class="nav-links">
+        <div class="nav-item-has-mega">
+          <a href="#services">
+            Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-menu-grid">
+              <a href="services/ai-powered-marketing.html" class="mega-item">
+                <div class="mega-item-title">AI-Powered Marketing</div>
+                <div class="mega-item-headline">AI-Powered Campaigns &amp; Automation</div>
+                <div class="mega-item-services">AI marketing, Vibe marketing, automated funnel optimization</div>
+              </a>
+              <a href="services/seo-aeo-geo.html" class="mega-item">
+                <div class="mega-item-title">SEO / AEO / GEO</div>
+                <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
+                <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
+              </a>
+              <a href="services/performance-lead-generation.html" class="mega-item">
+                <div class="mega-item-title">Performance &amp; Lead Generation</div>
+                <div class="mega-item-headline">Paid Media &amp; Pipeline Growth</div>
+                <div class="mega-item-services">Paid search, paid social, conversion rate optimization (CRO)</div>
+              </a>
+              <a href="services/content-video-thought-leadership.html" class="mega-item">
+                <div class="mega-item-title">Content, Video &amp; Thought Leadership</div>
+                <div class="mega-item-headline">Content, Video &amp; Authority Building</div>
+                <div class="mega-item-services">High-converting copywriting, motion design, founder branding</div>
+              </a>
+              <a href="services/web-ecommerce-experience.html" class="mega-item">
+                <div class="mega-item-title">Web &amp; Ecommerce Experience</div>
+                <div class="mega-item-headline">Web Design &amp; Store UX</div>
+                <div class="mega-item-services">High-performance landing pages, store speed &amp; checkout flows</div>
+              </a>
+              <a href="services/branding.html" class="mega-item">
+                <div class="mega-item-title">Branding</div>
+                <div class="mega-item-headline">Brand Identity &amp; Positioning</div>
+                <div class="mega-item-services">Visual systems, tone of voice, narrative &amp; founder storytelling</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="pricing.html">Pricing</a>
+        <a href="work.html">Work</a>
+        <a href="resources.html">Resources</a>
+        <a href="blogs.html">Blogs</a>
+      </div>
+
+      <div class="nav-spacer"></div>
+      <a class="btn btn-ghost btn-sm" href="custom-quote.html">Request custom quote</a>
+      <a class="btn btn-primary btn-sm" href="index.html#cta">Start the climb</a>
+
+      <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="services/ai-powered-marketing.html" style="font-weight:600;">AI-Powered Marketing</a>
+      <a href="services/seo-aeo-geo.html" style="font-weight:600;">SEO / AEO / GEO</a>
+      <a href="services/performance-lead-generation.html" style="font-weight:600;">Performance &amp; Lead Gen</a>
+      <a href="services/content-video-thought-leadership.html" style="font-weight:600;">Content &amp; Video</a>
+      <a href="services/web-ecommerce-experience.html" style="font-weight:600;">Web &amp; Ecommerce</a>
+      <a href="services/branding.html" style="font-weight:600;">Branding</a>
+      <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+      <a href="pricing.html">Pricing</a>
+      <a href="work.html">Work</a>
+      <a href="resources.html">Resources</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="custom-quote.html" class="btn btn-ghost" style="text-align:center;">Request Custom Quote</a>
+      <a href="index.html#cta" class="btn btn-primary" style="text-align:center;">Start the Climb</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="hero dark" style="padding:80px 0 60px;">
+    <div class="wrap">
+      <div style="max-width:760px;">
+        <span class="kick">Tailored Route Planner</span>
+        <h1 class="h-display" style="font-size:52px;margin-top:14px;">Build Your Custom Quote</h1>
+        <p class="h-sub" style="font-size:18px;margin-top:16px;">
+          Mix and match services to build your perfect route map. Select your terrain below, tell us about your goals, and get an honest roadmap with transparent pricing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote Builder Interactive Form -->
+  <section class="section" style="padding-top:60px;">
+    <div class="wrap">
+      <form id="quote-builder-form" data-ajax-form>
+        <div class="quote-builder-grid">
+          
+          <!-- Services Selector Column -->
+          <div class="quote-services-col">
+            
+            <!-- Category 1 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">1. AI-Powered Marketing</span>
+                <span class="wtag">Campaigns &amp; Intelligence</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Vibe Marketing" data-price="300" value="vibe-marketing">
+                  <span><strong>Vibe Marketing:</strong> Audience psychographics, persona scan &amp; messaging map</span>
+                  <span class="quote-price-tag">+$300</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="AI-Powered Marketing" data-price="400" value="ai-marketing">
+                  <span><strong>AI-Powered Marketing:</strong> Prompt libraries &amp; autonomous campaign execution</span>
+                  <span class="quote-price-tag">+$400</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Marketing Automation" data-price="700" value="marketing-automation">
+                  <span><strong>Marketing Automation:</strong> Automated funnels, triggers &amp; lifecycle workflows</span>
+                  <span class="quote-price-tag">+$700</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">2. SEO / AEO / GEO</span>
+                <span class="wtag">AI Search Citation</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Local SEO &amp; AEO" data-price="400" value="local-seo">
+                  <span><strong>Local SEO &amp; AEO:</strong> Maps rank, directory schema &amp; answer engines</span>
+                  <span class="quote-price-tag">+$400</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Growth SEO &amp; AEO" data-price="700" value="growth-seo">
+                  <span><strong>Growth SEO &amp; AEO:</strong> Answer box capture, entity graphs &amp; technical audit</span>
+                  <span class="quote-price-tag">+$700</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Authority Suite" data-price="1200" value="authority-suite">
+                  <span><strong>Authority Suite:</strong> High-intent citation linkbuilding &amp; complete schema</span>
+                  <span class="quote-price-tag">+$1,200</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">3. Performance &amp; Lead Generation</span>
+                <span class="wtag">Paid &amp; Funnel Optimization</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Conversion Rate Optimization" data-price="350" value="cro">
+                  <span><strong>Conversion Rate Optimization:</strong> Page teardowns, heuristic audit &amp; copy A/B test</span>
+                  <span class="quote-price-tag">+$350</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Paid Social" data-price="400" value="paid-social">
+                  <span><strong>Paid Social:</strong> Meta/LinkedIn creative angles, targeting &amp; tracking setup</span>
+                  <span class="quote-price-tag">+$400</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Paid Search" data-price="450" value="paid-search">
+                  <span><strong>Paid Search:</strong> High-intent Google Search campaigns with negative keyword scrub</span>
+                  <span class="quote-price-tag">+$450</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Outbound Lead Generation" data-price="500" value="lead-gen">
+                  <span><strong>Lead Gen Sequences:</strong> Verified list building &amp; personalized automated sequences</span>
+                  <span class="quote-price-tag">+$500</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">4. Content, Video &amp; Thought Leadership</span>
+                <span class="wtag">Creative &amp; Motion</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Video &amp; Motion Design" data-price="400" value="video-motion">
+                  <span><strong>Video &amp; Motion:</strong> Short-form product clips, motion ads &amp; walkthroughs</span>
+                  <span class="quote-price-tag">+$400</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Content Marketing Engine" data-price="450" value="content-marketing">
+                  <span><strong>Content Marketing:</strong> High-value blog playbooks &amp; viral distribution snippets</span>
+                  <span class="quote-price-tag">+$450</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Executive Thought Leadership" data-price="450" value="thought-leadership">
+                  <span><strong>Thought Leadership:</strong> Founder social strategy &amp; ghostwritten weekly insights</span>
+                  <span class="quote-price-tag">+$450</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 5 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">5. Web &amp; Ecommerce Experience</span>
+                <span class="wtag">Conversion UX</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Ecommerce Optimization" data-price="500" value="ecommerce">
+                  <span><strong>Ecommerce Optimization:</strong> Cart speed, average order value &amp; checkout friction audit</span>
+                  <span class="quote-price-tag">+$500</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="High-Converting Web Design" data-price="700" value="web-design">
+                  <span><strong>Web Designing:</strong> Modern responsive landing page built for rapid conversion</span>
+                  <span class="quote-price-tag">+$700</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 6 -->
+            <div class="quote-card-item">
+              <div class="quote-card-header">
+                <span class="quote-card-title">6. Branding</span>
+                <span class="wtag">Visual Identity</span>
+              </div>
+              <div class="quote-card-options">
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Brand Identity Mini Kit" data-price="600" value="brand-mini">
+                  <span><strong>Brand Identity Mini Kit:</strong> Color palette, typography, mark &amp; assets</span>
+                  <span class="quote-price-tag">+$600</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Brand Story &amp; Visuals" data-price="1000" value="brand-story">
+                  <span><strong>Brand Story &amp; Visuals:</strong> Story narrative, asset library &amp; pitch deck assets</span>
+                  <span class="quote-price-tag">+$1,000</span>
+                </label>
+                <label class="quote-option-label">
+                  <input type="checkbox" data-name="Full Brand System" data-price="1800" value="brand-full">
+                  <span><strong>Full Brand System:</strong> End-to-end design system, guidelines &amp; collateral</span>
+                  <span class="quote-price-tag">+$1,800</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Sticky Summary Sidebar -->
+          <div class="quote-sidebar-col">
+            <div class="quote-summary-sticky">
+              <span class="kick">Your Estimated Route</span>
+              <div class="quote-summary-total" id="quote-total-price">$0</div>
+              <div id="quote-selected-count" style="font-size:14px;color:var(--fg2);margin-bottom:16px;">
+                0 services selected
+              </div>
+
+              <div style="border-top:1px solid var(--border);padding-top:16px;margin-bottom:24px;">
+                <ul id="quote-selected-list" style="list-style:none;padding:0;margin:0;">
+                  <li style="color:var(--fg3);font-size:13.5px;">No services selected yet. Choose options on the left to configure your plan.</li>
+                </ul>
+              </div>
+
+              <div style="border-top:1px solid var(--border);padding-top:20px;">
+                <h4 style="font-size:15px;font-weight:600;margin-bottom:12px;">Contact Details</h4>
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" name="email" class="form-control" placeholder="Work Email" required>
+                </div>
+                <div class="form-group">
+                  <input type="url" name="company" class="form-control" placeholder="Website / URL">
+                </div>
+                <div class="form-group">
+                  <textarea name="message" class="form-control" placeholder="Notes or specific timeline..." style="min-height:70px;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;height:46px;">
+                  Request Strategy Map
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <a class="brand" href="index.html">
+          <span class="tile">
+            <svg width="18" height="18" viewBox="0 0 64 64" fill="none">
+              <path d="M26 12 L46 52 H6 L26 12 Z" fill="#FF6B35" />
+              <path d="M26 12 L34 30 L26 26 L18 30 L26 12 Z" fill="#F7F5F1" />
+              <circle cx="47" cy="20" r="6" fill="#F4B740" />
+            </svg>
+          </span>
+          bootsolo
+        </a>
+          <p class="foot-tag">The AI-native marketing team for bootstrapped founders. Start solo, climb fast — on a budget that fits in a backpack.</p>
+        </div>
+        <div class="foot-col">
+          <h5>What we do</h5>
+          <a href="services/ai-powered-marketing.html">AI Marketing</a>
+          <a href="services/seo-aeo-geo.html">Get Found by AI (GEO)</a>
+          <a href="services/performance-lead-generation.html">Lead Generation</a>
+          <a href="services/content-video-thought-leadership.html">Content Engine</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="work.html">The Routes (Work)</a>
+          <a href="pricing.html">Pricing Directory</a>
+          <a href="custom-quote.html">Custom Quote</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h5>Resources</h5>
+          <a href="resources.html">Founder Guides</a>
+          <a href="resources.html">Free Route Map</a>
+          <a href="blogs.html">Field Notes (Blog)</a>
+          <a href="resources.html">Help Center</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Bootsolo, Inc. All rights reserved.</span>
+        <span>For the ones who started solo.</span>
+      </div>
+    </div>
+  </footer>
+
+  
+  <!-- Universal Growth Call Modal -->
+  <div id="growth-call-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Step 1: Info & Goal -->
+      <div id="growth-modal-step-1">
+        <div class="modal-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+          30-Min Strategy Session · Zero Pitch
+        </div>
+        <h3 id="modal-headline" class="modal-title">Book a Growth Call</h3>
+        <p class="modal-sub">Tell us a bit about your brand so we come prepared with actionable data and live competitor teardowns.</p>
+
+        <form class="modal-form-grid" onsubmit="return false;">
+          <div class="modal-field">
+            <label for="growth-name">Your Name *</label>
+            <input type="text" id="growth-name" placeholder="e.g. Alex Rivera" required>
+          </div>
+          <div class="modal-field">
+            <label for="growth-email">Work Email *</label>
+            <input type="email" id="growth-email" placeholder="alex@company.com" required>
+          </div>
+          <div class="modal-field">
+            <label for="growth-company">Company / Website</label>
+            <input type="text" id="growth-company" placeholder="yoursite.com">
+          </div>
+          <div class="modal-field">
+            <label for="growth-goal">Primary Growth Goal</label>
+            <select id="growth-goal">
+              <option value="AI Search & AEO Visibility">AI Search & AEO Visibility (ChatGPT, Perplexity)</option>
+              <option value="Performance Marketing & Paid Media">Performance Marketing & Paid Ads (-58% CPA)</option>
+              <option value="Content Engine & Authority">Content Engine & Thought Leadership</option>
+              <option value="Website & Conversion Optimization">Website & Conversion Rate Optimization</option>
+              <option value="Full-Funnel Growth Architecture">Full-Funnel Autonomous Marketing Team</option>
+            </select>
+          </div>
+          <button type="button" id="modal-to-step-2" class="btn btn-primary" style="margin-top:8px;justify-content:center;">
+            Next: Select Time Slot →
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Time Slot -->
+      <div id="growth-modal-step-2" style="display:none;">
+        <div class="modal-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Direct Calendar Sync
+        </div>
+        <h3 class="modal-title">Select Preferred Time</h3>
+        <p class="modal-sub">Pick a time that works best for your schedule. All times shown in your local timezone.</p>
+
+        <div class="time-slots">
+          <button type="button" class="time-slot-btn selected">
+            <span class="slot-day">Tomorrow (Wed)</span>
+            <span class="slot-time">2:00 PM – 2:30 PM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Tomorrow (Wed)</span>
+            <span class="slot-time">4:30 PM – 5:00 PM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Thursday</span>
+            <span class="slot-time">11:00 AM – 11:30 AM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Thursday</span>
+            <span class="slot-time">3:00 PM – 3:30 PM EST</span>
+          </button>
+        </div>
+
+        <div class="modal-field" style="margin-top:12px;">
+          <label for="growth-notes">Anything specific you want us to research? (Optional)</label>
+          <textarea id="growth-notes" placeholder="e.g. Look at our pricing page conversion or our competitors on Perplexity"></textarea>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <button type="button" onclick="document.getElementById('growth-modal-step-2').style.display='none';document.getElementById('growth-modal-step-1').style.display='block';" class="btn btn-ghost" style="flex:1;justify-content:center;">Back</button>
+          <button type="button" id="modal-confirm-call" class="btn btn-primary" style="flex:2;justify-content:center;">Confirm Growth Call ✓</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Success -->
+      <div id="growth-modal-success" style="display:none;" class="modal-success-box">
+        <div class="modal-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="modal-title">Growth Call Confirmed!</h3>
+        <p class="modal-sub">We've reserved 30 minutes with our growth architects. A Google Meet invitation and calendar event have been dispatched to your inbox.</p>
+
+        <div class="modal-summary-card">
+          <div class="modal-summary-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Time: <strong id="summary-time">Tomorrow, 2:00 PM EST</strong></span>
+          </div>
+          <div class="modal-summary-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="22" y1="12" x2="18" y2="12"></line>
+              <line x1="6" y1="12" x2="2" y2="12"></line>
+              <line x1="12" y1="6" x2="12" y2="2"></line>
+              <line x1="12" y1="22" x2="12" y2="18"></line>
+            </svg>
+            <span>Goal: <strong id="summary-goal">AI Search & AEO Visibility</strong></span>
+          </div>
+          <div class="modal-summary-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Brand: <strong id="summary-company">Your Brand</strong></span>
+          </div>
+        </div>
+
+        <button type="button" id="modal-done-btn" class="btn btn-primary" style="width:100%;justify-content:center;">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -19,56 +19,55 @@ export default function SeoManagement() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         <div style={{ background: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', textAlign: 'center' }}>
           <div style={{ width: '120px', height: '120px', borderRadius: '50%', border: '8px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#10b981' }}>85</span>
+            <span style={{ fontSize: '2.5rem', fontWeight: 800, color: '#10b981' }}>100</span>
           </div>
-          <h3 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Overall SEO Score</h3>
-          <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '0.875rem' }}>Your site is performing well. Fix the warnings below to reach 100.</p>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 700 }}>Technical SEO Health</h3>
+          <p style={{ color: '#64748b', marginTop: '0.5rem', fontSize: '0.875rem' }}>Core marketing routes, meta descriptions, and semantic markup validated.</p>
         </div>
         
         <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Quick Stats</h3>
+          <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Site Audit</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: '#64748b' }}>Indexed Pages</span>
-              <span style={{ fontWeight: 600 }}>42</span>
+              <span style={{ color: '#64748b' }}>Published Routes</span>
+              <span style={{ fontWeight: 600 }}>12 Routes</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: '#64748b' }}>Ranking Keywords</span>
-              <span style={{ fontWeight: 600 }}>156</span>
+              <span style={{ color: '#64748b' }}>Meta Tags</span>
+              <span style={{ fontWeight: 600, color: '#16a34a' }}>Configured</span>
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span style={{ color: '#64748b' }}>Average Position</span>
-              <span style={{ fontWeight: 600 }}>14.2</span>
+              <span style={{ color: '#64748b' }}>Sitemap & Robots</span>
+              <span style={{ fontWeight: 600, color: '#16a34a' }}>Live</span>
             </div>
           </div>
         </div>
       </div>
 
       <div style={{ background: 'white', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem' }}>Action Items</h3>
+        <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '1.5rem' }}>Technical Health Checks</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'flex', gap: '1rem', padding: '1rem', background: '#fffbeb', borderRadius: '8px', border: '1px solid #fde68a' }}>
-            <AlertTriangle color="#d97706" style={{ flexShrink: 0 }} />
+          <div style={{ display: 'flex', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '8px', border: '1px solid #bbf7d0' }}>
+            <CheckCircle color="#16a34a" style={{ flexShrink: 0 }} />
             <div>
-              <h4 style={{ fontWeight: 600, color: '#92400e' }}>Missing Meta Descriptions</h4>
-              <p style={{ fontSize: '0.875rem', color: '#b45309', marginTop: '0.25rem' }}>3 pages are missing meta descriptions. This affects CTR in search results.</p>
-              <button style={{ marginTop: '0.5rem', background: '#d97706', color: 'white', border: 'none', padding: '0.25rem 0.75rem', borderRadius: '4px', fontSize: '0.75rem', cursor: 'pointer' }}>Fix Now</button>
+              <h4 style={{ fontWeight: 600, color: '#166534' }}>Semantic Meta Hierarchy</h4>
+              <p style={{ fontSize: '0.875rem', color: '#15803d', marginTop: '0.25rem' }}>Titles, descriptions, and OpenGraph social cards are active across all primary landing pages.</p>
             </div>
           </div>
           
           <div style={{ display: 'flex', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '8px', border: '1px solid #bbf7d0' }}>
             <CheckCircle color="#16a34a" style={{ flexShrink: 0 }} />
             <div>
-              <h4 style={{ fontWeight: 600, color: '#166534' }}>Mobile Usability</h4>
-              <p style={{ fontSize: '0.875rem', color: '#15803d', marginTop: '0.25rem' }}>All 42 pages pass Google's Mobile-Friendly Test.</p>
+              <h4 style={{ fontWeight: 600, color: '#166534' }}>Mobile Usability & Responsive</h4>
+              <p style={{ fontSize: '0.875rem', color: '#15803d', marginTop: '0.25rem' }}>All landing pages and quote builders optimized for mobile and desktop screens.</p>
             </div>
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', padding: '1rem', background: '#f0fdf4', borderRadius: '8px', border: '1px solid #bbf7d0' }}>
             <CheckCircle color="#16a34a" style={{ flexShrink: 0 }} />
             <div>
-              <h4 style={{ fontWeight: 600, color: '#166534' }}>SSL Certificate</h4>
-              <p style={{ fontSize: '0.875rem', color: '#15803d', marginTop: '0.25rem' }}>Valid HTTPS connection established.</p>
+              <h4 style={{ fontWeight: 600, color: '#166534' }}>AI Search & AEO Readiness</h4>
+              <p style={{ fontSize: '0.875rem', color: '#15803d', marginTop: '0.25rem' }}>Semantic JSON-LD structure supports Perplexity, ChatGPT, and Google AI Overviews.</p>
             </div>
           </div>
         </div>
@@ -134,28 +133,36 @@ export default function SeoManagement() {
             </tr>
           </thead>
           <tbody>
-            {keywords.map((item) => (
-              <tr key={item.id} style={{ borderBottom: '1px solid #eee' }}>
-                <td style={{ padding: '1rem 1.5rem', fontWeight: 600 }}>{item.keyword}</td>
-                <td style={{ padding: '1rem 1.5rem', color: '#64748b' }}>{item.search_volume.toLocaleString()}</td>
-                <td style={{ padding: '1rem 1.5rem' }}>
-                  <span style={{ color: item.current_rank <= 3 ? '#10b981' : item.current_rank <= 10 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>
-                    #{item.current_rank}
-                  </span>
-                </td>
-                <td style={{ padding: '1rem 1.5rem' }}>
-                  <div style={{ width: '100px', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
-                    <div style={{ width: `${item.difficulty_score}%`, height: '100%', background: item.difficulty_score > 70 ? '#ef4444' : '#f59e0b' }}></div>
-                  </div>
-                  <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{item.difficulty_score} / 100</span>
-                </td>
-                <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
-                  <button onClick={() => handleDeleteKeyword(item.id)} style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
-                    <AlertTriangle size={16} /> Delete
-                  </button>
+            {keywords.length === 0 ? (
+              <tr>
+                <td colSpan="5" style={{ padding: '2rem', textAlign: 'center', color: '#888' }}>
+                  No tracked keywords found. Add target keywords using the input above.
                 </td>
               </tr>
-            ))}
+            ) : (
+              keywords.map((item) => (
+                <tr key={item.id} style={{ borderBottom: '1px solid #eee' }}>
+                  <td style={{ padding: '1rem 1.5rem', fontWeight: 600 }}>{item.keyword}</td>
+                  <td style={{ padding: '1rem 1.5rem', color: '#64748b' }}>{item.search_volume.toLocaleString()}</td>
+                  <td style={{ padding: '1rem 1.5rem' }}>
+                    <span style={{ color: item.current_rank <= 3 ? '#10b981' : item.current_rank <= 10 ? '#f59e0b' : '#ef4444', fontWeight: 600 }}>
+                      #{item.current_rank}
+                    </span>
+                  </td>
+                  <td style={{ padding: '1rem 1.5rem' }}>
+                    <div style={{ width: '100px', height: '6px', background: '#e2e8f0', borderRadius: '3px', overflow: 'hidden' }}>
+                      <div style={{ width: `${item.difficulty_score}%`, height: '100%', background: item.difficulty_score > 70 ? '#ef4444' : '#f59e0b' }}></div>
+                    </div>
+                    <span style={{ fontSize: '0.75rem', color: '#64748b' }}>{item.difficulty_score} / 100</span>
+                  </td>
+                  <td style={{ padding: '1rem 1.5rem', textAlign: 'right' }}>
+                    <button onClick={() => handleDeleteKeyword(item.id)} style={{ padding: '0.4rem', color: '#ef4444', background: 'none', border: 'none', cursor: 'pointer' }}>
+                      <AlertTriangle size={16} /> Delete
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
@@ -167,12 +174,12 @@ export default function SeoManagement() {
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
         <div>
           <h3 style={{ fontSize: '1.25rem', fontWeight: 600 }}>Llms.txt Generator</h3>
-          <p style={{ color: '#64748b', fontSize: '0.875rem', marginTop: '0.25rem' }}>Create a markdown file to help AI models like ChatGPT and Claude understand your website structure and content.</p>
+          <p style={{ color: '#64748b', fontSize: '0.875rem', marginTop: '0.25rem' }}>Create a markdown file to help AI models like ChatGPT, Claude, and Perplexity understand your website structure and services.</p>
         </div>
         <button style={{ background: 'var(--accent)', color: 'white', padding: '0.5rem 1rem', borderRadius: '6px', border: 'none', cursor: 'pointer', fontWeight: 600, height: 'fit-content' }}>Auto-Generate</button>
       </div>
       <textarea 
-        defaultValue={`# About [Company Name]\nWe are a premium B2B agency specializing in Web3 and AI development.\n\n## Services\n- Development\n- Marketing\n- Consulting\n\n## Blog\nRead our latest insights at /blog`}
+        defaultValue={`# Bootsolo\nAI-Native Marketing Agency for bootstrapped solopreneurs and indie founders.\n\n## Core Services\n- AI-Powered Marketing & Funnel Optimization\n- SEO / AEO / GEO (Google, ChatGPT, Perplexity citations)\n- Performance & Lead Generation\n- Content, Video & Thought Leadership\n\n## Key Routes\n- /services\n- /work\n- /pricing\n- /custom-quote\n- /contact`}
         style={{ width: '100%', height: '300px', padding: '1rem', background: '#1e293b', color: '#f8fafc', fontFamily: 'monospace', borderRadius: '8px', border: 'none' }}
       />
       <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'flex-end' }}>

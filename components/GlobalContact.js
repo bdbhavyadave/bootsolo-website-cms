@@ -7,6 +7,7 @@ import { ArrowRight } from 'lucide-react';
 
 export default function GlobalContact() {
   const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
   const isCustomQuotePage = pathname === '/custom-quote';
 
   return (

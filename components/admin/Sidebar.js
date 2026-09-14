@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
+import { BootsoloLogo } from '@/components/Brand'
 import { 
   LayoutDashboard, 
   FileText, 
@@ -22,7 +23,10 @@ export default function Sidebar() {
     router.push('/admin/login')
   }
 
-  const isActive = (path) => pathname === path || pathname.startsWith(`${path}/`)
+  const isActive = (path) => {
+    if (path === '/admin') return pathname === '/admin'
+    return pathname === path || pathname.startsWith(`${path}/`)
+  }
 
   const NavItem = ({ href, icon: Icon, children }) => (
     <li>
@@ -50,18 +54,60 @@ export default function Sidebar() {
   return (
     <aside style={{
       width: '260px',
-      background: 'var(--primary)',
-      color: 'white',
+      background: '#0E1A2B',
+      color: '#ffffff',
       height: '100vh',
       position: 'fixed',
       left: 0,
       top: 0,
       display: 'flex',
       flexDirection: 'column',
-      borderRight: '1px solid #2a2a2a'
+      borderRight: '1px solid #1E2D45',
+      zIndex: 100
     }}>
-      <div style={{ padding: '2rem 1.5rem' }}>
-        <h2 style={{ fontSize: '1.25rem', fontWeight: 700, letterSpacing: '-0.5px' }}>Agency CMS</h2>
+      <div style={{ padding: '1.75rem 1.5rem', borderBottom: '1px solid #1E2D45' }}>
+        <Link 
+          href="/admin" 
+          style={{ 
+            display: 'block', 
+            textDecoration: 'none'
+          }}
+          title="Go to Admin Dashboard"
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+            <BootsoloLogo height={28} color="#FFFFFF" planeColor="#FF6B35" />
+            <span style={{ 
+              fontSize: '0.65rem', 
+              fontWeight: 700, 
+              letterSpacing: '0.06em', 
+              padding: '2px 7px', 
+              borderRadius: '4px', 
+              background: 'rgba(255, 107, 53, 0.18)', 
+              color: '#FF6B35', 
+              border: '1px solid rgba(255, 107, 53, 0.35)', 
+              textTransform: 'uppercase' 
+            }}>
+              CMS
+            </span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <h2 style={{ 
+              fontSize: '1.15rem', 
+              fontWeight: 800, 
+              letterSpacing: '-0.3px',
+              margin: 0,
+              background: 'linear-gradient(135deg, #FF6B35 0%, #FFA26B 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              color: '#FF6B35'
+            }}>
+              Agency CMS
+            </h2>
+            <span style={{ fontSize: '0.65rem', color: '#8AA0B8', fontWeight: 600, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+              Admin Portal
+            </span>
+          </div>
+        </Link>
       </div>
 
       <nav style={{ flex: 1, padding: '0 1rem', overflowY: 'auto' }}>

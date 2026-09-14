@@ -1,10 +1,13 @@
 'use client';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Brand, { PaperPlaneMark } from './Brand';
 import { ArrowRight, Mail, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 

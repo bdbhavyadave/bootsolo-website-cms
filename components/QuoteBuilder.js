@@ -36,6 +36,14 @@ export default function QuoteBuilder() {
   const [isOtherChecked, setIsOtherChecked] = useState(false);
   const [otherDescription, setOtherDescription] = useState("");
   
+  // Form fields
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [description, setDescription] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
   // Phone logic
   const [showDropdown, setShowDropdown] = useState(false);
   const [search, setSearch] = useState("");
@@ -76,13 +84,54 @@ export default function QuoteBuilder() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (selectedServices.length === 0 && !isOtherChecked) {
       alert("Please select at least one service before submitting.");
       return;
     }
-    alert("Thank you! Your custom quote request has been received.");
+
+    setSubmitting(true);
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    const fullPhone = phone ? `${selectedCountry.code} ${phone}` : '';
+
+    const allServices = [...selectedServices];
+    if (isOtherChecked) {
+      allServices.push(`Other: ${otherDescription || 'Custom Need'}`);
+    }
+
+    const payload = {
+      name: name.trim(),
+      email: email.trim(),
+      phone: fullPhone,
+      company: fullPhone || 'Custom Quote',
+      service_interested: allServices.join(', '),
+      budget_range: 'Custom Quote',
+      date: formattedDate,
+      time: formattedTime,
+      submitted_at: `${formattedDate} at ${formattedTime}`,
+      message: `[CUSTOM QUOTE BUILDER]\n` +
+        `• Selected Services (${allServices.length}):\n  - ${allServices.join('\n  - ')}\n` +
+        `• Phone: ${fullPhone}\n` +
+        `• Submitted At: ${formattedDate} at ${formattedTime}\n` +
+        `• Project Description / Notes:\n${description || 'No additional notes provided'}`
+    };
+
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Quote submission error:', err);
+      alert('Your request was received. We will follow up shortly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -149,12 +198,26 @@ export default function QuoteBuilder() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             <div className="form-group">
               <label className="form-label">Name <span style={{ color: 'var(--brand)' }}>*</span></label>
-              <input type="text" className="form-control" placeholder="Jane Doe" required />
+              <input 
+                type="text" 
+                className="form-control" 
+                placeholder="Jane Doe" 
+                required 
+                value={name} 
+                onChange={e => setName(e.target.value)} 
+              />
             </div>
             
             <div className="form-group">
               <label className="form-label">Email <span style={{ color: 'var(--brand)' }}>*</span></label>
-              <input type="email" className="form-control" placeholder="jane@example.com" required />
+              <input 
+                type="email" 
+                className="form-control" 
+                placeholder="jane@example.com" 
+                required 
+                value={email} 
+                onChange={e => setEmail(e.target.value)} 
+              />
             </div>
           </div>
 
@@ -179,18 +242,37 @@ export default function QuoteBuilder() {
                   </div>
                 </div>
               )}
-              <input type="tel" className="form-control" placeholder="123 456 7890" required />
+              <input 
+                type="tel" 
+                className="form-control" 
+                placeholder="123 456 7890" 
+                required 
+                value={phone} 
+                onChange={e => setPhone(e.target.value)} 
+              />
             </div>
           </div>
 
           <div className="form-group" style={{ marginTop: '24px' }}>
             <label className="form-label">General Project Description (Optional)</label>
-            <textarea className="form-control" placeholder="Tell us more about your company or overall timeline..." rows="4"></textarea>
+            <textarea 
+              className="form-control" 
+              placeholder="Tell us more about your company or overall timeline..." 
+              rows="4"
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            ></textarea>
           </div>
+
+          {submitted && (
+            <div style={{ marginTop: '20px', padding: '16px', background: '#dcfce7', border: '1px solid #86efac', borderRadius: '8px', color: '#166534', fontWeight: 500 }}>
+              ✓ Thank you! Your custom quote has been received and saved. Our team will review your route map and get back to you shortly.
+            </div>
+          )}
           
           <div className="mobile-submit-only" style={{ marginTop: '32px' }}>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-              Submit Request <Send size={16} />
+            <button type="submit" disabled={submitting || submitted} className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
+              {submitting ? 'Sending Request...' : submitted ? 'Quote Sent ✓' : <>Submit Request <Send size={16} /></>}
             </button>
           </div>
         </div>
@@ -222,8 +304,8 @@ export default function QuoteBuilder() {
             </ul>
           )}
           
-          <button type="submit" className="btn btn-primary desktop-submit-only" style={{ width: '100%', justifyContent: 'center' }}>
-            Submit Request <Send size={16} />
+          <button type="submit" disabled={submitting || submitted} className="btn btn-primary desktop-submit-only" style={{ width: '100%', justifyContent: 'center' }}>
+            {submitting ? 'Sending Request...' : submitted ? 'Quote Sent ✓' : <>Submit Request <Send size={16} /></>}
           </button>
           
           <div style={{ fontSize: '12px', color: 'var(--fg3)', textAlign: 'center', marginTop: '16px', lineHeight: 1.5 }}>

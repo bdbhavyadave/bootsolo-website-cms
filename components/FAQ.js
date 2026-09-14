@@ -22,7 +22,7 @@ function FAQItem({ q, a, open, onClick }) {
 }
 
 export default function FAQ() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
   return (
     <section className="section" id="faq">
       <div className="wrap">

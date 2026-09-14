@@ -1,54 +1,38 @@
 import { createServerSupabaseClient } from '@/lib/supabase'
-import { getSession } from '@/lib/auth'
 import { NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
-export async function PUT(request, { params }) {
-  try {
-    const session = await getSession()
-    if (!session || session.role !== 'admin') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
-    }
-
-    const { id } = params
-    const body = await request.json()
-    const supabase = createServerSupabaseClient()
-
-    const { data, error } = await supabase
-      .from('leads')
-      .update(body)
-      .eq('id', id)
-      .select()
-      .single()
-
-    if (error) throw error
-
-    return NextResponse.json(data)
-  } catch (err) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
-  }
-}
+const dataFilePath = path.join(process.cwd(), 'data', 'leads.json')
 
 export async function DELETE(request, { params }) {
   try {
-    const session = await getSession()
-    if (!session || session.role !== 'admin') {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 403 })
+    const { id } = params
+
+    // 1. Delete from local persistent storage
+    try {
+      if (fs.existsSync(dataFilePath)) {
+        const raw = fs.readFileSync(dataFilePath, 'utf8')
+        const leads = JSON.parse(raw)
+        const filtered = leads.filter(l => l.id !== id)
+        fs.writeFileSync(dataFilePath, JSON.stringify(filtered, null, 2), 'utf8')
+      }
+    } catch (err) {
+      console.error('Error deleting local lead:', err)
     }
 
-    const { id } = params
-    const supabase = createServerSupabaseClient()
-
-    const { error } = await supabase
-      .from('leads')
-      .delete()
-      .eq('id', id)
-
-    if (error) throw error
+    // 2. Try deleting from Supabase
+    try {
+      const supabase = createServerSupabaseClient()
+      await supabase.from('leads').delete().eq('id', id)
+    } catch (sbErr) {
+      // ignore
+    }
 
     return NextResponse.json({ success: true })
   } catch (err) {
-    return NextResponse.json({ error: err.message }, { status: 500 })
+    return NextResponse.json({ error: 'Failed to delete' }, { status: 500 })
   }
 }

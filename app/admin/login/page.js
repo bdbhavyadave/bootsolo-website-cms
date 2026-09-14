@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { Eye, EyeOff } from 'lucide-react'
+import { BootsoloLogo } from '@/components/Brand'
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
@@ -44,8 +45,11 @@ export default function AdminLogin() {
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: '#f5f5f5' }}>
       <div style={{ background: 'white', padding: '3rem', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', width: '100%', maxWidth: '400px' }}>
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 600 }}>Admin Login</h1>
-          <p style={{ color: '#666', marginTop: '0.5rem' }}>Secure Dashboard Access</p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+            <BootsoloLogo height={34} color="#0E1A2B" planeColor="#FF6B35" />
+          </div>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0E1A2B' }}>Agency CMS</h1>
+          <p style={{ color: '#666', marginTop: '0.25rem' }}>Secure Admin Dashboard Access</p>
         </div>
 
         {error && (

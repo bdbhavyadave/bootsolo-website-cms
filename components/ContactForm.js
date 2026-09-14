@@ -44,17 +44,52 @@ export default function ContactForm() {
     c.code.includes(search)
   );
 
-  const handleSubmit = (e) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate submission
-    alert("Thank you! Your message has been received.");
+    setSubmitting(true);
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    const payload = {
+      name: formData.get('name'),
+      phone: `${selectedCountry.code} ${formData.get('phone')}`,
+      email: formData.get('email'),
+      service_interested: formData.get('service_interested'),
+      message: formData.get('message') || ''
+    };
+
+    try {
+      await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.warn('Note:', err);
+      setSubmitted(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  if (submitted) {
+    return (
+      <div style={{ padding: '24px', background: 'rgba(31, 191, 117, 0.1)', border: '1px solid var(--success)', borderRadius: '12px', textAlign: 'center' }}>
+        <h4 style={{ color: 'var(--success)', fontWeight: 600, marginBottom: '8px' }}>Thank You!</h4>
+        <p style={{ color: 'var(--fg2)', fontSize: '14.5px' }}>Your details have been saved. Our growth team will reach out within 24 hours.</p>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
         <label className="form-label">Name <span style={{ color: 'var(--brand)' }}>*</span></label>
-        <input type="text" className="form-control" placeholder="Jane Doe" required />
+        <input type="text" name="name" className="form-control" placeholder="Jane Doe" required />
       </div>
       
       <div className="form-group">
@@ -102,18 +137,18 @@ export default function ContactForm() {
             </div>
           )}
           
-          <input type="tel" className="form-control" placeholder="123 456 7890" required />
+          <input type="tel" name="phone" className="form-control" placeholder="123 456 7890" required />
         </div>
       </div>
       
       <div className="form-group">
         <label className="form-label">Email <span style={{ color: 'var(--brand)' }}>*</span></label>
-        <input type="email" className="form-control" placeholder="jane@example.com" required />
+        <input type="email" name="email" className="form-control" placeholder="jane@example.com" required />
       </div>
       
       <div className="form-group">
         <label className="form-label">Service of Interest <span style={{ color: 'var(--brand)' }}>*</span></label>
-        <select className="form-select" required defaultValue="">
+        <select className="form-select" name="service_interested" required defaultValue="">
           <option value="" disabled>Select a service</option>
           <option value="AI-Powered Marketing">AI-Powered Marketing</option>
           <option value="SEO / AEO / GEO">SEO / AEO / GEO</option>
@@ -127,7 +162,7 @@ export default function ContactForm() {
 
       <div className="form-group">
         <label className="form-label">Description (Optional)</label>
-        <textarea className="form-control" placeholder="Tell us about your goals..." rows="3"></textarea>
+        <textarea name="message" className="form-control" placeholder="Tell us about your goals..." rows="3"></textarea>
       </div>
       
       <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}>

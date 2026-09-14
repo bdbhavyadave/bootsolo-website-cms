@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function PaperPlaneCursor() {
+  const pathname = usePathname();
+  if (pathname?.startsWith('/admin')) return null;
   const canvasRef = useRef(null);
   const planeRef = useRef(null);
   const clickPulseRef = useRef(null);
@@ -395,7 +398,7 @@ export default function PaperPlaneCursor() {
           position: 'fixed',
           inset: 0,
           pointerEvents: 'none',
-          zIndex: 99998,
+          zIndex: 2000000,
           transition: 'opacity 170ms ease'
         }}
       />
@@ -407,7 +410,7 @@ export default function PaperPlaneCursor() {
         style={{
           position: 'fixed',
           pointerEvents: 'none',
-          zIndex: 99997
+          zIndex: 2000001
         }}
       />
 
@@ -421,7 +424,7 @@ export default function PaperPlaneCursor() {
           width: '38px',
           height: '17px',
           pointerEvents: 'none',
-          zIndex: 99999,
+          zIndex: 2000002,
           transformOrigin: '37.2px 0.6px', // Nose tip hotspot transformation origin
           willChange: 'transform',
           opacity: 0,

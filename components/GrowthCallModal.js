@@ -35,11 +35,44 @@ export default function GrowthCallModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (step === 1) {
       setStep(2);
     } else {
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      const formattedTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+      const payload = {
+        name: formData.name || 'Growth Call Client',
+        email: formData.email,
+        company: formData.company || 'Direct Growth Call',
+        service_interested: formData.goal || 'Growth Strategy Session',
+        form_type: 'growth_call',
+        budget_range: 'Strategy Session (Free)',
+        timeline: 'Immediate',
+        date: formattedDate,
+        time: formattedTime,
+        submitted_at: `${formattedDate} at ${formattedTime}`,
+        message: `[BOOK A GROWTH CALL]\n` +
+          `• Preferred Time: ${formData.date}\n` +
+          `• Primary Growth Goal: ${formData.goal}\n` +
+          `• Team Size / Stage: ${formData.teamSize}\n` +
+          `• Company / Website: ${formData.company || 'N/A'}\n` +
+          `• Booked At: ${formattedDate} at ${formattedTime}`
+      };
+
+      try {
+        await fetch('/api/leads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (err) {
+        console.warn('Error submitting growth call lead:', err);
+      }
+
       setSubmitted(true);
     }
   };
@@ -220,7 +253,7 @@ export default function GrowthCallModal({ isOpen, onClose }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          z-index: 100000;
+          z-index: 99999;
           padding: 1.5rem;
           animation: fadeIn 170ms ease;
         }

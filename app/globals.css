@@ -13,6 +13,8 @@
   --success:     #1FBF75;  /* positive / success green                      */
   --destructive: #E2483D;  /* destructive / error                           */
   --warn:        #F4B740;  /* warning                                       */
+  --primary:     #0E1A2B;  /* primary dark navy surface                     */
+  --accent:      #0099FF;  /* accent link and active element color          */
 
   /* Summit navy ramp (cool deep-blue neutrals for dark surfaces + hairlines)*/
   --navy-900: #0A1320;
@@ -664,6 +666,23 @@ body.custom-cursor-active input:not([type="submit"]):not([type="button"]):not([t
 body.custom-cursor-active textarea,
 body.custom-cursor-active select,
 body.custom-cursor-active [contenteditable="true"] {
+  cursor: text !important;
+}
+
+/* Modal and Form Cursor Guarantees */
+body.custom-cursor-active .modal-backdrop,
+body.custom-cursor-active .modal-card {
+  cursor: default;
+}
+body.custom-cursor-active .modal-card button,
+body.custom-cursor-active .modal-card a,
+body.custom-cursor-active .modal-card .time-slot-btn,
+body.custom-cursor-active .modal-card .modal-close-btn,
+body.custom-cursor-active .modal-card select {
+  cursor: pointer !important;
+}
+body.custom-cursor-active .modal-card input,
+body.custom-cursor-active .modal-card textarea {
   cursor: text !important;
 }
 
