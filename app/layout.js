@@ -7,9 +7,9 @@ const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-sans' })
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
 
 export const metadata = {
-  title: `Start Solo. Climb Fast. | ${process.env.NEXT_PUBLIC_SITE_NAME || 'Bootsolo'}`,
-  description: 'AI-native marketing for bootstrapped solopreneurs. Start solo, scale smart.',
-  keywords: 'solopreneur, indie hacker, AI marketing, startup growth',
+  title: 'Answer Engine Optimization Services | Bootsolo',
+  description: 'Bootsolo helps B2B and SaaS brands earn visibility inside AI answer engines like ChatGPT, Gemini, Perplexity, Claude, and Google AI Overviews with structured Answer Engine Optimization (AEO) focused on leads, citations, and pipeline.',
+  keywords: 'Answer Engine Optimization, AEO, AI search, ChatGPT, Perplexity, Google AI Overviews, Gemini, Claude, B2B SaaS',
 }
 
 export default function RootLayout({ children }) {

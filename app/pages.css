@@ -511,4 +511,291 @@
   .subscribe .st { font-size: 22px; }
 }
 
+/* ================= Connected System Horizontal Slider ================= */
+#services {
+  scroll-margin-top: 66px !important;
+  scroll-snap-align: start;
+}
+
+.aeo-connected-system-section {
+  min-height: calc(100vh - 66px) !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 36px 0 !important;
+  background: var(--bg-elevated, #F8FAFC) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.aeo-services-split-wrap {
+  display: grid !important;
+  grid-template-columns: 430px 1fr !important;
+  gap: 52px !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: 1640px !important;
+  margin: 0 auto !important;
+  padding: 0 48px !important;
+  box-sizing: border-box !important;
+}
+
+.aeo-services-left-col {
+  text-align: left;
+  z-index: 2;
+}
+
+.aeo-services-slider-container {
+  overflow: hidden !important;
+  width: 100% !important;
+  padding: 28px 16px 36px 8px !important;
+  position: relative !important;
+  cursor: grab !important;
+  touch-action: pan-y !important;
+  box-sizing: border-box !important;
+}
+
+.aeo-services-slider-container:active {
+  cursor: grabbing !important;
+}
+
+.aeo-services-motion-track {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 28px !important;
+  width: max-content !important;
+  will-change: transform;
+  user-select: none;
+}
+
+.aeo-service-slide-card {
+  flex: 0 0 350px !important;
+  width: 350px !important;
+  min-width: 350px !important;
+  background: #ffffff !important;
+  border: 1px solid var(--border-strong) !important;
+  border-radius: 16px !important;
+  padding: 32px 26px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  min-height: 300px !important;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  box-sizing: border-box !important;
+}
+
+.aeo-service-slide-card.is-selected {
+  border-color: var(--sunrise) !important;
+  box-shadow: 0 16px 36px -8px rgba(255, 107, 53, 0.22) !important;
+}
+
+@media (max-width: 960px) {
+  .aeo-services-split-wrap {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 0 20px !important;
+  }
+  .aeo-connected-system-section {
+    min-height: auto !important;
+    padding: 56px 0 !important;
+  }
+}
+
+/* ================= Platforms Grid (4 Square-Sized Cards in a Single Horizontal Row) ================= */
+#platforms {
+  background: #0B1522 !important;
+  color: #ffffff !important;
+  padding: 80px 0 !important;
+  scroll-margin-top: 66px !important;
+}
+
+#platforms .aeo-h2 {
+  color: #ffffff !important;
+}
+
+#platforms .aeo-lead {
+  color: #D1D9E2 !important;
+}
+
+.aeo-platforms-wrap {
+  max-width: 1400px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 32px !important;
+  box-sizing: border-box !important;
+}
+
+.aeo-platforms-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: 1360px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.aeo-platform-card {
+  border: 1px solid !important;
+  border-radius: 18px !important;
+  padding: 24px 22px !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
+  cursor: pointer;
+  aspect-ratio: 1 / 1 !important;
+  min-height: 300px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 260ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 260ms ease,
+              background 260ms ease;
+}
+
+.aeo-platform-card:hover,
+.aeo-platform-card.active-hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6) !important;
+}
+
+.aeo-platform-card-main {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.aeo-platform-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+.aeo-platform-title {
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin: 0 0 3px !important;
+  line-height: 1.25 !important;
+}
+
+.aeo-platform-engine {
+  font-size: 11.5px !important;
+  font-family: var(--font-mono, monospace) !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
+  display: block !important;
+}
+
+.aeo-platform-chip {
+  font-size: 10.5px !important;
+  font-weight: 600 !important;
+  padding: 3px 8px !important;
+  border-radius: 6px !important;
+  border: 1px solid !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
+.aeo-platform-desc {
+  font-size: 13.5px !important;
+  line-height: 1.48 !important;
+  color: #94A3B8 !important;
+  margin: 0 !important;
+}
+
+.aeo-platform-card-footer {
+  position: relative !important;
+  margin-top: auto !important;
+  padding-top: 10px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  min-height: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  transition: border-color 240ms ease !important;
+}
+
+.aeo-platform-hover-hint {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 6px !important;
+  font-size: 11.5px !important;
+  color: #64748B !important;
+  font-weight: 500 !important;
+  transition: opacity 200ms ease, transform 200ms ease !important;
+}
+
+/* Hover Reveal Bullets */
+.aeo-platform-bullets {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transform: translateY(8px) !important;
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.aeo-platform-card:hover .aeo-platform-card-footer,
+.aeo-platform-card.active-hover .aeo-platform-card-footer {
+  border-top-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+.aeo-platform-card:hover .aeo-platform-hover-hint,
+.aeo-platform-card:focus-within .aeo-platform-hover-hint,
+.aeo-platform-card.active-hover .aeo-platform-hover-hint {
+  opacity: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  display: none !important;
+}
+
+.aeo-platform-card:hover .aeo-platform-bullets,
+.aeo-platform-card:focus-within .aeo-platform-bullets,
+.aeo-platform-card.active-hover .aeo-platform-bullets {
+  max-height: 120px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.aeo-platform-bullet {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 12.5px !important;
+  color: #F1F5F9 !important;
+  font-weight: 500 !important;
+  line-height: 1.35 !important;
+}
+
+@media (max-width: 1080px) {
+  .aeo-platforms-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .aeo-platforms-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .aeo-platform-card {
+    aspect-ratio: auto !important;
+    min-height: auto !important;
+  }
+}
+
+
 

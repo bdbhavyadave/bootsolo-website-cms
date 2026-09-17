@@ -171,8 +171,8 @@ img, svg { display: block; max-width: 100%; }
 html {
   scroll-behavior: smooth;
 }
-#cta, #global-contact {
-  scroll-margin-top: 80px;
+#cta, #global-contact, #services, #platforms, #framework, #comparison {
+  scroll-margin-top: 66px;
 }
 .nav {
   position: sticky;
