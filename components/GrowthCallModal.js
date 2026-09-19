@@ -148,7 +148,7 @@ export default function GrowthCallModal({ isOpen, onClose }) {
                       <input
                         type="text"
                         required
-                        placeholder="Alex Tamboli"
+                        placeholder="Alex Rivera"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="form-input"
