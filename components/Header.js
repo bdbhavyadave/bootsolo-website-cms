@@ -168,103 +168,105 @@ export default function Header() {
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
-
-        {/* Backdrop Overlay */}
-        <div
-          className={`mobile-drawer-backdrop ${isOpen ? 'active' : ''}`}
-          onClick={closeMenu}
-          aria-hidden="true"
-        />
-
-        {/* Slide-In Mobile Navigation Drawer */}
-        <div className={`mobile-drawer ${isOpen ? 'active' : ''}`}>
-          <div className="mobile-drawer-links">
-            <button
-              onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="mobile-drawer-link"
-              style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
-            >
-              <span>Services</span>
-              <ChevronDown size={18} style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' }} />
-            </button>
-
-            {isServicesOpen && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: '12px', marginBottom: '8px' }}>
-                {SERVICES_MEGA.map((item) => {
-                  if (item.slug === '/seo-aeo-geo') {
-                    return (
-                      <div key={item.slug} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                        <Link
-                          href={item.slug}
-                          onClick={closeMenu}
-                          style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '4px 0', fontWeight: 600 }}
-                        >
-                          {item.title}
-                        </Link>
-                        <div style={{ display: 'flex', gap: '8px', paddingLeft: '8px', marginBottom: '4px' }}>
-                          <Link
-                            href="/seo-aeo-geo?tab=seo"
-                            onClick={closeMenu}
-                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
-                          >
-                            SEO
-                          </Link>
-                          <Link
-                            href="/seo-aeo-geo?tab=aeo"
-                            onClick={closeMenu}
-                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
-                          >
-                            AEO
-                          </Link>
-                          <Link
-                            href="/seo-aeo-geo?tab=geo"
-                            onClick={closeMenu}
-                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
-                          >
-                            GEO
-                          </Link>
-                        </div>
-                      </div>
-                    );
-                  }
-                  return (
-                    <Link
-                      key={item.slug}
-                      href={item.slug}
-                      onClick={closeMenu}
-                      style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
-                    >
-                      {item.title}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-
-            <Link href="/pricing" className="mobile-drawer-link" onClick={closeMenu}>
-              Pricing <ArrowRight size={16} />
-            </Link>
-            <Link href="/work" className="mobile-drawer-link" onClick={closeMenu}>
-              Work <ArrowRight size={16} />
-            </Link>
-            <Link href="/resources" className="mobile-drawer-link" onClick={closeMenu}>
-              Resources <ArrowRight size={16} />
-            </Link>
-            <Link href="/blogs" className="mobile-drawer-link" onClick={closeMenu}>
-              Blogs <ArrowRight size={16} />
-            </Link>
-          </div>
-
-          <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '20px', borderTop: '1px solid var(--navy-700)' }}>
-            <Link className="btn btn-ghost" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
-              Request Custom Quote
-            </Link>
-            <Link className="btn btn-primary glow-sunrise" href="/#growth-roadmap" onClick={closeMenu} style={{ justifyContent: 'center' }}>
-              Book a Growth Call
-            </Link>
-          </div>
-        </div>
       </div>
+
+      {/* Slide-In Mobile Navigation Drawer - Only rendered when opened to prevent desktop overflow */}
+      {isOpen && (
+        <>
+          <div
+            className="mobile-drawer-backdrop active"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+          <div className="mobile-drawer active">
+            <div className="mobile-drawer-links">
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="mobile-drawer-link"
+                style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
+              >
+                <span>Services</span>
+                <ChevronDown size={18} style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' }} />
+              </button>
+
+              {isServicesOpen && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: '12px', marginBottom: '8px' }}>
+                  {SERVICES_MEGA.map((item) => {
+                    if (item.slug === '/seo-aeo-geo') {
+                      return (
+                        <div key={item.slug} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                          <Link
+                            href={item.slug}
+                            onClick={closeMenu}
+                            style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '4px 0', fontWeight: 600 }}
+                          >
+                            {item.title}
+                          </Link>
+                          <div style={{ display: 'flex', gap: '8px', paddingLeft: '8px', marginBottom: '4px' }}>
+                            <Link
+                              href="/seo-aeo-geo?tab=seo"
+                              onClick={closeMenu}
+                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                            >
+                              SEO
+                            </Link>
+                            <Link
+                              href="/seo-aeo-geo?tab=aeo"
+                              onClick={closeMenu}
+                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                            >
+                              AEO
+                            </Link>
+                            <Link
+                              href="/seo-aeo-geo?tab=geo"
+                              onClick={closeMenu}
+                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                            >
+                              GEO
+                            </Link>
+                          </div>
+                        </div>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={item.slug}
+                        href={item.slug}
+                        onClick={closeMenu}
+                        style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
+                      >
+                        {item.title}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+
+              <Link href="/pricing" className="mobile-drawer-link" onClick={closeMenu}>
+                Pricing <ArrowRight size={16} />
+              </Link>
+              <Link href="/work" className="mobile-drawer-link" onClick={closeMenu}>
+                Work <ArrowRight size={16} />
+              </Link>
+              <Link href="/resources" className="mobile-drawer-link" onClick={closeMenu}>
+                Resources <ArrowRight size={16} />
+              </Link>
+              <Link href="/blogs" className="mobile-drawer-link" onClick={closeMenu}>
+                Blogs <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '12px', paddingTop: '20px', borderTop: '1px solid var(--navy-700)' }}>
+              <Link className="btn btn-ghost" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
+                Request Custom Quote
+              </Link>
+              <Link className="btn btn-primary glow-sunrise" href="/#growth-roadmap" onClick={closeMenu} style={{ justifyContent: 'center' }}>
+                Book a Growth Call
+              </Link>
+            </div>
+          </div>
+        </>
+      )}
     </nav>
   );
 }
