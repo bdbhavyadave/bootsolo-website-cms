@@ -37,66 +37,499 @@
             Services
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
-          <div class="mega-menu">
-            <div class="mega-menu-grid">
-              <a href="services/ai-powered-marketing.html" class="mega-item">
-                <div class="mega-item-title">AI-Powered Marketing</div>
-                <div class="mega-item-headline">AI-Powered Campaigns &amp; Automation</div>
-                <div class="mega-item-services">AI marketing, Vibe marketing, automated funnel optimization</div>
-              </a>
-              <div class="mega-item mega-item-has-submenu">
-                <a href="services/seo-aeo-geo.html" class="mega-item-link-wrap">
-                  <div class="mega-item-title-row">
-                    <span class="mega-item-title">SEO / AEO / GEO</span>
-                    <span class="mega-item-pill">3 Tabs</span>
+          <div class="mega-menu mega-split-menu">
+            <!-- Left Sidebar with 6 Services -->
+            <div class="mega-sidebar">
+              <div class="mega-sidebar-header">Our Services</div>
+              
+              <!-- 1. SEO / AEO / GEO (Active by default) -->
+              <div class="mega-tab-btn active" data-target="pane-seo-aeo-geo">
+                <a href="services/seo-aeo-geo.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <span class="mega-tab-label">SEO / AEO / GEO</span>
                   </div>
-                  <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
-                  <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </a>
-                <div class="mega-suboptions-row">
-                  <a href="services/seo-aeo-geo.html?tab=seo" class="mega-suboption-chip">
-                    <div class="mega-suboption-header">
-                      <span class="suboption-dot dot-seo"></span>
-                      <span>SEO</span>
+              </div>
+
+              <!-- 2. AI-Powered Marketing -->
+              <div class="mega-tab-btn" data-target="pane-ai-marketing">
+                <a href="services/ai-powered-marketing.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
                     </div>
-                    <span class="suboption-tag">Traditional Search</span>
+                    <span class="mega-tab-label">AI-Powered Marketing</span>
+                  </div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+
+              <!-- 3. Performance & Lead Gen -->
+              <div class="mega-tab-btn" data-target="pane-performance">
+                <a href="services/performance-lead-generation.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                    </div>
+                    <span class="mega-tab-label">Performance &amp; Lead Gen</span>
+                  </div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+
+              <!-- 4. Content, Video & Authority -->
+              <div class="mega-tab-btn" data-target="pane-content">
+                <a href="services/content-video-thought-leadership.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                    </div>
+                    <span class="mega-tab-label">Content, Video &amp; Authority</span>
+                  </div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+
+              <!-- 5. Web & Ecommerce -->
+              <div class="mega-tab-btn" data-target="pane-web">
+                <a href="services/web-ecommerce-experience.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                    </div>
+                    <span class="mega-tab-label">Web &amp; Ecommerce</span>
+                  </div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+
+              <!-- 6. Branding -->
+              <div class="mega-tab-btn" data-target="pane-branding">
+                <a href="services/branding.html" class="mega-tab-btn-content">
+                  <div class="mega-tab-left">
+                    <div class="mega-tab-icon-box">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+                    </div>
+                    <span class="mega-tab-label">Branding</span>
+                  </div>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="mega-tab-arrow"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Content Area with Sub-Tabs / Sub-Columns -->
+            <div class="mega-content-area">
+              <!-- Pane 1: SEO / AEO / GEO -->
+              <div class="mega-tab-pane active" id="pane-seo-aeo-geo">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">SEO / AEO / GEO</h3>
+                      <span class="mega-pane-badge">3 Sub-Tabs Active</span>
+                    </div>
+                    <p class="mega-pane-tagline">Be discovered across traditional search engines, AI answer engines, and LLM chat interfaces.</p>
+                  </div>
+                  <a href="services/seo-aeo-geo.html" class="mega-pane-all-link">
+                    View All Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
-                  <a href="services/seo-aeo-geo.html?tab=aeo" class="mega-suboption-chip">
-                    <div class="mega-suboption-header">
-                      <span class="suboption-dot dot-aeo"></span>
-                      <span>AEO</span>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <!-- Col 1: SEO -->
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/seo-aeo-geo.html?tab=seo" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">SEO</span>
+                        <span class="mega-subcol-tag">Traditional</span>
+                      </a>
                     </div>
-                    <span class="suboption-tag">Answer Engine</span>
-                  </a>
-                  <a href="services/seo-aeo-geo.html?tab=geo" class="mega-suboption-chip">
-                    <div class="mega-suboption-header">
-                      <span class="suboption-dot dot-geo"></span>
-                      <span>GEO</span>
+                    <p class="mega-subcol-desc">Dominate Google &amp; Bing rankings with technical architecture and high-intent keywords.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/seo-aeo-geo.html?tab=seo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Technical Site Audits &amp; Speed</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=seo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>High-Intent Keyword Architecture</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=seo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Digital PR &amp; Authority Backlinks</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=seo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Programmatic Landing Pages</span></a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Col 2: AEO -->
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/seo-aeo-geo.html?tab=aeo" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">AEO</span>
+                        <span class="mega-subcol-tag">Answer Engines</span>
+                      </a>
                     </div>
-                    <span class="suboption-tag">Generative LLM</span>
+                    <p class="mega-subcol-desc">Capture direct answers in Google AI Overviews, Perplexity, and voice search.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/seo-aeo-geo.html?tab=aeo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Schema &amp; JSON-LD Entity Graph</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=aeo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Zero-Click Query Capture</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=aeo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Perplexity &amp; SearchGPT Citations</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=aeo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Conversational Knowledge Bases</span></a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Col 3: GEO -->
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/seo-aeo-geo.html?tab=geo" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">GEO</span>
+                        <span class="mega-subcol-tag">Generative LLMs</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Ensure your brand is recommended inside ChatGPT, Claude, Gemini, and copilot models.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/seo-aeo-geo.html?tab=geo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>LLM Knowledge Base Inclusion</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=geo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Brand Sentiment &amp; Citations</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=geo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Competitor Displacement Prompts</span></a></li>
+                      <li><a href="services/seo-aeo-geo.html?tab=geo" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Multi-Model Testing &amp; Monitoring</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">
+                    Build Custom Route Map <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                   </a>
                 </div>
               </div>
-              <a href="services/performance-lead-generation.html" class="mega-item">
-                <div class="mega-item-title">Performance &amp; Lead Generation</div>
-                <div class="mega-item-headline">Paid Media &amp; Pipeline Growth</div>
-                <div class="mega-item-services">Paid search, paid social, conversion rate optimization (CRO)</div>
-              </a>
-              <a href="services/content-video-thought-leadership.html" class="mega-item">
-                <div class="mega-item-title">Content, Video &amp; Thought Leadership</div>
-                <div class="mega-item-headline">Content, Video &amp; Authority Building</div>
-                <div class="mega-item-services">High-converting copywriting, motion design, founder branding</div>
-              </a>
-              <a href="services/web-ecommerce-experience.html" class="mega-item">
-                <div class="mega-item-title">Web &amp; Ecommerce Experience</div>
-                <div class="mega-item-headline">Web Design &amp; Store UX</div>
-                <div class="mega-item-services">High-performance landing pages, store speed &amp; checkout flows</div>
-              </a>
-              <a href="services/branding.html" class="mega-item">
-                <div class="mega-item-title">Branding</div>
-                <div class="mega-item-headline">Brand Identity &amp; Positioning</div>
-                <div class="mega-item-services">Visual systems, tone of voice, narrative &amp; founder storytelling</div>
-              </a>
+
+              <!-- Pane 2: AI-Powered Marketing -->
+              <div class="mega-tab-pane" id="pane-ai-marketing">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">AI-Powered Marketing</h3>
+                      <span class="mega-pane-badge">Next-Gen Growth</span>
+                    </div>
+                    <p class="mega-pane-tagline">Scale acquisition, creative testing, and multi-channel workflows with custom AI pipelines.</p>
+                  </div>
+                  <a href="services/ai-powered-marketing.html" class="mega-pane-all-link">
+                    View All Details <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/ai-powered-marketing.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">AI Campaigns</span>
+                        <span class="mega-subcol-tag">Ad Automation</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Deploy multivariate ad creatives and targeting models tailored to real-time intent signals.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Predictive Audience Modeling</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>AI Creative Generation &amp; Variations</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Dynamic Budget Allocation</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/ai-powered-marketing.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Vibe Marketing</span>
+                        <span class="mega-subcol-tag">Viral &amp; Trend</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Connect culturally and build resonant messaging that drives organic community excitement.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Trend Velocity Spotting</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Cultural Resonance Campaigns</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Interactive Memetic Content</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/ai-powered-marketing.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Automation</span>
+                        <span class="mega-subcol-tag">Operations</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Automated nurture streams, CRM triggers, and predictive lifecycle engagement funnels.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Zapier / Make / n8n Pipelines</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Dynamic Email Sequences</span></a></li>
+                      <li><a href="services/ai-powered-marketing.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Behavioral Lead Scoring</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">Build Custom Route Map &rarr;</a>
+                </div>
+              </div>
+
+              <!-- Pane 3: Performance & Lead Gen -->
+              <div class="mega-tab-pane" id="pane-performance">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">Performance &amp; Lead Generation</h3>
+                      <span class="mega-pane-badge">Revenue Engine</span>
+                    </div>
+                    <p class="mega-pane-tagline">High-ROI paid search, paid social, and conversion funnels engineered for predictable pipeline.</p>
+                  </div>
+                  <a href="services/performance-lead-generation.html" class="mega-pane-all-link">View All Details &rarr;</a>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/performance-lead-generation.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Paid Search</span>
+                        <span class="mega-subcol-tag">High Intent</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Capture high-intent buyers on Google Ads, Bing Ads, and programmatic networks.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Google Ads (Search &amp; PMax)</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Intent-Driven Bidding</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Negative Keyword Pruning</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/performance-lead-generation.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Paid Social</span>
+                        <span class="mega-subcol-tag">Scale</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Convert audiences on Meta, LinkedIn, and TikTok with creative-first funnels.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>LinkedIn B2B Targeting</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Meta Scale &amp; Retargeting</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Direct-Response Video Ads</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/performance-lead-generation.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">CRO &amp; Funnels</span>
+                        <span class="mega-subcol-tag">Conversion</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Transform inbound traffic into qualified demo bookings and closed transactions.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Frictionless Landing Page UX</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>A/B Split Testing</span></a></li>
+                      <li><a href="services/performance-lead-generation.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Interactive Lead Magnets</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">Build Custom Route Map &rarr;</a>
+                </div>
+              </div>
+
+              <!-- Pane 4: Content, Video & Authority -->
+              <div class="mega-tab-pane" id="pane-content">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">Content, Video &amp; Authority</h3>
+                      <span class="mega-pane-badge">Authority</span>
+                    </div>
+                    <p class="mega-pane-tagline">High-impact storytelling, short-form motion design, and executive thought leadership.</p>
+                  </div>
+                  <a href="services/content-video-thought-leadership.html" class="mega-pane-all-link">View All Details &rarr;</a>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/content-video-thought-leadership.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Content Inbound</span>
+                        <span class="mega-subcol-tag">Editorial</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Data-driven research reports, whitepapers, case studies, and editorial essays.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Original Research Reports</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>In-Depth Case Studies</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>SEO Pillar &amp; Topic Hubs</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/content-video-thought-leadership.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Motion Design</span>
+                        <span class="mega-subcol-tag">Engagement</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Compelling product demos, 3D motion graphics, and high-retention video clips.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Product Explainer Videos</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>High-Retention Short-Form</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Motion Ad Creatives</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/content-video-thought-leadership.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Thought Leadership</span>
+                        <span class="mega-subcol-tag">Executive PR</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Turn your founders and leadership team into recognized keynote and industry voices.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Founder Ghostwriting &amp; LinkedIn</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Podcast Guest Placements</span></a></li>
+                      <li><a href="services/content-video-thought-leadership.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Keynote Slide Design</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">Build Custom Route Map &rarr;</a>
+                </div>
+              </div>
+
+              <!-- Pane 5: Web & Ecommerce -->
+              <div class="mega-tab-pane" id="pane-web">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">Web &amp; Ecommerce</h3>
+                      <span class="mega-pane-badge">Modern Web</span>
+                    </div>
+                    <p class="mega-pane-tagline">Lightning-fast Jamstack websites, high-converting Shopify stores, and web apps.</p>
+                  </div>
+                  <a href="services/web-ecommerce-experience.html" class="mega-pane-all-link">View All Details &rarr;</a>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/web-ecommerce-experience.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Web Design &amp; Dev</span>
+                        <span class="mega-subcol-tag">Next.js</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Bespoke digital experiences built for speed, storytelling, and enterprise credibility.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Next.js &amp; Jamstack Performance</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Figma to Pixel-Perfect Code</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>95+ PageSpeed Scores</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/web-ecommerce-experience.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Ecommerce</span>
+                        <span class="mega-subcol-tag">Shopify</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Scale average order value, streamline checkout, and build recurring subscription engines.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Custom Shopify Development</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Cart &amp; Checkout Optimization</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Upsell &amp; Cross-Sell Flows</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/web-ecommerce-experience.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Interactive Tools</span>
+                        <span class="mega-subcol-tag">Web Apps</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Custom calculators, 3D product visualizers, and self-service customer tools.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>ROI &amp; Pricing Calculators</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Interactive Product Demos</span></a></li>
+                      <li><a href="services/web-ecommerce-experience.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Design System Library</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">Build Custom Route Map &rarr;</a>
+                </div>
+              </div>
+
+              <!-- Pane 6: Branding -->
+              <div class="mega-tab-pane" id="pane-branding">
+                <div class="mega-pane-header">
+                  <div>
+                    <div class="mega-pane-title-row">
+                      <h3 class="mega-pane-title">Branding</h3>
+                      <span class="mega-pane-badge">Identity</span>
+                    </div>
+                    <p class="mega-pane-tagline">Unforgettable visual systems, core positioning, and brand collateral that sets you apart.</p>
+                  </div>
+                  <a href="services/branding.html" class="mega-pane-all-link">View All Details &rarr;</a>
+                </div>
+
+                <div class="mega-subcols-grid">
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/branding.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Visual Identity</span>
+                        <span class="mega-subcol-tag">Design System</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Logo systems, typography palettes, vibrant color harmonies, and icon sets.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Logo Mark &amp; Wordmark</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Color &amp; Typography Tokens</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Brand Guidelines Manual</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/branding.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Positioning</span>
+                        <span class="mega-subcol-tag">Strategy</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Clarify your core value proposition, brand archetype, and differentiation narrative.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Competitive Differentiation</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Tone of Voice Guidelines</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>GTM Messaging Playbook</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="mega-subcol-card">
+                    <div class="mega-subcol-header">
+                      <a href="services/branding.html" class="mega-subcol-name-link">
+                        <span class="mega-subcol-name">Brand Assets</span>
+                        <span class="mega-subcol-tag">Collateral</span>
+                      </a>
+                    </div>
+                    <p class="mega-subcol-desc">Investor pitch decks, sales enablement one-pagers, swag, and social branding kits.</p>
+                    <ul class="mega-subcol-links">
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Pitch Decks &amp; Presentations</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Sales One-Pagers &amp; Decks</span></a></li>
+                      <li><a href="services/branding.html" class="mega-subcol-link"><span class="subcol-link-bullet">›</span><span>Social Media Brand Kit</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mega-footer-bar">
+                  <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                  <a href="custom-quote.html" class="mega-footer-link">Build Custom Route Map &rarr;</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

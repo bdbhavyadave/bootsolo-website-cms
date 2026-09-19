@@ -18,7 +18,31 @@ document.addEventListener('DOMContentLoaded', () => {
   initResourceDownloads();
   initBillingToggle();
   initSeoAeoGeoTabs();
+  initMegaMenuTabs();
 });
+
+// Mega Menu Hover Tabs (SoluLab Style)
+function initMegaMenuTabs() {
+  const tabBtns = document.querySelectorAll('.mega-sidebar .mega-tab-btn');
+  const tabPanes = document.querySelectorAll('.mega-content-area .mega-tab-pane');
+  if (!tabBtns.length || !tabPanes.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      const targetId = btn.getAttribute('data-target');
+      if (!targetId) return;
+
+      tabBtns.forEach(b => b.classList.remove('active'));
+      tabPanes.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetPane = document.getElementById(targetId);
+      if (targetPane) {
+        targetPane.classList.add('active');
+      }
+    });
+  });
+}
 
 // 1. Mobile Navigation Drawer Toggle
 function initMobileMenu() {
