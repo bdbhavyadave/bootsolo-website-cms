@@ -23,13 +23,15 @@ export async function DELETE(request, { params }) {
       console.error('Error deleting local lead:', err)
     }
 
-    // 2. Try deleting from Supabase
-    try {
-      const supabase = createServerSupabaseClient()
-      await supabase.from('leads').delete().eq('id', id)
-    } catch (sbErr) {
-      // ignore
-    }
+    // 2. Try deleting from Supabase in background
+    ;(async () => {
+      try {
+        const supabase = createServerSupabaseClient()
+        await supabase.from('leads').delete().eq('id', id)
+      } catch (sbErr) {
+        // ignore
+      }
+    })()
 
     return NextResponse.json({ success: true })
   } catch (err) {

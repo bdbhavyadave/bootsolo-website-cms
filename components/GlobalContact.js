@@ -11,7 +11,9 @@ export default function GlobalContact() {
   const isCustomQuotePage = pathname === '/custom-quote';
 
   return (
-    <section className="section" id="global-contact" style={{ background: 'var(--frost)', borderTop: '1px solid var(--border)' }}>
+    <section className="section" id="growth-roadmap" style={{ background: 'var(--frost)', borderTop: '1px solid var(--border)' }}>
+      <span id="global-contact" style={{ display: 'block', position: 'relative', top: '-90px', visibility: 'hidden' }}></span>
+      <span id="cta" style={{ display: 'block', position: 'relative', top: '-90px', visibility: 'hidden' }}></span>
       <div className="wrap">
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '64px', alignItems: 'center' }}>
           <div>

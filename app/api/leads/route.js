@@ -82,40 +82,39 @@ export async function POST(request) {
       submitted_at: body.submitted_at || submittedAt
     }
 
-    // 1. Save to local persistent storage (always works, 100% reliable)
+    // 1. Save to local persistent storage immediately (instant, 100% reliable)
     const currentLeads = getLocalLeads()
     currentLeads.unshift(newLead)
     saveLocalLeads(currentLeads)
 
-    // 2. Attempt to save to Supabase if configured
-    try {
-      const supabase = createServerSupabaseClient()
-      const { data: sbData, error: sbError } = await supabase.from('leads').insert([{
-        id: newLead.id.startsWith('lead-') ? undefined : newLead.id,
-        name: newLead.name,
-        email: newLead.email,
-        company: newLead.company,
-        service_interested: newLead.service_interested,
-        budget_range: newLead.budget_range,
-        timeline: newLead.timeline,
-        message: newLead.message,
-        status: newLead.status,
-        created_at: newLead.created_at
-      }]).select()
-
-      if (sbError) {
-        console.warn('Supabase insert notice (persisted locally):', sbError.message || sbError)
-      } else {
-        console.log('Successfully inserted lead into Supabase:', sbData)
-      }
-    } catch (sbError) {
-      console.warn('Supabase insert notice (persisted locally):', sbError?.message || sbError)
+    // 2. Only sync to Supabase on Vercel deployment where credentials and network are configured
+    if (process.env.VERCEL) {
+      ;(async () => {
+        try {
+          const supabase = createServerSupabaseClient()
+          await supabase.from('leads').insert([{
+            id: newLead.id.startsWith('lead-') ? undefined : newLead.id,
+            name: newLead.name,
+            email: newLead.email,
+            company: newLead.company,
+            service_interested: newLead.service_interested,
+            budget_range: newLead.budget_range,
+            timeline: newLead.timeline,
+            message: newLead.message,
+            status: newLead.status,
+            created_at: newLead.created_at
+          }]).select()
+        } catch (sbError) {
+          // Non-blocking log
+        }
+      })()
     }
 
     const response = NextResponse.json(newLead, { status: 201 })
     response.headers.set('Access-Control-Allow-Origin', '*')
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type')
+    response.headers.set('Cache-Control', 'no-store, no-cache, must-revalidate')
     return response
   } catch (err) {
     console.error('API Route Error:', err)
@@ -136,19 +135,27 @@ export async function GET(request) {
     let sbLeads = []
     const localLeads = getLocalLeads()
 
-    // 1. Try fetching from Supabase
-    try {
-      const supabase = createServerSupabaseClient()
-      const { data, error } = await supabase
-        .from('leads')
-        .select('*')
-        .order('created_at', { ascending: false })
+    // 1. Only query Supabase on Vercel; locally ignore Supabase completely for 0ms instant response
+    if (process.env.VERCEL) {
+      try {
+        const supabase = createServerSupabaseClient()
+        const fetchPromise = supabase
+          .from('leads')
+          .select('*')
+          .order('created_at', { ascending: false })
 
-      if (!error && data && data.length > 0) {
-        sbLeads = data
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Supabase GET timeout')), 800)
+        )
+
+        const { data, error } = await Promise.race([fetchPromise, timeoutPromise])
+
+        if (!error && data && data.length > 0) {
+          sbLeads = data
+        }
+      } catch (sbErr) {
+        // Supabase unavailable or timed out, immediately use local leads
       }
-    } catch (sbErr) {
-      // Supabase unavailable, will use local leads
     }
 
     // Merge Supabase leads and local leads without duplicates
@@ -160,7 +167,7 @@ export async function GET(request) {
       allLeadsMap.set(key, lead)
     })
 
-    // Overlay or add Supabase leads
+    // Overlay or add Supabase leads (if on Vercel)
     sbLeads.forEach(lead => {
       const key = `${lead.email || ''}_${lead.created_at || lead.id || ''}`
       allLeadsMap.set(key, lead)

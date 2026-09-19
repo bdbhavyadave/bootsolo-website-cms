@@ -83,11 +83,39 @@
                 <div class="mega-item-headline">AI-Powered Campaigns &amp; Automation</div>
                 <div class="mega-item-services">AI marketing, Vibe marketing, automated funnel optimization</div>
               </a>
-              <a href="seo-aeo-geo.html" class="mega-item">
-                <div class="mega-item-title">SEO / AEO / GEO</div>
-                <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
-                <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
-              </a>
+              <div class="mega-item mega-item-has-submenu">
+                <a href="seo-aeo-geo.html" class="mega-item-link-wrap">
+                  <div class="mega-item-title-row">
+                    <span class="mega-item-title">SEO / AEO / GEO</span>
+                    <span class="mega-item-pill">3 Tabs</span>
+                  </div>
+                  <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
+                  <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
+                </a>
+                <div class="mega-suboptions-row">
+                  <a href="seo-aeo-geo.html?tab=seo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-seo"></span>
+                      <span>SEO</span>
+                    </div>
+                    <span class="suboption-tag">Traditional Search</span>
+                  </a>
+                  <a href="seo-aeo-geo.html?tab=aeo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-aeo"></span>
+                      <span>AEO</span>
+                    </div>
+                    <span class="suboption-tag">Answer Engine</span>
+                  </a>
+                  <a href="seo-aeo-geo.html?tab=geo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-geo"></span>
+                      <span>GEO</span>
+                    </div>
+                    <span class="suboption-tag">Generative LLM</span>
+                  </a>
+                </div>
+              </div>
               <a href="performance-lead-generation.html" class="mega-item">
                 <div class="mega-item-title">Performance &amp; Lead Generation</div>
                 <div class="mega-item-headline">Paid Media &amp; Pipeline Growth</div>
@@ -120,7 +148,7 @@
 
       <div class="nav-spacer"></div>
       <a class="btn btn-ghost btn-sm" href="../custom-quote.html">Request custom quote</a>
-      <a class="btn btn-primary btn-sm" href="../index.html#cta">Start the climb</a>
+      <a class="btn btn-primary btn-sm" href="../index.html#growth-roadmap">Book a Growth Call</a>
 
       <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -136,7 +164,14 @@
       <a href="../index.html#services" style="font-weight:600;">Services</a>
       <div style="padding-left:12px;display:flex;flex-direction:column;gap:8px;font-size:14px;">
         <a href="ai-powered-marketing.html">AI-Powered Marketing</a>
-        <a href="seo-aeo-geo.html">SEO / AEO / GEO</a>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <a href="seo-aeo-geo.html" style="font-weight:600;">SEO / AEO / GEO</a>
+          <div style="display:flex;gap:8px;padding-left:8px;margin-bottom:4px;">
+            <a href="seo-aeo-geo.html?tab=seo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">SEO</a>
+            <a href="seo-aeo-geo.html?tab=aeo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">AEO</a>
+            <a href="seo-aeo-geo.html?tab=geo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">GEO</a>
+          </div>
+        </div>
         <a href="performance-lead-generation.html">Performance &amp; Lead Gen</a>
         <a href="content-video-thought-leadership.html">Content &amp; Video</a>
         <a href="web-ecommerce-experience.html">Web &amp; Ecommerce</a>
@@ -148,12 +183,14 @@
       <a href="../resources.html">Resources</a>
       <a href="../blogs.html">Blogs</a>
       <a href="../custom-quote.html" class="btn btn-ghost" style="text-align:center;">Request Custom Quote</a>
-      <a href="../index.html#cta" class="btn btn-primary" style="text-align:center;">Start the Climb</a>
+      <a href="../index.html#growth-roadmap" class="btn btn-primary" style="text-align:center;">Book a Growth Call</a>
     </div>
   </nav>
 
-  <!-- Service Hero (2-Column Single Page Layout) -->
-  <header class="hero dark" style="padding:68px 0 76px;min-height:calc(100vh - 66px + 36px);display:flex;align-items:center;border-bottom:1px solid var(--navy-700);background:radial-gradient(circle at 65% 25%, #182e49 0%, #09121d 80%);">
+  <!-- TAB: AEO (Answer Engine Optimization) -->
+  <div id="tab-aeo" class="tab-content-panel active">
+    <!-- Service Hero (2-Column Single Page Layout) -->
+    <header class="hero dark" style="padding:68px 0 76px;min-height:calc(100vh - 66px + 36px);display:flex;align-items:center;border-bottom:1px solid var(--navy-700);background:radial-gradient(circle at 65% 25%, #182e49 0%, #09121d 80%);">
     <div class="wrap" style="max-width:1280px;margin:0 auto;width:100%;display:grid;grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));gap:40px;align-items:center;">
       <!-- Left Column: Copy, CTAs & Bullets -->
       <div style="text-align:left;">
@@ -610,6 +647,472 @@
       </div>
     </div>
   </section>
+  </div> <!-- /tab-aeo -->
+
+  <!-- TAB: SEO (Search Engine Optimization) -->
+  <div id="tab-seo" class="tab-content-panel">
+    <!-- SEO Hero -->
+    <header class="hero dark" style="padding:68px 0 76px;min-height:calc(100vh - 66px + 36px);display:flex;align-items:center;border-bottom:1px solid var(--navy-700);background:radial-gradient(circle at 65% 25%, #182e49 0%, #09121d 80%);">
+      <div class="wrap" style="max-width:1280px;margin:0 auto;width:100%;text-align:center;">
+        <span class="kick" style="display:inline-block;padding:5px 12px;background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.35);border-radius:999px;font-size:12px;color:#60a5fa;margin-bottom:14px;font-weight:600;">
+          Search Engine Optimization (SEO)
+        </span>
+        <h1 class="h-display" style="font-size:clamp(32px, 4vw, 54px);margin:0 0 16px;line-height:1.1;color:#fff;letter-spacing:-0.03em;">
+          Rank Higher on Google.<br>
+          <span style="background:linear-gradient(135deg, #60a5fa 0%, #ff6b35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Capture Active Buyer Search Intent.</span>
+        </h1>
+        <p class="h-sub" style="font-size:clamp(16px, 1.8vw, 20px);color:var(--navy-200);margin:0 auto 28px;max-width:720px;line-height:1.6;">
+          Stop burning cash on ephemeral ads. We engineer technical foundations, commercial topic clusters, and white-hat authority so your brand consistently climbs to #1 for high-value search queries.
+        </p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
+          <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Book%20an%20SEO%20strategy%20call" style="padding:12px 28px;font-size:15px;box-shadow:0 0 20px rgba(255,107,53,0.45);">
+            Book Free SEO Strategy Call &rarr;
+          </a>
+          <a class="btn btn-ghost" href="#seo-pricing" style="padding:12px 24px;font-size:15px;color:#fff;border-color:var(--navy-500);">
+            View SEO Packages
+          </a>
+        </div>
+        <!-- Stats Ticker -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:16px;max-width:960px;margin:0 auto;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:var(--sunrise);font-family:var(--font-mono, monospace);">+312%</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">Average Organic Traffic Lift</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:#60a5fa;font-family:var(--font-mono, monospace);">Top 3</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">Commercial SERP Placement</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:#10b981;font-family:var(--font-mono, monospace);">100%</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">White-Hat &amp; Safe</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:var(--ice-300);font-family:var(--font-mono, monospace);">30–60d</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">First Signal Velocity</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SEO Pillars -->
+    <section class="section" style="background:var(--snow);padding:64px 0;">
+      <div class="wrap">
+        <div class="sec-head" style="text-align:center;max-width:740px;margin:0 auto 40px;">
+          <span class="kick">The Methodology</span>
+          <h2 class="sec-title" style="font-size:clamp(28px, 3.8vw, 38px);margin-bottom:14px;">Engineered for Sustainable First-Page Rankings</h2>
+          <p class="sec-lead" style="font-size:16px;color:var(--fg2);">Our 6-pillar framework treats SEO as an engineering discipline, aligning crawl bots, search intent, and user psychology.</p>
+        </div>
+        <div class="feature-grid-clean">
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">⚙️</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Technical SEO &amp; Speed Architecture</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">Crawl budget optimization, Core Web Vitals refinement, JSON-LD schema graphs, clean canonicalization, and lightning-fast server responses.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Core Web Vitals</span>
+              <span class="mini-tag">Schema Markup</span>
+              <span class="mini-tag">Crawl Budget</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">🎯</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Commercial Intent Keyword Mapping</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">We prioritize bottom-funnel queries where searchers have active buying intent, rather than chasing vanity volume that never converts.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">High-Intent Keywords</span>
+              <span class="mini-tag">Competitor Teardowns</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">📚</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Semantic Content Clusters</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">Architecting authoritative topic hubs that establish topical completeness, internally link related entities, and signal deep domain authority to Google.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Topic Hubs</span>
+              <span class="mini-tag">Internal Linking</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">🛡️</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">White-Hat Authority &amp; Digital PR</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">Earned backlinks, niche publication features, founder quotes, and unlinked brand mentions that build enduring organic domain rating.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Editorial Placements</span>
+              <span class="mini-tag">Natural Link Velocity</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">⚡</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Conversion-Focused On-Page UX</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">Optimizing header hierarchies, meta descriptions, scannable summaries, and contextual micro-CTAs that convert organic clicks into pipeline.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">CRO Synergy</span>
+              <span class="mini-tag">Frictionless Funnels</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">📊</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Transparent Ranking &amp; Pipeline Tracking</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">Weekly ranking fluctuations, Google Search Console query coverage, impressions growth, and direct pipeline attribution reporting.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">GSC Diagnostics</span>
+              <span class="mini-tag">Revenue Attribution</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Pricing -->
+    <section class="section" id="seo-pricing" style="background:#fff;padding:64px 0;">
+      <div class="wrap">
+        <div class="sec-head" style="text-align:center;max-width:700px;margin:0 auto 40px;">
+          <span class="kick">Pricing Tiers</span>
+          <h2 class="sec-title" style="font-size:clamp(28px, 3.8vw, 38px);margin-bottom:14px;">Search &amp; Visibility Packages</h2>
+        </div>
+        <div class="price-grid">
+          <div class="price-card">
+            <div class="price-name">Local SEO &amp; Search Lite</div>
+            <div class="price-amt">$400</div>
+            <div class="price-desc">Good for local footprints and early keyword setup.</div>
+            <ul class="price-feats">
+              <li>Keyword &amp; intent mapping (up to 20 terms)</li>
+              <li>Technical audit &amp; crawl cleanup</li>
+              <li>On-page optimization for up to 5 priority pages</li>
+              <li>JSON-LD Schema implementation</li>
+              <li>Monthly performance telemetry report</li>
+            </ul>
+            <a class="btn btn-ghost" href="../custom-quote.html" style="width:100%;">Request quote</a>
+          </div>
+          <div class="price-card feat">
+            <div class="price-tag">Recommended</div>
+            <div class="price-name">Growth SEO Suite</div>
+            <div class="price-amt">$700</div>
+            <div class="price-desc">Better for founders actively scaling organic search share.</div>
+            <ul class="price-feats">
+              <li>Full keyword architecture (up to 50 terms)</li>
+              <li>On-page optimization for up to 12 pages</li>
+              <li>2 Semantic topic cluster hubs</li>
+              <li>Competitor gap analysis &amp; SERP conquesting</li>
+              <li>Digital PR outreach &amp; 2 high-trust backlinks/mo</li>
+              <li>Bi-weekly rank tracking &amp; GSC diagnostics</li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Start%20Growth%20SEO" style="width:100%;">Start the climb</a>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Authority SEO Enterprise</div>
+            <div class="price-amt">$1,200</div>
+            <div class="price-desc">Complete organic search domination for category leaders.</div>
+            <ul class="price-feats">
+              <li>Unlimited keyword mapping &amp; cluster strategy</li>
+              <li>Full-site technical &amp; speed architecture</li>
+              <li>15–20 pages optimized + monthly expansion</li>
+              <li>White-hat digital PR &amp; 5+ authority placements/mo</li>
+              <li>Custom analytics dashboard &amp; pipeline attribution</li>
+              <li>Dedicated senior search strategist &amp; Slack channel</li>
+            </ul>
+            <a class="btn btn-ghost" href="mailto:hello@bootsolo.com?subject=Authority%20SEO%20Inquiry" style="width:100%;">Talk to us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO FAQ -->
+    <section class="section" style="background:var(--snow);padding:56px 0;">
+      <div class="wrap" style="max-width:820px;margin:0 auto;">
+        <div class="sec-head" style="text-align:center;margin-bottom:30px;">
+          <span class="kick">Common Questions</span>
+          <h2 class="sec-title" style="font-size:clamp(26px, 3.5vw, 36px);">Search Engine Optimization FAQs</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <details style="background:#fff;border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;" open>
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">How does traditional SEO fit alongside AI search (AEO/GEO)?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">Traditional SEO remains the foundational data layer. Google and Bing process billions of daily searches, and AI answer engines crawl and index top-ranking organic pages to source their syntheses. Dominating traditional search directly boosts your chances of being cited by AI engines.</p>
+          </details>
+          <details style="background:#fff;border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;">
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">How long does it take to see tangible ranking improvements?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">Technical fixes and quick-win optimizations on existing pages frequently show positive movement within 3 to 6 weeks. Competitive, high-volume commercial keywords typically compound between 60 to 90 days as topical authority matures.</p>
+          </details>
+          <details style="background:#fff;border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;">
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">Do you use automated AI spam content for SEO?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">Never. Google heavily penalizes low-value programmatic spam. We build human-crafted, deeply researched, data-dense content enriched with original insights, structured schema, and expert perspectives that rank reliably and convert visitors.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO CTA -->
+    <section class="section" style="background:var(--snow);padding:48px 0 64px;">
+      <div class="wrap" style="max-width:900px;margin:0 auto;">
+        <div style="background:radial-gradient(circle at 50% 0%, #15273d 0%, #0a1320 100%);border-radius:20px;padding:50px 40px;text-align:center;color:#fff;border:1px solid var(--navy-600);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
+          <h2 style="color:#fff;font-size:clamp(26px, 3.8vw, 40px);margin:0 0 18px;line-height:1.15;">
+            Ready to claim #1 rankings on Google?
+          </h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--navy-200);max-width:680px;margin:0 auto 32px;">
+            Let our search architects inspect your current technical health, crawl barriers, and competitor keyword gaps.
+          </p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Book%20an%20SEO%20audit" style="padding:12px 28px;box-shadow:0 0 20px rgba(255,107,53,0.4);">
+              Book Free SEO Audit Call
+            </a>
+            <a class="btn btn-ghost" href="../custom-quote.html" style="padding:12px 28px;color:#ffffff !important;border-color:rgba(255,255,255,0.32);background:rgba(255,255,255,0.08);">
+              Request Custom Scope
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- /tab-seo -->
+
+  <!-- TAB: GEO (Generative Engine Optimization) -->
+  <div id="tab-geo" class="tab-content-panel">
+    <!-- GEO Hero -->
+    <header class="hero dark" style="padding:68px 0 76px;min-height:calc(100vh - 66px + 36px);display:flex;align-items:center;border-bottom:1px solid var(--navy-700);background:radial-gradient(circle at 65% 25%, #182e49 0%, #09121d 80%);">
+      <div class="wrap" style="max-width:1280px;margin:0 auto;width:100%;text-align:center;">
+        <span class="kick" style="display:inline-block;padding:5px 12px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.35);border-radius:999px;font-size:12px;color:#34d399;margin-bottom:14px;font-weight:600;">
+          Generative Engine Optimization (GEO)
+        </span>
+        <h1 class="h-display" style="font-size:clamp(32px, 4vw, 54px);margin:0 0 16px;line-height:1.1;color:#fff;letter-spacing:-0.03em;">
+          Get Cited by Generative AI.<br>
+          <span style="background:linear-gradient(135deg, #34d399 0%, #ff6b35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Be the Brand LLMs Recommend.</span>
+        </h1>
+        <p class="h-sub" style="font-size:clamp(16px, 1.8vw, 20px);color:var(--navy-200);margin:0 auto 28px;max-width:720px;line-height:1.6;">
+          Buyers aren’t clicking 10 blue links anymore. They ask Perplexity, ChatGPT, and Gemini for direct advice. We build the entity graphs, factual citations, and digital consensus needed to make your product the definitive answer.
+        </p>
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:44px;">
+          <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Book%20a%20GEO%20strategy%20session" style="padding:12px 28px;font-size:15px;box-shadow:0 0 20px rgba(255,107,53,0.45);">
+            Book GEO Strategy Session &rarr;
+          </a>
+          <a class="btn btn-ghost" href="#geo-pricing" style="padding:12px 24px;font-size:15px;color:#fff;border-color:var(--navy-500);">
+            View GEO Packages
+          </a>
+        </div>
+        <!-- Stats Ticker -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:16px;max-width:960px;margin:0 auto;">
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:var(--sunrise);font-family:var(--font-mono, monospace);">3.4x</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">Higher LLM Citation Rate</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:#34d399;font-family:var(--font-mono, monospace);">82%</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">Zero-Click Query Preference</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:#60a5fa;font-family:var(--font-mono, monospace);">4 Major</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">AI Engines Monitored</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid var(--navy-600);border-radius:12px;padding:20px 16px;">
+            <div style="font-size:28px;font-weight:800;color:var(--ice-300);font-family:var(--font-mono, monospace);">&lt;30d</div>
+            <div style="font-size:12.5px;color:var(--navy-300);margin-top:4px;">Perplexity Citation Speed</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Supported Engines -->
+    <section class="section" style="background:var(--snow);padding:64px 0;">
+      <div class="wrap">
+        <div class="sec-head" style="text-align:center;max-width:740px;margin:0 auto 40px;">
+          <span class="kick">Multi-Model Surface</span>
+          <h2 class="sec-title" style="font-size:clamp(28px, 3.8vw, 38px);margin-bottom:14px;">Optimized for Today’s Frontier Answer Engines</h2>
+          <p class="sec-lead" style="font-size:16px;color:var(--fg2);">Each generative platform uses distinct retrieval mechanisms. We calibrate your brand footprint to win across all of them.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:20px;">
+          <div style="background:#fff;border:1px solid var(--border-strong);border-radius:14px;padding:24px;">
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 6px;">Perplexity Pro</h3>
+            <div style="font-size:12.5px;color:var(--sunrise-700);margin-bottom:8px;font-weight:600;">Real-time Web Search &amp; Synthesis</div>
+            <p style="font-size:13.5px;color:var(--fg2);line-height:1.5;margin:0 0 12px;"><strong>Citation Style:</strong> Numbered Inline Footnotes [1][2]</p>
+            <span class="mini-tag">B2B SaaS Research</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border-strong);border-radius:14px;padding:24px;">
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 6px;">ChatGPT Search</h3>
+            <div style="font-size:12.5px;color:var(--sunrise-700);margin-bottom:8px;font-weight:600;">OpenAI Fine-Tuned Retrieval</div>
+            <p style="font-size:13.5px;color:var(--fg2);line-height:1.5;margin:0 0 12px;"><strong>Citation Style:</strong> Linked Sources &amp; Sidebar</p>
+            <span class="mini-tag">Commercial Vendor Discovery</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border-strong);border-radius:14px;padding:24px;">
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 6px;">Google AI Overviews</h3>
+            <div style="font-size:12.5px;color:var(--sunrise-700);margin-bottom:8px;font-weight:600;">Gemini SERP Integration</div>
+            <p style="font-size:13.5px;color:var(--fg2);line-height:1.5;margin:0 0 12px;"><strong>Citation Style:</strong> Interactive Source Cards</p>
+            <span class="mini-tag">High-Volume Consumer &amp; B2B</span>
+          </div>
+          <div style="background:#fff;border:1px solid var(--border-strong);border-radius:14px;padding:24px;">
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 6px;">Claude (Anthropic)</h3>
+            <div style="font-size:12.5px;color:var(--sunrise-700);margin-bottom:8px;font-weight:600;">Long-Context Synthesis</div>
+            <p style="font-size:13.5px;color:var(--fg2);line-height:1.5;margin:0 0 12px;"><strong>Citation Style:</strong> Analytical Deep-Dives</p>
+            <span class="mini-tag">Enterprise Software Evaluation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO Pillars -->
+    <section class="section" style="background:#fff;padding:64px 0;">
+      <div class="wrap">
+        <div class="sec-head" style="text-align:center;max-width:740px;margin:0 auto 40px;">
+          <span class="kick">The GEO Engine</span>
+          <h2 class="sec-title" style="font-size:clamp(28px, 3.8vw, 38px);margin-bottom:14px;">How We Turn LLMs into Your Highest-Converting Advocates</h2>
+          <p class="sec-lead" style="font-size:16px;color:var(--fg2);">Generative models reward factual clarity and external consensus. Here is the framework that gets your brand cited.</p>
+        </div>
+        <div class="feature-grid-clean">
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">🌐</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Knowledge Graph &amp; Entity Authority</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">We ground your brand across Wikidata, Crunchbase, official registries, and schema nodes so LLMs identify your company as a verified semantic entity.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Wikidata</span>
+              <span class="mini-tag">Entity Resolution</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">📄</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">High Factual Density &amp; Quotable Answers</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">We engineer content with dense, quote-ready assertions, structured tables, and benchmark stats that generative models reliably parse and cite.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Factual Density</span>
+              <span class="mini-tag">Structured Tables</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">✨</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Synthetic Prompt Testing &amp; Benchmarking</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">We run automated prompt simulations across Perplexity, ChatGPT Search, Claude, and Gemini to reveal citation blind spots and competitor leaks.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Perplexity Pro</span>
+              <span class="mini-tag">Prompt Probing</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">🔗</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Multi-Source Citation Footprint</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">LLMs look for cross-web consensus. We seed and optimize references on Reddit, GitHub, G2, Substack, and tier-one industry publications.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Reddit Sentiment</span>
+              <span class="mini-tag">Cross-Web Proof</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">🎯</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Zero-Click Brand Preference Architecture</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">When AI synthesizes answers, buyers might not click immediately. We ensure your brand narrative is positioned as the recommended solution inside the summary.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Brand Affinity</span>
+              <span class="mini-tag">Comparison Dominance</span>
+            </div>
+          </div>
+          <div class="feature-card-clean">
+            <div class="feature-icon-wrapper">📈</div>
+            <h3 style="font-size:18px;font-weight:700;color:var(--summit);margin:0 0 8px;">Continuous LLM Telemetry &amp; Update Defense</h3>
+            <p style="font-size:14px;line-height:1.6;color:var(--fg2);margin:0 0 16px;">As frontier model weights, search indexes, and system prompts change, we track your citation velocity and keep your authority intact.</p>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:auto;">
+              <span class="mini-tag">Citation Velocity</span>
+              <span class="mini-tag">Prompt Coverage</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO Pricing -->
+    <section class="section" id="geo-pricing" style="background:var(--snow);padding:64px 0;">
+      <div class="wrap">
+        <div class="sec-head" style="text-align:center;max-width:700px;margin:0 auto 40px;">
+          <span class="kick">Pricing Tiers</span>
+          <h2 class="sec-title" style="font-size:clamp(28px, 3.8vw, 38px);margin-bottom:14px;">Generative Optimization Packages</h2>
+        </div>
+        <div class="price-grid">
+          <div class="price-card">
+            <div class="price-name">GEO Launch Sprint</div>
+            <div class="price-amt">$600</div>
+            <div class="price-desc">Essential Generative Engine Optimization for startups entering AI search.</div>
+            <ul class="price-feats">
+              <li>Entity &amp; Knowledge Graph baseline audit</li>
+              <li>Perplexity &amp; ChatGPT citation benchmark</li>
+              <li>On-page factual density restructuring (up to 5 pages)</li>
+              <li>Basic Wikidata &amp; registry entity linking</li>
+              <li>Monthly citation presence report</li>
+            </ul>
+            <a class="btn btn-ghost" href="../custom-quote.html" style="width:100%;">Request scope</a>
+          </div>
+          <div class="price-card feat">
+            <div class="price-tag">Recommended</div>
+            <div class="price-name">Generative Citation Growth</div>
+            <div class="price-amt">$950</div>
+            <div class="price-desc">Flagship package for brands wanting consistent citations across top AI engines.</div>
+            <ul class="price-feats">
+              <li>Complete entity graph architecture &amp; schema mesh</li>
+              <li>Synthetic prompt testing across 50+ commercial prompts</li>
+              <li>Factual restructuring for up to 12 pages</li>
+              <li>Cross-web citation seeding (Reddit, GitHub, PR)</li>
+              <li>Bi-weekly LLM citation tracking &amp; alerts</li>
+              <li>AEO/GEO unified keyword matrix</li>
+            </ul>
+            <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Start%20GEO%20Growth" style="width:100%;">Start the climb</a>
+          </div>
+          <div class="price-card">
+            <div class="price-name">Category Citation Dominance</div>
+            <div class="price-amt">$1,500</div>
+            <div class="price-desc">Total generative visibility domination for category leaders.</div>
+            <ul class="price-feats">
+              <li>Continuous automated synthetic prompt monitoring</li>
+              <li>Full site factual density overhaul &amp; comparison hubs</li>
+              <li>Comprehensive digital consensus campaign</li>
+              <li>Priority inclusion in LLM training corpora &amp; RAG</li>
+              <li>Custom live dashboard for AI visibility</li>
+              <li>Dedicated AI Search Architect &amp; weekly calls</li>
+            </ul>
+            <a class="btn btn-ghost" href="mailto:hello@bootsolo.com?subject=Category%20Dominance%20Inquiry" style="width:100%;">Talk to us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO FAQ -->
+    <section class="section" style="background:#fff;padding:56px 0;">
+      <div class="wrap" style="max-width:820px;margin:0 auto;">
+        <div class="sec-head" style="text-align:center;margin-bottom:30px;">
+          <span class="kick">Inquiries</span>
+          <h2 class="sec-title" style="font-size:clamp(26px, 3.5vw, 36px);">Generative Engine Optimization FAQs</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <details style="background:var(--snow);border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;" open>
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">What is Generative Engine Optimization (GEO)?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">GEO is the practice of optimizing digital assets and brand presence so large language models (LLMs) and generative search engines—like Perplexity, ChatGPT Search, Gemini, and Claude—cite, recommend, and feature your company in their synthesized answers.</p>
+          </details>
+          <details style="background:var(--snow);border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;">
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">How does GEO differ from SEO and AEO?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">SEO focuses on search engine ranking algorithms (blue links). AEO focuses on structured answers for direct answer boxes and voice/assistant queries. GEO focuses on multi-source retrieval-augmented generation (RAG) and LLM knowledge graphs, ensuring models treat your brand as an irrefutable fact when answering queries.</p>
+          </details>
+          <details style="background:var(--snow);border:1px solid var(--border-strong);border-radius:12px;padding:18px 24px;">
+            <summary style="font-size:17px;font-weight:700;color:var(--summit);cursor:pointer;">How soon can we see our brand cited in ChatGPT or Perplexity?</summary>
+            <p style="margin:14px 0 0;font-size:15px;line-height:1.6;color:var(--fg2);">For real-time retrieval engines like Perplexity Pro and ChatGPT Search, citations can begin showing up within 3 to 6 weeks once entity profiles, structured citations, and high-density content are indexed.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- GEO CTA -->
+    <section class="section" style="background:var(--snow);padding:48px 0 64px;">
+      <div class="wrap" style="max-width:900px;margin:0 auto;">
+        <div style="background:radial-gradient(circle at 50% 0%, #15273d 0%, #0a1320 100%);border-radius:20px;padding:50px 40px;text-align:center;color:#fff;border:1px solid var(--navy-600);box-shadow:0 20px 50px rgba(0,0,0,0.3);">
+          <h2 style="color:#fff;font-size:clamp(26px, 3.8vw, 40px);margin:0 0 18px;line-height:1.15;">
+            Want to know how Perplexity and ChatGPT cite you today?
+          </h2>
+          <p style="font-size:16px;line-height:1.6;color:var(--navy-200);max-width:680px;margin:0 auto 32px;">
+            We run a live synthetic prompt scan across frontier models to show you where your competitors are stealing your mentions.
+          </p>
+          <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:hello@bootsolo.com?subject=Book%20a%20GEO%20audit" style="padding:12px 28px;box-shadow:0 0 20px rgba(255,107,53,0.4);">
+              Book Your GEO Audit Call
+            </a>
+            <a class="btn btn-ghost" href="../custom-quote.html" style="padding:12px 28px;color:#ffffff !important;border-color:rgba(255,255,255,0.32);background:rgba(255,255,255,0.08);">
+              Request Custom Quote
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div> <!-- /tab-geo -->
+
 
   <!-- Footer -->
   <footer class="footer dark">

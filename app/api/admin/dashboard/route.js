@@ -41,36 +41,38 @@ export async function GET() {
     let recentPosts = []
     let recentLeads = realLeads.slice(0, 5)
 
-    try {
-      const fetchSupabaseData = async () => {
-        const { count } = await supabase
-          .from('blog_posts')
-          .select('*', { count: 'exact', head: true })
-          .eq('status', 'published')
-        if (typeof count === 'number') postsCount = count
+    if (process.env.VERCEL) {
+      try {
+        const fetchSupabaseData = async () => {
+          const { count } = await supabase
+            .from('blog_posts')
+            .select('*', { count: 'exact', head: true })
+            .eq('status', 'published')
+          if (typeof count === 'number') postsCount = count
 
-        const { count: sbLeadsCount } = await supabase
-          .from('leads')
-          .select('*', { count: 'exact', head: true })
-        if (typeof sbLeadsCount === 'number' && sbLeadsCount > leadsCount) {
-          leadsCount = sbLeadsCount
+          const { count: sbLeadsCount } = await supabase
+            .from('leads')
+            .select('*', { count: 'exact', head: true })
+          if (typeof sbLeadsCount === 'number' && sbLeadsCount > leadsCount) {
+            leadsCount = sbLeadsCount
+          }
+
+          const { data: postsData } = await supabase
+            .from('blog_posts')
+            .select('id, title, category, status, created_at')
+            .order('created_at', { ascending: false })
+            .limit(4)
+          if (postsData) recentPosts = postsData
         }
 
-        const { data: postsData } = await supabase
-          .from('blog_posts')
-          .select('id, title, category, status, created_at')
-          .order('created_at', { ascending: false })
-          .limit(4)
-        if (postsData) recentPosts = postsData
+        const timeoutPromise = new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('Supabase dashboard timeout')), 1200)
+        )
+
+        await Promise.race([fetchSupabaseData(), timeoutPromise])
+      } catch (sbErr) {
+        console.warn('Dashboard Supabase fetch notice:', sbErr?.message || sbErr)
       }
-
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('Supabase dashboard timeout')), 1200)
-      )
-
-      await Promise.race([fetchSupabaseData(), timeoutPromise])
-    } catch (sbErr) {
-      console.warn('Dashboard Supabase fetch notice:', sbErr?.message || sbErr)
     }
 
     return NextResponse.json({

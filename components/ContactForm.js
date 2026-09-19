@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Send } from 'lucide-react';
 
 import { COUNTRIES } from '../lib/countries';
+import { emitLeadSubmittedEvent } from '../lib/events';
 
 export default function ContactForm() {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -67,6 +68,7 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      emitLeadSubmittedEvent();
       setSubmitted(true);
     } catch (err) {
       console.warn('Note:', err);

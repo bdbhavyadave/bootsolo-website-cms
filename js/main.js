@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGrowthCallModal();
   initResourceDownloads();
   initBillingToggle();
+  initSeoAeoGeoTabs();
 });
 
 // 1. Mobile Navigation Drawer Toggle
@@ -569,6 +570,7 @@ function initFormSubmissions() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+        broadcastNewLeadEvent();
       } catch (err) {
         console.warn('Note on lead submission:', err);
       }
@@ -735,6 +737,7 @@ function initGrowthCallModal() {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(modalPayload)
         });
+        broadcastNewLeadEvent();
       } catch (err) {
         console.warn('Note on call booking save:', err);
       }
@@ -746,6 +749,19 @@ function initGrowthCallModal() {
   }
 
   if (doneBtn) doneBtn.addEventListener('click', closeModal);
+}
+
+// Cross-tab real-time sync dispatcher
+function broadcastNewLeadEvent() {
+  if (typeof window === 'undefined') return;
+  try {
+    const bc = new BroadcastChannel('bootsolo_leads_channel');
+    bc.postMessage({ type: 'LEAD_SUBMITTED', timestamp: Date.now() });
+    bc.close();
+  } catch (e) {}
+  try {
+    localStorage.setItem('bootsolo_last_lead_event', Date.now().toString());
+  } catch (e) {}
 }
 
 // 12. Resource Downloads
@@ -886,4 +902,25 @@ function initCountryDropdown() {
     }
   });
 }
+
+// 15. SEO / AEO / GEO Tab Display based on URL query parameter (?tab=seo|aeo|geo)
+function initSeoAeoGeoTabs() {
+  const tabPanels = document.querySelectorAll('.tab-content-panel');
+  if (!tabPanels.length) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const requestedTab = (urlParams.get('tab') || 'aeo').toLowerCase();
+
+  const validTabs = ['seo', 'aeo', 'geo'];
+  const activeId = validTabs.includes(requestedTab) ? `tab-${requestedTab}` : 'tab-aeo';
+
+  tabPanels.forEach(panel => {
+    if (panel.id === activeId) {
+      panel.classList.add('active');
+    } else {
+      panel.classList.remove('active');
+    }
+  });
+}
+
 

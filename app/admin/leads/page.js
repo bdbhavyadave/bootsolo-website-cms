@@ -1,19 +1,21 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Download, Search, Mail, Eye, Trash2, X, Clock, Calendar, CheckCircle, ExternalLink, Phone } from 'lucide-react'
+import { Download, Search, Mail, Eye, Trash2, X, Clock, Calendar, CheckCircle, ExternalLink, Phone, RefreshCw } from 'lucide-react'
 
 export default function LeadManagement() {
   const [leads, setLeads] = useState([])
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [search, setSearch] = useState('')
   const [selectedLead, setSelectedLead] = useState(null)
   const [activeTab, setActiveTab] = useState('all') // 'all', 'growth_call', 'custom_quote', 'roadmap'
   const [sortBy, setSortBy] = useState('date-desc') // 'date-desc', 'date-asc', 'name-asc', 'name-desc', 'type'
 
-  const fetchLeads = async () => {
+  const fetchLeads = async (silent = false) => {
+    if (!silent) setRefreshing(true)
     try {
-      const res = await fetch('/api/leads')
+      const res = await fetch('/api/leads', { cache: 'no-store' })
       const data = await res.json()
       if (Array.isArray(data)) {
         setLeads(data)
@@ -24,11 +26,42 @@ export default function LeadManagement() {
       console.error(err)
     } finally {
       setLoading(false)
+      if (!silent) setRefreshing(false)
     }
   }
 
   useEffect(() => {
     fetchLeads()
+
+    // 1. Immediate 0ms reflection via BroadcastChannel when form is submitted in same browser
+    let bc = null
+    try {
+      bc = new BroadcastChannel('bootsolo_leads_channel')
+      bc.onmessage = (event) => {
+        if (event.data?.type === 'LEAD_SUBMITTED') {
+          fetchLeads(true)
+        }
+      }
+    } catch (e) {}
+
+    // 2. Storage event fallback for cross-tab sync
+    const onStorage = (e) => {
+      if (e.key === 'bootsolo_last_lead_event') {
+        fetchLeads(true)
+      }
+    }
+    window.addEventListener('storage', onStorage)
+
+    // 3. Fast auto-poll every 2.5 seconds as a continuous live feed
+    const interval = setInterval(() => {
+      fetchLeads(true)
+    }, 2500)
+
+    return () => {
+      if (bc) bc.close()
+      window.removeEventListener('storage', onStorage)
+      clearInterval(interval)
+    }
   }, [])
 
   const handleDelete = async (id, e) => {
@@ -178,27 +211,55 @@ export default function LeadManagement() {
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
         <div>
-          <h1 style={{ fontSize: '1.875rem', fontWeight: 700 }}>Lead Management</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <h1 style={{ fontSize: '1.875rem', fontWeight: 700, margin: 0 }}>Lead Management</h1>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: '#ecfdf5', color: '#047857', border: '1px solid #a7f3d0', fontSize: '11.5px', fontWeight: 600, padding: '3px 9px', borderRadius: '999px' }}>
+              <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+              Live Sync (Instant)
+            </span>
+          </div>
           <p style={{ color: '#666', marginTop: '0.25rem' }}>Review, sort, and manage incoming leads across all website forms.</p>
         </div>
-        <button 
-          onClick={handleExportCSV}
-          style={{ 
-            background: 'white', 
-            color: 'var(--primary)', 
-            border: '1px solid #ddd',
-            padding: '0.75rem 1.5rem', 
-            borderRadius: '8px', 
-            fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            cursor: 'pointer'
-          }}
-        >
-          <Download size={20} />
-          Export CSV ({filteredLeads.length})
-        </button>
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          <button 
+            onClick={() => fetchLeads(false)}
+            disabled={refreshing}
+            style={{ 
+              background: 'white', 
+              color: '#334155', 
+              border: '1px solid #ddd',
+              padding: '0.75rem 1.1rem', 
+              borderRadius: '8px', 
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              cursor: refreshing ? 'not-allowed' : 'pointer'
+            }}
+            title="Refresh leads list now"
+          >
+            <RefreshCw size={16} className={refreshing ? 'animate-spin' : ''} style={{ animation: refreshing ? 'spin 1s linear infinite' : 'none' }} />
+            {refreshing ? 'Refreshing...' : 'Refresh'}
+          </button>
+          <button 
+            onClick={handleExportCSV}
+            style={{ 
+              background: 'white', 
+              color: 'var(--primary)', 
+              border: '1px solid #ddd',
+              padding: '0.75rem 1.5rem', 
+              borderRadius: '8px', 
+              fontWeight: 600,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              cursor: 'pointer'
+            }}
+          >
+            <Download size={20} />
+            Export CSV ({filteredLeads.length})
+          </button>
+        </div>
       </div>
 
       {/* Form Type Filter Tabs */}

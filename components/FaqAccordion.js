@@ -30,22 +30,50 @@ export default function FaqAccordion() {
   };
 
   return (
-    <section className="section bg-snow relative overflow-hidden" id="faq">
-      <div className="container">
-        <div className="section-header text-center">
-          <div className="section-eyebrow inline-flex align-center gap-2">
-            <HelpCircle size={14} color="var(--sunrise)" />
+    <section className="section" id="faq" style={{ background: 'var(--snow, #F7F5F1)', padding: '96px 0' }}>
+      <div className="wrap" style={{ maxWidth: '880px', margin: '0 auto', padding: '0 24px', boxSizing: 'border-box' }}>
+        <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 48px' }}>
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '6px 14px',
+            borderRadius: '999px',
+            background: 'rgba(255, 107, 53, 0.08)',
+            border: '1px solid rgba(255, 107, 53, 0.22)',
+            color: 'var(--sunrise, #FF6B35)',
+            fontSize: '12px',
+            fontWeight: 600,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            marginBottom: '16px'
+          }}>
+            <HelpCircle size={14} color="var(--sunrise, #FF6B35)" />
             <span>Clear Answers</span>
           </div>
-          <h2 className="h2 font-heading text-summit">
+          <h2 style={{
+            fontSize: 'clamp(28px, 3.8vw, 42px)',
+            fontWeight: 700,
+            color: 'var(--summit, #0E1A2B)',
+            letterSpacing: '-0.02em',
+            margin: '0 0 14px',
+            lineHeight: 1.15
+          }}>
             Frequently Asked Questions
           </h2>
-          <p className="section-subhead text-fg2">
+          <p style={{
+            fontSize: '16.5px',
+            lineHeight: 1.6,
+            color: 'var(--fg2, #51606F)',
+            margin: '0 auto',
+            maxWidth: '540px'
+          }}>
             Everything founders ask before booking their first growth strategy call.
           </p>
         </div>
 
-        <div className="faq-grid max-w-3xl mx-auto">
+        <div className="faq-grid" style={{ maxWidth: '820px', margin: '0 auto', width: '100%', display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
@@ -53,23 +81,73 @@ export default function FaqAccordion() {
                 key={idx}
                 className={`faq-card ${isOpen ? 'open' : ''}`}
                 onClick={() => toggleFaq(idx)}
+                style={{
+                  background: '#ffffff',
+                  border: isOpen ? '1px solid var(--sunrise, #FF6B35)' : '1px solid rgba(14, 26, 43, 0.14)',
+                  borderRadius: '14px',
+                  padding: '1.25rem 1.6rem',
+                  cursor: 'pointer',
+                  boxShadow: isOpen ? '0 8px 24px rgba(255, 107, 53, 0.12)' : '0 2px 6px rgba(14, 26, 43, 0.04)',
+                  transition: 'all 200ms ease'
+                }}
               >
                 <button
                   className="faq-question-btn"
                   aria-expanded={isOpen}
                   aria-controls={`faq-answer-${idx}`}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: '1.25rem',
+                    background: 'transparent',
+                    border: 'none',
+                    padding: 0,
+                    cursor: 'pointer',
+                    textAlign: 'left'
+                  }}
                 >
-                  <span className="faq-question-text font-heading text-summit text-left">
+                  <span style={{
+                    fontSize: '1.08rem',
+                    fontWeight: 600,
+                    lineHeight: 1.45,
+                    color: 'var(--summit, #0E1A2B)',
+                    letterSpacing: '-0.01em'
+                  }}>
                     {faq.q}
                   </span>
-                  <div className={`faq-icon-wrap ${isOpen ? 'rotated' : ''}`}>
-                    <ChevronDown size={18} color="var(--fg2)" />
+                  <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '50%',
+                    background: isOpen ? 'rgba(255, 107, 53, 0.1)' : 'rgba(14, 26, 43, 0.05)',
+                    transition: 'transform 200ms ease, background 200ms ease',
+                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}>
+                    <ChevronDown size={18} color={isOpen ? 'var(--sunrise, #FF6B35)' : 'var(--fg2, #51606F)'} />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div id={`faq-answer-${idx}`} className="faq-answer-content">
-                    <p className="body-text text-fg2">{faq.a}</p>
+                  <div id={`faq-answer-${idx}`} style={{
+                    marginTop: '1rem',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid rgba(14, 26, 43, 0.08)',
+                    animation: 'faqFadeIn 200ms ease'
+                  }}>
+                    <p style={{
+                      fontSize: '15px',
+                      lineHeight: 1.65,
+                      color: 'var(--fg2, #51606F)',
+                      margin: 0
+                    }}>
+                      {faq.a}
+                    </p>
                   </div>
                 )}
               </div>
@@ -79,63 +157,7 @@ export default function FaqAccordion() {
       </div>
 
       <style jsx>{`
-        .faq-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
-        .faq-card {
-          background: var(--white);
-          border: 1px solid var(--border-strong);
-          border-radius: var(--radius-md);
-          padding: 1.25rem 1.5rem;
-          cursor: pointer;
-          transition: all 170ms cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        .faq-card:hover {
-          border-color: var(--sunrise-300);
-          box-shadow: var(--shadow-2);
-        }
-        .faq-card.open {
-          border-color: var(--sunrise);
-          background: var(--white);
-        }
-        .faq-question-btn {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 1rem;
-          background: transparent;
-          border: none;
-          padding: 0;
-          cursor: pointer;
-        }
-        .faq-question-text {
-          font-size: 1.1rem;
-          font-weight: 600;
-          line-height: 1.4;
-        }
-        .faq-icon-wrap {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: transform 170ms ease;
-        }
-        .faq-icon-wrap.rotated {
-          transform: rotate(180deg);
-        }
-        .faq-answer-content {
-          margin-top: 1rem;
-          padding-top: 1rem;
-          border-top: 1px solid var(--border);
-          overflow-wrap: break-word;
-          word-break: break-word;
-          box-sizing: border-box;
-          max-width: 100%;
-          animation: fadeIn 170ms ease;
-        }
-        @keyframes fadeIn {
+        @keyframes faqFadeIn {
           from { opacity: 0; transform: translateY(-4px); }
           to { opacity: 1; transform: translateY(0); }
         }

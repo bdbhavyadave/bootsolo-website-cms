@@ -44,11 +44,39 @@
                 <div class="mega-item-headline">AI-Powered Campaigns &amp; Automation</div>
                 <div class="mega-item-services">AI marketing, Vibe marketing, automated funnel optimization</div>
               </a>
-              <a href="services/seo-aeo-geo.html" class="mega-item">
-                <div class="mega-item-title">SEO / AEO / GEO</div>
-                <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
-                <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
-              </a>
+              <div class="mega-item mega-item-has-submenu">
+                <a href="services/seo-aeo-geo.html" class="mega-item-link-wrap">
+                  <div class="mega-item-title-row">
+                    <span class="mega-item-title">SEO / AEO / GEO</span>
+                    <span class="mega-item-pill">3 Tabs</span>
+                  </div>
+                  <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
+                  <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
+                </a>
+                <div class="mega-suboptions-row">
+                  <a href="services/seo-aeo-geo.html?tab=seo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-seo"></span>
+                      <span>SEO</span>
+                    </div>
+                    <span class="suboption-tag">Traditional Search</span>
+                  </a>
+                  <a href="services/seo-aeo-geo.html?tab=aeo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-aeo"></span>
+                      <span>AEO</span>
+                    </div>
+                    <span class="suboption-tag">Answer Engine</span>
+                  </a>
+                  <a href="services/seo-aeo-geo.html?tab=geo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-geo"></span>
+                      <span>GEO</span>
+                    </div>
+                    <span class="suboption-tag">Generative LLM</span>
+                  </a>
+                </div>
+              </div>
               <a href="services/performance-lead-generation.html" class="mega-item">
                 <div class="mega-item-title">Performance &amp; Lead Generation</div>
                 <div class="mega-item-headline">Paid Media &amp; Pipeline Growth</div>
@@ -81,7 +109,7 @@
 
       <div class="nav-spacer"></div>
       <a class="btn btn-ghost btn-sm" href="custom-quote.html">Request custom quote</a>
-      <a class="btn btn-primary btn-sm" href="#cta">Start the climb</a>
+      <a class="btn btn-primary btn-sm" href="#growth-roadmap">Book a Growth Call</a>
 
       <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -95,7 +123,14 @@
     <!-- Mobile Navigation Drawer -->
     <div class="mobile-nav-drawer">
       <a href="services/ai-powered-marketing.html" style="font-weight:600;">AI-Powered Marketing</a>
-      <a href="services/seo-aeo-geo.html" style="font-weight:600;">SEO / AEO / GEO</a>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <a href="services/seo-aeo-geo.html" style="font-weight:600;">SEO / AEO / GEO</a>
+        <div style="display:flex;gap:8px;padding-left:8px;margin-bottom:4px;">
+          <a href="services/seo-aeo-geo.html?tab=seo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">SEO</a>
+          <a href="services/seo-aeo-geo.html?tab=aeo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">AEO</a>
+          <a href="services/seo-aeo-geo.html?tab=geo" style="font-size:12px;padding:2px 8px;border-radius:4px;background:var(--snow);color:var(--fg1);text-decoration:none;">GEO</a>
+        </div>
+      </div>
       <a href="services/performance-lead-generation.html" style="font-weight:600;">Performance &amp; Lead Gen</a>
       <a href="services/content-video-thought-leadership.html" style="font-weight:600;">Content &amp; Video</a>
       <a href="services/web-ecommerce-experience.html" style="font-weight:600;">Web &amp; Ecommerce</a>
@@ -106,7 +141,7 @@
       <a href="resources.html">Resources</a>
       <a href="blogs.html">Blogs</a>
       <a href="custom-quote.html" class="btn btn-ghost" style="text-align:center;">Request Custom Quote</a>
-      <a href="#cta" class="btn btn-primary" style="text-align:center;">Start the Climb</a>
+      <a href="#growth-roadmap" class="btn btn-primary" style="text-align:center;">Book a Growth Call</a>
     </div>
   </nav>
 
@@ -492,8 +527,11 @@
   <section class="section" id="faq" style="background:var(--bg);padding:96px 0;">
     <div class="wrap">
       <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <span class="kick">Clear Answers</span>
-        <h2 class="sec-title">Frequently Asked Questions</h2>
+        <div style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.22);color:var(--sunrise);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--sunrise);"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Clear Answers</span>
+        </div>
+        <h2 class="sec-title" style="margin-top:0;">Frequently Asked Questions</h2>
         <p class="sec-lead">Everything founders ask before booking their first growth strategy call.</p>
       </div>
 
@@ -542,7 +580,8 @@
   </section>
 
   <!-- 8. GET YOUR FREE GROWTH ROADMAP / CTA SECTION -->
-  <section class="section" id="cta" style="background: var(--frost, #E9F4FE); border-top: 1px solid var(--border); padding: 80px 0;">
+  <section class="section" id="growth-roadmap" style="background: var(--frost, #E9F4FE); border-top: 1px solid var(--border); padding: 80px 0;">
+    <span id="cta" style="display:block;position:relative;top:-90px;visibility:hidden;"></span>
     <div class="wrap">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 64px; align-items: center;">
         <div>

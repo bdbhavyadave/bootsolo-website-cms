@@ -14,7 +14,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch('/api/admin/dashboard')
+        const res = await fetch('/api/admin/dashboard', { cache: 'no-store' })
         const data = await res.json()
         if (res.ok && data.totals) {
           setStats(data.totals)
@@ -28,6 +28,30 @@ export default function AdminDashboard() {
       }
     }
     fetchStats()
+
+    let bc = null
+    try {
+      bc = new BroadcastChannel('bootsolo_leads_channel')
+      bc.onmessage = (event) => {
+        if (event.data?.type === 'LEAD_SUBMITTED') {
+          fetchStats()
+        }
+      }
+    } catch (e) {}
+
+    const onStorage = (e) => {
+      if (e.key === 'bootsolo_last_lead_event') {
+        fetchStats()
+      }
+    }
+    window.addEventListener('storage', onStorage)
+
+    const timer = setInterval(fetchStats, 3000)
+    return () => {
+      if (bc) bc.close()
+      window.removeEventListener('storage', onStorage)
+      clearInterval(timer)
+    }
   }, [])
 
   const StatCard = ({ title, value, icon: Icon }) => (

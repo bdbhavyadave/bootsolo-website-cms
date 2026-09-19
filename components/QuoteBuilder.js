@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Send, Check } from 'lucide-react';
 import { COUNTRIES } from '../lib/countries';
+import { emitLeadSubmittedEvent } from '../lib/events';
 
 const MASTER_SERVICES = [
   {
@@ -125,6 +126,7 @@ export default function QuoteBuilder() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+      emitLeadSubmittedEvent();
       setSubmitted(true);
     } catch (err) {
       console.error('Quote submission error:', err);
@@ -280,8 +282,12 @@ export default function QuoteBuilder() {
       </div>
 
       <div className="quote-summary-col">
-        <div style={{ position: 'sticky', top: '100px', background: 'var(--bg-elevated)', padding: '32px', borderRadius: '24px', boxShadow: 'var(--shadow-2)', border: '1px solid var(--border)' }}>
-          <h4 style={{ fontSize: '18px', fontWeight: 600, marginBottom: '24px', color: 'var(--fg1)' }}>Your Route Map</h4>
+        <div className="quote-floating-card" style={{ position: 'sticky', top: '96px', background: 'var(--bg-elevated)', padding: '32px', borderRadius: '20px', boxShadow: '0 24px 48px -10px rgba(14, 26, 43, 0.14), 0 4px 16px -2px rgba(14, 26, 43, 0.06)', border: '1px solid rgba(14, 26, 43, 0.1)', backdropFilter: 'blur(16px)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
+            <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--fg3)', fontWeight: 700 }}>Strategy Summary</span>
+            <span style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.04em', textTransform: 'uppercase', padding: '3px 9px', borderRadius: '999px', background: 'rgba(255,107,53,0.12)', color: 'var(--sunrise-700)', border: '1px solid rgba(255,107,53,0.25)' }}>Floating Route</span>
+          </div>
+          <h3 style={{ fontSize: '22px', fontWeight: 700, marginBottom: '20px', color: 'var(--fg1)', letterSpacing: '-0.01em' }}>Your Route Map</h3>
           
           {selectedServices.length === 0 && !isOtherChecked ? (
             <div style={{ fontSize: '14px', color: 'var(--fg3)', fontStyle: 'italic', padding: '16px', background: 'var(--snow)', borderRadius: '8px', textAlign: 'center' }}>

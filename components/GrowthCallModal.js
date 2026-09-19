@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { emitLeadSubmittedEvent } from '@/lib/events';
 import { X, Calendar, Clock, ArrowRight, CheckCircle2, Sparkles, Building2, Target } from 'lucide-react';
 
 export default function GrowthCallModal({ isOpen, onClose }) {
@@ -69,6 +70,7 @@ export default function GrowthCallModal({ isOpen, onClose }) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
+        emitLeadSubmittedEvent();
       } catch (err) {
         console.warn('Error submitting growth call lead:', err);
       }

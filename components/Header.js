@@ -92,13 +92,52 @@ export default function Header() {
             
             <div className="mega-menu">
               <div className="mega-menu-grid">
-                {SERVICES_MEGA.map((item) => (
-                  <Link key={item.slug} href={item.slug} className="mega-item">
-                    <div className="mega-item-title">{item.title}</div>
-                    <div className="mega-item-headline">{item.headline}</div>
-                    <div className="mega-item-services">{item.services}</div>
-                  </Link>
-                ))}
+                {SERVICES_MEGA.map((item) => {
+                  if (item.slug === '/seo-aeo-geo') {
+                    return (
+                      <div key={item.slug} className="mega-item mega-item-has-submenu">
+                        <Link href="/seo-aeo-geo" className="mega-item-link-wrap">
+                          <div className="mega-item-title-row">
+                            <span className="mega-item-title">{item.title}</span>
+                            <span className="mega-item-pill">3 Tabs</span>
+                          </div>
+                          <div className="mega-item-headline">{item.headline}</div>
+                          <div className="mega-item-services">{item.services}</div>
+                        </Link>
+                        <div className="mega-suboptions-row">
+                          <Link href="/seo-aeo-geo?tab=seo" className="mega-suboption-chip">
+                            <div className="mega-suboption-header">
+                              <span className="suboption-dot dot-seo"></span>
+                              <span>SEO</span>
+                            </div>
+                            <span className="suboption-tag">Traditional Search</span>
+                          </Link>
+                          <Link href="/seo-aeo-geo?tab=aeo" className="mega-suboption-chip">
+                            <div className="mega-suboption-header">
+                              <span className="suboption-dot dot-aeo"></span>
+                              <span>AEO</span>
+                            </div>
+                            <span className="suboption-tag">Answer Engine</span>
+                          </Link>
+                          <Link href="/seo-aeo-geo?tab=geo" className="mega-suboption-chip">
+                            <div className="mega-suboption-header">
+                              <span className="suboption-dot dot-geo"></span>
+                              <span>GEO</span>
+                            </div>
+                            <span className="suboption-tag">Generative LLM</span>
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link key={item.slug} href={item.slug} className="mega-item">
+                      <div className="mega-item-title">{item.title}</div>
+                      <div className="mega-item-headline">{item.headline}</div>
+                      <div className="mega-item-services">{item.services}</div>
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -114,7 +153,7 @@ export default function Header() {
         {/* Desktop CTAs */}
         <div className="nav-desktop-cta" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <Link className="btn btn-ghost btn-sm" href="/custom-quote">Request Custom Quote</Link>
-          <Link className="btn btn-primary btn-sm glow-sunrise" href="/custom-quote" aria-label="Book a Growth Call">
+          <Link className="btn btn-primary btn-sm glow-sunrise" href="/#growth-roadmap" aria-label="Book a Growth Call">
             Book a Growth Call
           </Link>
         </div>
@@ -151,16 +190,54 @@ export default function Header() {
 
             {isServicesOpen && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: '12px', marginBottom: '8px' }}>
-                {SERVICES_MEGA.map((item) => (
-                  <Link
-                    key={item.slug}
-                    href={item.slug}
-                    onClick={closeMenu}
-                    style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
-                  >
-                    {item.title}
-                  </Link>
-                ))}
+                {SERVICES_MEGA.map((item) => {
+                  if (item.slug === '/seo-aeo-geo') {
+                    return (
+                      <div key={item.slug} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        <Link
+                          href={item.slug}
+                          onClick={closeMenu}
+                          style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '4px 0', fontWeight: 600 }}
+                        >
+                          {item.title}
+                        </Link>
+                        <div style={{ display: 'flex', gap: '8px', paddingLeft: '8px', marginBottom: '4px' }}>
+                          <Link
+                            href="/seo-aeo-geo?tab=seo"
+                            onClick={closeMenu}
+                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                          >
+                            SEO
+                          </Link>
+                          <Link
+                            href="/seo-aeo-geo?tab=aeo"
+                            onClick={closeMenu}
+                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                          >
+                            AEO
+                          </Link>
+                          <Link
+                            href="/seo-aeo-geo?tab=geo"
+                            onClick={closeMenu}
+                            style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                          >
+                            GEO
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <Link
+                      key={item.slug}
+                      href={item.slug}
+                      onClick={closeMenu}
+                      style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
+                    >
+                      {item.title}
+                    </Link>
+                  );
+                })}
               </div>
             )}
 
@@ -182,7 +259,7 @@ export default function Header() {
             <Link className="btn btn-ghost" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
               Request Custom Quote
             </Link>
-            <Link className="btn btn-primary glow-sunrise" href="/custom-quote" onClick={closeMenu} style={{ justifyContent: 'center' }}>
+            <Link className="btn btn-primary glow-sunrise" href="/#growth-roadmap" onClick={closeMenu} style={{ justifyContent: 'center' }}>
               Book a Growth Call
             </Link>
           </div>

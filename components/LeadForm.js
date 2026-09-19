@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { emitLeadSubmittedEvent } from '@/lib/events'
 
 export default function LeadForm({ compact = false }) {
   const [loading, setLoading] = useState(false)
@@ -27,6 +28,7 @@ export default function LeadForm({ compact = false }) {
 
       if (response.ok) {
         setSuccess(true)
+        emitLeadSubmittedEvent()
         e.target.reset()
       } else {
         const err = await response.json()

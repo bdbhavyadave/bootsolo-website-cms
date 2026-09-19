@@ -114,7 +114,7 @@ export default function Assessment() {
                   ? 'Your engine has strong fundamentals. Bootsolo can help scale your AI search citations and lower your CAC.'
                   : 'Your marketing is vulnerable to AI-native competitors. Book a Growth Call to build an AI-first engine.'}
               </p>
-              <a className="btn btn-primary" href="#cta" style={{ height: '46px', padding: '0 28px', fontSize: '15px' }}>
+              <a className="btn btn-primary" href="#growth-roadmap" style={{ height: '46px', padding: '0 28px', fontSize: '15px' }}>
                 Book Your Growth Assessment <ArrowRight size={16} />
               </a>
             </div>
