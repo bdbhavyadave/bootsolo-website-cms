@@ -20,15 +20,14 @@ export default function Topbar() {
           const data = await res.json()
           setUser(data.user)
         } else {
-          // fallback if endpoint doesn't exist yet
-          setUser({ first_name: 'Bhavya', last_name: 'Dave', role: 'admin' })
+          router.push('/admin/login')
         }
       } catch (err) {
-        setUser({ first_name: 'Bhavya', last_name: 'Dave', role: 'admin' })
+        router.push('/admin/login')
       }
     }
     fetchUser()
-  }, [])
+  }, [router])
 
   const handleLogout = async () => {
     try {

@@ -147,44 +147,52 @@ function initGutCheckTabs() {
 
   const items = [
     {
-      badge: 'GUT CHECK 01',
-      headline: 'Still built purely for Google, while buyers are already asking AI?',
+      badge: 'CHALLENGE 01',
+      headline: 'Is your marketing still built for search engines while your buyers are already asking AI?',
       desc: 'Buyers cross-check on ChatGPT, Perplexity, and Google AI Overviews before they reach your site. If your marketing doesn’t optimize for conversational LLM search, you miss buyers at the point of intent.',
       impact: 'AEO / GEO CITATION & REVENUE TRACTION',
       m1: { val: 'Top Ranked', lbl: 'AI Engine Citations' },
       m2: { val: '+312%', lbl: 'Average Growth' }
     },
     {
-      badge: 'GUT CHECK 02',
-      headline: 'Stretched thin across search, ChatGPT, LinkedIn, & paid at once?',
-      desc: 'Running isolated freelancers and disconnected tactics without a unified strategy wastes budget, breaks momentum, and leaves your buyer journey fragmented.',
+      badge: 'CHALLENGE 02',
+      headline: 'Are you struggling to stay visible across Google, ChatGPT, LinkedIn, and paid channels at the same time?',
+      desc: 'Running isolated freelancers and disconnected tactics without a unified strategy wastes budget, breaks momentum, and leaves your buyer journey fragmented across channels.',
       impact: 'CONNECTED MARKETING ENGINE STRATEGY',
       m1: { val: '100%', lbl: 'Funnel Integration' },
       m2: { val: '1 Owner', lbl: 'End-to-End Accountable' }
     },
     {
-      badge: 'GUT CHECK 03',
-      headline: 'Content takes three weeks while a competitor ships in three days?',
-      desc: 'Traditional agency approval layers stall momentum. AI-accelerated workflows let lean teams out-publish and out-convert traditional marketing teams.',
+      badge: 'CHALLENGE 03',
+      headline: 'Is your content taking weeks to produce while competitors ship faster with AI-driven workflows?',
+      desc: 'Traditional agency approval layers stall momentum. AI-accelerated workflows let lean teams out-publish and out-convert traditional marketing teams in days, not weeks.',
       impact: 'EXECUTION VELOCITY & MOTION DESIGN',
       m1: { val: '3x Faster', lbl: 'Content Velocity' },
       m2: { val: '-60%', lbl: 'Time-to-Market' }
     },
     {
-      badge: 'GUT CHECK 04',
-      headline: 'Funnel still leans on manual follow-up instead of a self-running system?',
+      badge: 'CHALLENGE 04',
+      headline: 'Do your funnels depend on manual effort instead of scalable, automated systems?',
       desc: 'Automated buyer nurture engines capture, qualify, and convert leads 24/7 without needing manual intervention for every inquiry.',
       impact: 'MARKETING AUTOMATION FUNNEL',
       m1: { val: '24/7', lbl: 'Automated Lead Nurture' },
       m2: { val: 'Full-Funnel', lbl: 'Conversion Tracking' }
     },
     {
-      badge: 'GUT CHECK 05',
-      headline: 'Can you actually trace spend to P&L revenue, or is it a guess?',
-      desc: 'Every dollar invested should map directly to qualified pipeline and board-defendable ROI instead of vanity impressions.',
+      badge: 'CHALLENGE 05',
+      headline: 'Are you investing in marketing but struggling to tie it directly to ROI and P&L impact?',
+      desc: 'Every dollar invested should map directly to qualified pipeline, bottom-line revenue, and P&L profit rather than superficial vanity impressions.',
       impact: 'ATTRIBUTION & ROI ACCOUNTABILITY',
       m1: { val: '100%', lbl: 'Spend Traceability' },
       m2: { val: 'Board-Ready', lbl: 'P&L Attribution' }
+    },
+    {
+      badge: 'CHALLENGE 06',
+      headline: 'Are you trying to grow without the budget or bandwidth to hire a full-stack marketing team?',
+      desc: 'Hiring a 6-person agency or multi-role marketing team creates overhead you cannot afford. Bootsolo gives you senior strategy with AI-native execution speed.',
+      impact: 'LEAN FULL-STACK MARKETING ENGINE',
+      m1: { val: '1 Lean Engine', lbl: 'Replaces 6 Roles' },
+      m2: { val: 'Senior Lead', lbl: 'AI Execution Speed' }
     }
   ];
 
@@ -203,12 +211,20 @@ function initGutCheckTabs() {
     if (metricLbl2) metricLbl2.textContent = data.m2.lbl;
   }
 
+  let hoverTimeout = null;
   tabs.forEach((btn, idx) => {
-    btn.addEventListener('click', () => selectTab(idx));
+    btn.addEventListener('click', () => {
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+      selectTab(idx);
+    });
+    btn.addEventListener('mouseenter', () => {
+      if (hoverTimeout) clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => selectTab(idx), 35);
+    });
   });
 }
 
-// 4. Services 7-Module Interactive Explorer
+// 4. Services 6-Module Interactive Explorer
 function initModulesExplorer() {
   const menuItems = document.querySelectorAll('.modules-menu-item');
   const nodeBadge = document.getElementById('mod-node-badge');
@@ -226,129 +242,111 @@ function initModulesExplorer() {
   const modules = [
     {
       id: 1,
-      badge: 'SAN FRANCISCO, USA — North America Node',
-      hub: 'ChatGPT 4o & Claude AI Citation Hub',
+      badge: 'AI GROWTH ENGINE',
+      hub: 'Campaigns, automation & vibe marketing',
       statVal: '+312%',
-      statLbl: 'Average Signup Growth',
-      modelVal: 'Solo SaaS Founder',
-      modelLbl: 'Founder Model',
-      desc: 'Ranked #1 in ChatGPT 4o & Claude recommendations for lean SaaS platforms.',
+      statLbl: 'Signup Growth',
+      modelVal: 'Always-On Engine',
+      modelLbl: 'Delivery Timeline',
+      desc: "Turn AI from a buzzword into a growth engine. We design always-on campaigns, automate your funnels end to end, and continuously optimize what's working — so your marketing improves while you sleep.",
       deliverables: [
-        'Top-tier AEO citation placement in AI chat queries',
-        'Organic referral traffic up 4.1x without agency retainers',
+        'AI-powered campaign strategy and execution',
         'Marketing automation across the full funnel',
-        'Vibe marketing that captures attention and intent'
+        'Vibe marketing that captures attention and intent',
+        'Automated funnel optimization and testing'
       ],
       ctaUrl: 'services/ai-powered-marketing.html',
       ctaText: 'Explore AI-Powered Marketing'
     },
     {
       id: 2,
-      badge: 'LONDON, UNITED KINGDOM — Europe Node',
-      hub: 'Perplexity Pro Answer Engine Node',
+      badge: 'AI & SEARCH CITATION',
+      hub: 'Search, AI-Engine & Geo Optimization',
       statVal: '4.1x',
       statLbl: 'AI Citation Visibility',
-      modelVal: 'AI FinTech Solopreneur',
-      modelLbl: 'Founder Model',
-      desc: 'Cited directly across 14 high-intent Perplexity Pro and Google AI Overview queries.',
+      modelVal: 'Google · ChatGPT · Perplexity',
+      modelLbl: 'Platforms',
+      desc: "Being found is no longer just about Google. We optimize you for traditional search, for answer engines like ChatGPT and Perplexity, and for the local searches that drive real-world demand — so customers find you wherever they're looking.",
       deliverables: [
-        'Technical and content SEO engineered to rank',
-        'Answer Engine Optimization (AEO) for LLM search',
+        'Technical and content SEO that ranks',
+        'Answer Engine Optimization (AEO) for AI search',
         'Generative Engine Optimization (GEO) for AI citations',
-        'Local & geo-targeted visibility infrastructure'
+        'Local and geo-targeted visibility'
       ],
       ctaUrl: 'services/seo-aeo-geo.html',
-      ctaText: 'Explore SEO, AEO & GEO'
+      ctaText: 'Explore SEO / AEO / GEO'
     },
     {
       id: 3,
-      badge: 'TOKYO, JAPAN — Asia-Pacific Node',
-      hub: 'Google AI Overview & Paid Media Node',
+      badge: 'PAID & PIPELINE',
+      hub: 'Performance marketing & pipeline growth',
       statVal: '-58%',
-      statLbl: 'Cost Per Sale Reduction',
-      modelVal: 'B2B Tech Founder',
-      modelLbl: 'Founder Model',
-      desc: 'Secured top generative answer cards and high-converting performance campaigns.',
+      statLbl: 'Lower Cost Per Sale',
+      modelVal: 'Predictable Pipeline',
+      modelLbl: 'Outcome Focus',
+      desc: 'Every dollar should earn its place. We run paid campaigns and conversion programs built around one goal: a steady, predictable flow of qualified leads into your pipeline.',
       deliverables: [
         'Paid search and paid social campaigns',
-        'Conversion rate optimization (CRO)',
-        'Lead generation systems built for pipeline',
-        'Full-funnel tracking and revenue attribution'
+        'Conversion Rate Optimization (CRO)',
+        'Lead generation systems that fill your pipeline',
+        'Full-funnel performance tracking and reporting'
       ],
       ctaUrl: 'services/performance-lead-generation.html',
-      ctaText: 'Explore Performance & Lead Gen'
+      ctaText: 'Explore Performance & Lead Generation'
     },
     {
       id: 4,
-      badge: 'BERLIN, GERMANY — Central Europe Node',
-      hub: 'Vibe Marketing & Rapid Content Studio',
-      statVal: '3x',
+      badge: 'AUTHORITY & MEDIA',
+      hub: 'Content, video & authority building',
+      statVal: '3x Faster',
       statLbl: 'Content Velocity',
-      modelVal: 'Indie Hacker SaaS',
-      modelLbl: 'Founder Model',
-      desc: 'Shipped high-converting content, motion video, and authority assets in days.',
+      modelVal: 'Earn Trust Before Calls',
+      modelLbl: 'Impact',
+      desc: 'Great content earns trust before a sales call ever happens. We create the articles, videos, and points of view that position you as the obvious choice in your category.',
       deliverables: [
-        'High-velocity thought leadership copywriting',
-        'Short-form motion design & video production',
-        'Founder personal branding across social channels',
-        'Organic distribution frameworks that compound'
+        'Content marketing and editorial strategy',
+        'Video production and motion design',
+        'Thought leadership that builds authority',
+        'Content built to rank and convert'
       ],
       ctaUrl: 'services/content-video-thought-leadership.html',
-      ctaText: 'Explore Content & Authority'
+      ctaText: 'Explore Content, Video & Thought Leadership'
     },
     {
       id: 5,
-      badge: 'NEW YORK, USA — East Coast Commerce Node',
-      hub: 'Conversion Architecture & Store UX',
-      statVal: '+44%',
-      statLbl: 'Store Checkout Conversion',
-      modelVal: 'D2C Consumer Brand',
-      modelLbl: 'Founder Model',
-      desc: 'Custom high-performance web experience with instant load speeds and zero friction.',
+      badge: 'CONVERSION & EXPERIENCE',
+      hub: 'Web design, UX & ecommerce',
+      statVal: 'High ROI',
+      statLbl: 'Storefront Conversion',
+      modelVal: 'Next.js · Headless',
+      modelLbl: 'Speed & Scale',
+      desc: 'Your website is your hardest-working salesperson. We design fast, intuitive sites and storefronts that turn visitors into customers — and look the part while doing it.',
       deliverables: [
-        'Sub-second page speed & conversion design',
-        'Friction-free checkout flow optimization',
-        'Landing page systems built to scale ad traffic',
-        'Analytics, heatmaps & customer funnel insights'
+        'Conversion-focused web design',
+        'UX strategy and optimization',
+        'Ecommerce builds and experiences',
+        'Sites engineered for speed and scale'
       ],
       ctaUrl: 'services/web-ecommerce-experience.html',
-      ctaText: 'Explore Web & Ecommerce'
+      ctaText: 'Explore Web & Ecommerce Experience'
     },
     {
       id: 6,
-      badge: 'AUSTIN, USA — Brand Strategy Node',
-      hub: 'Category Positioning & Design Architecture',
-      statVal: '100%',
-      statLbl: 'Category Clarity',
-      modelVal: 'Seed-Stage AI Startup',
-      modelLbl: 'Founder Model',
-      desc: 'Distinct visual identity, punchy typography, and crisp founder positioning.',
+      badge: 'IDENTITY & POSITIONING',
+      hub: 'Brand identity & positioning',
+      statVal: 'Distinct',
+      statLbl: 'Positioning Clarity',
+      modelVal: 'Obvious Choice',
+      modelLbl: 'Category Impact',
+      desc: 'A strong brand makes everything else easier — every ad, every page, every pitch. We help you find your position, sharpen your message, and build an identity that sticks.',
       deliverables: [
-        'Brand positioning & core narrative architecture',
-        'Visual identity system & design tokens',
-        'Copywriting tone of voice & messaging playbooks',
-        'Collateral templates for pitch, product & social'
+        'Brand strategy and positioning',
+        'Visual identity and design systems',
+        'Messaging and voice',
+        'Rebrands and brand refreshes'
       ],
       ctaUrl: 'services/branding.html',
-      ctaText: 'Explore High-Voltage Branding'
-    },
-    {
-      id: 7,
-      badge: 'SINGAPORE — Global Enablement Hub',
-      hub: 'Custom AI Architecture & Tailored Workflows',
-      statVal: 'Bespoke',
-      statLbl: 'Full-Stack Execution',
-      modelVal: 'Growth Stage Solopreneur',
-      modelLbl: 'Founder Model',
-      desc: 'Tailored growth architecture combining custom AI workflows, dedicated pipeline management, and priority execution.',
-      deliverables: [
-        'Custom multi-agent marketing architecture',
-        'Tailored growth roadmaps with bi-weekly sprints',
-        'Direct Slack channel with senior growth architects',
-        'End-to-end campaign ownership & revenue tracking'
-      ],
-      ctaUrl: 'custom-quote.html',
-      ctaText: 'Configure Custom Architecture'
+      ctaText: 'Explore Branding'
     }
   ];
 

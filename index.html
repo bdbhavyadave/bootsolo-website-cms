@@ -578,79 +578,76 @@
     </div>
   </nav>
 
-  <div class="hero-screen-frame">
   <!-- 1. HERO SECTION (Redesigned with Live AI Prompt Typewriter) -->
-  <header class="hero dark" id="top">
+  <header class="hero dark" id="top" style="position:relative;overflow:hidden;min-height:calc(100vh - 66px);display:flex;align-items:center;justify-content:center;padding:40px 0;margin:0;box-sizing:border-box;">
     <!-- Subtle Background Radial Glow -->
     <div style="position:absolute;top:-15%;right:0;width:650px;height:650px;background:radial-gradient(circle, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 70%);pointer-events:none;"></div>
 
-    <div class="wrap hero-inner">
+    <div class="wrap hero-inner" style="width:100%;align-items:center;">
       <div class="hero-copy">
-        <h1 class="h-display" style="font-size:clamp(38px, 5vw, 64px);line-height:1.05;font-weight:500;letter-spacing:-0.03em;margin:0 0 24px;">
-          Your buyers already ask AI <br />
-          <span class="accent" style="color:var(--sunrise-300);">before they ask you.</span>
+        <h1 class="h-display" style="font-size:clamp(34px, 4.2vw, 54px);line-height:1.15;font-weight:600;letter-spacing:-0.025em;margin:0 0 34px;">
+          Uncharted Markets. AI-Driven Buyers.<br />
+          <span class="accent" style="color:var(--sunrise-300);display:inline-block;margin-top:14px;">Win with an AI-First Marketing Engine.</span>
         </h1>
 
-        <p class="h-sub" style="font-size:17.5px;line-height:1.6;color:var(--navy-300);margin-bottom:28px;max-width:580px;">
-          Most people research a purchase through ChatGPT now, not just Google. They cross-check on LinkedIn. Then they decide, fast. If your marketing hasn't caught up to that, you're invisible at the exact moment it matters. Bootsolo builds the engine that keeps you in that conversation, without the price tag of hiring a full team to do it.
-        </p>
+        <div class="h-sub" style="font-size:clamp(16px, 1.25vw, 19.5px);line-height:1.7;color:var(--navy-300);margin-bottom:44px;max-width:600px;">
+          <p style="margin:0;">
+            Bootsolo helps bootstrapped founders and solopreneurs navigate this new landscape with ROI-focused, P&L-positive marketing. From SEO, GEO, and AEO to content, automation, eCommerce and performance - everything you need to scale without building a full team.
+          </p>
+        </div>
 
-        <div class="h-cta">
-          <button type="button" class="btn btn-primary" data-open-growth-call style="height:48px;padding:0 28px;font-size:16px;">
+        <div class="h-cta" style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;">
+          <button type="button" class="btn btn-primary glow-sunrise" data-open-growth-call style="height:50px;padding:0 30px;font-size:16px;font-weight:600;cursor:pointer;">
             Book a Growth Call
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </button>
-          <a class="btn btn-ghost" href="services.html" style="height:48px;padding:0 24px;font-size:15px;border-color:var(--navy-600);color:#EEF3F8;">
+          <a class="btn btn-ghost" href="#services" style="height:50px;padding:0 26px;font-size:15.5px;border-color:var(--navy-600);color:#EEF3F8;">
             See What We Do
           </a>
-        </div>
-        <div class="h-note" style="margin-top:20px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          No retainers. Cancel anytime. Built for limited budgets.
         </div>
       </div>
 
       <!-- Hero Interactive AI Simulator Card -->
-      <div class="hero-art">
-        <div class="hero-art-interactive">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--navy-700);flex-wrap:wrap;gap:8px;">
-            <div style="display:flex;align-items:center;gap:8px;">
-              <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#1FBF75;box-shadow:0 0 8px #1FBF75;"></span>
-              <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--navy-200);letter-spacing:0.04em;">LIVE AI ENGINE CITATION</span>
+      <div class="hero-art" style="width:100%;max-width:580px;margin-left:auto;">
+        <div class="hero-art-interactive" style="padding:28px 28px;border-radius:var(--r-card);background:var(--navy-800);border:1px solid var(--navy-700);box-shadow:var(--shadow-pop);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--navy-700);flex-wrap:wrap;gap:8px;">
+            <div style="display:flex;align-items:center;gap:6px;">
+              <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#1FBF75;box-shadow:0 0 6px #1FBF75;"></span>
+              <span style="font-family:var(--font-mono);font-size:11.5px;font-weight:700;color:var(--navy-200);letter-spacing:0.04em;">LIVE AI ENGINE CITATION</span>
             </div>
-            <div style="display:flex;gap:6px;">
-              <button type="button" class="engine-tab-btn active" data-engine="chatgpt">ChatGPT 4o</button>
-              <button type="button" class="engine-tab-btn" data-engine="perplexity">Perplexity</button>
-              <button type="button" class="engine-tab-btn" data-engine="google">Google AI</button>
+            <div style="display:flex;gap:8px;">
+              <button type="button" class="engine-tab-btn active" data-engine="chatgpt" style="padding:7px 14px;font-size:12.5px;">ChatGPT 4o</button>
+              <button type="button" class="engine-tab-btn" data-engine="perplexity" style="padding:7px 14px;font-size:12.5px;">Perplexity</button>
+              <button type="button" class="engine-tab-btn" data-engine="google" style="padding:7px 14px;font-size:12.5px;">Google AI</button>
             </div>
           </div>
 
           <!-- Prompt Box -->
-          <div class="ai-query-box">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--sunrise)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" id="hero-ai-query" value="Best AI marketing team for bootstrapped solopreneurs?" readonly>
+          <div class="ai-query-box" style="padding:14px 18px;margin-bottom:16px;border-radius:10px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--sunrise)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" id="hero-ai-query" value="Best AI marketing team for bootstrapped solopreneurs?" readonly style="font-size:14.5px;">
           </div>
 
           <!-- AI Answer Box -->
-          <div class="ai-answer-box">
-            <div class="ai-citation-badge">
+          <div class="ai-answer-box" style="padding:16px 18px;margin-bottom:18px;border-radius:10px;">
+            <div class="ai-citation-badge" style="font-size:11px;margin-bottom:6px;">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               TOP AI CITATION RECOMMENDATION
             </div>
-            <div class="ai-answer-text" id="hero-ai-answer"></div>
+            <div class="ai-answer-text" id="hero-ai-answer" style="font-size:14.5px;line-height:1.55;min-height:52px;"></div>
 
-            <div class="ai-metrics-row">
-              <div class="ai-metric-item">
-                <span class="ai-metric-val" id="hero-metric-signup">+312%</span>
-                <span class="ai-metric-lbl">Avg Signup Growth</span>
+            <div class="ai-metrics-row" style="display:grid;grid-template-columns:repeat(3, 1fr);gap:10px;padding-top:16px;border-top:1px solid var(--navy-700);margin-top:10px;">
+              <div class="ai-metric-item" style="text-align:center;">
+                <span class="ai-metric-val" id="hero-metric-signup" style="font-size:18px;font-weight:700;color:var(--sunrise-300);">+312%</span>
+                <span class="ai-metric-lbl" style="font-size:11.5px;color:var(--navy-400);">Signup Growth</span>
               </div>
-              <div class="ai-metric-item" style="border-left:1px solid var(--navy-700);padding-left:12px;">
-                <span class="ai-metric-val" id="hero-metric-cpa">-58%</span>
-                <span class="ai-metric-lbl">Cost Per Acq</span>
+              <div class="ai-metric-item" style="text-align:center;border-left:1px solid var(--navy-700);">
+                <span class="ai-metric-val" id="hero-metric-cpa" style="font-size:18px;font-weight:700;color:var(--ice-300);">-58%</span>
+                <span class="ai-metric-lbl" style="font-size:11.5px;color:var(--navy-400);">Cost Per Acq</span>
               </div>
-              <div class="ai-metric-item" style="border-left:1px solid var(--navy-700);padding-left:12px;">
-                <span class="ai-metric-val" id="hero-metric-vis">4.1x</span>
-                <span class="ai-metric-lbl">AI Citation Vis</span>
+              <div class="ai-metric-item" style="text-align:center;border-left:1px solid var(--navy-700);">
+                <span class="ai-metric-val" id="hero-metric-vis" style="font-size:18px;font-weight:700;color:#1FBF75;">4.1x</span>
+                <span class="ai-metric-lbl" style="font-size:11.5px;color:var(--navy-400);">AI Citation Vis</span>
               </div>
             </div>
           </div>
@@ -659,72 +656,90 @@
     </div>
   </header>
 
-  <!-- 2. SOCIAL PROOF & STATS BANNER -->
-  <section class="stats-proof-bar">
+  <!-- 2. RESULTS SNAPSHOT (+312%, -58%, 4.1x) -->
+  <section class="section" id="results" style="background:var(--snow);padding:64px 0;border-bottom:1px solid var(--border);">
     <div class="wrap">
-      <div class="stats-proof-grid">
-        <div>
-          <div class="stat-proof-val">4.9 / 5</div>
-          <div class="stat-proof-lbl">Average Client Satisfaction across 40+ Deployments</div>
-        </div>
-        <div>
-          <div class="stat-proof-val">$4.2M+</div>
-          <div class="stat-proof-lbl">In Qualified Pipeline Generated</div>
-        </div>
-        <div>
-          <div class="stat-proof-val">60–90 Days</div>
-          <div class="stat-proof-lbl">To Tangible Compounding Growth</div>
-        </div>
+      <div style="text-align:center;max-width:680px;margin:0 auto 48px;">
+        <span class="kick">Proof, Not Promises</span>
+        <h2 class="sec-title" style="margin:10px 0 14px;">Results Snapshot</h2>
+        <p class="sec-lead">Real outcomes from lean teams and solo founders who built their growth engine with Bootsolo.</p>
       </div>
-    </div>
-  </section>
-</div><!-- End .hero-screen-frame -->
 
-  <!-- Logos Marquee -->
-  <section class="proof-bar" style="background:var(--snow);">
-    <div class="wrap">
-      <div class="lbl">Founders who started solo and scaled with Bootsolo</div>
-      <div class="logos">
-        <span>NORTHWIND</span>
-        <span>PARALLEL</span>
-        <span>LOOMLY</span>
-        <span>CORTEX</span>
-        <span>VANTAGE</span>
-        <span>PIER9</span>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;">
+        <div class="why-card" style="padding:28px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r-card);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span class="modal-badge">Solo SaaS Founder</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--fg3);">In 90 Days</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--sunrise);line-height:1;margin:12px 0 6px;">+312%</div>
+          <div style="font-size:18px;font-weight:600;color:var(--fg1);margin-bottom:10px;">signup growth</div>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.55;margin:0;">
+            — in a single quarter, for a solo SaaS founder who'd been stuck flat for a year.
+          </p>
+        </div>
+
+        <div class="why-card" style="padding:28px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r-card);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span class="modal-badge">Bootstrapped D2C</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--fg3);">Across Funnels</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--sunrise);line-height:1;margin:12px 0 6px;">−58%</div>
+          <div style="font-size:18px;font-weight:600;color:var(--fg1);margin-bottom:10px;">lower cost per sale</div>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.55;margin:0;">
+            — for a bootstrapped D2C brand that thought its funnel was fine.
+          </p>
+        </div>
+
+        <div class="why-card" style="padding:28px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r-card);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span class="modal-badge">Indie App Founder</span>
+            <span style="font-family:var(--font-mono);font-size:12px;color:var(--fg3);">In 60 Days</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--sunrise);line-height:1;margin:12px 0 6px;">4.1×</div>
+          <div style="font-size:18px;font-weight:600;color:var(--fg1);margin-bottom:10px;">more visibility</div>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.55;margin:0;">
+            — landing an indie app inside AI answer boxes in about 60 days.
+          </p>
+        </div>
       </div>
     </div>
   </section>
+
 
   <!-- 3. BUILT FOR THE AI ERA (Gut Check Section) -->
   <section class="section" id="ai-era" style="background:var(--bg);padding:96px 0;">
     <div class="wrap">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <span class="kick">Marketing Playbook Gut Check</span>
-        <h2 class="sec-title">Built for the AI Era</h2>
-        <p class="sec-lead">Take the 5-point gut check to evaluate if your current growth engine is ready for the AI era.</p>
+      <div style="text-align:center;max-width:760px;margin:0 auto 56px;">
+        <span class="kick" style="color:var(--sunrise);font-weight:700;letter-spacing:0.10em;text-transform:uppercase;font-size:13px;display:inline-block;">Built for the AI era</span>
+        <h2 class="sec-title" style="margin-top:8px;">The old marketing playbook is slowing you down.</h2>
+        <p class="sec-lead">Built for the AI Era. Explore the 6 key challenges where traditional marketing stalls—and how modern teams break through.</p>
       </div>
 
       <div class="gut-check-grid">
-        <!-- Left: Tabs 01-05 -->
+        <!-- Left: Tabs 01-06 -->
         <div class="gut-tab-list">
           <button type="button" class="gut-tab-btn active">
-            <span><span class="gut-num">01</span> Google Search vs. AI Answer Engine</span>
+            <span><span class="gut-num">01</span> Search Engines vs. AI</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <button type="button" class="gut-tab-btn">
-            <span><span class="gut-num">02</span> Disconnected Platform Silos</span>
+            <span><span class="gut-num">02</span> Cross-Channel Visibility</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <button type="button" class="gut-tab-btn">
-            <span><span class="gut-num">03</span> 3 Weeks vs. 3 Days Production</span>
+            <span><span class="gut-num">03</span> Content Production Velocity</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <button type="button" class="gut-tab-btn">
-            <span><span class="gut-num">04</span> Self-Running Automated Funnel</span>
+            <span><span class="gut-num">04</span> Manual Funnels vs. Automation</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
           <button type="button" class="gut-tab-btn">
-            <span><span class="gut-num">05</span> Spend to Revenue Traceability</span>
+            <span><span class="gut-num">05</span> Spend to ROI &amp; P&amp;L Impact</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+          <button type="button" class="gut-tab-btn">
+            <span><span class="gut-num">06</span> Scaling Without a Big Team</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
           </button>
         </div>
@@ -732,11 +747,11 @@
         <!-- Right: Active Panel -->
         <div class="gut-panel">
           <div>
-            <div class="modal-badge" id="gut-badge">GUT CHECK 01</div>
-            <h3 id="gut-headline" style="font-size:26px;line-height:1.25;font-weight:600;margin:12px 0 16px;color:#fff;">
-              Still built purely for Google, while buyers are already asking AI?
+            <div class="modal-badge" id="gut-badge">CHALLENGE 01</div>
+            <h3 id="gut-headline" style="font-size:24px;line-height:1.3;font-weight:600;margin:12px 0 16px;color:#fff;">
+              Is your marketing still built for search engines while your buyers are already asking AI?
             </h3>
-            <p id="gut-desc" style="font-size:16px;line-height:1.6;color:var(--navy-300);margin-bottom:24px;">
+            <p id="gut-desc" style="font-size:15.5px;line-height:1.6;color:var(--navy-300);margin-bottom:24px;">
               Buyers cross-check on ChatGPT, Perplexity, and Google AI Overviews before they reach your site. If your marketing doesn't optimize for conversational LLM search, you miss buyers at the point of intent.
             </p>
           </div>
@@ -758,15 +773,29 @@
           </div>
         </div>
       </div>
+
+      <!-- Closing Resolution Block -->
+      <div style="background:var(--snow);border-radius:var(--r-md);padding:32px;border:1px solid var(--border);display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:24px;align-items:center;margin-top:40px;">
+        <p style="font-size:16px;line-height:1.6;color:var(--fg1);font-weight:500;margin:0;">
+          "If these challenges sound familiar, you’re not alone. The rules of digital marketing have changed and most teams are still catching up."
+        </p>
+        <div style="background:var(--bg-elevated);padding:20px;border-radius:12px;border:1px solid var(--border);">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--sunrise);margin-bottom:6px;">THE BOOTSOLO ADVANTAGE</div>
+          <p style="font-size:14px;line-height:1.55;color:var(--fg1);margin:0;font-weight:500;">
+            Bootsolo helps you navigate this shift with AI-first marketing systems that combine senior-level strategy with scalable execution—so you can move faster, spend smarter, and grow with confidence.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- 4. WHY FOUNDERS PICK BOOTSOLO (WhyBootsolo) -->
   <section class="section" id="why-bootsolo" style="background:var(--snow);padding:96px 0;">
     <div class="wrap">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
-        <span class="kick">Built differently, on purpose</span>
-        <h2 class="sec-title">Why founders pick Bootsolo over the usual options</h2>
+      <div style="text-align:center;max-width:760px;margin:0 auto 56px;">
+        <span class="kick">Built differently</span>
+        <h2 class="sec-title" style="margin-top:8px;">Why founders choose Bootsolo over the usual options</h2>
+        <p class="sec-lead">Most growing businesses get stuck between expensive agencies, disconnected freelancers, or trying to build an in-house team too early. Bootsolo gives you the strategy of a senior team, the speed of AI-native execution, and a lean model built for companies that need results without extra layers.</p>
       </div>
 
       <div class="why-grid">
@@ -774,7 +803,7 @@
           <div>
             <h3 style="font-size:22px;font-weight:600;margin:0 0 14px;color:var(--fg1);">Traditional agency</h3>
             <p style="font-size:14.5px;line-height:1.6;color:var(--fg2);margin:0;">
-              Too many layers, slow turnaround, and reporting that looks polished but rarely says what to do next.
+              Too many layers, slower execution, bloated retainers, and reporting that often looks polished but says very little.
             </p>
           </div>
           <div style="margin-top:24px;font-size:13px;color:var(--fg3);font-weight:600;">Standard option</div>
@@ -782,9 +811,9 @@
 
         <div class="why-card">
           <div>
-            <h3 style="font-size:22px;font-weight:600;margin:0 0 14px;color:var(--fg1);">A pile of freelancers</h3>
+            <h3 style="font-size:22px;font-weight:600;margin:0 0 14px;color:var(--fg1);">Freelancer setup</h3>
             <p style="font-size:14.5px;line-height:1.6;color:var(--fg2);margin:0;">
-              Fine for one task, falls apart once SEO, content, ads, automation, and conversion all need to move together, since nobody owns the whole picture.
+              Useful for isolated tasks, but hard to scale when strategy, content, SEO, ads, automation, and conversion all need to work together.
             </p>
           </div>
           <div style="margin-top:24px;font-size:13px;color:var(--fg3);font-weight:600;">Standard option</div>
@@ -792,9 +821,9 @@
 
         <div class="why-card">
           <div>
-            <h3 style="font-size:22px;font-weight:600;margin:0 0 14px;color:var(--fg1);">Hiring in-house too early</h3>
+            <h3 style="font-size:22px;font-weight:600;margin:0 0 14px;color:var(--fg1);">Early in-house hire</h3>
             <p style="font-size:14.5px;line-height:1.6;color:var(--fg2);margin:0;">
-              Right eventually, but expensive now, and unfair to whoever gets handed six channels and one job title.
+              A good long-term move, but often too expensive and too limited when one person is expected to cover every channel.
             </p>
           </div>
           <div style="margin-top:24px;font-size:13px;color:var(--fg3);font-weight:600;">Standard option</div>
@@ -806,28 +835,34 @@
           <div>
             <h3 style="font-size:22px;font-weight:600;margin:10px 0 14px;color:#fff;">Bootsolo</h3>
             <p style="font-size:14.5px;line-height:1.6;color:#EEF3F8;margin:0;">
-              One lean partner running AI visibility, content, campaigns, automation, and conversion as a single connected system.
+              One lean growth partner that connects AI visibility, content, campaigns, automation, and conversion into one working system. Clear priorities. Clear execution. Clear next steps.
             </p>
           </div>
           <div style="margin-top:24px;display:flex;align-items:center;gap:6px;font-size:13.5px;font-weight:600;color:var(--sunrise-300);">
-            Explore how we build routes &rarr;
+            <button type="button" data-open-growth-call style="background:none;border:none;color:inherit;font:inherit;cursor:pointer;padding:0;display:inline-flex;align-items:center;gap:6px;">Book a Growth Call &rarr;</button>
           </div>
         </div>
+      </div>
+
+      <div style="text-align:center;margin-top:48px;">
+        <p style="font-size:16.5px;color:var(--fg1);font-weight:500;max-width:680px;margin:0 auto;line-height:1.6;">
+          "You do not need more moving parts. You need a smarter marketing engine that fits your stage, budget, and growth ambition."
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- 5. SERVICES EXPLORER (7 Core Modules) -->
+  <!-- 5. SERVICES EXPLORER (6 Core Modules) -->
   <section class="section" id="services" style="background:var(--white);padding:96px 0;">
     <div class="wrap">
-      <div style="margin-bottom:44px;text-align:left;">
-        <span class="kick">Full-Stack Growth Capability Modules</span>
-        <h2 class="sec-title" style="margin-top:8px;">Explore Our Core Service Modules</h2>
-        <p class="sec-lead">Hover or tap any module in the left menu list to inspect its live AI Citation Node details.</p>
+      <div style="margin-bottom:44px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto;">
+        <span class="kick">What we do</span>
+        <h2 class="sec-title" style="margin-top:8px;">Six ways we drive your growth</h2>
+        <p class="sec-lead">From the first impression to the final conversion, we cover the full marketing engine — and connect every piece so it compounds.</p>
       </div>
 
       <div class="modules-explorer-layout">
-        <!-- Region 1: Left Menu List -->
+        <!-- Region 1: Left Menu List (6 items) -->
         <ul class="modules-menu-list">
           <li class="modules-menu-item active">
             <div class="mod-num">MODULE 01</div>
@@ -851,11 +886,7 @@
           </li>
           <li class="modules-menu-item">
             <div class="mod-num">MODULE 06</div>
-            <div class="mod-name">High-Voltage Branding</div>
-          </li>
-          <li class="modules-menu-item">
-            <div class="mod-num">MODULE 07</div>
-            <div class="mod-name">Custom Growth Architecture</div>
+            <div class="mod-name">Branding</div>
           </li>
         </ul>
 
@@ -907,13 +938,28 @@
     </div>
   </section>
 
-  <!-- 6. CLIENT TESTIMONIALS (What Clients Value Most) -->
+  <!-- 6. CLIENT TESTIMONIALS & SOCIAL PROOF -->
   <section class="section" id="testimonials" style="background:var(--snow);padding:96px 0;">
     <div class="wrap">
-      <div style="text-align:center;max-width:720px;margin:0 auto 56px;">
+      <!-- Client Logo Strip (4-6 logos) -->
+      <div style="margin-bottom:56px;text-align:center;">
+        <span style="font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--fg3);display:block;margin-bottom:16px;">
+          Trusted by Bootstrapped Founders &amp; Modern Teams
+        </span>
+        <div style="display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;">
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">ACME SAAS</span>
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">INDIESTACK</span>
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">VIBEFLOW</span>
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">HYPERSCALE</span>
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">NOMADPULSE</span>
+          <span style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--fg2);padding:10px 20px;border-radius:8px;background:var(--bg-elevated);border:1px solid var(--border);">SOLOMETRICS</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;max-width:740px;margin:0 auto 56px;">
         <span class="kick">Founder feedback</span>
-        <h2 class="sec-title">What clients value most</h2>
-        <p class="sec-lead">Bootsolo tends to work best for teams that need senior thinking, fast execution, and a plan they can actually follow.</p>
+        <h2 class="sec-title" style="margin-top:8px;">What clients value most</h2>
+        <p class="sec-lead">Bootsolo works best for teams that need senior thinking, faster execution, and a practical path to growth. These are the kinds of outcomes founders and lean teams usually care about most.</p>
       </div>
 
       <div class="test-grid">
@@ -921,7 +967,7 @@
           <div>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--sunrise)" stroke-width="2" style="margin-bottom:16px;"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path></svg>
             <p style="font-size:15.5px;line-height:1.6;font-style:italic;margin:0 0 20px;">
-              "Bootsolo helped us untangle B2B marketing that felt completely scattered. Instead of a pile of random tactics, we finally had one system across SEO, content, landing pages, demand gen, and follow-up. We saw better quality leads within weeks, not quarters."
+              "Bootsolo helped us simplify B2B marketing which felt scattered. Instead of random tactics, we finally had a clear growth system across SEO, content, landing pages, Demand generation engine and follow-up. We started seeing better quality leads in weeks."
             </p>
           </div>
           <div>
@@ -933,7 +979,7 @@
           <div>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--sunrise)" stroke-width="2" style="margin-bottom:16px;"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path></svg>
             <p style="font-size:15.5px;line-height:1.6;font-style:italic;margin:0 0 20px;">
-              "What stood out was the balance of strategy and execution. We didn't need another agency deck. We needed traction, clarity, and a team that actually understood how buyers in hospitality find brands now, across search, AI, and social."
+              "What stood out was the balance between strategy and execution. We did not need another agency deck for one of our site. We needed traction, clarity, and someone who understood how modern buyers discover brands across search, AI, and social in the hospitality sector."
             </p>
           </div>
           <div>
@@ -945,13 +991,34 @@
           <div>
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--sunrise)" stroke-width="2" style="margin-bottom:16px;"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 7 1 8 3 8z"></path></svg>
             <p style="font-size:15.5px;line-height:1.6;font-style:italic;margin:0 0 20px;">
-              "Honestly, they felt like part of our own team, not a vendor. Fast to move, sharp on positioning, and focused on ROI instead of vanity metrics."
+              "They felt like a lean extension of our team. Fast to move, sharp on positioning, and focused on ROI instead of vanity metrics."
             </p>
           </div>
           <div>
             <span class="modal-badge">Indie Startup Founder</span>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section cta dark" id="final-cta" style="background:var(--summit);padding:96px 0;position:relative;overflow:hidden;border-top:1px solid var(--navy-700);">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 65% 90% at 50% 120%, rgba(255,107,53,0.28), transparent 70%);pointer-events:none;"></div>
+    <div class="wrap" style="position:relative;z-index:2;text-align:center;">
+      <h2 style="font-size:clamp(32px, 4.5vw, 52px);font-weight:600;letter-spacing:-0.03em;color:#EEF3F8;margin:0 0 16px;">
+        Ready to grow faster?
+      </h2>
+      <p style="font-size:18px;color:var(--navy-300);max-width:640px;margin:0 auto 36px;line-height:1.6;">
+        Tell us where you want to go. We'll show you the fastest way to get there powered by strategy, accelerated by AI.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;">
+        <button type="button" class="btn btn-primary" data-open-growth-call style="height:50px;padding:0 32px;font-size:16px;box-shadow:var(--glow-sunrise);">
+          Book a Growth Call
+        </button>
+        <a class="btn btn-ghost" href="mailto:hello@bootsolo.com" style="height:50px;padding:0 28px;font-size:16px;border-color:var(--navy-600);color:#EEF3F8;">
+          Email Us
+        </a>
       </div>
     </div>
   </section>
@@ -1117,7 +1184,7 @@
           </span>
           bootsolo
         </a>
-          <p class="foot-tag">The AI-native marketing team for bootstrapped founders. Start solo, climb fast — on a budget that fits in a backpack.</p>
+          <p class="foot-tag">Bootsolo — AI-powered marketing for brands in a hurry. Strategy by humans. Speed by AI. Growth for you.</p>
         </div>
         <div class="foot-col">
           <h5>What we do</h5>

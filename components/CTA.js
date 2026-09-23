@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, Mail } from 'lucide-react';
 import { PaperPlaneMark } from './Brand';
 
-export default function CTA() {
+export default function CTA({ onOpenModal }) {
   return (
     <section className="cta dark" id="cta" style={{ background: 'var(--summit)', padding: '100px 0', position: 'relative', overflow: 'hidden' }}>
       <div className="wrap">
@@ -23,15 +23,26 @@ export default function CTA() {
           </h2>
 
           {/* Subheadline */}
-          <p className="cta-s" style={{ fontSize: '18px', color: 'var(--navy-300)', maxWidth: '620px', margin: '0 auto 36px', lineHeight: 1.6 }}>
-            Tell us where you want to go. We'll show you the fastest way there, strategy first, AI-accelerated second.
+          <p className="cta-s" style={{ fontSize: '18px', color: 'var(--navy-300)', maxWidth: '640px', margin: '0 auto 36px', lineHeight: 1.6 }}>
+            Tell us where you want to go. We'll show you the fastest way to get there powered by strategy, accelerated by AI.
           </p>
 
           {/* Buttons */}
           <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Link className="btn btn-primary" href="/custom-quote" style={{ height: '50px', padding: '0 32px', fontSize: '16px', boxShadow: 'var(--glow-sunrise)' }}>
-              Book a Growth Call <ArrowRight size={18} />
-            </Link>
+            {onOpenModal ? (
+              <button
+                type="button"
+                onClick={onOpenModal}
+                className="btn btn-primary"
+                style={{ height: '50px', padding: '0 32px', fontSize: '16px', boxShadow: 'var(--glow-sunrise)', cursor: 'pointer' }}
+              >
+                Book a Growth Call <ArrowRight size={18} />
+              </button>
+            ) : (
+              <Link className="btn btn-primary" href="/custom-quote" style={{ height: '50px', padding: '0 32px', fontSize: '16px', boxShadow: 'var(--glow-sunrise)' }}>
+                Book a Growth Call <ArrowRight size={18} />
+              </Link>
+            )}
             <a className="btn btn-ghost" href="mailto:hello@bootsolo.com" style={{ height: '50px', padding: '0 28px', fontSize: '16px', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
               <Mail size={18} style={{ marginRight: '6px' }} /> Email Us
             </a>

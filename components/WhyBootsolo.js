@@ -3,32 +3,32 @@
 import { useState } from 'react';
 import { PaperPlaneMark } from './Brand';
 
-export default function WhyBootsolo() {
+export default function WhyBootsolo({ onOpenModal }) {
   const [hoveredCard, setHoveredCard] = useState(null);
 
   const options = [
     {
       id: 'agency',
       title: 'Traditional agency',
-      description: 'Too many layers, slow turnaround, reporting that looks polished but rarely says what to do next.',
+      description: 'Too many layers, slower execution, bloated retainers, and reporting that often looks polished but says very little.',
       featured: false
     },
     {
       id: 'freelancers',
-      title: 'A pile of freelancers',
-      description: 'Fine for one task, falls apart once SEO, content, ads, automation, and conversion all need to move together, since nobody owns the whole picture.',
+      title: 'Freelancer setup',
+      description: 'Useful for isolated tasks, but hard to scale when strategy, content, SEO, ads, automation, and conversion all need to work together.',
       featured: false
     },
     {
       id: 'inhouse',
-      title: 'Hiring in-house too early',
-      description: 'Right eventually, but expensive now, and unfair to whoever gets handed six channels and one job title.',
+      title: 'Early in-house hire',
+      description: 'A good long-term move, but often too expensive and too limited when one person is expected to cover every channel.',
       featured: false
     },
     {
       id: 'bootsolo',
       title: 'Bootsolo',
-      description: 'One lean partner running AI visibility, content, campaigns, automation, and conversion as a single connected system.',
+      description: 'One lean growth partner that connects AI visibility, content, campaigns, automation, and conversion into one working system. Clear priorities. Clear execution. Clear next steps.',
       featured: true
     }
   ];
@@ -36,11 +36,14 @@ export default function WhyBootsolo() {
   return (
     <section className="section" id="why-bootsolo" style={{ background: 'var(--snow)', padding: '96px 0' }}>
       <div className="wrap">
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
-          <p className="eyebrow">Built differently, on purpose</p>
-          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0', color: 'var(--summit)' }}>
-            Why founders pick Bootsolo over the usual options
+        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 56px' }}>
+          <p className="eyebrow">Built differently</p>
+          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0 16px', color: 'var(--summit)' }}>
+            Why founders choose Bootsolo over the usual options
           </h2>
+          <p className="ds-lead" style={{ fontSize: '16.5px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
+            Most growing businesses get stuck between expensive agencies, disconnected freelancers, or trying to build an in-house team too early. Bootsolo gives you the strategy of a senior team, the speed of AI-native execution, and a lean model built for companies that need results without extra layers.
+          </p>
         </div>
 
         {/* 4 Comparison Cards Grid */}
@@ -105,14 +108,26 @@ export default function WhyBootsolo() {
                 </div>
 
                 <div style={{ marginTop: '28px' }}>
-                  <a
-                    href="/custom-quote"
-                    className={`btn ${isBootsolo ? 'btn-primary glow-sunrise' : 'btn-ghost'}`}
-                    style={{ width: '100%', justifyContent: 'center', height: '42px', fontSize: '14px' }}
-                    aria-label={isBootsolo ? "Book a Growth Call" : "Compare Options"}
-                  >
-                    {isBootsolo ? 'Book a Growth Call' : 'Compare Options'}
-                  </a>
+                  {isBootsolo && onOpenModal ? (
+                    <button
+                      type="button"
+                      onClick={onOpenModal}
+                      className="btn btn-primary glow-sunrise"
+                      style={{ width: '100%', justifyContent: 'center', height: '42px', fontSize: '14px', cursor: 'pointer' }}
+                      aria-label="Book a Growth Call"
+                    >
+                      Book a Growth Call
+                    </button>
+                  ) : (
+                    <a
+                      href={isBootsolo ? "/custom-quote" : "/custom-quote"}
+                      className={`btn ${isBootsolo ? 'btn-primary glow-sunrise' : 'btn-ghost'}`}
+                      style={{ width: '100%', justifyContent: 'center', height: '42px', fontSize: '14px' }}
+                      aria-label={isBootsolo ? "Book a Growth Call" : "Compare Options"}
+                    >
+                      {isBootsolo ? 'Book a Growth Call' : 'Compare Options'}
+                    </a>
+                  )}
                 </div>
               </div>
             );
@@ -121,8 +136,8 @@ export default function WhyBootsolo() {
 
         {/* Verbatim Closing Line */}
         <div style={{ textAlign: 'center', marginTop: '48px' }}>
-          <p style={{ fontSize: '16px', color: 'var(--fg2)', fontWeight: 500, fontStyle: 'italic', maxWidth: '640px', margin: '0 auto' }}>
-            "You don't need more moving parts. You need an engine sized to where you actually are, not where a sales deck wishes you were."
+          <p style={{ fontSize: '16.5px', color: 'var(--fg1)', fontWeight: 500, maxWidth: '680px', margin: '0 auto', lineHeight: 1.6 }}>
+            "You do not need more moving parts. You need a smarter marketing engine that fits your stage, budget, and growth ambition."
           </p>
         </div>
       </div>

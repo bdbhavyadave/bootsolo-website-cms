@@ -50,7 +50,7 @@ export default function Footer() {
           <div className="foot-col">
             <Brand />
             <p className="foot-tag" style={{ fontSize: '14.5px', color: 'var(--navy-300)', lineHeight: 1.6, margin: '18px 0 24px', maxWidth: '320px' }}>
-              Bootsolo. AI-powered marketing for brands in a hurry. Strategy by humans. Speed by AI. Growth for you.
+              Bootsolo — AI-powered marketing for brands in a hurry. Strategy by humans. Speed by AI. Growth for you.
             </p>
 
             {/* Newsletter Form */}

@@ -36,13 +36,12 @@ export default function Hero({ onOpenModal }) {
     let i = 0;
     const timer = setInterval(() => {
       if (i < fullText.length) {
-        const char = fullText.charAt(i);
-        i++;
-        setTypedText((prev) => prev + char);
+        i += 2;
+        setTypedText(fullText.slice(0, i));
       } else {
         clearInterval(timer);
       }
-    }, 14);
+    }, 28);
 
     return () => clearInterval(timer);
   }, [activeEngine]);
@@ -57,56 +56,63 @@ export default function Hero({ onOpenModal }) {
         minHeight: 'calc(100vh - 66px)',
         display: 'flex',
         alignItems: 'center',
-        padding: '60px 0'
+        justifyContent: 'center',
+        padding: '40px 0',
+        margin: 0,
+        boxSizing: 'border-box'
       }}
     >
       {/* Subtle Background Radial Sunrise Glow */}
       <div style={{ position: 'absolute', top: '-15%', right: '0%', width: '650px', height: '650px', background: 'radial-gradient(circle, rgba(255,107,53,0.14) 0%, rgba(14,26,43,0) 70%)', pointerEvents: 'none' }} />
 
-      <div className="wrap hero-inner" style={{ width: '100%' }}>
+      <div className="wrap hero-inner" style={{ width: '100%', alignItems: 'center' }}>
         <div className="hero-copy">
-          {/* Headline */}
-          <h1 className="h-display" style={{ fontSize: 'clamp(38px, 5vw, 64px)', lineHeight: 1.05, fontWeight: 500, letterSpacing: '-0.03em', margin: '0 0 24px' }}>
-            Your buyers already ask AI <br />
-            <span className="accent" style={{ color: 'var(--sunrise-300)' }}>before they ask you.</span>
+          {/* Headline with generous gap between phrases */}
+          <h1 className="h-display" style={{ fontSize: 'clamp(34px, 4.2vw, 54px)', lineHeight: 1.15, fontWeight: 600, letterSpacing: '-0.025em', margin: '0 0 34px' }}>
+            Uncharted Markets. AI-Driven Buyers.<br />
+            <span className="accent" style={{ color: 'var(--sunrise-300)', display: 'inline-block', marginTop: '14px' }}>
+              Win with an AI-First Marketing Engine.
+            </span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="h-sub" style={{ fontSize: '17.5px', lineHeight: 1.6, color: 'var(--navy-300)', marginBottom: '16px', maxWidth: '580px' }}>
-            Most people research a purchase through ChatGPT now, not just Google. They cross-check on LinkedIn. Then they decide, fast. If your marketing hasn't caught up to that, you're invisible at the exact moment it matters. Bootsolo builds the engine that keeps you in that conversation, without the price tag of hiring a full team to do it.
-          </p>
+          {/* Subheadline / Body Text with generous top and bottom gap */}
+          <div className="h-sub" style={{ fontSize: 'clamp(16px, 1.25vw, 19.5px)', lineHeight: 1.7, color: 'var(--navy-300)', marginBottom: '44px', maxWidth: '600px' }}>
+            <p style={{ margin: 0 }}>
+              Bootsolo helps bootstrapped founders and solopreneurs navigate this new landscape with ROI-focused, P&L-positive marketing. From SEO, GEO, and AEO to content, automation, eCommerce and performance - everything you need to scale without building a full team.
+            </p>
+          </div>
 
           {/* Primary & Secondary CTAs */}
-          <div className="h-cta" style={{ display: 'flex', gap: '16px', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div className="h-cta" style={{ display: 'flex', gap: '18px', alignItems: 'center', flexWrap: 'wrap' }}>
             <button
               type="button"
               onClick={onOpenModal}
               className="btn btn-primary glow-sunrise"
-              style={{ padding: '0 28px', height: '48px', fontSize: '16px', cursor: 'pointer' }}
+              style={{ padding: '0 30px', height: '50px', fontSize: '16px', fontWeight: 600, cursor: 'pointer' }}
               aria-label="Book a Growth Call"
             >
               Book a Growth Call <ArrowRight size={18} />
             </button>
-            <Link className="btn btn-ghost" href="#services" style={{ height: '48px', padding: '0 24px', fontSize: '15px', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
+            <Link className="btn btn-ghost" href="#services" style={{ height: '50px', padding: '0 26px', fontSize: '15.5px', borderColor: 'var(--navy-600)', color: '#EEF3F8' }}>
               See What We Do
             </Link>
           </div>
         </div>
 
         {/* Hero Stack — Interactive AI Preview Card */}
-        <div className="hero-art hero-art-interactive" style={{ position: 'relative' }}>
+        <div className="hero-art hero-art-interactive" style={{ position: 'relative', width: '100%', maxWidth: '580px', marginLeft: 'auto' }}>
           {/* Floating AI Dashboard Card */}
-          <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '24px', boxShadow: 'var(--shadow-pop)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', paddingBottom: '12px', borderBottom: '1px solid var(--navy-700)', flexWrap: 'wrap', gap: '10px' }}>
+          <div style={{ background: 'var(--navy-800)', borderRadius: 'var(--r-card)', border: '1px solid var(--navy-700)', padding: '28px 28px', boxShadow: 'var(--shadow-pop)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px', paddingBottom: '14px', borderBottom: '1px solid var(--navy-700)', flexWrap: 'wrap', gap: '8px' }}>
               <div style={{ display: 'flex', gap: '8px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', maxWidth: '100%' }}>
                 {Object.keys(scenarios).map((key) => (
                   <button
                     key={key}
                     onClick={() => setActiveEngine(key)}
                     style={{
-                      padding: '6px 12px',
+                      padding: '7px 14px',
                       borderRadius: '8px',
-                      fontSize: '12px',
+                      fontSize: '12.5px',
                       fontWeight: 600,
                       border: 'none',
                       cursor: 'pointer',
@@ -120,42 +126,42 @@ export default function Hero({ onOpenModal }) {
                 ))}
               </div>
               <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center' }}>
-                <span className="mono" style={{ position: 'relative', zIndex: 2, fontSize: '11px', color: '#1FBF75', display: 'flex', alignItems: 'center', gap: '4px', background: 'rgba(14,26,43,0.9)', padding: '2px 6px', borderRadius: '6px' }}>
-                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1FBF75' }} />
-                  Live AI Answer Engine
+                <span className="mono" style={{ position: 'relative', zIndex: 2, fontSize: '11.5px', color: '#1FBF75', display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(14,26,43,0.9)', padding: '4px 9px', borderRadius: '7px' }}>
+                  <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#1FBF75', boxShadow: '0 0 6px #1FBF75' }} />
+                  Live AI Citation
                 </span>
               </div>
             </div>
 
-            <div style={{ background: 'var(--navy-900)', borderRadius: '10px', padding: '14px', marginBottom: '16px', border: '1px solid var(--navy-700)' }}>
-              <div style={{ fontSize: '12px', color: 'var(--navy-400)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ background: 'var(--navy-900)', borderRadius: '10px', padding: '14px 18px', marginBottom: '16px', border: '1px solid var(--navy-700)' }}>
+              <div style={{ fontSize: '12.5px', color: 'var(--navy-400)', marginBottom: '5px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Search size={13} color="var(--ice)" /> Buyer Prompt:
               </div>
-              <div style={{ fontSize: '13.5px', color: '#fff', fontWeight: 500 }}>"{scenarios[activeEngine].query}"</div>
+              <div style={{ fontSize: '14.5px', color: '#fff', fontWeight: 500, lineHeight: 1.4 }}>"{scenarios[activeEngine].query}"</div>
             </div>
 
-            <div style={{ background: 'rgba(56,182,245,0.06)', borderRadius: '10px', padding: '14px', border: '1px solid rgba(56,182,245,0.2)', marginBottom: '16px' }}>
-              <div style={{ fontSize: '12px', color: 'var(--ice-300)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ background: 'rgba(56,182,245,0.06)', borderRadius: '10px', padding: '16px 18px', border: '1px solid rgba(56,182,245,0.2)', marginBottom: '18px' }}>
+              <div style={{ fontSize: '12.5px', color: 'var(--ice-300)', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Bot size={14} color="var(--ice)" /> AI Citation Engine Output:
               </div>
-              <div style={{ fontSize: '13.5px', color: 'var(--navy-100)', lineHeight: 1.5, minHeight: '44px' }}>
+              <div style={{ fontSize: '14.5px', color: 'var(--navy-100)', lineHeight: 1.55, minHeight: '52px' }}>
                 {typedText}
-                <span className="cursor-blink" style={{ display: 'inline-block', width: '6px', height: '14px', background: 'var(--sunrise)', marginLeft: '4px', verticalAlign: 'middle' }} />
+                <span className="cursor-blink" style={{ display: 'inline-block', width: '5px', height: '14px', background: 'var(--sunrise)', marginLeft: '4px', verticalAlign: 'middle' }} />
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', paddingTop: '10px', borderTop: '1px solid var(--navy-700)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', paddingTop: '16px', borderTop: '1px solid var(--navy-700)' }}>
               <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Signup Growth</div>
-                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: 'var(--sunrise-300)', marginTop: '2px' }}>{scenarios[activeEngine].metrics.signup}</div>
+                <div style={{ fontSize: '11.5px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Signup Growth</div>
+                <div className="mono" style={{ fontSize: '18px', fontWeight: 700, color: 'var(--sunrise-300)', marginTop: '3px' }}>{scenarios[activeEngine].metrics.signup}</div>
               </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Cost Per Sale</div>
-                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: 'var(--ice-300)', marginTop: '2px' }}>{scenarios[activeEngine].metrics.cpa}</div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid var(--navy-700)' }}>
+                <div style={{ fontSize: '11.5px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>Cost Per Sale</div>
+                <div className="mono" style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ice-300)', marginTop: '3px' }}>{scenarios[activeEngine].metrics.cpa}</div>
               </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: '11px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>AI Citation</div>
-                <div className="mono" style={{ fontSize: '16px', fontWeight: 700, color: '#1FBF75', marginTop: '2px' }}>{scenarios[activeEngine].metrics.visibility}</div>
+              <div style={{ textAlign: 'center', borderLeft: '1px solid var(--navy-700)' }}>
+                <div style={{ fontSize: '11.5px', color: 'var(--navy-400)', textTransform: 'uppercase', letterSpacing: '0.04em' }}>AI Citation</div>
+                <div className="mono" style={{ fontSize: '18px', fontWeight: 700, color: '#1FBF75', marginTop: '3px' }}>{scenarios[activeEngine].metrics.visibility}</div>
               </div>
             </div>
           </div>

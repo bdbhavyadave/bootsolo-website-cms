@@ -64,7 +64,7 @@ export default function ResultsSnapshot({ onOpenModal }) {
   ];
 
   return (
-    <section className="section" id="results" style={{ background: 'var(--snow)', padding: '100px 0' }}>
+    <section className="section" id="results" style={{ background: 'var(--snow)', padding: '64px 0' }}>
       <div className="wrap">
         <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 56px' }}>
           <p className="eyebrow">Proof, Not Promises</p>

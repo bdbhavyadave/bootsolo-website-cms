@@ -8,9 +8,9 @@ export const GUT_CHECK_ITEMS = [
   {
     id: '01',
     number: '01',
-    tabLabel: 'Google Search vs. AI Answer Engine',
-    badge: 'GUT CHECK 01',
-    headline: 'Still built purely for Google, while buyers are already asking AI?',
+    tabLabel: 'Search Engines vs. AI',
+    badge: 'CHALLENGE 01',
+    headline: 'Is your marketing still built for search engines while your buyers are already asking AI?',
     description: 'Buyers cross-check on ChatGPT, Perplexity, and Google AI Overviews before they reach your site. If your marketing doesn’t optimize for conversational LLM search, you miss buyers at the point of intent.',
     impactLabel: 'AEO / GEO CITATION & REVENUE TRACTION',
     icon: Eye,
@@ -30,10 +30,10 @@ export const GUT_CHECK_ITEMS = [
   {
     id: '02',
     number: '02',
-    tabLabel: 'Disconnected Platform Silos',
-    badge: 'GUT CHECK 02',
-    headline: 'Stretched thin across search, ChatGPT, LinkedIn, & paid at once?',
-    description: 'Running isolated freelancers and disconnected tactics without a unified strategy wastes budget, breaks momentum, and leaves your buyer journey fragmented.',
+    tabLabel: 'Cross-Channel Visibility',
+    badge: 'CHALLENGE 02',
+    headline: 'Are you struggling to stay visible across Google, ChatGPT, LinkedIn, and paid channels at the same time?',
+    description: 'Running isolated freelancers and disconnected tactics without a unified strategy wastes budget, breaks momentum, and leaves your buyer journey fragmented across channels.',
     impactLabel: 'CONNECTED MARKETING ENGINE STRATEGY',
     icon: Layers,
     themeColor: '#38B6F5',
@@ -52,10 +52,10 @@ export const GUT_CHECK_ITEMS = [
   {
     id: '03',
     number: '03',
-    tabLabel: '3 Weeks vs. 3 Days Production',
-    badge: 'GUT CHECK 03',
-    headline: 'Content takes three weeks while a competitor ships in three days?',
-    description: 'Traditional agency approval layers stall momentum. AI-accelerated workflows let lean teams out-publish and out-convert traditional marketing teams.',
+    tabLabel: 'Content Production Velocity',
+    badge: 'CHALLENGE 03',
+    headline: 'Is your content taking weeks to produce while competitors ship faster with AI-driven workflows?',
+    description: 'Traditional agency approval layers stall momentum. AI-accelerated workflows let lean teams out-publish and out-convert traditional marketing teams in days, not weeks.',
     impactLabel: 'EXECUTION VELOCITY & MOTION DESIGN',
     icon: Zap,
     themeColor: '#FF9A6B',
@@ -74,9 +74,9 @@ export const GUT_CHECK_ITEMS = [
   {
     id: '04',
     number: '04',
-    tabLabel: 'Self-Running Automated Funnel',
-    badge: 'GUT CHECK 04',
-    headline: 'Funnel still leans on manual follow-up instead of a self-running system?',
+    tabLabel: 'Manual Funnels vs. Automation',
+    badge: 'CHALLENGE 04',
+    headline: 'Do your funnels depend on manual effort instead of scalable, automated systems?',
     description: 'Automated buyer nurture engines capture, qualify, and convert leads 24/7 without needing manual intervention for every inquiry.',
     impactLabel: 'MARKETING AUTOMATION FUNNEL',
     icon: Target,
@@ -96,10 +96,10 @@ export const GUT_CHECK_ITEMS = [
   {
     id: '05',
     number: '05',
-    tabLabel: 'Spend to Revenue Traceability',
-    badge: 'GUT CHECK 05',
-    headline: 'Can you actually trace spend to P&L revenue, or is it a guess?',
-    description: 'Every dollar invested should map directly to qualified pipeline and board-defendable ROI instead of vanity impressions.',
+    tabLabel: 'Spend to ROI & P&L Impact',
+    badge: 'CHALLENGE 05',
+    headline: 'Are you investing in marketing but struggling to tie it directly to ROI and P&L impact?',
+    description: 'Every dollar invested should map directly to qualified pipeline, bottom-line revenue, and P&L profit rather than superficial vanity impressions.',
     impactLabel: 'ATTRIBUTION & ROI ACCOUNTABILITY',
     icon: ShieldCheck,
     themeColor: '#F4B740',
@@ -113,6 +113,28 @@ export const GUT_CHECK_ITEMS = [
     metrics: [
       { value: '100%', label: 'Spend Traceability' },
       { value: 'Board-Ready', label: 'P&L Attribution' }
+    ]
+  },
+  {
+    id: '06',
+    number: '06',
+    tabLabel: 'Scaling Without a Big Team',
+    badge: 'CHALLENGE 06',
+    headline: 'Are you trying to grow without the budget or bandwidth to hire a full-stack marketing team?',
+    description: 'Hiring a 6-person agency or multi-role marketing team creates overhead you cannot afford. Bootsolo gives you senior strategy with AI-native execution speed.',
+    impactLabel: 'LEAN FULL-STACK MARKETING ENGINE',
+    icon: Activity,
+    themeColor: '#FF6B35',
+    accentColor: '#1FBF75',
+    visualizerType: 'team-bandwidth',
+    videoMp4: '/videos/gut-check-05-analytics.mp4',
+    videoWebm: '/videos/gut-check-05-analytics.webm',
+    poster: '/images/gut-check-01-poster.jpg',
+    sceneDescription: 'Lean team hub connecting to multi-channel execution engines.',
+    aiGenerationPrompt: 'SaaS UI motion graphic, dark mode interface: Central node connecting to multi-channel execution engines. Dark navy background (#0E1A2B), sunrise orange (#FF6B35) accents.',
+    metrics: [
+      { value: '1 Lean Engine', label: 'Replaces 6 Roles' },
+      { value: 'Senior Lead', label: 'AI Execution Speed' }
     ]
   }
 ];
@@ -444,6 +466,51 @@ export default function AiEra({ onOpenModal }) {
         });
       }
 
+      // SCENE 06: Full-Stack Marketing Engine Bandwidth
+      else if (vizType === 'team-bandwidth') {
+        const cx = width / 2;
+        const cy = height / 2 + 10;
+        const r = Math.min(width, height) * 0.32;
+        const channels = ['Search / AEO', 'Paid Ads', 'Content', 'Automation', 'CRO & Web', 'Branding'];
+
+        // Central Bootsolo Hub
+        ctx.fillStyle = '#FF6B35';
+        ctx.beginPath();
+        ctx.arc(cx, cy, 24, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '700 9px var(--font-mono), monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('BOOTSOLO', cx, cy + 3);
+
+        // Surrounding channel nodes
+        channels.forEach((ch, idx) => {
+          const angle = (idx / channels.length) * Math.PI * 2 + time * 0.4;
+          const nx = cx + Math.cos(angle) * r;
+          const ny = cy + Math.sin(angle) * r;
+
+          ctx.strokeStyle = 'rgba(56, 182, 245, 0.35)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy);
+          ctx.lineTo(nx, ny);
+          ctx.stroke();
+
+          ctx.fillStyle = '#0E1A2B';
+          ctx.strokeStyle = '#38B6F5';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.arc(nx, ny, 14, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#EEF3F8';
+          ctx.font = '600 10px var(--font-sans), sans-serif';
+          ctx.fillText(ch, nx, ny + (ny > cy ? 24 : -18));
+        });
+      }
+
       animationFrameId = requestAnimationFrame(render);
     };
 
@@ -455,7 +522,19 @@ export default function AiEra({ onOpenModal }) {
     };
   }, [activeIndex, prefersReducedMotion]);
 
+  const hoverTimeoutRef = useRef(null);
+
+  const handleTabHover = (index) => {
+    if (activeIndex === index) return;
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setActiveIndex(index);
+      setUserInteracted(true);
+    }, 40);
+  };
+
   const handleTabClick = (index) => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     setActiveIndex(index);
     setUserInteracted(true);
   };
@@ -492,13 +571,15 @@ export default function AiEra({ onOpenModal }) {
     <section className="section" id="ai-era" style={{ background: 'var(--white)', padding: '96px 0', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
       <div className="wrap">
         {/* Section Header */}
-        <div style={{ maxWidth: '720px', marginBottom: '48px' }}>
-          <p className="eyebrow">The rules changed. Quietly.</p>
+        <div style={{ maxWidth: '780px', marginBottom: '48px' }}>
+          <p className="eyebrow" style={{ color: 'var(--sunrise)', fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', fontSize: '13px', margin: '0 0 10px', display: 'inline-block' }}>
+            Built for the AI era
+          </p>
           <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 48px)', lineHeight: 1.1, margin: '12px 0 16px', color: 'var(--summit)' }}>
-            Your old marketing playbook is holding you back
+            The old marketing playbook is slowing you down.
           </h2>
           <p className="ds-lead" style={{ fontSize: '17px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
-            Take the 5-point gut check to evaluate if your current growth engine is ready for the AI era.
+            Built for the AI Era. Explore the 6 key challenges where traditional marketing stalls—and how modern teams break through.
           </p>
         </div>
 
@@ -539,6 +620,7 @@ export default function AiEra({ onOpenModal }) {
                   aria-controls={`gut-panel-${idx}`}
                   tabIndex={isActive ? 0 : -1}
                   onClick={() => handleTabClick(idx)}
+                  onMouseEnter={() => handleTabHover(idx)}
                   onKeyDown={(e) => handleKeyDown(e, idx)}
                   style={{
                     display: 'flex',
@@ -767,8 +849,8 @@ export default function AiEra({ onOpenModal }) {
           }}
         >
           <div>
-            <p style={{ fontSize: '16px', lineHeight: 1.6, color: 'var(--fg2)', fontStyle: 'italic', margin: 0 }}>
-              "If that hit close to home, you're not behind, exactly. You're just running last decade's playbook in this decade's market. Most teams are."
+            <p style={{ fontSize: '16.5px', lineHeight: 1.6, color: 'var(--fg1)', fontWeight: 500, margin: 0 }}>
+              "If these challenges sound familiar, you’re not alone. The rules of digital marketing have changed and most teams are still catching up."
             </p>
           </div>
 
@@ -776,11 +858,11 @@ export default function AiEra({ onOpenModal }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
               <PaperPlaneMark size={20} color="#FF9A6B" planeColor="#FF6B35" />
               <span style={{ fontSize: '13px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--sunrise-700)' }}>
-                BOOTSOLO ENGINE
+                THE BOOTSOLO ADVANTAGE
               </span>
             </div>
             <p style={{ fontSize: '14.5px', lineHeight: 1.55, color: 'var(--fg1)', margin: 0, fontWeight: 500 }}>
-              Bootsolo builds AI-first marketing systems that pair senior-level strategy with execution that actually moves. Less guesswork, more speed, growth you can point to.
+              Bootsolo helps you navigate this shift with AI-first marketing systems that combine senior-level strategy with scalable execution—so you can move faster, spend smarter, and grow with confidence.
             </p>
           </div>
         </div>

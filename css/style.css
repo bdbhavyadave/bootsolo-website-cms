@@ -599,33 +599,39 @@ html {
 
 /* Hero Section */
 .hero {
-  padding: 96px 0 100px;
+  padding: 40px 0;
+  margin: 0;
   position: relative;
   overflow: hidden;
   background: var(--bg);
   color: var(--fg1);
+  min-height: calc(100vh - 66px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 56px;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(32px, 4.5vw, 60px);
   align-items: center;
 }
-.hero-copy { max-width: 600px; }
+.hero-copy { max-width: 620px; }
 .h-display {
-  font-size: var(--text-display);
-  line-height: var(--lh-display);
-  font-weight: 500;
-  letter-spacing: var(--track-display);
-  margin: 20px 0 0;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  margin: 0 0 34px;
 }
-.h-display .accent { color: var(--sunrise-300); }
+.h-display .accent { color: var(--sunrise-300); display: inline-block; margin-top: 14px; }
 .h-sub {
-  font-size: 19px;
-  line-height: 1.6;
+  font-size: clamp(16px, 1.25vw, 19.5px);
+  line-height: 1.7;
   color: var(--fg2);
-  margin: 24px 0 0;
-  max-width: 520px;
+  margin: 0 0 44px;
+  max-width: 600px;
 }
 .h-cta {
   display: flex;

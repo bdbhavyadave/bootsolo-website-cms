@@ -7,21 +7,21 @@ import LogoMarquee from './LogoMarquee';
 export default function Testimonials() {
   const [activeIdx, setActiveIdx] = useState(0);
 
-  // Locked 3 Testimonials Verbatim
+  // 3 Testimonials verbatim from copy
   const testimonials = [
     {
       id: 1,
-      quote: "Bootsolo helped us untangle B2B marketing that felt completely scattered. Instead of a pile of random tactics, we finally had one system across SEO, content, landing pages, demand gen, and follow-up. We saw better quality leads within weeks, not quarters.",
+      quote: "Bootsolo helped us simplify B2B marketing which felt scattered. Instead of random tactics, we finally had a clear growth system across SEO, content, landing pages, Demand generation engine and follow-up. We started seeing better quality leads in weeks.",
       badge: "B2B SaaS Founder"
     },
     {
       id: 2,
-      quote: "What stood out was the balance of strategy and execution. We didn't need another agency deck. We needed traction, clarity, and a team that actually understood how buyers in hospitality find brands now, across search, AI, and social.",
+      quote: "What stood out was the balance between strategy and execution. We did not need another agency deck for one of our site. We needed traction, clarity, and someone who understood how modern buyers discover brands across search, AI, and social in the hospitality sector.",
       badge: "Hospitality Tech Founder"
     },
     {
       id: 3,
-      quote: "Honestly, they felt like part of our own team, not a vendor. Fast to move, sharp on positioning, and focused on ROI instead of vanity metrics.",
+      quote: "They felt like a lean extension of our team. Fast to move, sharp on positioning, and focused on ROI instead of vanity metrics.",
       badge: "Indie Startup Founder"
     }
   ];
@@ -29,13 +29,23 @@ export default function Testimonials() {
   return (
     <section className="section" id="testimonials" style={{ background: 'var(--snow)', padding: '100px 0' }}>
       <div className="wrap">
-        <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
+        {/* Client / Partner Logo Strip (4-6 logos) */}
+        <div style={{ marginBottom: '64px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+            <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--fg3)', fontFamily: 'var(--font-mono)' }}>
+              Trusted by Bootstrapped Founders &amp; Modern Teams
+            </span>
+          </div>
+          <LogoMarquee />
+        </div>
+
+        <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 56px' }}>
           <p className="eyebrow">Founder feedback</p>
-          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0' }}>
+          <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4vw, 44px)', margin: '12px 0 16px', color: 'var(--summit)' }}>
             What clients value most
           </h2>
-          <p className="ds-lead">
-            Bootsolo tends to work best for teams that need senior thinking, fast execution, and a plan they can actually follow. Here's what founders keep telling us matters most.
+          <p className="ds-lead" style={{ fontSize: '16.5px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
+            Bootsolo works best for teams that need senior thinking, faster execution, and a practical path to growth. These are the kinds of outcomes founders and lean teams usually care about most.
           </p>
         </div>
 
@@ -77,9 +87,6 @@ export default function Testimonials() {
             );
           })}
         </div>
-
-        {/* Client Logo Marquee Strip */}
-        <LogoMarquee />
       </div>
     </section>
   );

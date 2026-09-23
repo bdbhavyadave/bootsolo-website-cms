@@ -21,155 +21,139 @@ const MODULES = [
     id: 1,
     number: '01',
     name: 'AI-Powered Marketing',
+    subheading: 'Campaigns, automation & vibe marketing',
     slug: '/ai-powered-marketing',
     icon: Bot,
-    nodeBadge: 'SAN FRANCISCO, USA — North America Node',
-    hubTitle: 'ChatGPT 4o & Claude AI Citation Hub',
-    statLabel: 'AVERAGE SIGNUP GROWTH',
+    nodeBadge: 'AI GROWTH ENGINE',
+    hubTitle: 'Campaigns, automation & vibe marketing',
+    statLabel: 'SIGNUP GROWTH',
     statValue: '+312%',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'Solo SaaS Founder',
-    description: 'Ranked #1 in ChatGPT 4o & Claude recommendations for lean SaaS platforms.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    modelLabel: 'DELIVERY TIMELINE',
+    modelValue: 'Always-On Engine',
+    description: "Turn AI from a buzzword into a growth engine. We design always-on campaigns, automate your funnels end to end, and continuously optimize what's working — so your marketing improves while you sleep.",
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
-      'Top-tier AEO citation placement in AI chat queries',
-      'Organic referral traffic up 4.1x without agency retainers',
+      'AI-powered campaign strategy and execution',
       'Marketing automation across the full funnel',
-      'Vibe marketing that captures attention and intent'
+      'Vibe marketing that captures attention and intent',
+      'Automated funnel optimization and testing'
     ],
     ctaText: 'Explore AI-Powered Marketing'
   },
   {
     id: 2,
     number: '02',
-    name: 'SEO, AEO & GEO',
+    name: 'SEO / AEO / GEO',
+    subheading: 'Search, AI-Engine & Geo Optimization',
     slug: '/seo-aeo-geo',
     icon: Search,
-    nodeBadge: 'LONDON, UNITED KINGDOM — Europe Node',
-    hubTitle: 'Perplexity Pro Answer Engine Node',
+    nodeBadge: 'AI & SEARCH CITATION',
+    hubTitle: 'Search, AI-Engine & Geo Optimization',
     statLabel: 'AI CITATION VISIBILITY',
     statValue: '4.1x',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'AI FinTech Solopreneur',
-    description: 'Cited directly across 14 high-intent Perplexity Pro and Google AI Overview queries.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    modelLabel: 'PLATFORMS',
+    modelValue: 'Google · ChatGPT · Perplexity',
+    description: "Being found is no longer just about Google. We optimize you for traditional search, for answer engines like ChatGPT and Perplexity, and for the local searches that drive real-world demand — so customers find you wherever they're looking.",
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
-      'Technical and content SEO engineered to rank',
-      'Answer Engine Optimization (AEO) for LLM search',
+      'Technical and content SEO that ranks',
+      'Answer Engine Optimization (AEO) for AI search',
       'Generative Engine Optimization (GEO) for AI citations',
-      'Local & geo-targeted visibility infrastructure'
+      'Local and geo-targeted visibility'
     ],
-    ctaText: 'Explore SEO, AEO & GEO'
+    ctaText: 'Explore SEO / AEO / GEO'
   },
   {
     id: 3,
     number: '03',
     name: 'Performance & Lead Generation',
+    subheading: 'Performance marketing & pipeline growth',
     slug: '/performance-lead-generation',
     icon: TrendingUp,
-    nodeBadge: 'TOKYO, JAPAN — Asia-Pacific Node',
-    hubTitle: 'Google AI Overview & Paid Media Node',
-    statLabel: 'COST PER SALE REDUCTION',
+    nodeBadge: 'PAID & PIPELINE',
+    hubTitle: 'Performance marketing & pipeline growth',
+    statLabel: 'LOWER COST PER SALE',
     statValue: '-58%',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'B2B Tech Founder',
-    description: 'Secured top generative answer cards and high-converting performance campaigns.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    modelLabel: 'OUTCOME FOCUS',
+    modelValue: 'Predictable Pipeline',
+    description: 'Every dollar should earn its place. We run paid campaigns and conversion programs built around one goal: a steady, predictable flow of qualified leads into your pipeline.',
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
       'Paid search and paid social campaigns',
-      'Conversion rate optimization (CRO)',
-      'Lead generation systems built for pipeline',
-      'Full-funnel tracking and revenue attribution'
+      'Conversion Rate Optimization (CRO)',
+      'Lead generation systems that fill your pipeline',
+      'Full-funnel performance tracking and reporting'
     ],
-    ctaText: 'Explore Performance & Lead Gen'
+    ctaText: 'Explore Performance & Lead Generation'
   },
   {
     id: 4,
     number: '04',
-    name: 'Content, Video & Authority',
+    name: 'Content, Video & Thought Leadership',
+    subheading: 'Content, video & authority building',
     slug: '/content-video-thought-leadership',
     icon: Video,
-    nodeBadge: 'BERLIN, GERMANY — Central Europe Node',
-    hubTitle: 'Vibe Marketing & Rapid Content Studio',
+    nodeBadge: 'AUTHORITY & MEDIA',
+    hubTitle: 'Content, video & authority building',
     statLabel: 'CONTENT VELOCITY',
-    statValue: '3x',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'Indie Hacker SaaS',
-    description: 'Shipped high-converting content, motion video, and authority assets in days.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    statValue: '3x Faster',
+    modelLabel: 'IMPACT',
+    modelValue: 'Earn Trust Before Calls',
+    description: 'Great content earns trust before a sales call ever happens. We create the articles, videos, and points of view that position you as the obvious choice in your category.',
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
       'Content marketing and editorial strategy',
       'Video production and motion design',
-      'Founder-led thought leadership',
+      'Thought leadership that builds authority',
       'Content built to rank and convert'
     ],
-    ctaText: 'Explore Content & Video'
+    ctaText: 'Explore Content, Video & Thought Leadership'
   },
   {
     id: 5,
     number: '05',
     name: 'Web & Ecommerce Experience',
+    subheading: 'Web design, UX & ecommerce',
     slug: '/web-ecommerce-experience',
     icon: Monitor,
-    nodeBadge: 'SÃO PAULO, BRAZIL — South America Node',
-    hubTitle: 'Conversion Storefront & UX Engine',
-    statLabel: 'QUALIFIED CONVERSIONS',
-    statValue: '+280%',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'Bootstrapped E-Commerce',
-    description: 'Digital storefronts and landing pages engineered to convert, not just look nice.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    nodeBadge: 'CONVERSION & EXPERIENCE',
+    hubTitle: 'Web design, UX & ecommerce',
+    statLabel: 'STOREFRONT CONVERSION',
+    statValue: 'High ROI',
+    modelLabel: 'SPEED & SCALE',
+    modelValue: 'Next.js · Headless',
+    description: 'Your website is your hardest-working salesperson. We design fast, intuitive sites and storefronts that turn visitors into customers — and look the part while doing it.',
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
       'Conversion-focused web design',
-      'UX strategy and buyer clarity optimization',
-      'Ecommerce store experiences',
+      'UX strategy and optimization',
+      'Ecommerce builds and experiences',
       'Sites engineered for speed and scale'
     ],
-    ctaText: 'Explore Web & Ecommerce'
+    ctaText: 'Explore Web & Ecommerce Experience'
   },
   {
     id: 6,
     number: '06',
     name: 'Branding',
+    subheading: 'Brand identity & positioning',
     slug: '/branding',
     icon: Sparkles,
-    nodeBadge: 'SYDNEY, AUSTRALIA — Oceania Node',
-    hubTitle: 'Brand Strategy & Positioning System',
-    statLabel: 'POSITIONING SCORE',
-    statValue: 'Top Ranked',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'Agency Alternative',
-    description: 'Stand out in a noisy market with positioning and visual identity that resonates.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
+    nodeBadge: 'IDENTITY & POSITIONING',
+    hubTitle: 'Brand identity & positioning',
+    statLabel: 'POSITIONING CLARITY',
+    statValue: 'Distinct',
+    modelLabel: 'CATEGORY IMPACT',
+    modelValue: 'Obvious Choice',
+    description: 'A strong brand makes everything else easier — every ad, every page, every pitch. We help you find your position, sharpen your message, and build an identity that sticks.',
+    highlightsTitle: 'CORE DELIVERABLES & CAPABILITIES',
     deliverables: [
-      'Brand strategy and core positioning',
+      'Brand strategy and positioning',
       'Visual identity and design systems',
-      'Messaging and brand voice',
+      'Messaging and voice',
       'Rebrands and brand refreshes'
     ],
     ctaText: 'Explore Branding'
-  },
-  {
-    id: 7,
-    number: '07',
-    name: 'AI Enablement & Training',
-    slug: '/ai-enablement-training',
-    icon: GraduationCap,
-    nodeBadge: 'SINGAPORE — Global Enablement Hub',
-    hubTitle: 'AI Team Enablement & Workflow Systems',
-    statLabel: 'WORKFLOW ADOPTION',
-    statValue: '100%',
-    modelLabel: 'FOUNDER MODEL',
-    modelValue: 'Lean Team Marketers',
-    description: 'Practical AI skills, custom playbooks, and hands-on team workflow training.',
-    highlightsTitle: 'LIVE TRACTION HIGHLIGHTS',
-    deliverables: [
-      'AI workflow audits and readiness assessments',
-      'Hands-on training for marketing & sales',
-      'Custom playbooks for AI-assisted work',
-      'Ongoing coaching as tools evolve'
-    ],
-    ctaText: 'Explore AI Enablement'
   }
 ];
 
@@ -180,35 +164,16 @@ export default function Services() {
   return (
     <section className="section" id="services" style={{ background: 'var(--white)', padding: '96px 0' }}>
       <div className="wrap">
-        {/* Main Section Header (Currently Hidden) */}
-        {/* <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 56px' }}>
-          <p className="eyebrow">What We Do</p>
+        {/* Main Section Header */}
+        <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto 48px' }}>
+          <p className="eyebrow">What we do</p>
           <h2 className="ds-h2" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', margin: '12px 0 16px', color: 'var(--summit)', lineHeight: 1.1 }}>
-            Seven ways we drive your growth
+            Six ways we drive your growth
           </h2>
-          <p className="ds-lead" style={{ fontSize: '17px', color: 'var(--fg2)', lineHeight: 1.6 }}>
-            We run the whole marketing engine, start to finish, and we build it so every piece feeds the next one.
+          <p className="ds-lead" style={{ fontSize: '17px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
+            From the first impression to the final conversion, we cover the full marketing engine — and connect every piece so it compounds.
           </p>
-        </div> */}
-
-        {/* 1. Global AI Citation & Traction Footprint Interactive 3D Globe (Currently Hidden) */}
-        {/* <div style={{ marginBottom: '80px' }}>
-          <InteractiveGlobe />
-        </div> */}
-
-        {/* 2. Menu List + Single Shared Detail Panel Component */}
-        <div style={{ marginTop: '64px', paddingTop: '48px', borderTop: '1px solid var(--border)' }}>
-          <div style={{ marginBottom: '36px', textAlign: 'left' }}>
-            <span style={{ fontSize: '12px', letterSpacing: '0.10em', textTransform: 'uppercase', color: 'var(--brand-fg)', fontWeight: 700 }}>
-              Full-Stack Growth Capability Modules
-            </span>
-            <h3 className="ds-h3" style={{ fontSize: 'clamp(24px, 3.5vw, 36px)', marginTop: '6px', color: 'var(--summit)' }}>
-              Explore Our Core Service Modules
-            </h3>
-            <p style={{ fontSize: '14.5px', color: 'var(--fg2)', marginTop: '6px' }}>
-              Hover or tap any module in the left menu list to inspect its live AI Citation Node details.
-            </p>
-          </div>
+        </div>
 
           {/* TWO-REGION LAYOUT: Menu List on Left (30%), ONE Single Shared Detail Card on Right (70%) */}
           <div className="modules-explorer-layout">
@@ -388,7 +353,6 @@ export default function Services() {
 
           </div>
         </div>
-      </div>
     </section>
   );
 }
