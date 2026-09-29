@@ -28,6 +28,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 14, 2026",
     read: "9 min read",
+    image: "/images/blog-geo-starter-kit.jpg",
     featured: true
   },
   {
@@ -39,6 +40,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 11, 2026",
     read: "6 min read",
+    image: "/images/blog-answer-engine-optimization.jpg",
     featured: true
   },
   {
@@ -50,6 +52,8 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 07, 2026",
     read: "8 min read",
+    image: "/images/blog-4-ai-agents.jpg",
+    link: "/blog-one-person-marketing-team-with-4-ai-agents.html",
     featured: true
   },
   {
@@ -61,6 +65,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "Jun 03, 2026",
     read: "11 min read",
+    image: "/images/blog-founder-growth.jpg",
     featured: true
   },
 
@@ -74,6 +79,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "May 28, 2026",
     read: "7 min read",
+    image: "/images/blog-content-video-branding.jpg",
     isPlaceholder: false
   },
   {
@@ -85,6 +91,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "May 22, 2026",
     read: "5 min read",
+    image: "/images/blog-answer-engine-optimization.jpg",
     isPlaceholder: false
   },
   {
@@ -96,6 +103,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "May 16, 2026",
     read: "6 min read",
+    image: "/images/blog-performance-leadgen.jpg",
     isPlaceholder: false
   },
 
@@ -109,6 +117,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jul 01, 2026",
     read: "8 min read",
+    image: "/images/blog-geo-starter-kit.jpg",
     isPlaceholder: true
   },
   {
@@ -120,6 +129,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 24, 2026",
     read: "6 min read",
+    image: "/images/blog-answer-engine-optimization.jpg",
     isPlaceholder: true
   },
   {
@@ -131,6 +141,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 20, 2026",
     read: "7 min read",
+    image: "/images/blog-performance-leadgen.jpg",
     isPlaceholder: true
   },
   {
@@ -142,6 +153,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 18, 2026",
     read: "5 min read",
+    image: "/images/blog-performance-leadgen.jpg",
     isPlaceholder: true
   },
   {
@@ -153,6 +165,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "Jun 15, 2026",
     read: "6 min read",
+    image: "/images/blog-content-video-branding.jpg",
     isPlaceholder: true
   },
   {
@@ -164,6 +177,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 09, 2026",
     read: "4 min read",
+    image: "/images/blog-content-video-branding.jpg",
     isPlaceholder: true
   },
   {
@@ -175,6 +189,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 05, 2026",
     read: "9 min read",
+    image: "/images/blog-content-video-branding.jpg",
     isPlaceholder: true
   },
   {
@@ -186,6 +201,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "May 30, 2026",
     read: "10 min read",
+    image: "/images/blog-founder-growth.jpg",
     isPlaceholder: true
   }
 ];
