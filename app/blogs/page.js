@@ -28,7 +28,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 14, 2026",
     read: "9 min read",
-    image: "/images/blog-geo-starter-kit.jpg",
+    image: "/images/blog-1-geo-starter-kit.jpg",
     featured: true
   },
   {
@@ -40,7 +40,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 11, 2026",
     read: "6 min read",
-    image: "/images/blog-answer-engine-optimization.jpg",
+    image: "/images/blog-2-aeo-explained.jpg",
     featured: true
   },
   {
@@ -65,7 +65,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "Jun 03, 2026",
     read: "11 min read",
-    image: "/images/blog-founder-growth.jpg",
+    image: "/images/blog-4-founder-growth.jpg",
     featured: true
   },
 
@@ -79,7 +79,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "May 28, 2026",
     read: "7 min read",
-    image: "/images/blog-content-video-branding.jpg",
+    image: "/images/blog-5-content-engine.jpg",
     isPlaceholder: false
   },
   {
@@ -91,7 +91,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "May 22, 2026",
     read: "5 min read",
-    image: "/images/blog-answer-engine-optimization.jpg",
+    image: "/images/blog-6-invisible-homepage.jpg",
     isPlaceholder: false
   },
   {
@@ -103,7 +103,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "May 16, 2026",
     read: "6 min read",
-    image: "/images/blog-performance-leadgen.jpg",
+    image: "/images/blog-7-lifecycle-email.jpg",
     isPlaceholder: false
   },
 
@@ -117,7 +117,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jul 01, 2026",
     read: "8 min read",
-    image: "/images/blog-geo-starter-kit.jpg",
+    image: "/images/blog-8-perplexity-pro.jpg",
     isPlaceholder: true
   },
   {
@@ -129,7 +129,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 24, 2026",
     read: "6 min read",
-    image: "/images/blog-answer-engine-optimization.jpg",
+    image: "/images/blog-9-aeo-checklist.jpg",
     isPlaceholder: true
   },
   {
@@ -141,7 +141,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 20, 2026",
     read: "7 min read",
-    image: "/images/blog-performance-leadgen.jpg",
+    image: "/images/blog-10-micro-ad-budget.jpg",
     isPlaceholder: true
   },
   {
@@ -153,7 +153,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 18, 2026",
     read: "5 min read",
-    image: "/images/blog-performance-leadgen.jpg",
+    image: "/images/blog-11-lead-qualification.jpg",
     isPlaceholder: true
   },
   {
@@ -165,7 +165,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "Jun 15, 2026",
     read: "6 min read",
-    image: "/images/blog-content-video-branding.jpg",
+    image: "/images/blog-12-founder-video.jpg",
     isPlaceholder: true
   },
   {
@@ -177,7 +177,7 @@ const ALL_POSTS = [
     who: "Theo",
     date: "Jun 09, 2026",
     read: "4 min read",
-    image: "/images/blog-content-video-branding.jpg",
+    image: "/images/blog-13-repurposing-docs.jpg",
     isPlaceholder: true
   },
   {
@@ -189,7 +189,7 @@ const ALL_POSTS = [
     who: "Mara",
     date: "Jun 05, 2026",
     read: "9 min read",
-    image: "/images/blog-content-video-branding.jpg",
+    image: "/images/blog-14-niche-positioning.jpg",
     isPlaceholder: true
   },
   {
@@ -201,7 +201,7 @@ const ALL_POSTS = [
     who: "Priya",
     date: "May 30, 2026",
     read: "10 min read",
-    image: "/images/blog-founder-growth.jpg",
+    image: "/images/blog-15-20k-mrr.jpg",
     isPlaceholder: true
   }
 ];
@@ -262,11 +262,15 @@ function FeaturedBanner({ posts }) {
 }
 
 // 2. Standard Grid Post Card Component
-function PostCard({ cat, palette, title, ex, who, date, read, isPlaceholder }) {
-  return (
-    <article className="post">
-      <div className="pthumb">
-        <Motif palette={palette} h={176} />
+function PostCard({ cat, palette, title, ex, who, date, read, isPlaceholder, link, image }) {
+  const cardNode = (
+    <article className="post" style={link ? { cursor: 'pointer' } : {}}>
+      <div className="pthumb" style={{ height: 176, overflow: 'hidden' }}>
+        {image ? (
+          <img src={image} alt={title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+        ) : (
+          <Motif palette={palette || "dawn"} h={176} />
+        )}
       </div>
       <div className="pbody">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px' }}>
@@ -288,7 +292,13 @@ function PostCard({ cat, palette, title, ex, who, date, read, isPlaceholder }) {
           )}
         </div>
 
-        <h3 className="ptitle">{title}</h3>
+        <h3 className="ptitle">
+          {link ? (
+            <a href={link} style={{ color: 'inherit', textDecoration: 'none' }}>{title}</a>
+          ) : (
+            title
+          )}
+        </h3>
         <p className="pex">{ex}</p>
 
         <div className="pmeta">
@@ -301,6 +311,16 @@ function PostCard({ cat, palette, title, ex, who, date, read, isPlaceholder }) {
       </div>
     </article>
   );
+
+  if (link) {
+    return (
+      <a href={link} style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
+        {cardNode}
+      </a>
+    );
+  }
+
+  return cardNode;
 }
 
 export default function BlogIndex() {
@@ -328,19 +348,38 @@ export default function BlogIndex() {
         <div className="wrap">
           <div className="blog-hero-card">
 
-            {/* LEFT — hero image + page title */}
-            <div className="blog-hero-left">
-              <div className="blog-hero-motif">
-                <Motif palette="dawn" h={420} className="motif" />
+            {/* LEFT — Featured Article Spotlight */}
+            <div 
+              className="blog-hero-left" 
+              style={{ position: 'relative', overflow: 'hidden', cursor: 'pointer' }}
+              onClick={() => { window.location.href = '/blog-one-person-marketing-team-with-4-ai-agents.html'; }}
+            >
+              <div className="blog-hero-motif" style={{ position: 'relative', height: '100%', minHeight: 380 }}>
+                <img 
+                  src="/images/blog-4-ai-agents.jpg" 
+                  alt="Build a One-Person Marketing Team with 4 AI Agents" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0, opacity: 0.45, display: 'block' }} 
+                />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(14,26,43,0.3) 0%, rgba(10,19,32,0.94) 100%)' }}></div>
               </div>
-              <div className="blog-hero-headline">
-                <span className="kick" style={{ color: 'var(--sunrise)', marginBottom: '10px', display: 'block' }}>Blog</span>
-                <h1 style={{ fontSize: 'clamp(26px,4vw,40px)', fontWeight: 700, lineHeight: 1.15, letterSpacing: '-0.02em', margin: '0 0 12px', color: '#fff' }}>
-                  Field notes from the climb
-                </h1>
-                <p style={{ fontSize: '14.5px', lineHeight: 1.6, color: 'rgba(255,255,255,0.65)', margin: 0 }}>
-                  Playbooks, teardowns, and founder stories on getting found by AI and growing on a backpack budget.
+              <div className="blog-hero-headline" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '32px 32px 28px', zIndex: 2 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
+                  <span style={{ background: 'var(--sunrise)', color: '#fff', fontSize: '10.5px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', padding: '3px 8px', borderRadius: '4px' }}>
+                    ⭐ NEW FEATURED PLAYBOOK
+                  </span>
+                  <span className="kick" style={{ color: 'var(--sunrise-300)', margin: 0 }}>Automation</span>
+                </div>
+                <h2 style={{ fontSize: 'clamp(22px,3vw,34px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.02em', margin: '0 0 10px', color: '#fff' }}>
+                  <a href="/blog-one-person-marketing-team-with-4-ai-agents.html" style={{ color: '#fff', textDecoration: 'none' }}>
+                    Build a one-person marketing team with 4 AI agents
+                  </a>
+                </h2>
+                <p style={{ fontSize: '14px', lineHeight: 1.55, color: 'rgba(255,255,255,0.85)', margin: '0 0 16px', maxWidth: '520px' }}>
+                  Stop doing triage. Deploy the 4-agent autonomous system that gives a solo founder the speed and leverage of a full 5-person growth department.
                 </p>
+                <a href="/blog-one-person-marketing-team-with-4-ai-agents.html" className="btn btn-primary btn-sm" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                  Read Playbook <ArrowRight size={14} />
+                </a>
               </div>
             </div>
 
@@ -352,13 +391,27 @@ export default function BlogIndex() {
 
               <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
                 {featuredPosts.map((post, i) => (
-                  <li key={post.id} className="blog-hero-post-row" style={{ borderBottom: i < featuredPosts.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none' }}>
+                  <li 
+                    key={post.id} 
+                    className="blog-hero-post-row" 
+                    onClick={() => { if (post.link) window.location.href = post.link; }}
+                    style={{ 
+                      borderBottom: i < featuredPosts.length - 1 ? '1px solid rgba(255,255,255,0.08)' : 'none',
+                      cursor: post.link ? 'pointer' : 'default'
+                    }}
+                  >
                     <span className="blog-hero-num">{String(i + 1).padStart(2, '0')}</span>
                     <div style={{ flex: 1 }}>
                       <span style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--sunrise)', display: 'block', marginBottom: '5px' }}>
                         {post.cat}
                       </span>
-                      <h3 className="blog-hero-post-title">{post.title}</h3>
+                      <h3 className="blog-hero-post-title">
+                        {post.link ? (
+                          <a href={post.link} style={{ color: 'inherit', textDecoration: 'none' }}>{post.title}</a>
+                        ) : (
+                          post.title
+                        )}
+                      </h3>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '7px', fontSize: '12px', color: 'rgba(255,255,255,0.4)', fontFamily: 'var(--font-mono)' }}>
                         <span>{post.who}</span>
                         <span style={{ width: 2, height: 2, borderRadius: '50%', background: 'rgba(255,255,255,0.3)', display: 'inline-block' }}></span>
