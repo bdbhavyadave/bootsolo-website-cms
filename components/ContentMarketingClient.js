@@ -177,7 +177,7 @@ export default function ContentMarketingClient() {
 
           {/* Right Column (Content Studio & Multi-Channel Console) */}
           <div>
-            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8' }}>
+            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8', minHeight: '395px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Header */}
               <div style={{ background: '#09111c', padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--navy-700)', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
@@ -274,27 +274,27 @@ export default function ContentMarketingClient() {
                 </button>
               </div>
 
-              {/* Console Panes */}
-              <div style={{ padding: '20px' }}>
+              {/* Console Panes Wrapper with Fixed/Steady Min-Height */}
+              <div style={{ padding: '20px', minHeight: '295px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {consoleTab === 'articles' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>AI Overviews</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>Cited #1</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Avg Organic Read</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>4m 12s</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Monthly Readers</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>18,400+</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Deep Pillar: The 2026 Micro-SaaS Pricing Teardown</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>RANK #1</span>
@@ -302,7 +302,7 @@ export default function ContentMarketingClient() {
                         <div style={{ color: 'var(--navy-200)' }}>12 original founder teardowns, custom schema graph, and direct answer engine citations.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Buyer Comparison Guide: Bootsolo vs Agency Models</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ice)' }}>AEO ACTIVE</span>
@@ -314,24 +314,24 @@ export default function ContentMarketingClient() {
                 )}
 
                 {consoleTab === 'video' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>3s Hook Retention</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>78.4%</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Video Velocity</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>3x Faster</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Time-to-Understand</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>45 Sec</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>60-Second Interactive Product Teardown</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--sunrise)' }}>REELS / SHORTS</span>
@@ -339,7 +339,7 @@ export default function ContentMarketingClient() {
                         <div style={{ color: 'var(--navy-200)' }}>Paced motion graphic with kinetic typography explaining key workflow without voiceover friction.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Founder Interview Clip: "The Fatal Retention Trap"</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>LINKEDIN VIRAL</span>
@@ -351,24 +351,24 @@ export default function ContentMarketingClient() {
                 )}
 
                 {consoleTab === 'thought' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Monthly Inbound DMs</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>38+ Calls</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Impression Lift</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>5.4&times;</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Founder Time Req.</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>45 min/mo</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Ghostwritten Contrarian POV: "Stop Building Features"</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>84K VIEWS</span>
@@ -376,7 +376,7 @@ export default function ContentMarketingClient() {
                         <div style={{ color: 'var(--navy-200)' }}>Resulted in 14 direct founder DMs and 4 booked advisory contracts within 72 hours.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Top-Tier B2B Podcast Placement &amp; Prep Brief</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ice)' }}>CONFIRMED</span>

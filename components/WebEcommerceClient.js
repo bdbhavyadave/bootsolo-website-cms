@@ -175,7 +175,7 @@ export default function WebEcommerceClient() {
 
           {/* Right Column (Console & Speed Telemetry Studio) */}
           <div>
-            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8' }}>
+            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8', minHeight: '395px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               {/* Header */}
               <div style={{ background: '#09111c', padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--navy-700)', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
@@ -272,27 +272,27 @@ export default function WebEcommerceClient() {
                 </button>
               </div>
 
-              {/* Console Panes */}
-              <div style={{ padding: '20px' }}>
+              {/* Console Panes Wrapper with Fixed/Steady Min-Height */}
+              <div style={{ padding: '20px', minHeight: '295px', flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {consoleTab === 'speed' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Mobile PageSpeed</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>98 / 100</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Server TTFB</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>140 ms</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Largest Contentful Paint</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>0.9s</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Core Web Vitals Assessment: Passed</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>ALL GREEN</span>
@@ -300,7 +300,7 @@ export default function WebEcommerceClient() {
                         <div style={{ color: 'var(--navy-200)' }}>Zero Cumulative Layout Shift (CLS: 0.00). Next.js server components + edge CDN caching.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Asset Payload Compression</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ice)' }}>OPTIMIZED</span>
@@ -312,24 +312,24 @@ export default function WebEcommerceClient() {
                 )}
 
                 {consoleTab === 'checkout' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Cart-to-Order CVR</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>+34.2%</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>AOV Upsell Lift</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>+22%</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Checkout Steps Cut</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>4 &rarr; 1</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Shopify 1-Click Post-Purchase Flow</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--sunrise)' }}>ACTIVE</span>
@@ -337,7 +337,7 @@ export default function WebEcommerceClient() {
                         <div style={{ color: 'var(--navy-200)' }}>Zero friction add-on bundles triggered immediately after payment without re-entering details.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Slide-Out Drawer Cart with Threshold Progress Bar</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>LIVE</span>
@@ -349,24 +349,24 @@ export default function WebEcommerceClient() {
                 )}
 
                 {consoleTab === 'interactive' && (
-                  <div>
+                  <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '18px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Tool Interaction Rate</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#1FBF75' }}>48.6%</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Engaged Time</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: '#fff' }}>3m 44s</div>
                       </div>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px 14px', minHeight: '66px', boxSizing: 'border-box' }}>
                         <div style={{ fontSize: '11px', color: 'var(--navy-300)', textTransform: 'uppercase', letterSpacing: '0.06em', fontFamily: 'var(--font-mono)' }}>Demo Lead Capture</div>
                         <div style={{ fontSize: '20px', fontWeight: 700, color: 'var(--sunrise)' }}>18.4%</div>
                       </div>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid #1FBF75', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Custom ROI &amp; Savings Calculator</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: '#1FBF75' }}>CONVERTING</span>
@@ -374,7 +374,7 @@ export default function WebEcommerceClient() {
                         <div style={{ color: 'var(--navy-200)' }}>Dynamic pricing simulation that delivers instant personalized value before booking sales calls.</div>
                       </div>
 
-                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px' }}>
+                      <div style={{ background: 'rgba(255, 255, 255, 0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px 14px', fontSize: '12.5px', minHeight: '68px', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
                           <strong style={{ color: '#fff' }}>Interactive Product Architecture Explorer</strong>
                           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--ice)' }}>COMPONENT</span>

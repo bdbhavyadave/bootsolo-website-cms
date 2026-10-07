@@ -16,6 +16,10 @@
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12);
       backdrop-filter: blur(16px);
       color: #EEF3F8;
+      min-height: 395px;
+      display: flex;
+      flex-direction: column;
+      justifyContent: space-between;
     }
     .console-header {
       background: #09111c;
@@ -112,10 +116,15 @@
     .console-tab-pane {
       display: none;
       padding: 20px;
+      min-height: 295px;
+      box-sizing: border-box;
+      flex-direction: column;
+      justifyContent: space-between;
       animation: fadeInPane 220ms ease;
     }
     .console-tab-pane.active {
-      display: block;
+      display: flex;
+      flex: 1;
     }
     @keyframes fadeInPane {
       from { opacity: 0; transform: translateY(4px); }
@@ -123,7 +132,7 @@
     }
     .console-metric-row {
       display: grid;
-      grid-templateColumns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-bottom: 18px;
     }
@@ -132,6 +141,8 @@
       border: 1px solid var(--navy-700);
       border-radius: 10px;
       padding: 12px 14px;
+      min-height: 66px;
+      box-sizing: border-box;
     }
     .console-stat-lbl {
       font-size: 11px;
@@ -153,6 +164,14 @@
       padding: 12px 14px;
       font-size: 12.5px;
       margin-bottom: 10px;
+      min-height: 68px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justifyContent: center;
+    }
+    .console-stream-item:last-child {
+      margin-bottom: 0;
     }
     .console-stream-item.green { border-left: 3px solid #1FBF75; }
     .console-stream-item.blue { border-left: 3px solid var(--ice); }

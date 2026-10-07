@@ -11,6 +11,7 @@ export default function GlobalContact() {
 
   // Dedicated service pages already have their own bespoke conversion forms at the bottom
   const pagesWithCustomForms = [
+    '/ai-powered-marketing',
     '/performance-lead-generation',
     '/content-video-thought-leadership',
     '/web-ecommerce-experience',
