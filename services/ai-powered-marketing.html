@@ -16,6 +16,10 @@
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 182, 245, 0.12);
       backdrop-filter: blur(16px);
       color: #EEF3F8;
+      min-height: 395px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .console-header {
       background: #09111c;
@@ -109,9 +113,13 @@
       display: none;
       padding: 20px;
       animation: fadeInPane 220ms ease;
+      min-height: 235px;
+      flex: 1;
     }
     .console-tab-pane.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     @keyframes fadeInPane {
       from { opacity: 0; transform: translateY(4px); }
@@ -121,7 +129,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     @media (max-width: 640px) {
       .console-metric-row {
@@ -151,6 +159,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      flex: 1;
     }
     .console-feed-item {
       background: rgba(255, 255, 255, 0.03);
@@ -159,6 +168,8 @@
       padding: 12px 14px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      min-height: 98px;
       gap: 6px;
       font-size: 12.5px;
     }
@@ -924,24 +935,14 @@
             <div class="console-feed-item">
               <div style="display:flex;justify-content:space-between;color:var(--sunrise-300);font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
                 <span>GEN_ANGLE #18 &middot; Meta &amp; LinkedIn</span>
-                <span style="color:#1FBF75;">Top Performer (CTR 4.8%)</span>
+                <span style="color:#1FBF75;">Scaling Winner (CTR 4.8%)</span>
               </div>
               <p style="margin:0;color:var(--navy-100);font-size:12.5px;line-height:1.45;">
                 &ldquo;You built the app in 60 days solo. Why hire a 4-person marketing agency just to post generic carousels? Here is the automated route.&rdquo;
               </p>
-              <div style="font-size:11px;color:var(--navy-300);font-family:var(--font-mono);margin-top:2px;">
+              <div style="font-size:11px;color:var(--navy-300);font-family:var(--font-mono);">
                 Budget shifted: 65% auto-allocated to Angle #18 &middot; Predictive CPL: $14.20
               </div>
-            </div>
-
-            <div class="console-feed-item blue">
-              <div style="display:flex;justify-content:space-between;color:var(--ice-300);font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
-                <span>GEN_ANGLE #34 &middot; Google Search Ads</span>
-                <span>Optimizing</span>
-              </div>
-              <p style="margin:0;color:var(--navy-100);font-size:12.5px;line-height:1.45;">
-                &ldquo;Developer-led B2B SaaS marketing without full-time payroll. Autonomous testing for bootstrapped budgets.&rdquo;
-              </p>
             </div>
           </div>
         </div>
@@ -965,14 +966,15 @@
 
           <div class="console-card-feed">
             <div class="console-feed-item blue">
-              <div style="color:var(--ice-300);font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
-                PSYCHOGRAPHIC SEGMENT: &ldquo;Tired Solo Builder&rdquo;
+              <div style="display:flex;justify-content:space-between;color:var(--ice-300);font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
+                <span>AUDIENCE MAP &middot; Bootstrapped SaaS</span>
+                <span style="color:var(--sunrise-300);">High Resonance (94/100)</span>
               </div>
               <p style="margin:0;color:var(--navy-100);font-size:12.5px;line-height:1.45;">
-                <strong>Core Frustration:</strong> Love shipping code; despise spending Saturday afternoons crafting LinkedIn hooks and tweaking ad manager knobs.
+                &ldquo;Sick of paying $10k retainer agencies who deliver generic slide decks. Need actual signups while coding.&rdquo;
               </p>
-              <div style="font-size:11.5px;color:var(--navy-200);background:rgba(255,255,255,0.04);padding:6px 10px;border-radius:4px;margin-top:4px;">
-                <strong>Winning Hook:</strong> &ldquo;Stop doing marketing on weekends. Here's a pipeline that feeds itself.&rdquo;
+              <div style="font-size:11px;color:var(--navy-300);font-family:var(--font-mono);">
+                Winning Hook: &ldquo;Stop doing marketing on weekends. Here's a pipeline that feeds itself.&rdquo;
               </div>
             </div>
           </div>
@@ -997,14 +999,16 @@
 
           <div class="console-card-feed">
             <div class="console-feed-item green">
-              <div style="color:#1FBF75;font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
-                EVENT DISPATCH: User Downloaded Growth Audit &rarr; Tag: High_Intent
+              <div style="display:flex;justify-content:space-between;color:#1FBF75;font-weight:600;font-size:11.5px;font-family:var(--font-mono);">
+                <span>EVENT DISPATCH &middot; Opt-In &rarr; Lead Score Threshold</span>
+                <span style="color:var(--ice-300);">Zero-Touch Handoff</span>
               </div>
               <p style="margin:0;color:var(--navy-100);font-size:12.5px;line-height:1.45;">
-                &bull; Day 1: Dynamic route map delivery via email (Open rate 64%)<br>
-                &bull; Day 3: Case breakdown matching visitor's exact tech stack<br>
-                &bull; Day 5: Lead score &gt; 50 &rarr; Auto calendar invite dispatched to founder calendar
+                Behavior-based sequence flags buying readiness &rarr; sends direct demo invite link to founder calendar without manual chasing.
               </p>
+              <div style="font-size:11px;color:var(--navy-300);font-family:var(--font-mono);">
+                Execution: Real-time webhook to founder Slack &middot; Instant calendar sync.
+              </div>
             </div>
           </div>
         </div>

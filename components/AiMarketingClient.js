@@ -127,7 +127,11 @@ export default function AiMarketingClient() {
             overflow: 'hidden',
             boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(56, 182, 245, 0.12)',
             backdropFilter: 'blur(16px)',
-            color: '#EEF3F8'
+            color: '#EEF3F8',
+            minHeight: '395px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
           }}>
             <div style={{ background: '#09111c', padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--navy-700)', flexWrap: 'wrap', gap: '10px' }}>
               <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
@@ -143,7 +147,16 @@ export default function AiMarketingClient() {
             </div>
 
             {/* Console Tabs */}
-            <div style={{ display: 'flex', background: '#0D1827', borderBottom: '1px solid var(--navy-700)', padding: '4px 10px 0', gap: '6px', overflowX: 'auto' }}>
+            <div style={{
+              display: 'flex',
+              background: '#0D1827',
+              borderBottom: '1px solid var(--navy-700)',
+              padding: '4px 10px 0',
+              gap: '6px',
+              overflowX: 'hidden',
+              scrollbarWidth: 'none',
+              msOverflowStyle: 'none'
+            }}>
               <button 
                 onClick={() => setConsoleTab('campaigns')}
                 style={{
@@ -151,14 +164,17 @@ export default function AiMarketingClient() {
                   border: 'none',
                   color: consoleTab === 'campaigns' ? '#fff' : 'var(--navy-300)',
                   borderBottom: consoleTab === 'campaigns' ? '2px solid var(--sunrise)' : '2px solid transparent',
-                  padding: '8px 14px',
-                  fontSize: '12px',
+                  padding: '8px 10px',
+                  fontSize: '11.5px',
                   fontWeight: 600,
                   cursor: 'pointer',
                   borderRadius: '8px 8px 0 0',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px'
+                  justifyContent: 'center',
+                  gap: '6px',
+                  whiteSpace: 'nowrap',
+                  flex: '1 1 0'
                 }}>
                 <Target size={14} /> 1. AI Campaigns
               </button>
@@ -169,14 +185,17 @@ export default function AiMarketingClient() {
                   border: 'none',
                   color: consoleTab === 'vibe' ? '#fff' : 'var(--navy-300)',
                   borderBottom: consoleTab === 'vibe' ? '2px solid var(--sunrise)' : '2px solid transparent',
-                  padding: '8px 14px',
-                  fontSize: '12px',
+                  padding: '8px 10px',
+                  fontSize: '11.5px',
                   fontWeight: 600,
                   cursor: 'pointer',
                   borderRadius: '8px 8px 0 0',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px'
+                  justifyContent: 'center',
+                  gap: '6px',
+                  whiteSpace: 'nowrap',
+                  flex: '1 1 0'
                 }}>
                 <Sparkles size={14} /> 2. Vibe Intelligence
               </button>
@@ -187,24 +206,27 @@ export default function AiMarketingClient() {
                   border: 'none',
                   color: consoleTab === 'funnels' ? '#fff' : 'var(--navy-300)',
                   borderBottom: consoleTab === 'funnels' ? '2px solid var(--sunrise)' : '2px solid transparent',
-                  padding: '8px 14px',
-                  fontSize: '12px',
+                  padding: '8px 10px',
+                  fontSize: '11.5px',
                   fontWeight: 600,
                   cursor: 'pointer',
                   borderRadius: '8px 8px 0 0',
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '6px'
+                  justifyContent: 'center',
+                  gap: '6px',
+                  whiteSpace: 'nowrap',
+                  flex: '1 1 0'
                 }}>
                 <Workflow size={14} /> 3. Auto Funnels
               </button>
             </div>
 
-            {/* Tab Panes */}
-            <div style={{ padding: '20px' }}>
+            {/* Tab Panes Wrapper with Fixed/Steady Min-Height */}
+            <div style={{ padding: '20px', minHeight: '235px', flex: 1, display: 'flex', flexDirection: 'column' }}>
               {consoleTab === 'campaigns' && (
-                <div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '14px' }}>
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px' }}>
                       <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>AD VARIATIONS</div>
                       <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--sunrise-300)' }}>50 Tested</div>
@@ -218,7 +240,7 @@ export default function AiMarketingClient() {
                       <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ice-300)' }}>Auto-Shift</div>
                     </div>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px', fontSize: '12.5px' }}>
+                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--sunrise)', borderRadius: '6px', padding: '12px', fontSize: '12.5px', minHeight: '98px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--sunrise-300)', fontWeight: 600, fontFamily: 'var(--font-mono)', fontSize: '11px', marginBottom: '4px' }}>
                       <span>ANGLE #18 &middot; Meta &amp; LinkedIn</span>
                       <span style={{ color: '#1FBF75' }}>Scaling Winner (CTR 4.8%)</span>
@@ -227,15 +249,15 @@ export default function AiMarketingClient() {
                       &ldquo;You built the product solo. Marketing shouldn't need five hires. We set up campaigns that test themselves.&rdquo;
                     </p>
                     <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>
-                      65% of budget auto-shifted to high-performing creatives.
+                      Budget shifted: 65% auto-allocated to high-performing creatives.
                     </div>
                   </div>
                 </div>
               )}
 
               {consoleTab === 'vibe' && (
-                <div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '14px' }}>
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px' }}>
                       <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>NICHE SOURCE</div>
                       <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ice-300)' }}>Subreddit / X</div>
@@ -249,20 +271,24 @@ export default function AiMarketingClient() {
                       <div style={{ fontSize: '18px', fontWeight: 700, color: '#1FBF75' }}>Zero Fluff</div>
                     </div>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px', fontSize: '12.5px' }}>
-                    <div style={{ color: 'var(--ice-300)', fontWeight: 600, fontFamily: 'var(--font-mono)', fontSize: '11px', marginBottom: '4px' }}>
-                      AUDIENCE MAP: Bootstrapped SaaS Builders
+                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--ice)', borderRadius: '6px', padding: '12px', fontSize: '12.5px', minHeight: '98px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--ice-300)', fontWeight: 600, fontFamily: 'var(--font-mono)', fontSize: '11px', marginBottom: '4px' }}>
+                      <span>AUDIENCE MAP &middot; Bootstrapped SaaS</span>
+                      <span style={{ color: 'var(--sunrise-300)' }}>High Resonance (94/100)</span>
                     </div>
                     <p style={{ margin: '0 0 6px', color: 'var(--navy-100)', lineHeight: 1.45 }}>
-                      <strong>Real Friction:</strong> Sick of paying $10k retainer agencies who deliver generic slide decks. Need actual signups while coding.
+                      &ldquo;Sick of paying $10k retainer agencies who deliver generic slide decks. Need actual signups while coding.&rdquo;
                     </p>
+                    <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>
+                      Winning Hook: &ldquo;Stop doing marketing on weekends. Here's a pipeline that feeds itself.&rdquo;
+                    </div>
                   </div>
                 </div>
               )}
 
               {consoleTab === 'funnels' && (
-                <div>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', flex: 1, justifyContent: 'space-between' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', marginBottom: '14px' }}>
                     <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '12px' }}>
                       <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>CONNECTOR</div>
                       <div style={{ fontSize: '18px', fontWeight: 700, color: '#1FBF75' }}>Make / Zapier</div>
@@ -276,13 +302,17 @@ export default function AiMarketingClient() {
                       <div style={{ fontSize: '18px', fontWeight: 700, color: 'var(--ice-300)' }}>Automated</div>
                     </div>
                   </div>
-                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--success)', borderRadius: '6px', padding: '12px', fontSize: '12.5px' }}>
-                    <div style={{ color: '#1FBF75', fontWeight: 600, fontFamily: 'var(--font-mono)', fontSize: '11px', marginBottom: '4px' }}>
-                      TRIGGER: Opt-In &rarr; Lead Score Threshold Reached
+                  <div style={{ background: 'rgba(255,255,255,0.03)', borderLeft: '3px solid var(--success)', borderRadius: '6px', padding: '12px', fontSize: '12.5px', minHeight: '98px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: '#1FBF75', fontWeight: 600, fontFamily: 'var(--font-mono)', fontSize: '11px', marginBottom: '4px' }}>
+                      <span>TRIGGER: Opt-In &rarr; Lead Score Threshold</span>
+                      <span style={{ color: 'var(--ice-300)' }}>Zero-Touch Handoff</span>
                     </div>
-                    <p style={{ margin: 0, color: 'var(--navy-100)', lineHeight: 1.45 }}>
-                      Behavior-based sequence flags buying readiness &rarr; sends direct demo invite link to founder calendar without manual email chasing.
+                    <p style={{ margin: '0 0 6px', color: 'var(--navy-100)', lineHeight: 1.45 }}>
+                      Behavior-based sequence flags buying readiness &rarr; sends direct demo invite link to founder calendar without manual chasing.
                     </p>
+                    <div style={{ fontSize: '11px', color: 'var(--navy-300)', fontFamily: 'var(--font-mono)' }}>
+                      Execution: Real-time webhook to founder Slack &middot; Instant calendar sync.
+                    </div>
                   </div>
                 </div>
               )}
