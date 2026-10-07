@@ -1254,39 +1254,42 @@ export default function WebEcommerceClient() {
       </section>
 
       {/* 16. FINAL CTA & TEARDOWN FORM */}
-      <section className="section" id="teardown-form" style={{ padding: '96px 0', background: 'var(--summit)', color: '#EEF3F8' }}>
-        <div className="wrap" style={{ maxWidth: '1140px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '56px', alignItems: 'center' }}>
+      <section className="section" id="teardown-form" style={{ padding: '88px 0', background: 'var(--frost)', borderTop: '1px solid var(--border)' }}>
+        <div className="wrap" style={{ maxWidth: '1180px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
           
           {/* Left Text */}
           <div>
-            <span className="kick" style={{ color: 'var(--sunrise-300)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
+            <span className="eyebrow" style={{ color: 'var(--brand-fg)' }}>
               {activeFormTab === 'teardown' ? 'Free Teardown' : 'Free Resource'}
             </span>
-            <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', margin: '14px 0 18px', color: '#FFFFFF', lineHeight: 1.15 }}>
-              Find out what your website is <span style={{ color: 'var(--sunrise-300)' }}>costing you.</span>
+            <h2 className="sec" style={{ fontSize: 'clamp(32px, 3.5vw, 46px)', color: 'var(--summit)', margin: '12px 0 20px', lineHeight: 1.15 }}>
+              Find out what your website is <span style={{ color: 'var(--sunrise)' }}>costing you.</span>
             </h2>
-            <p style={{ fontSize: '17px', color: 'var(--navy-200)', lineHeight: 1.65, margin: '0 0 24px' }}>
+            <p style={{ fontSize: '18px', color: 'var(--fg2)', lineHeight: 1.6, marginBottom: '24px' }}>
               Get a free website teardown. We'll review your site or store and show you the three changes most likely to bring in more leads or sales. No pressure, no bloated proposal.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> Complete mobile speed and Core Web Vitals audit
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>Complete mobile speed and Core Web Vitals audit</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> 3 high-impact conversion fixes for your landing page or store
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>3 high-impact conversion fixes for your landing page or store</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> 100% free with no obligation
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>100% free with no obligation</span>
               </div>
             </div>
           </div>
 
           {/* Right Form Card - Unified single form with tab selector */}
-          <div style={{ background: '#0D1725', border: '1px solid var(--navy-600)', borderRadius: '20px', padding: '36px', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}>
+          <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: '20px', padding: '40px', boxShadow: 'var(--shadow-2)', maxWidth: '580px', margin: '0 auto', width: '100%' }}>
             
             {/* Form Mode Selector */}
-            <div style={{ display: 'flex', gap: '6px', background: '#070e17', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--navy-700)' }}>
+            <div style={{ display: 'flex', gap: '6px', background: 'var(--frost)', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--border)' }}>
               <button
                 type="button"
                 onClick={() => setActiveFormTab('teardown')}
@@ -1299,7 +1302,8 @@ export default function WebEcommerceClient() {
                   border: 'none',
                   cursor: 'pointer',
                   background: activeFormTab === 'teardown' ? 'var(--sunrise)' : 'transparent',
-                  color: activeFormTab === 'teardown' ? '#FFFFFF' : 'var(--navy-300)',
+                  color: activeFormTab === 'teardown' ? '#FFFFFF' : 'var(--fg2)',
+                  boxShadow: activeFormTab === 'teardown' ? '0 2px 8px rgba(255,107,53,0.25)' : 'none',
                   transition: 'all 0.15s ease'
                 }}
               >
@@ -1317,7 +1321,8 @@ export default function WebEcommerceClient() {
                   border: 'none',
                   cursor: 'pointer',
                   background: activeFormTab === 'checklist' ? 'var(--sunrise)' : 'transparent',
-                  color: activeFormTab === 'checklist' ? '#FFFFFF' : 'var(--navy-300)',
+                  color: activeFormTab === 'checklist' ? '#FFFFFF' : 'var(--fg2)',
+                  boxShadow: activeFormTab === 'checklist' ? '0 2px 8px rgba(255,107,53,0.25)' : 'none',
                   transition: 'all 0.15s ease'
                 }}
               >
@@ -1327,25 +1332,22 @@ export default function WebEcommerceClient() {
 
             {activeFormTab === 'teardown' ? (
               <>
-                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--summit)', margin: '0 0 6px' }}>
                   Get your free website teardown
                 </h3>
-                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: '0 0 24px' }}>
                   Takes 60 seconds. We'll reply within 24 hours.
                 </p>
 
                 {teardownSubmitted ? (
-                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Teardown Request Received!</h4>
-                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                      We're running performance diagnostics and UX analysis on your URL. Look out for our report within 24 hours.
-                    </p>
+                  <div style={{ padding: '24px', background: '#F0FDF4', border: '1px solid rgba(31, 191, 117, 0.3)', borderRadius: '12px', textAlign: 'center', color: '#166534' }}>
+                    <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '6px' }}>Teardown Request Received!</div>
+                    <div style={{ fontSize: '14.5px', lineHeight: 1.5 }}>We're running performance diagnostics and UX analysis on your URL. Look out for our report within 24 hours.</div>
                   </div>
                 ) : (
                   <form onSubmit={handleTeardownSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Your Name *
                       </label>
                       <input
@@ -1359,9 +1361,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1369,7 +1371,7 @@ export default function WebEcommerceClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Email Address *
                       </label>
                       <input
@@ -1383,9 +1385,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1393,7 +1395,7 @@ export default function WebEcommerceClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Website URL *
                       </label>
                       <input
@@ -1407,9 +1409,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1418,7 +1420,7 @@ export default function WebEcommerceClient() {
 
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                           What do you need most?
                         </label>
                         <select
@@ -1429,9 +1431,9 @@ export default function WebEcommerceClient() {
                             height: '46px',
                             padding: '0 10px',
                             borderRadius: '8px',
-                            background: '#09111c',
-                            border: '1px solid var(--navy-700)',
-                            color: '#fff',
+                            background: 'var(--white)',
+                            border: '1px solid var(--border-strong)',
+                            color: 'var(--fg1)',
                             fontSize: '13.5px',
                             outline: 'none',
                             cursor: 'pointer'
@@ -1445,7 +1447,7 @@ export default function WebEcommerceClient() {
                       </div>
 
                       <div>
-                        <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                           Platform
                         </label>
                         <select
@@ -1456,9 +1458,9 @@ export default function WebEcommerceClient() {
                             height: '46px',
                             padding: '0 10px',
                             borderRadius: '8px',
-                            background: '#09111c',
-                            border: '1px solid var(--navy-700)',
-                            color: '#fff',
+                            background: 'var(--white)',
+                            border: '1px solid var(--border-strong)',
+                            color: 'var(--fg1)',
                             fontSize: '13.5px',
                             outline: 'none',
                             cursor: 'pointer'
@@ -1474,7 +1476,7 @@ export default function WebEcommerceClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Phone (Optional)
                       </label>
                       <input
@@ -1487,9 +1489,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1501,20 +1503,20 @@ export default function WebEcommerceClient() {
                       disabled={teardownSubmitting}
                       className="btn btn-primary"
                       style={{
-                        height: '50px',
+                        height: '48px',
                         width: '100%',
                         justifyContent: 'center',
                         fontSize: '15.5px',
                         fontWeight: 600,
                         cursor: 'pointer',
                         marginTop: '8px',
-                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                        boxShadow: 'var(--glow-sunrise)'
                       }}
                     >
                       {teardownSubmitting ? 'Analyzing Site...' : 'Get My Teardown'}
                     </button>
 
-                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--fg3)', marginTop: '4px' }}>
                       No spam. No pressure. Just a clear plan.
                     </div>
                   </form>
@@ -1522,25 +1524,22 @@ export default function WebEcommerceClient() {
               </>
             ) : (
               <>
-                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--summit)', margin: '0 0 6px' }}>
                   The 25-Point Website Conversion Checklist
                 </h3>
-                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: '0 0 24px' }}>
                   Instant audit template covering speed, mobile UX, forms, and checkout.
                 </p>
 
                 {checklistSubmitted ? (
-                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Checklist is on the way!</h4>
-                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                      Check your email shortly for the full 25-point audit template.
-                    </p>
+                  <div style={{ padding: '24px', background: '#F0FDF4', border: '1px solid rgba(31, 191, 117, 0.3)', borderRadius: '12px', textAlign: 'center', color: '#166534' }}>
+                    <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '6px' }}>Checklist is on the way!</div>
+                    <div style={{ fontSize: '14.5px', lineHeight: 1.5 }}>Check your email shortly for the full 25-point audit template.</div>
                   </div>
                 ) : (
                   <form onSubmit={handleChecklistSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Your Name *
                       </label>
                       <input
@@ -1554,9 +1553,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1564,7 +1563,7 @@ export default function WebEcommerceClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Email Address *
                       </label>
                       <input
@@ -1578,9 +1577,9 @@ export default function WebEcommerceClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1592,20 +1591,20 @@ export default function WebEcommerceClient() {
                       disabled={checklistSubmitting}
                       className="btn btn-primary"
                       style={{
-                        height: '50px',
+                        height: '48px',
                         width: '100%',
                         justifyContent: 'center',
                         fontSize: '15.5px',
                         fontWeight: 600,
                         cursor: 'pointer',
                         marginTop: '8px',
-                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                        boxShadow: 'var(--glow-sunrise)'
                       }}
                     >
                       {checklistSubmitting ? 'Sending...' : 'Send Me the Checklist'}
                     </button>
 
-                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--fg3)', marginTop: '4px' }}>
                       Free PDF download. No spam, ever.
                     </div>
                   </form>

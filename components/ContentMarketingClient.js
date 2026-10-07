@@ -1230,39 +1230,42 @@ export default function ContentMarketingClient() {
       </section>
 
       {/* 15. FINAL CTA & ROADMAP FORM */}
-      <section className="section" id="roadmap-form" style={{ padding: '96px 0', background: 'var(--summit)', color: '#EEF3F8' }}>
-        <div className="wrap" style={{ maxWidth: '1140px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '56px', alignItems: 'center' }}>
+      <section className="section" id="roadmap-form" style={{ padding: '88px 0', background: 'var(--frost)', borderTop: '1px solid var(--border)' }}>
+        <div className="wrap" style={{ maxWidth: '1180px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '60px', alignItems: 'center' }}>
           
           {/* Left Text */}
           <div>
-            <span className="kick" style={{ color: 'var(--sunrise-300)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
+            <span className="eyebrow" style={{ color: 'var(--brand-fg)' }}>
               {activeFormTab === 'roadmap' ? 'Get Started' : 'Free Resource'}
             </span>
-            <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', margin: '14px 0 18px', color: '#FFFFFF', lineHeight: 1.15 }}>
-              Your expertise is your best marketing. <span style={{ color: 'var(--sunrise-300)' }}>Let's put it to work.</span>
+            <h2 className="sec" style={{ fontSize: 'clamp(32px, 3.5vw, 46px)', color: 'var(--summit)', margin: '12px 0 20px', lineHeight: 1.15 }}>
+              Your expertise is your best marketing. <span style={{ color: 'var(--sunrise)' }}>Let's put it to work.</span>
             </h2>
-            <p style={{ fontSize: '17px', color: 'var(--navy-200)', lineHeight: 1.65, margin: '0 0 24px' }}>
+            <p style={{ fontSize: '18px', color: 'var(--fg2)', lineHeight: 1.6, marginBottom: '24px' }}>
               Get a free content roadmap: the topics your buyers are searching for, where competitors are beating you, and the three pieces of content most likely to bring in leads. No pressure, no bloated proposal.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> Complete review of your search &amp; AI answer presence
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>Complete review of your search &amp; AI answer presence</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)"' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> 3 specific content opportunities to drive pipeline
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>3 specific content opportunities to drive pipeline</span>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)' }}>
-                <CheckCircle2 size={16} color="var(--sunrise)" /> 100% free with no obligation
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '15px', color: 'var(--summit)' }}>
+                <Check size={18} color="#1FBF75" strokeWidth={2.5} />
+                <span>100% free with no obligation</span>
               </div>
             </div>
           </div>
 
           {/* Right Form Card - Unified single form card with tab toggle */}
-          <div style={{ background: '#0D1725', border: '1px solid var(--navy-600)', borderRadius: '20px', padding: '36px', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}>
+          <div style={{ background: 'var(--white)', border: '1px solid var(--border)', borderRadius: '20px', padding: '40px', boxShadow: 'var(--shadow-2)', maxWidth: '580px', margin: '0 auto', width: '100%' }}>
             
             {/* Form Mode Selector */}
-            <div style={{ display: 'flex', gap: '6px', background: '#070e17', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--navy-700)' }}>
+            <div style={{ display: 'flex', gap: '6px', background: 'var(--frost)', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--border)' }}>
               <button
                 type="button"
                 onClick={() => setActiveFormTab('roadmap')}
@@ -1275,7 +1278,8 @@ export default function ContentMarketingClient() {
                   border: 'none',
                   cursor: 'pointer',
                   background: activeFormTab === 'roadmap' ? 'var(--sunrise)' : 'transparent',
-                  color: activeFormTab === 'roadmap' ? '#FFFFFF' : 'var(--navy-300)',
+                  color: activeFormTab === 'roadmap' ? '#FFFFFF' : 'var(--fg2)',
+                  boxShadow: activeFormTab === 'roadmap' ? '0 2px 8px rgba(255,107,53,0.25)' : 'none',
                   transition: 'all 0.15s ease'
                 }}
               >
@@ -1293,7 +1297,8 @@ export default function ContentMarketingClient() {
                   border: 'none',
                   cursor: 'pointer',
                   background: activeFormTab === 'playbook' ? 'var(--sunrise)' : 'transparent',
-                  color: activeFormTab === 'playbook' ? '#FFFFFF' : 'var(--navy-300)',
+                  color: activeFormTab === 'playbook' ? '#FFFFFF' : 'var(--fg2)',
+                  boxShadow: activeFormTab === 'playbook' ? '0 2px 8px rgba(255,107,53,0.25)' : 'none',
                   transition: 'all 0.15s ease'
                 }}
               >
@@ -1303,25 +1308,22 @@ export default function ContentMarketingClient() {
 
             {activeFormTab === 'roadmap' ? (
               <>
-                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--summit)', margin: '0 0 6px' }}>
                   Get your free content roadmap
                 </h3>
-                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: '0 0 24px' }}>
                   Takes 60 seconds. We'll reply within 24 hours.
                 </p>
 
                 {roadmapSubmitted ? (
-                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Roadmap Request Received!</h4>
-                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                      We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.
-                    </p>
+                  <div style={{ padding: '24px', background: '#F0FDF4', border: '1px solid rgba(31, 191, 117, 0.3)', borderRadius: '12px', textAlign: 'center', color: '#166534' }}>
+                    <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '6px' }}>Roadmap Request Received!</div>
+                    <div style={{ fontSize: '14.5px', lineHeight: 1.5 }}>We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.</div>
                   </div>
                 ) : (
                   <form onSubmit={handleRoadmapSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Your Name *
                       </label>
                       <input
@@ -1335,9 +1337,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1345,7 +1347,7 @@ export default function ContentMarketingClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Email Address *
                       </label>
                       <input
@@ -1359,9 +1361,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1369,7 +1371,7 @@ export default function ContentMarketingClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Website or LinkedIn Profile
                       </label>
                       <input
@@ -1382,9 +1384,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1392,7 +1394,7 @@ export default function ContentMarketingClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         What do you need most?
                       </label>
                       <select
@@ -1403,9 +1405,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none',
                           cursor: 'pointer'
@@ -1419,7 +1421,7 @@ export default function ContentMarketingClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Phone (Optional)
                       </label>
                       <input
@@ -1432,9 +1434,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1446,20 +1448,20 @@ export default function ContentMarketingClient() {
                       disabled={roadmapSubmitting}
                       className="btn btn-primary"
                       style={{
-                        height: '50px',
+                        height: '48px',
                         width: '100%',
                         justifyContent: 'center',
                         fontSize: '15.5px',
                         fontWeight: 600,
                         cursor: 'pointer',
                         marginTop: '8px',
-                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                        boxShadow: 'var(--glow-sunrise)'
                       }}
                     >
                       {roadmapSubmitting ? 'Generating Roadmap...' : 'Send My Roadmap'}
                     </button>
 
-                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--fg3)', marginTop: '4px' }}>
                       No spam. No pressure. Just a plan you can use.
                     </div>
                   </form>
@@ -1467,25 +1469,22 @@ export default function ContentMarketingClient() {
               </>
             ) : (
               <>
-                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                <h3 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--summit)', margin: '0 0 6px' }}>
                   The Solo Founder Content Playbook
                 </h3>
-                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                <p style={{ fontSize: '14.5px', color: 'var(--fg2)', margin: '0 0 24px' }}>
                   Turn one monthly interview into 20+ pieces of content + 10 post templates.
                 </p>
 
                 {playbookSubmitted ? (
-                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Playbook is on the way!</h4>
-                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                      Check your email shortly for the full download and templates.
-                    </p>
+                  <div style={{ padding: '24px', background: '#F0FDF4', border: '1px solid rgba(31, 191, 117, 0.3)', borderRadius: '12px', textAlign: 'center', color: '#166534' }}>
+                    <div style={{ fontSize: '18px', fontWeight: 700, marginBottom: '6px' }}>Playbook is on the way!</div>
+                    <div style={{ fontSize: '14.5px', lineHeight: 1.5 }}>Check your email shortly for the full download and templates.</div>
                   </div>
                 ) : (
                   <form onSubmit={handlePlaybookSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Your Name *
                       </label>
                       <input
@@ -1499,9 +1498,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1509,7 +1508,7 @@ export default function ContentMarketingClient() {
                     </div>
 
                     <div>
-                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      <label style={{ display: 'block', fontSize: '13.5px', fontWeight: 600, color: 'var(--summit)', marginBottom: '6px' }}>
                         Email Address *
                       </label>
                       <input
@@ -1523,9 +1522,9 @@ export default function ContentMarketingClient() {
                           height: '46px',
                           padding: '0 14px',
                           borderRadius: '8px',
-                          background: '#09111c',
-                          border: '1px solid var(--navy-700)',
-                          color: '#fff',
+                          background: 'var(--white)',
+                          border: '1px solid var(--border-strong)',
+                          color: 'var(--fg1)',
                           fontSize: '14.5px',
                           outline: 'none'
                         }}
@@ -1537,20 +1536,20 @@ export default function ContentMarketingClient() {
                       disabled={playbookSubmitting}
                       className="btn btn-primary"
                       style={{
-                        height: '50px',
+                        height: '48px',
                         width: '100%',
                         justifyContent: 'center',
                         fontSize: '15.5px',
                         fontWeight: 600,
                         cursor: 'pointer',
                         marginTop: '8px',
-                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                        boxShadow: 'var(--glow-sunrise)'
                       }}
                     >
                       {playbookSubmitting ? 'Sending...' : 'Send Me the Playbook'}
                     </button>
 
-                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--fg3)', marginTop: '4px' }}>
                       Free PDF &amp; templates. No spam, ever.
                     </div>
                   </form>
