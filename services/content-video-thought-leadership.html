@@ -1451,33 +1451,23 @@
   </section>
 
   <!-- 14. NEW: LEAD MAGNET -->
-  <section class="section" style="padding:80px 0;background:#F8FAFD;border-bottom:1px solid var(--navy-100);">
-    <div class="wrap" style="max-width:880px;margin:0 auto;">
-      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:20px;padding:40px;box-shadow:0 8px 30px rgba(0,0,0,0.03);">
-        <div style="text-align:center;max-width:680px;margin:0 auto 32px;">
+  <section class="section" style="padding:64px 0;background:#F8FAFD;border-bottom:1px solid var(--navy-100);">
+    <div class="wrap" style="max-width:980px;margin:0 auto;">
+      <div style="background:#FFFFFF;border:1px solid var(--border);border-radius:20px;padding:36px 40px;box-shadow:0 8px 30px rgba(0,0,0,0.03);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;">
+        <div style="max-width:620px;">
           <span class="kick" style="color:var(--sunrise);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;font-size:12px;">
             Free Founder Playbook
           </span>
-          <h2 style="fontSize:26px;font-weight:700;color:var(--summit);margin:10px 0 12px;line-height:1.25;">
+          <h3 style="font-size:22px;font-weight:700;color:var(--summit);margin:8px 0 10px;line-height:1.25;">
             Not ready for a call? Start with the free playbook.
-          </h2>
-          <p style="font-size:15px;color:var(--fg2);line-height:1.6;margin:0;">
+          </h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">
             <strong>The Founder Content Playbook:</strong> how to turn one conversation a month into 20+ pieces of content, plus 10 LinkedIn post templates founders use to attract inbound leads.
           </p>
         </div>
-
-        <div id="playbook-success" style="display:none;background:rgba(31, 191, 117, 0.12);border:1px solid #1FBF75;border-radius:12px;padding:24px;text-align:center;color:#095738;">
-          <h4 style="margin:0 0 6px;font-size:18px;font-weight:700;">Playbook is on the way!</h4>
-          <p style="margin:0;font-size:14.5px;">Check your inbox shortly for the full download and templates.</p>
-        </div>
-
-        <form id="playbook-form" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:14px;align-items:center;">
-          <input type="text" name="name" required placeholder="Your Name" style="height:48px;padding:0 16px;border-radius:10px;border:1px solid var(--border);font-size:14.5px;outline:none;">
-          <input type="email" name="email" required placeholder="Your Email" style="height:48px;padding:0 16px;border-radius:10px;border:1px solid var(--border);font-size:14.5px;outline:none;">
-          <button type="submit" class="btn btn-primary" style="height:48px;padding:0 20px;font-size:14.5px;white-space:nowrap;cursor:pointer;">
-            Send Me the Playbook
-          </button>
-        </form>
+        <a href="#roadmap-form" id="trigger-playbook-tab" class="btn btn-primary" style="white-space:nowrap;padding:12px 24px;font-size:14.5px;text-decoration:none;">
+          Get Free Playbook &darr;
+        </a>
       </div>
     </div>
   </section>
@@ -1511,71 +1501,127 @@
         </div>
       </div>
 
-      <!-- Right Form Card -->
+      <!-- Right Form Card - Unified single form card with tab toggle -->
       <div style="background:#0D1725;border:1px solid var(--navy-600);border-radius:20px;padding:36px;box-shadow:0 24px 60px rgba(0,0,0,0.5);">
-        <h3 style="font-size:22px;font-weight:700;color:#fff;margin:0 0 6px;">
-          Get your free content roadmap
-        </h3>
-        <p style="font-size:13.5px;color:var(--navy-300);margin:0 0 24px;">
-          Takes 60 seconds. We'll reply within 24 hours.
-        </p>
-
-        <div id="roadmap-success" style="display:none;background:rgba(31, 191, 117, 0.15);border:1px solid #1FBF75;border-radius:12px;padding:24px;text-align:center;color:#fff;">
-          <h4 style="margin:0 0 8px;font-size:19px;font-weight:700;">Roadmap Request Received!</h4>
-          <p style="margin:0;font-size:14.5px;color:var(--navy-200);">
-            We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.
-          </p>
+        
+        <!-- Form Mode Switcher -->
+        <div style="display:flex;gap:6px;background:#070e17;padding:4px;border-radius:10px;margin-bottom:22px;border:1px solid var(--navy-700);">
+          <button type="button" id="tab-btn-roadmap" style="flex:1;padding:9px 12px;border-radius:7px;font-size:13px;font-weight:600;border:none;cursor:pointer;background:var(--sunrise);color:#fff;transition:all 0.15s ease;">
+            Content Roadmap
+          </button>
+          <button type="button" id="tab-btn-playbook" style="flex:1;padding:9px 12px;border-radius:7px;font-size:13px;font-weight:600;border:none;cursor:pointer;background:transparent;color:var(--navy-300);transition:all 0.15s ease;">
+            Founder Playbook
+          </button>
         </div>
 
-        <form id="content-roadmap-form" style="display:flex;flex-direction:column;gap:16px;">
-          <div>
-            <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
-              Your Name *
-            </label>
-            <input type="text" name="name" required placeholder="Alex Chen" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+        <!-- Roadmap Form Pane -->
+        <div id="pane-form-roadmap">
+          <h3 style="font-size:22px;font-weight:700;color:#fff;margin:0 0 6px;">
+            Get your free content roadmap
+          </h3>
+          <p style="font-size:13.5px;color:var(--navy-300);margin:0 0 24px;">
+            Takes 60 seconds. We'll reply within 24 hours.
+          </p>
+
+          <div id="roadmap-success" style="display:none;background:rgba(31, 191, 117, 0.15);border:1px solid #1FBF75;border-radius:12px;padding:24px;text-align:center;color:#fff;">
+            <h4 style="margin:0 0 8px;font-size:19px;font-weight:700;">Roadmap Request Received!</h4>
+            <p style="margin:0;font-size:14.5px;color:var(--navy-200);">
+              We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.
+            </p>
           </div>
 
-          <div>
-            <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
-              Email Address *
-            </label>
-            <input type="email" name="email" required placeholder="alex@company.com" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+          <form id="content-roadmap-form" style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Your Name *
+              </label>
+              <input type="text" name="name" required placeholder="Alex Chen" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Email Address *
+              </label>
+              <input type="email" name="email" required placeholder="alex@company.com" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Website or LinkedIn Profile
+              </label>
+              <input type="text" name="website" placeholder="https://company.com or linkedin.com/in/alex" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                What do you need most?
+              </label>
+              <select name="needMost" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;cursor:pointer;">
+                <option value="content that ranks">Content that ranks</option>
+                <option value="video">Video</option>
+                <option value="founder thought leadership">Founder thought leadership</option>
+                <option value="not sure yet">Not sure yet</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Phone (Optional)
+              </label>
+              <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="height:50px;width:100%;justify-content:center;font-size:15.5px;font-weight:600;cursor:pointer;margin-top:8px;box-shadow:0 0 20px rgba(255, 107, 53, 0.4);">
+              Send My Roadmap
+            </button>
+
+            <div style="text-align:center;font-size:12.5px;color:var(--navy-400);margin-top:4px;">
+              No spam. No pressure. Just a plan you can use.
+            </div>
+          </form>
+        </div>
+
+        <!-- Playbook Form Pane -->
+        <div id="pane-form-playbook" style="display:none;">
+          <h3 style="font-size:22px;font-weight:700;color:#fff;margin:0 0 6px;">
+            The Solo Founder Content Playbook
+          </h3>
+          <p style="font-size:13.5px;color:var(--navy-300);margin:0 0 24px;">
+            Turn one monthly interview into 20+ pieces of content + 10 post templates.
+          </p>
+
+          <div id="playbook-success" style="display:none;background:rgba(31, 191, 117, 0.15);border:1px solid #1FBF75;border-radius:12px;padding:24px;text-align:center;color:#fff;">
+            <h4 style="margin:0 0 8px;font-size:19px;font-weight:700;">Playbook is on the way!</h4>
+            <p style="margin:0;font-size:14.5px;color:var(--navy-200);">
+              Check your email shortly for the full download and templates.
+            </p>
           </div>
 
-          <div>
-            <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
-              Website or LinkedIn Profile
-            </label>
-            <input type="text" name="website" placeholder="https://company.com or linkedin.com/in/alex" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
-          </div>
+          <form id="playbook-form" style="display:flex;flex-direction:column;gap:16px;">
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Your Name *
+              </label>
+              <input type="text" name="name" required placeholder="Alex Chen" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
 
-          <div>
-            <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
-              What do you need most?
-            </label>
-            <select name="needMost" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;cursor:pointer;">
-              <option value="content that ranks">Content that ranks</option>
-              <option value="video">Video</option>
-              <option value="founder thought leadership">Founder thought leadership</option>
-              <option value="not sure yet">Not sure yet</option>
-            </select>
-          </div>
+            <div>
+              <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
+                Email Address *
+              </label>
+              <input type="email" name="email" required placeholder="alex@company.com" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
+            </div>
 
-          <div>
-            <label style="display:block;font-size:12px;font-family:var(--font-mono);color:var(--navy-300);margin-bottom:6px;text-transform:uppercase;">
-              Phone (Optional)
-            </label>
-            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style="width:100%;height:46px;padding:0 14px;border-radius:8px;background:#09111c;border:1px solid var(--navy-700);color:#fff;font-size:14.5px;outline:none;">
-          </div>
+            <button type="submit" class="btn btn-primary" style="height:50px;width:100%;justify-content:center;font-size:15.5px;font-weight:600;cursor:pointer;margin-top:8px;box-shadow:0 0 20px rgba(255, 107, 53, 0.4);">
+              Send Me the Playbook
+            </button>
 
-          <button type="submit" class="btn btn-primary" style="height:50px;width:100%;justify-content:center;font-size:15.5px;font-weight:600;cursor:pointer;margin-top:8px;box-shadow:0 0 20px rgba(255, 107, 53, 0.4);">
-            Send My Roadmap
-          </button>
+            <div style="text-align:center;font-size:12.5px;color:var(--navy-400);margin-top:4px;">
+              Free PDF &amp; templates. No spam, ever.
+            </div>
+          </form>
+        </div>
 
-          <div style="text-align:center;font-size:12.5px;color:var(--navy-400);margin-top:4px;">
-            No spam. No pressure. Just a plan you can use.
-          </div>
-        </form>
       </div>
 
     </div>
@@ -1656,6 +1702,50 @@
           if (!isOpen) item.classList.add('active');
         });
       });
+
+      // 2.5 Form Mode Switcher (Roadmap vs Playbook)
+      const tabBtnRoadmap = document.getElementById('tab-btn-roadmap');
+      const tabBtnPlaybook = document.getElementById('tab-btn-playbook');
+      const paneRoadmap = document.getElementById('pane-form-roadmap');
+      const panePlaybook = document.getElementById('pane-form-playbook');
+      const roadmapBadge = document.getElementById('roadmap-badge');
+      const triggerPlaybookTab = document.getElementById('trigger-playbook-tab');
+
+      function switchContentFormTab(tab) {
+        if (tab === 'playbook') {
+          if (paneRoadmap) paneRoadmap.style.display = 'none';
+          if (panePlaybook) panePlaybook.style.display = 'block';
+          if (tabBtnPlaybook) {
+            tabBtnPlaybook.style.background = 'var(--sunrise)';
+            tabBtnPlaybook.style.color = '#fff';
+          }
+          if (tabBtnRoadmap) {
+            tabBtnRoadmap.style.background = 'transparent';
+            tabBtnRoadmap.style.color = 'var(--navy-300)';
+          }
+          if (roadmapBadge) roadmapBadge.textContent = 'Free Resource';
+        } else {
+          if (paneRoadmap) paneRoadmap.style.display = 'block';
+          if (panePlaybook) panePlaybook.style.display = 'none';
+          if (tabBtnRoadmap) {
+            tabBtnRoadmap.style.background = 'var(--sunrise)';
+            tabBtnRoadmap.style.color = '#fff';
+          }
+          if (tabBtnPlaybook) {
+            tabBtnPlaybook.style.background = 'transparent';
+            tabBtnPlaybook.style.color = 'var(--navy-300)';
+          }
+          if (roadmapBadge) roadmapBadge.textContent = 'Get Started';
+        }
+      }
+
+      if (tabBtnRoadmap && tabBtnPlaybook) {
+        tabBtnRoadmap.addEventListener('click', () => switchContentFormTab('roadmap'));
+        tabBtnPlaybook.addEventListener('click', () => switchContentFormTab('playbook'));
+      }
+      if (triggerPlaybookTab) {
+        triggerPlaybookTab.addEventListener('click', () => switchContentFormTab('playbook'));
+      }
 
       // 3. Playbook Lead Magnet Form AJAX
       const playbookForm = document.getElementById('playbook-form');

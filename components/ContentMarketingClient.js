@@ -34,6 +34,7 @@ import {
 export default function ContentMarketingClient() {
   const [consoleTab, setConsoleTab] = useState('articles');
   const [openFaq, setOpenFaq] = useState(0);
+  const [activeFormTab, setActiveFormTab] = useState('roadmap'); // 'roadmap' | 'playbook'
 
   // Growth Roadmap Form State
   const [roadmapData, setRoadmapData] = useState({
@@ -1202,71 +1203,28 @@ export default function ContentMarketingClient() {
       </section>
 
       {/* 14. NEW: LEAD MAGNET (for visitors not ready to talk yet) */}
-      <section className="section" style={{ padding: '80px 0', background: '#F8FAFD', borderBottom: '1px solid var(--navy-100)' }}>
-        <div className="wrap" style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <div style={{ background: '#FFFFFF', border: '1px solid var(--border)', borderRadius: '20px', padding: '40px', boxShadow: '0 8px 30px rgba(0,0,0,0.03)' }}>
-            <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 32px' }}>
+      <section className="section" style={{ padding: '64px 0', background: '#F8FAFD', borderBottom: '1px solid var(--navy-100)' }}>
+        <div className="wrap" style={{ maxWidth: '980px', margin: '0 auto' }}>
+          <div style={{ background: '#FFFFFF', border: '1px solid var(--border)', borderRadius: '20px', padding: '36px 40px', boxShadow: '0 8px 30px rgba(0,0,0,0.03)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px' }}>
+            <div style={{ maxWidth: '620px' }}>
               <span className="kick" style={{ color: 'var(--sunrise)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
                 Free Founder Playbook
               </span>
-              <h2 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--summit)', margin: '10px 0 12px', lineHeight: 1.25 }}>
+              <h3 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--summit)', margin: '8px 0 10px', lineHeight: 1.25 }}>
                 Not ready for a call? Start with the free playbook.
-              </h2>
-              <p style={{ fontSize: '15px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
+              </h3>
+              <p style={{ fontSize: '14.5px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
                 <strong>The Founder Content Playbook:</strong> how to turn one conversation a month into 20+ pieces of content, plus 10 LinkedIn post templates founders use to attract inbound leads.
               </p>
             </div>
-
-            {playbookSubmitted ? (
-              <div style={{ background: 'rgba(31, 191, 117, 0.12)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#095738' }}>
-                <CheckCircle2 size={32} color="#1FBF75" style={{ margin: '0 auto 10px' }} />
-                <h4 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700 }}>Playbook is on the way!</h4>
-                <p style={{ margin: 0, fontSize: '14.5px' }}>Check your inbox shortly for the full download and templates.</p>
-              </div>
-            ) : (
-              <form onSubmit={handlePlaybookSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', alignItems: 'center' }}>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Name"
-                  value={playbookData.name}
-                  onChange={(e) => setPlaybookData({ ...playbookData, name: e.target.value })}
-                  style={{
-                    height: '48px',
-                    padding: '0 16px',
-                    borderRadius: '10px',
-                    border: '1px solid var(--border)',
-                    fontSize: '14.5px',
-                    color: 'var(--fg1)',
-                    outline: 'none'
-                  }}
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Your Email"
-                  value={playbookData.email}
-                  onChange={(e) => setPlaybookData({ ...playbookData, email: e.target.value })}
-                  style={{
-                    height: '48px',
-                    padding: '0 16px',
-                    borderRadius: '10px',
-                    border: '1px solid var(--border)',
-                    fontSize: '14.5px',
-                    color: 'var(--fg1)',
-                    outline: 'none'
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={playbookSubmitting}
-                  className="btn btn-primary"
-                  style={{ height: '48px', padding: '0 20px', fontSize: '14.5px', whiteSpace: 'nowrap', cursor: 'pointer' }}
-                >
-                  {playbookSubmitting ? 'Sending...' : 'Send Me the Playbook'}
-                </button>
-              </form>
-            )}
+            <a
+              href="#roadmap-form"
+              onClick={() => setActiveFormTab('playbook')}
+              className="btn btn-primary"
+              style={{ whiteSpace: 'nowrap', padding: '12px 24px', fontSize: '14.5px', textDecoration: 'none' }}
+            >
+              Get Free Playbook &darr;
+            </a>
           </div>
         </div>
       </section>
@@ -1278,7 +1236,7 @@ export default function ContentMarketingClient() {
           {/* Left Text */}
           <div>
             <span className="kick" style={{ color: 'var(--sunrise-300)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
-              Get Started
+              {activeFormTab === 'roadmap' ? 'Get Started' : 'Free Resource'}
             </span>
             <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', margin: '14px 0 18px', color: '#FFFFFF', lineHeight: 1.15 }}>
               Your expertise is your best marketing. <span style={{ color: 'var(--sunrise-300)' }}>Let's put it to work.</span>
@@ -1291,177 +1249,313 @@ export default function ContentMarketingClient() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
                 <CheckCircle2 size={16} color="var(--sunrise)" /> Complete review of your search &amp; AI answer presence
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)"' }}>
                 <CheckCircle2 size={16} color="var(--sunrise)" /> 3 specific content opportunities to drive pipeline
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)"' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)' }}>
                 <CheckCircle2 size={16} color="var(--sunrise)" /> 100% free with no obligation
               </div>
             </div>
           </div>
 
-          {/* Right Form Card */}
+          {/* Right Form Card - Unified single form card with tab toggle */}
           <div style={{ background: '#0D1725', border: '1px solid var(--navy-600)', borderRadius: '20px', padding: '36px', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}>
-            <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
-              Get your free content roadmap
-            </h3>
-            <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
-              Takes 60 seconds. We'll reply within 24 hours.
-            </p>
+            
+            {/* Form Mode Selector */}
+            <div style={{ display: 'flex', gap: '6px', background: '#070e17', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--navy-700)' }}>
+              <button
+                type="button"
+                onClick={() => setActiveFormTab('roadmap')}
+                style={{
+                  flex: 1,
+                  padding: '9px 12px',
+                  borderRadius: '7px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: activeFormTab === 'roadmap' ? 'var(--sunrise)' : 'transparent',
+                  color: activeFormTab === 'roadmap' ? '#FFFFFF' : 'var(--navy-300)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                Content Roadmap
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveFormTab('playbook')}
+                style={{
+                  flex: 1,
+                  padding: '9px 12px',
+                  borderRadius: '7px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: activeFormTab === 'playbook' ? 'var(--sunrise)' : 'transparent',
+                  color: activeFormTab === 'playbook' ? '#FFFFFF' : 'var(--navy-300)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                Founder Playbook
+              </button>
+            </div>
 
-            {roadmapSubmitted ? (
-              <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Roadmap Request Received!</h4>
-                <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                  We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.
+            {activeFormTab === 'roadmap' ? (
+              <>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                  Get your free content roadmap
+                </h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                  Takes 60 seconds. We'll reply within 24 hours.
                 </p>
-              </div>
+
+                {roadmapSubmitted ? (
+                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
+                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
+                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Roadmap Request Received!</h4>
+                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
+                      We're analyzing your search presence and buyer topics. Look out for our email within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleRoadmapSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Alex Chen"
+                        value={roadmapData.name}
+                        onChange={(e) => setRoadmapData({ ...roadmapData, name: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="alex@company.com"
+                        value={roadmapData.email}
+                        onChange={(e) => setRoadmapData({ ...roadmapData, email: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Website or LinkedIn Profile
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="https://company.com or linkedin.com/in/alex"
+                        value={roadmapData.websiteOrLinkedin}
+                        onChange={(e) => setRoadmapData({ ...roadmapData, websiteOrLinkedin: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        What do you need most?
+                      </label>
+                      <select
+                        value={roadmapData.needMost}
+                        onChange={(e) => setRoadmapData({ ...roadmapData, needMost: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none',
+                          cursor: 'pointer'
+                        }}
+                      >
+                        <option value="content that ranks">Content that ranks</option>
+                        <option value="video">Video</option>
+                        <option value="founder thought leadership">Founder thought leadership</option>
+                        <option value="not sure yet">Not sure yet</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Phone (Optional)
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        value={roadmapData.phone}
+                        onChange={(e) => setRoadmapData({ ...roadmapData, phone: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={roadmapSubmitting}
+                      className="btn btn-primary"
+                      style={{
+                        height: '50px',
+                        width: '100%',
+                        justifyContent: 'center',
+                        fontSize: '15.5px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        marginTop: '8px',
+                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                      }}
+                    >
+                      {roadmapSubmitting ? 'Generating Roadmap...' : 'Send My Roadmap'}
+                    </button>
+
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                      No spam. No pressure. Just a plan you can use.
+                    </div>
+                  </form>
+                )}
+              </>
             ) : (
-              <form onSubmit={handleRoadmapSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Alex Chen"
-                    value={roadmapData.name}
-                    onChange={(e) => setRoadmapData({ ...roadmapData, name: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+              <>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                  The Solo Founder Content Playbook
+                </h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                  Turn one monthly interview into 20+ pieces of content + 10 post templates.
+                </p>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="alex@company.com"
-                    value={roadmapData.email}
-                    onChange={(e) => setRoadmapData({ ...roadmapData, email: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+                {playbookSubmitted ? (
+                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
+                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
+                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Playbook is on the way!</h4>
+                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
+                      Check your email shortly for the full download and templates.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handlePlaybookSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Alex Chen"
+                        value={playbookData.name}
+                        onChange={(e) => setPlaybookData({ ...playbookData, name: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Website or LinkedIn Profile
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="https://company.com or linkedin.com/in/alex"
-                    value={roadmapData.websiteOrLinkedin}
-                    onChange={(e) => setRoadmapData({ ...roadmapData, websiteOrLinkedin: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="alex@company.com"
+                        value={playbookData.email}
+                        onChange={(e) => setPlaybookData({ ...playbookData, email: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    What do you need most?
-                  </label>
-                  <select
-                    value={roadmapData.needMost}
-                    onChange={(e) => setRoadmapData({ ...roadmapData, needMost: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <option value="content that ranks">Content that ranks</option>
-                    <option value="video">Video</option>
-                    <option value="founder thought leadership">Founder thought leadership</option>
-                    <option value="not sure yet">Not sure yet</option>
-                  </select>
-                </div>
+                    <button
+                      type="submit"
+                      disabled={playbookSubmitting}
+                      className="btn btn-primary"
+                      style={{
+                        height: '50px',
+                        width: '100%',
+                        justifyContent: 'center',
+                        fontSize: '15.5px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        marginTop: '8px',
+                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                      }}
+                    >
+                      {playbookSubmitting ? 'Sending...' : 'Send Me the Playbook'}
+                    </button>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Phone (Optional)
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+1 (555) 000-0000"
-                    value={roadmapData.phone}
-                    onChange={(e) => setRoadmapData({ ...roadmapData, phone: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={roadmapSubmitting}
-                  className="btn btn-primary"
-                  style={{
-                    height: '50px',
-                    width: '100%',
-                    justifyContent: 'center',
-                    fontSize: '15.5px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    marginTop: '8px',
-                    boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
-                  }}
-                >
-                  {roadmapSubmitting ? 'Generating Roadmap...' : 'Send My Roadmap'}
-                </button>
-
-                <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
-                  No spam. No pressure. Just a plan you can use.
-                </div>
-              </form>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                      Free PDF &amp; templates. No spam, ever.
+                    </div>
+                  </form>
+                )}
+              </>
             )}
           </div>
 

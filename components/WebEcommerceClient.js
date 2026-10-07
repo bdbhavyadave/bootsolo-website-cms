@@ -31,6 +31,7 @@ import {
 export default function WebEcommerceClient() {
   const [consoleTab, setConsoleTab] = useState('speed');
   const [openFaq, setOpenFaq] = useState(0);
+  const [activeFormTab, setActiveFormTab] = useState('teardown'); // 'teardown' | 'checklist'
 
   // Website Teardown Form State
   const [teardownData, setTeardownData] = useState({
@@ -1226,73 +1227,28 @@ export default function WebEcommerceClient() {
       </section>
 
       {/* 15. NEW: LEAD MAGNET */}
-      <section className="section" style={{ padding: '80px 0', background: '#FFFFFF', borderBottom: '1px solid var(--navy-100)' }}>
-        <div className="wrap" style={{ maxWidth: '880px', margin: '0 auto' }}>
-          <div style={{ background: '#FAFCFE', border: '1px solid var(--border)', borderRadius: '20px', padding: '40px', boxShadow: '0 8px 30px rgba(0,0,0,0.03)' }}>
-            <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 32px' }}>
+      <section className="section" style={{ padding: '64px 0', background: '#FFFFFF', borderBottom: '1px solid var(--navy-100)' }}>
+        <div className="wrap" style={{ maxWidth: '980px', margin: '0 auto' }}>
+          <div style={{ background: '#FAFCFE', border: '1px solid var(--border)', borderRadius: '20px', padding: '36px 40px', boxShadow: '0 8px 30px rgba(0,0,0,0.03)', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '24px' }}>
+            <div style={{ maxWidth: '620px' }}>
               <span className="kick" style={{ color: 'var(--sunrise)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
                 Free Conversion Checklist
               </span>
-              <h2 style={{ fontSize: '26px', fontWeight: 700, color: 'var(--summit)', margin: '10px 0 12px', lineHeight: 1.25 }}>
+              <h3 style={{ fontSize: '22px', fontWeight: 700, color: 'var(--summit)', margin: '8px 0 10px', lineHeight: 1.25 }}>
                 Not ready for a call? Grab the free checklist.
-              </h2>
-              <p style={{ fontSize: '15px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
+              </h3>
+              <p style={{ fontSize: '14.5px', color: 'var(--fg2)', lineHeight: 1.6, margin: 0 }}>
                 <strong>The 25-Point Website Conversion Checklist:</strong> the exact checks we run on every client site, covering speed, messaging, mobile UX, forms, and checkout, so you can spot what's costing you leads today.
               </p>
             </div>
-
-            {checklistSubmitted ? (
-              <div style={{ background: 'rgba(31, 191, 117, 0.12)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#095738' }}>
-                <CheckCircle2 size={32} color="#1FBF75" style={{ margin: '0 auto 10px' }} />
-                <h4 style={{ margin: '0 0 6px', fontSize: '18px', fontWeight: 700 }}>Checklist is on the way!</h4>
-                <p style={{ margin: 0, fontSize: '14.5px' }}>Check your email shortly for the full 25-point audit template.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleChecklistSubmit} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '14px', alignItems: 'center' }}>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Name"
-                  value={checklistData.name}
-                  onChange={(e) => setChecklistData({ ...checklistData, name: e.target.value })}
-                  style={{
-                    height: '48px',
-                    padding: '0 16px',
-                    borderRadius: '10px',
-                    border: '1px solid var(--border)',
-                    fontSize: '14.5px',
-                    color: 'var(--fg1)',
-                    background: '#FFFFFF',
-                    outline: 'none'
-                  }}
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder="Your Email"
-                  value={checklistData.email}
-                  onChange={(e) => setChecklistData({ ...checklistData, email: e.target.value })}
-                  style={{
-                    height: '48px',
-                    padding: '0 16px',
-                    borderRadius: '10px',
-                    border: '1px solid var(--border)',
-                    fontSize: '14.5px',
-                    color: 'var(--fg1)',
-                    background: '#FFFFFF',
-                    outline: 'none'
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={checklistSubmitting}
-                  className="btn btn-primary"
-                  style={{ height: '48px', padding: '0 20px', fontSize: '14.5px', whiteSpace: 'nowrap', cursor: 'pointer' }}
-                >
-                  {checklistSubmitting ? 'Sending...' : 'Send Me the Checklist'}
-                </button>
-              </form>
-            )}
+            <a
+              href="#teardown-form"
+              onClick={() => setActiveFormTab('checklist')}
+              className="btn btn-primary"
+              style={{ whiteSpace: 'nowrap', padding: '12px 24px', fontSize: '14.5px', textDecoration: 'none' }}
+            >
+              Get Free Checklist &darr;
+            </a>
           </div>
         </div>
       </section>
@@ -1304,7 +1260,7 @@ export default function WebEcommerceClient() {
           {/* Left Text */}
           <div>
             <span className="kick" style={{ color: 'var(--sunrise-300)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', fontSize: '12px' }}>
-              Free Teardown
+              {activeFormTab === 'teardown' ? 'Free Teardown' : 'Free Resource'}
             </span>
             <h2 style={{ fontSize: 'clamp(30px, 3.6vw, 46px)', margin: '14px 0 18px', color: '#FFFFFF', lineHeight: 1.15 }}>
               Find out what your website is <span style={{ color: 'var(--sunrise-300)' }}>costing you.</span>
@@ -1317,7 +1273,7 @@ export default function WebEcommerceClient() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
                 <CheckCircle2 size={16} color="var(--sunrise)" /> Complete mobile speed and Core Web Vitals audit
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)"' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--navy-200)' }}>
                 <CheckCircle2 size={16} color="var(--sunrise)" /> 3 high-impact conversion fixes for your landing page or store
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '14.5px', color: 'var(--sunrise)' }}>
@@ -1326,199 +1282,335 @@ export default function WebEcommerceClient() {
             </div>
           </div>
 
-          {/* Right Form Card */}
+          {/* Right Form Card - Unified single form with tab selector */}
           <div style={{ background: '#0D1725', border: '1px solid var(--navy-600)', borderRadius: '20px', padding: '36px', boxShadow: '0 24px 60px rgba(0,0,0,0.5)' }}>
-            <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
-              Get your free website teardown
-            </h3>
-            <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
-              Takes 60 seconds. We'll reply within 24 hours.
-            </p>
+            
+            {/* Form Mode Selector */}
+            <div style={{ display: 'flex', gap: '6px', background: '#070e17', padding: '4px', borderRadius: '10px', marginBottom: '22px', border: '1px solid var(--navy-700)' }}>
+              <button
+                type="button"
+                onClick={() => setActiveFormTab('teardown')}
+                style={{
+                  flex: 1,
+                  padding: '9px 12px',
+                  borderRadius: '7px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: activeFormTab === 'teardown' ? 'var(--sunrise)' : 'transparent',
+                  color: activeFormTab === 'teardown' ? '#FFFFFF' : 'var(--navy-300)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                Website Teardown
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveFormTab('checklist')}
+                style={{
+                  flex: 1,
+                  padding: '9px 12px',
+                  borderRadius: '7px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  border: 'none',
+                  cursor: 'pointer',
+                  background: activeFormTab === 'checklist' ? 'var(--sunrise)' : 'transparent',
+                  color: activeFormTab === 'checklist' ? '#FFFFFF' : 'var(--navy-300)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                25-Point Checklist
+              </button>
+            </div>
 
-            {teardownSubmitted ? (
-              <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
-                <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
-                <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Teardown Request Received!</h4>
-                <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
-                  We're running performance diagnostics and UX analysis on your URL. Look out for our report within 24 hours.
+            {activeFormTab === 'teardown' ? (
+              <>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                  Get your free website teardown
+                </h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                  Takes 60 seconds. We'll reply within 24 hours.
                 </p>
-              </div>
+
+                {teardownSubmitted ? (
+                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
+                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
+                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Teardown Request Received!</h4>
+                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
+                      We're running performance diagnostics and UX analysis on your URL. Look out for our report within 24 hours.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleTeardownSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Jordan Lee"
+                        value={teardownData.name}
+                        onChange={(e) => setTeardownData({ ...teardownData, name: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="jordan@company.com"
+                        value={teardownData.email}
+                        onChange={(e) => setTeardownData({ ...teardownData, email: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Website URL *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="https://yourstore.com"
+                        value={teardownData.website}
+                        onChange={(e) => setTeardownData({ ...teardownData, website: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                      <div>
+                        <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                          What do you need most?
+                        </label>
+                        <select
+                          value={teardownData.needMost}
+                          onChange={(e) => setTeardownData({ ...teardownData, needMost: e.target.value })}
+                          style={{
+                            width: '100%',
+                            height: '46px',
+                            padding: '0 10px',
+                            borderRadius: '8px',
+                            background: '#09111c',
+                            border: '1px solid var(--navy-700)',
+                            color: '#fff',
+                            fontSize: '13.5px',
+                            outline: 'none',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          <option value="new website">New website</option>
+                          <option value="landing page">Landing page</option>
+                          <option value="improve my online store">Improve my online store</option>
+                          <option value="not sure yet">Not sure yet</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                          Platform
+                        </label>
+                        <select
+                          value={teardownData.platform}
+                          onChange={(e) => setTeardownData({ ...teardownData, platform: e.target.value })}
+                          style={{
+                            width: '100%',
+                            height: '46px',
+                            padding: '0 10px',
+                            borderRadius: '8px',
+                            background: '#09111c',
+                            border: '1px solid var(--navy-700)',
+                            color: '#fff',
+                            fontSize: '13.5px',
+                            outline: 'none',
+                            cursor: 'pointer'
+                          }}
+                        >
+                          <option value="Shopify">Shopify</option>
+                          <option value="WordPress">WordPress</option>
+                          <option value="Webflow">Webflow</option>
+                          <option value="custom">Custom (Next.js/React)</option>
+                          <option value="no site yet">No site yet</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Phone (Optional)
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+1 (555) 000-0000"
+                        value={teardownData.phone}
+                        onChange={(e) => setTeardownData({ ...teardownData, phone: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={teardownSubmitting}
+                      className="btn btn-primary"
+                      style={{
+                        height: '50px',
+                        width: '100%',
+                        justifyContent: 'center',
+                        fontSize: '15.5px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        marginTop: '8px',
+                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
+                      }}
+                    >
+                      {teardownSubmitting ? 'Analyzing Site...' : 'Get My Teardown'}
+                    </button>
+
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                      No spam. No pressure. Just a clear plan.
+                    </div>
+                  </form>
+                )}
+              </>
             ) : (
-              <form onSubmit={handleTeardownSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Your Name *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="Jordan Lee"
-                    value={teardownData.name}
-                    onChange={(e) => setTeardownData({ ...teardownData, name: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+              <>
+                <h3 style={{ fontSize: '22px', fontWeight: 700, color: '#fff', margin: '0 0 6px' }}>
+                  The 25-Point Website Conversion Checklist
+                </h3>
+                <p style={{ fontSize: '13.5px', color: 'var(--navy-300)', margin: '0 0 24px' }}>
+                  Instant audit template covering speed, mobile UX, forms, and checkout.
+                </p>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="jordan@company.com"
-                    value={teardownData.email}
-                    onChange={(e) => setTeardownData({ ...teardownData, email: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+                {checklistSubmitted ? (
+                  <div style={{ background: 'rgba(31, 191, 117, 0.15)', border: '1px solid #1FBF75', borderRadius: '12px', padding: '24px', textAlign: 'center', color: '#fff' }}>
+                    <CheckCircle2 size={36} color="#1FBF75" style={{ margin: '0 auto 12px' }} />
+                    <h4 style={{ margin: '0 0 8px', fontSize: '19px', fontWeight: 700 }}>Checklist is on the way!</h4>
+                    <p style={{ margin: 0, fontSize: '14.5px', color: 'var(--navy-200)' }}>
+                      Check your email shortly for the full 25-point audit template.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleChecklistSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Jordan Lee"
+                        value={checklistData.name}
+                        onChange={(e) => setChecklistData({ ...checklistData, name: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Website URL *
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    placeholder="https://yourstore.com"
-                    value={teardownData.website}
-                    onChange={(e) => setTeardownData({ ...teardownData, website: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="jordan@company.com"
+                        value={checklistData.email}
+                        onChange={(e) => setChecklistData({ ...checklistData, email: e.target.value })}
+                        style={{
+                          width: '100%',
+                          height: '46px',
+                          padding: '0 14px',
+                          borderRadius: '8px',
+                          background: '#09111c',
+                          border: '1px solid var(--navy-700)',
+                          color: '#fff',
+                          fontSize: '14.5px',
+                          outline: 'none'
+                        }}
+                      />
+                    </div>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                  <div>
-                    <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                      What do you need most?
-                    </label>
-                    <select
-                      value={teardownData.needMost}
-                      onChange={(e) => setTeardownData({ ...teardownData, needMost: e.target.value })}
+                    <button
+                      type="submit"
+                      disabled={checklistSubmitting}
+                      className="btn btn-primary"
                       style={{
+                        height: '50px',
                         width: '100%',
-                        height: '46px',
-                        padding: '0 10px',
-                        borderRadius: '8px',
-                        background: '#09111c',
-                        border: '1px solid var(--navy-700)',
-                        color: '#fff',
-                        fontSize: '13.5px',
-                        outline: 'none',
-                        cursor: 'pointer'
+                        justifyContent: 'center',
+                        fontSize: '15.5px',
+                        fontWeight: 600,
+                        cursor: 'pointer',
+                        marginTop: '8px',
+                        boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
                       }}
                     >
-                      <option value="new website">New website</option>
-                      <option value="landing page">Landing page</option>
-                      <option value="improve my online store">Improve my online store</option>
-                      <option value="not sure yet">Not sure yet</option>
-                    </select>
-                  </div>
+                      {checklistSubmitting ? 'Sending...' : 'Send Me the Checklist'}
+                    </button>
 
-                  <div>
-                    <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                      Platform
-                    </label>
-                    <select
-                      value={teardownData.platform}
-                      onChange={(e) => setTeardownData({ ...teardownData, platform: e.target.value })}
-                      style={{
-                        width: '100%',
-                        height: '46px',
-                        padding: '0 10px',
-                        borderRadius: '8px',
-                        background: '#09111c',
-                        border: '1px solid var(--navy-700)',
-                        color: '#fff',
-                        fontSize: '13.5px',
-                        outline: 'none',
-                        cursor: 'pointer'
-                      }}
-                    >
-                      <option value="Shopify">Shopify</option>
-                      <option value="WordPress">WordPress</option>
-                      <option value="Webflow">Webflow</option>
-                      <option value="custom">Custom (Next.js/React)</option>
-                      <option value="no site yet">No site yet</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label style={{ display: 'block', fontSize: '12px', fontFamily: 'var(--font-mono)', color: 'var(--navy-300)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                    Phone (Optional)
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="+1 (555) 000-0000"
-                    value={teardownData.phone}
-                    onChange={(e) => setTeardownData({ ...teardownData, phone: e.target.value })}
-                    style={{
-                      width: '100%',
-                      height: '46px',
-                      padding: '0 14px',
-                      borderRadius: '8px',
-                      background: '#09111c',
-                      border: '1px solid var(--navy-700)',
-                      color: '#fff',
-                      fontSize: '14.5px',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={teardownSubmitting}
-                  className="btn btn-primary"
-                  style={{
-                    height: '50px',
-                    width: '100%',
-                    justifyContent: 'center',
-                    fontSize: '15.5px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    marginTop: '8px',
-                    boxShadow: '0 0 20px rgba(255, 107, 53, 0.4)'
-                  }}
-                >
-                  {teardownSubmitting ? 'Analyzing Site...' : 'Get My Teardown'}
-                </button>
-
-                <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
-                  No spam. No pressure. Just a clear plan.
-                </div>
-              </form>
+                    <div style={{ textAlign: 'center', fontSize: '12.5px', color: 'var(--navy-400)', marginTop: '4px' }}>
+                      Free PDF download. No spam, ever.
+                    </div>
+                  </form>
+                )}
+              </>
             )}
           </div>
 
