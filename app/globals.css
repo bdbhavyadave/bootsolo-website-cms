@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap');
+
 :root {
+  /* ---- TYPOGRAPHY (Bootsolo Brand Kit: DM Sans + JetBrains Mono) ----------*/
+  --font-sans: var(--font-sans, 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif);
+  --font-mono: var(--font-mono, 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+
   /* ---- PRIMITIVE COLORS ---------------------------------------------------*/
   --sunrise:     #FF6B35;  /* Primary brand / CTA — vibrant sunrise orange   */
   --sunrise-700: #E8551F;  /* pressed / darker                              */
@@ -144,9 +150,12 @@
 /* Bootsolo — Marketing website kit. Light-first with dark hero/CTA/footer bands.
    Tokens from colors_and_type.css. ".dark" flips theme vars for dark bands. */
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth; width: 100%; max-width: 100vw; overflow-x: clip;}
+html{scroll-behavior:smooth; width: 100%; max-width: 100vw; overflow-x: clip; font-family: var(--font-sans);}
 #growth-roadmap, #cta, #global-contact { scroll-margin-top: 70px; }
 body{margin:0;background:var(--bg);color:var(--fg1);font-family:var(--font-sans);-webkit-font-smoothing:antialiased; width: 100%; max-width: 100vw; overflow-x: clip;}
+h1, h2, h3, h4, h5, h6, input, select, textarea, button {
+  font-family: var(--font-sans);
+}
 a{color:inherit;text-decoration:none;}
 .wrap{max-width:1360px;margin:0 auto;padding:0 clamp(16px, 4vw, 40px);}
 .kick{font-size:12px;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;color:var(--brand-fg);}
@@ -771,6 +780,192 @@ a{color:inherit;text-decoration:none;}
   gap: 4px;
 }
 .mega-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Streamlined Mega Subcol Cards */
+.mega-subcol-card {
+  display: flex;
+  flex-direction: column;
+  background: #F8FAFC;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: all 0.2s ease;
+}
+.mega-subcol-card:hover {
+  background: #ffffff;
+  border-color: rgba(255, 107, 53, 0.35);
+  box-shadow: 0 6px 18px rgba(14, 26, 43, 0.06);
+  transform: translateY(-2px);
+}
+
+.mega-subcol-cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sunrise-700);
+  text-decoration: none;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  transition: gap 0.15s ease;
+}
+.mega-subcol-cta:hover {
+  color: var(--sunrise);
+  gap: 8px;
+}
+
+/* Industries Dropdown Navigation */
+.nav-item-has-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 66px;
+}
+
+.industries-dropdown {
+  position: absolute;
+  top: 66px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  width: 650px;
+  background: var(--bg-elevated, #ffffff);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px -10px rgba(14, 26, 43, 0.18), 0 6px 20px -2px rgba(14, 26, 43, 0.08);
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms var(--ease), visibility 200ms var(--ease), transform 200ms var(--ease);
+  z-index: 1100;
+  cursor: default;
+}
+
+.nav-item-has-dropdown:hover .industries-dropdown,
+.nav-item-has-dropdown:focus-within .industries-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.industries-dropdown-featured {
+  background: rgba(255, 107, 53, 0.05);
+  border: 1px solid rgba(255, 107, 53, 0.24);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  transition: all 0.2s ease;
+}
+.industries-dropdown-featured:hover {
+  background: rgba(255, 107, 53, 0.09);
+  border-color: var(--sunrise);
+  transform: translateY(-1px);
+}
+
+.industries-featured-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.industries-featured-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sunrise);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.12);
+  flex-shrink: 0;
+}
+
+.industries-dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.industries-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  text-decoration: none;
+  color: var(--fg1);
+  transition: all 0.15s ease;
+}
+.industries-dropdown-item:hover {
+  background: var(--snow);
+}
+
+.industries-item-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: rgba(14, 26, 43, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg2);
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+.industries-dropdown-item:hover .industries-item-icon {
+  background: rgba(255, 107, 53, 0.12);
+  color: var(--sunrise-700);
+}
+
+.industries-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--fg1);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.15s ease;
+}
+.industries-dropdown-item:hover .industries-item-title {
+  color: var(--sunrise-700);
+}
+
+.industries-item-badge {
+  font-size: 10.5px;
+  color: var(--fg3);
+  display: block;
+}
+
+.industries-dropdown-footer {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--fg2);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.industries-footer-link {
+  font-weight: 600;
+  color: var(--sunrise-700);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.industries-footer-link:hover {
   text-decoration: underline;
 }
 

@@ -36,9 +36,9 @@ export default function Footer() {
   ];
 
   const FOOT_COMPANY = [
+    { name: "Industries", href: "/industries" },
     { name: "Work & Results", href: "/work" },
     { name: "Pricing", href: "/pricing" },
-    { name: "About Us", href: "#top" },
     { name: "Custom Quote", href: "/custom-quote" }
   ];
 

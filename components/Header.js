@@ -15,7 +15,16 @@ import {
   TrendingUp, 
   Video, 
   Layout, 
-  Palette 
+  Palette,
+  Laptop,
+  ShoppingBag,
+  Building2,
+  HeartPulse,
+  GraduationCap,
+  Coins,
+  ShieldCheck,
+  Smartphone,
+  Briefcase
 } from 'lucide-react'
 
 const SERVICES_NAV_DATA = [
@@ -24,44 +33,29 @@ const SERVICES_NAV_DATA = [
     title: "SEO / AEO / GEO",
     icon: Search,
     slug: "/seo-aeo-geo",
-    badge: "3 Sub-Tabs Active",
-    tagline: "Be discovered across traditional search engines, AI answer engines, and LLM chat interfaces.",
+    badge: "3 Interactive Sub-Tabs",
+    tagline: "Be discovered across Google search, AI answer engines, and LLM chat interfaces.",
     subColumns: [
       {
-        name: "SEO",
+        name: "SEO Tab",
         tag: "Traditional Search",
         link: "/seo-aeo-geo?tab=seo",
-        desc: "Dominate Google & Bing rankings with technical architecture, high-intent keywords, and authority backlinks.",
-        items: [
-          "Technical Site Audits & Core Web Vitals",
-          "High-Intent Keyword Architecture",
-          "Digital PR & Authority Backlinks",
-          "Programmatic Landing Pages"
-        ]
+        desc: "Dominate Google & Bing organic rankings with technical architecture and high-intent keyword clustering.",
+        cta: "Explore SEO Tab"
       },
       {
-        name: "AEO",
+        name: "AEO Tab",
         tag: "Answer Engines",
         link: "/seo-aeo-geo?tab=aeo",
-        desc: "Capture direct answers in Google AI Overviews, Perplexity, and voice search with structured entity graphs.",
-        items: [
-          "Schema & JSON-LD Entity Graph",
-          "Zero-Click Query Capture",
-          "Perplexity & SearchGPT Optimization",
-          "FAQ & Conversational Knowledge Bases"
-        ]
+        desc: "Capture direct answers in Google AI Overviews and Perplexity with structured schema entity graphs.",
+        cta: "Explore AEO Tab"
       },
       {
-        name: "GEO",
+        name: "GEO Tab",
         tag: "Generative AI",
         link: "/seo-aeo-geo?tab=geo",
-        desc: "Ensure your brand is cited and recommended inside ChatGPT, Claude, Gemini, and copilot models.",
-        items: [
-          "LLM Knowledge Base Inclusion",
-          "Brand Sentiment & Model Training Citations",
-          "Competitor Displacement Prompts",
-          "Multi-Model Recommendation Testing"
-        ]
+        desc: "Ensure your brand is recommended and cited inside ChatGPT, Claude, and Gemini model answers.",
+        cta: "Explore GEO Tab"
       }
     ]
   },
@@ -77,37 +71,22 @@ const SERVICES_NAV_DATA = [
         name: "AI Campaigns",
         tag: "Ad Automation",
         link: "/ai-powered-marketing",
-        desc: "Deploy multivariate ad creatives and targeting models tailored to real-time intent signals.",
-        items: [
-          "Predictive Audience Modeling",
-          "AI Creative Generation & Variations",
-          "Dynamic Budget Allocation",
-          "Automated Campaign Testing"
-        ]
+        desc: "Predictive audience modeling, automated creative variations, and dynamic budget allocation.",
+        cta: "View AI Campaigns"
       },
       {
         name: "Vibe Marketing",
         tag: "Viral & Trend",
         link: "/ai-powered-marketing",
-        desc: "Connect culturally and build resonant messaging that drives organic community excitement.",
-        items: [
-          "Trend Velocity Spotting",
-          "Cultural Resonance Campaigns",
-          "Micro-Community Infiltration",
-          "Interactive Memetic Content"
-        ]
+        desc: "Trend-spotting, cultural resonance, and viral memetic campaigns that build high-energy community.",
+        cta: "View Vibe Marketing"
       },
       {
         name: "Marketing Automation",
         tag: "Operations",
         link: "/ai-powered-marketing",
-        desc: "Automated nurture streams, CRM triggers, and predictive lifecycle engagement funnels.",
-        items: [
-          "Custom Zapier / Make / n8n Pipelines",
-          "Dynamic Email Sequences",
-          "Behavioral Lead Scoring",
-          "Automated Lead Handoff to Sales"
-        ]
+        desc: "Automated nurture streams, behavioral lead scoring, and automated handoffs to sales.",
+        cta: "View Automation"
       }
     ]
   },
@@ -123,37 +102,22 @@ const SERVICES_NAV_DATA = [
         name: "Paid Search & Display",
         tag: "High Intent",
         link: "/performance-lead-generation",
-        desc: "Capture high-intent buyers on Google Ads, Bing Ads, and programmatic networks.",
-        items: [
-          "Google Ads (Search, Shopping, PMax)",
-          "Intent-Driven Bidding Strategies",
-          "Negative Keyword & Waste Elimination",
-          "Competitive Conquesting Ads"
-        ]
+        desc: "Capture high-intent buyers on Google & Bing with intent-driven bidding and competitor conquesting.",
+        cta: "Explore Paid Search"
       },
       {
         name: "Paid Social Growth",
-        tag: "Scale",
+        tag: "Targeted Scale",
         link: "/performance-lead-generation",
-        desc: "Convert audiences on Meta, LinkedIn, TikTok, and Twitter/X with creative-first funnels.",
-        items: [
-          "LinkedIn B2B Account Targeting",
-          "Meta Ads (Scale & Retargeting)",
-          "Direct-Response Video Ads",
-          "Full-Funnel Attribution Modeling"
-        ]
+        desc: "Convert decision-makers on LinkedIn and Meta with direct-response creative and attribution tracking.",
+        cta: "Explore Paid Social"
       },
       {
         name: "CRO & Lead Gen",
         tag: "Conversion",
         link: "/performance-lead-generation",
-        desc: "Transform inbound traffic into qualified demo bookings and closed transactions.",
-        items: [
-          "Frictionless Landing Page UX",
-          "A/B & Multivariate Split Testing",
-          "Interactive Lead Magnets & Quizzes",
-          "CRM Pipeline Integration"
-        ]
+        desc: "Frictionless landing pages, multivariate split testing, and interactive calculators that double conversions.",
+        cta: "Explore CRO"
       }
     ]
   },
@@ -169,37 +133,22 @@ const SERVICES_NAV_DATA = [
         name: "Content Marketing",
         tag: "Inbound",
         link: "/content-video-thought-leadership",
-        desc: "Data-driven research reports, whitepapers, case studies, and editorial essays.",
-        items: [
-          "Original Industry Research Reports",
-          "In-Depth Case Studies & Teardowns",
-          "SEO Pillar & Cluster Hubs",
-          "Newsletter & Publication Strategy"
-        ]
+        desc: "Data-backed industry research reports, case study teardowns, and high-ranking SEO content clusters.",
+        cta: "Explore Content"
       },
       {
-        name: "Motion & Video Production",
+        name: "Motion & Video",
         tag: "Engagement",
         link: "/content-video-thought-leadership",
-        desc: "Compelling product demos, 3D motion graphics, and high-retention social video clips.",
-        items: [
-          "Product Walkthroughs & Explainer Videos",
-          "High-Retention Short-Form (Reels/Shorts)",
-          "3D Product Visualizations",
-          "Motion Ad Creative Packages"
-        ]
+        desc: "Product explainer videos, high-retention short-form clips, and 3D product motion graphics.",
+        cta: "Explore Video"
       },
       {
         name: "Thought Leadership",
         tag: "Executive PR",
         link: "/content-video-thought-leadership",
-        desc: "Turn your founders and leadership team into recognized keynote and industry voices.",
-        items: [
-          "Founder Ghostwriting & LinkedIn Presence",
-          "Podcast Guest Placements & Prep",
-          "Keynote Presentation Design",
-          "Tier-1 Industry Column Contributorship"
-        ]
+        desc: "Founder ghostwriting, executive LinkedIn presence, and podcast guest placement strategies.",
+        cta: "Explore PR"
       }
     ]
   },
@@ -209,43 +158,28 @@ const SERVICES_NAV_DATA = [
     icon: Layout,
     slug: "/web-ecommerce-experience",
     badge: "Modern Web",
-    tagline: "Lightning-fast Jamstack websites, high-converting Shopify stores, and web apps.",
+    tagline: "Lightning-fast Jamstack websites, high-converting Shopify stores, and interactive web apps.",
     subColumns: [
       {
         name: "Web Design & Dev",
-        tag: "Next.js & Jamstack",
+        tag: "Next.js & React",
         link: "/web-ecommerce-experience",
-        desc: "Bespoke digital experiences built for speed, storytelling, and enterprise credibility.",
-        items: [
-          "Next.js & React Architecture",
-          "Figma to Pixel-Perfect Code",
-          "Headless CMS Integration",
-          "95+ Google PageSpeed Scores"
-        ]
+        desc: "Bespoke digital experiences built for sub-second speeds, storytelling, and high conversion credibility.",
+        cta: "Explore Web Dev"
       },
       {
         name: "Ecommerce Optimization",
         tag: "Shopify / Custom",
         link: "/web-ecommerce-experience",
-        desc: "Scale average order value, streamline checkout, and build recurring subscription engines.",
-        items: [
-          "Custom Shopify Plus Development",
-          "Cart & Checkout Conversion Tweaks",
-          "Upsell & Cross-Sell Flow Architecture",
-          "Speed & Mobile Optimization"
-        ]
+        desc: "Checkout conversion tweaks, average order value boosts, and automated recurring subscription funnels.",
+        cta: "Explore Ecommerce"
       },
       {
-        name: "Interactive Experiences",
+        name: "Interactive Tools",
         tag: "Web Apps",
         link: "/web-ecommerce-experience",
-        desc: "Custom calculators, 3D product visualizers, and self-service customer tools.",
-        items: [
-          "ROI & Pricing Calculators",
-          "Interactive Product Demos",
-          "Micro-Animations & WebGL Accents",
-          "Design System Components"
-        ]
+        desc: "Custom ROI calculators, self-service assessment tools, and interactive digital demonstrations.",
+        cta: "Explore Tools"
       }
     ]
   },
@@ -261,39 +195,83 @@ const SERVICES_NAV_DATA = [
         name: "Visual Identity",
         tag: "Design System",
         link: "/branding",
-        desc: "Logo systems, typography palettes, vibrant color harmonies, and icon sets.",
-        items: [
-          "Logo Mark & Wordmark Design",
-          "Typography & Visual Tokens",
-          "Color Strategy & Dark/Light Themes",
-          "Comprehensive Brand Styleguides"
-        ]
+        desc: "Logo systems, typography palettes, vibrant color harmonies, and comprehensive brand guidelines.",
+        cta: "Explore Identity"
       },
       {
         name: "Brand Positioning",
         tag: "Strategy",
         link: "/branding",
-        desc: "Clarify your core value proposition, brand archetype, and differentiation narrative.",
-        items: [
-          "Competitive Differentiation Matrix",
-          "Mission, Vision & Tone Guidelines",
-          "Brand Narrative & Elevator Pitch",
-          "Go-to-Market Messaging Playbooks"
-        ]
+        desc: "Competitive differentiation matrix, value proposition clarity, and GTM messaging playbooks.",
+        cta: "Explore Positioning"
       },
       {
-        name: "Brand Assets & Collateral",
+        name: "Brand Assets",
         tag: "Collateral",
         link: "/branding",
-        desc: "Investor pitch decks, sales enablement one-pagers, swag, and social branding kits.",
-        items: [
-          "High-Stakes Pitch Deck Decks",
-          "Sales One-Pagers & Fact Sheets",
-          "Social Media Kit & Templates",
-          "Physical & Digital Packaging Assets"
-        ]
+        desc: "High-stakes investor pitch decks, sales one-pagers, swag, and social branding templates.",
+        cta: "Explore Collateral"
       }
     ]
+  }
+];
+
+const INDUSTRIES_NAV_DATA = [
+  {
+    featured: true,
+    title: "B2B SaaS & Technology",
+    slug: "/industries/b2b-saas-technology",
+    badge: "New Hub",
+    tagline: "More trials, demo bookings & AI search pipeline for software companies.",
+    icon: Laptop
+  },
+  {
+    title: "Ecommerce & D2C",
+    slug: "/industries#ecommerce-d2c",
+    badge: "High Velocity",
+    icon: ShoppingBag
+  },
+  {
+    title: "Real Estate",
+    slug: "/industries#real-estate",
+    badge: "High Ticket",
+    icon: Building2
+  },
+  {
+    title: "Healthcare & Wellness",
+    slug: "/industries#healthcare-wellness",
+    badge: "Regulated",
+    icon: HeartPulse
+  },
+  {
+    title: "Education & EdTech",
+    slug: "/industries#education-edtech",
+    badge: "Enrollments",
+    icon: GraduationCap
+  },
+  {
+    title: "Web3 & Blockchain",
+    slug: "/industries#web3-blockchain",
+    badge: "Emerging Tech",
+    icon: Coins
+  },
+  {
+    title: "Fintech & Financial",
+    slug: "/industries#fintech-financial",
+    badge: "Compliance",
+    icon: ShieldCheck
+  },
+  {
+    title: "Mobile Apps & Startups",
+    slug: "/industries#mobile-apps-startups",
+    badge: "App Store / DAU",
+    icon: Smartphone
+  },
+  {
+    title: "Professional Services",
+    slug: "/industries#professional-services",
+    badge: "B2B Leads",
+    icon: Briefcase
   }
 ];
 
@@ -302,6 +280,7 @@ export default function Header() {
   if (pathname?.startsWith('/admin')) return null;
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState('seo-aeo-geo');
 
   // Close drawer on window resize above 992px or on Escape key
@@ -329,7 +308,11 @@ export default function Header() {
     }
   }, [isOpen]);
 
-  const closeMenu = () => setIsOpen(false);
+  const closeMenu = () => {
+    setIsOpen(false);
+    setIsServicesOpen(false);
+    setIsIndustriesOpen(false);
+  };
 
   return (
     <nav className="nav">
@@ -338,6 +321,8 @@ export default function Header() {
 
         {/* Desktop Navigation Links */}
         <div className="nav-links">
+          
+          {/* Services Mega Menu */}
           <div className="nav-item-has-mega">
             <Link href="#services" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
               Services <ChevronDown size={14} />
@@ -346,7 +331,7 @@ export default function Header() {
             <div className="mega-menu mega-split-menu">
               {/* Left Sidebar */}
               <div className="mega-sidebar">
-                <div className="mega-sidebar-header">Our Services</div>
+                <div className="mega-sidebar-header">Capabilities</div>
                 {SERVICES_NAV_DATA.map((service) => {
                   const IconComponent = service.icon;
                   const isActive = activeServiceTab === service.id;
@@ -370,7 +355,7 @@ export default function Header() {
                 })}
               </div>
 
-              {/* Right Content Area */}
+              {/* Right Content Area - Streamlined without messy bullet walls */}
               <div className="mega-content-area">
                 {SERVICES_NAV_DATA.map((service) => {
                   const isActive = activeServiceTab === service.id;
@@ -389,11 +374,19 @@ export default function Header() {
                           <p className="mega-pane-tagline">{service.tagline}</p>
                         </div>
                         <Link href={service.slug} className="mega-pane-all-link">
-                          View All Details <ArrowRight size={13} />
+                          View Overview <ArrowRight size={13} />
                         </Link>
                       </div>
 
-                      {/* 3-Column Sub-Categories */}
+                      {/* Explicit Interactive Tab Indicator for SEO/AEO/GEO */}
+                      {service.id === 'seo-aeo-geo' && (
+                        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 12px', borderRadius: '8px', background: 'rgba(56,182,245,0.08)', border: '1px solid rgba(56,182,245,0.22)', marginBottom: '14px', fontSize: '12px', color: 'var(--ice-700)', fontWeight: 600 }}>
+                          <Sparkles size={14} />
+                          <span>3 Separate Tabs on this Page: Click any tab below to jump directly into it:</span>
+                        </div>
+                      )}
+
+                      {/* Clean 3-Column Sub-Cards */}
                       <div className="mega-subcols-grid">
                         {service.subColumns.map((col, idx) => (
                           <div key={idx} className="mega-subcol-card">
@@ -403,24 +396,20 @@ export default function Header() {
                                 <span className="mega-subcol-tag">{col.tag}</span>
                               </Link>
                             </div>
-                            <p className="mega-subcol-desc">{col.desc}</p>
-                            <ul className="mega-subcol-links">
-                              {col.items.map((item, itemIdx) => (
-                                <li key={itemIdx}>
-                                  <Link href={col.link} className="mega-subcol-link">
-                                    <span className="subcol-link-bullet">›</span>
-                                    <span>{item}</span>
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
+                            <p className="mega-subcol-desc" style={{ minHeight: 'unset', marginBottom: '14px' }}>
+                              {col.desc}
+                            </p>
+                            <Link href={col.link} className="mega-subcol-cta">
+                              <span>{col.cta}</span>
+                              <ArrowRight size={13} />
+                            </Link>
                           </div>
                         ))}
                       </div>
 
                       {/* Mega Footer Bar */}
                       <div className="mega-footer-bar">
-                        <span>Looking for a tailored strategy combining multiple capabilities?</span>
+                        <span>Need a strategy combining search, AI models &amp; paid acquisition?</span>
                         <Link href="/custom-quote" className="mega-footer-link">
                           Build Custom Route Map <ArrowRight size={13} />
                         </Link>
@@ -433,7 +422,70 @@ export default function Header() {
           </div>
 
           <Link href="/pricing" style={{ display: 'flex', alignItems: 'center' }}>Pricing</Link>
-          <Link href="/work" style={{ display: 'flex', alignItems: 'center' }}>Work</Link>
+          
+          {/* Industries with Dropdown Sub-Tabs */}
+          <div className="nav-item-has-dropdown">
+            <Link href="/industries" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+              Industries <ChevronDown size={14} />
+            </Link>
+
+            <div className="industries-dropdown">
+              {/* Featured SaaS Hub Card */}
+              <div className="industries-dropdown-featured">
+                <Link href="/industries/b2b-saas-technology" className="industries-featured-link">
+                  <div className="industries-featured-icon">
+                    <Laptop size={22} />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '2px' }}>
+                      <span style={{ fontSize: '15px', fontWeight: 700, color: 'var(--summit)' }}>
+                        B2B SaaS &amp; Technology
+                      </span>
+                      <span style={{ fontSize: '10px', fontWeight: 700, textTransform: 'uppercase', padding: '2px 7px', borderRadius: '4px', background: 'rgba(255,107,53,0.14)', color: 'var(--sunrise-700)' }}>
+                        Featured Hub
+                      </span>
+                    </div>
+                    <p style={{ fontSize: '12.5px', color: 'var(--fg2)', margin: 0, lineHeight: 1.4 }}>
+                      More trials, demo bookings &amp; pipeline with AI search visibility and CRO funnels.
+                    </p>
+                  </div>
+                  <ArrowRight size={16} style={{ color: 'var(--sunrise)', flexShrink: 0 }} />
+                </Link>
+              </div>
+
+              {/* Grid of Other Sector Sub-Tabs */}
+              <div style={{ padding: '8px 10px 4px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--fg3)', marginBottom: '8px' }}>
+                  Industry Playbooks
+                </div>
+                <div className="industries-dropdown-grid">
+                  {INDUSTRIES_NAV_DATA.slice(1).map((ind, idx) => {
+                    const IconC = ind.icon;
+                    return (
+                      <Link key={idx} href={ind.slug} className="industries-dropdown-item">
+                        <div className="industries-item-icon">
+                          <IconC size={15} />
+                        </div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <span className="industries-item-title">{ind.title}</span>
+                          <span className="industries-item-badge">{ind.badge}</span>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="industries-dropdown-footer">
+                <span>Looking for an industry-specific growth roadmap?</span>
+                <Link href="/industries" className="industries-footer-link">
+                  View All 12 Industries <ArrowRight size={13} />
+                </Link>
+              </div>
+            </div>
+          </div>
+
           <Link href="/resources" style={{ display: 'flex', alignItems: 'center' }}>Resources</Link>
           <Link href="/blogs" style={{ display: 'flex', alignItems: 'center' }}>Blogs</Link>
         </div>
@@ -460,7 +512,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Slide-In Mobile Navigation Drawer - Only rendered when opened to prevent desktop overflow */}
+      {/* Slide-In Mobile Navigation Drawer */}
       {isOpen && (
         <>
           <div
@@ -470,17 +522,20 @@ export default function Header() {
           />
           <div className="mobile-drawer active">
             <div className="mobile-drawer-links">
+              
+              {/* Mobile Services Accordion */}
               <button
+                type="button"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className="mobile-drawer-link"
-                style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
+                style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
               >
                 <span>Services</span>
                 <ChevronDown size={18} style={{ transform: isServicesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' }} />
               </button>
 
               {isServicesOpen && (
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', paddingLeft: '12px', marginBottom: '8px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '12px', marginBottom: '8px' }}>
                   {SERVICES_NAV_DATA.map((item) => {
                     if (item.slug === '/seo-aeo-geo') {
                       return (
@@ -492,27 +547,27 @@ export default function Header() {
                           >
                             {item.title}
                           </Link>
-                          <div style={{ display: 'flex', gap: '8px', paddingLeft: '8px', marginBottom: '4px' }}>
+                          <div style={{ display: 'flex', gap: '8px', paddingLeft: '6px', marginBottom: '4px' }}>
                             <Link
                               href="/seo-aeo-geo?tab=seo"
                               onClick={closeMenu}
                               style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
                             >
-                              SEO
+                              SEO Tab
                             </Link>
                             <Link
                               href="/seo-aeo-geo?tab=aeo"
                               onClick={closeMenu}
                               style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
                             >
-                              AEO
+                              AEO Tab
                             </Link>
                             <Link
                               href="/seo-aeo-geo?tab=geo"
                               onClick={closeMenu}
                               style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
                             >
-                              GEO
+                              GEO Tab
                             </Link>
                           </div>
                         </div>
@@ -523,7 +578,7 @@ export default function Header() {
                         key={item.slug}
                         href={item.slug}
                         onClick={closeMenu}
-                        style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '6px 0' }}
+                        style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '5px 0' }}
                       >
                         {item.title}
                       </Link>
@@ -535,9 +590,50 @@ export default function Header() {
               <Link href="/pricing" className="mobile-drawer-link" onClick={closeMenu}>
                 Pricing <ArrowRight size={16} />
               </Link>
-              <Link href="/work" className="mobile-drawer-link" onClick={closeMenu}>
-                Work <ArrowRight size={16} />
-              </Link>
+
+              {/* Mobile Industries Accordion */}
+              <button
+                type="button"
+                onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                className="mobile-drawer-link"
+                style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+              >
+                <span>Industries</span>
+                <ChevronDown size={18} style={{ transform: isIndustriesOpen ? 'rotate(180deg)' : 'none', transition: 'transform 200ms' }} />
+              </button>
+
+              {isIndustriesOpen && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', paddingLeft: '12px', marginBottom: '8px' }}>
+                  <Link
+                    href="/industries/b2b-saas-technology"
+                    onClick={closeMenu}
+                    style={{ fontSize: '14px', color: 'var(--sunrise)', fontWeight: 700, padding: '4px 0', display: 'flex', alignItems: 'center', gap: '6px' }}
+                  >
+                    <span>★ B2B SaaS &amp; Technology</span>
+                    <span style={{ fontSize: '10px', background: 'rgba(255,107,53,0.16)', padding: '2px 5px', borderRadius: '3px' }}>NEW</span>
+                  </Link>
+
+                  {INDUSTRIES_NAV_DATA.slice(1, 5).map((ind, i) => (
+                    <Link
+                      key={i}
+                      href={ind.slug}
+                      onClick={closeMenu}
+                      style={{ fontSize: '13.5px', color: 'var(--fg2)', padding: '3px 0' }}
+                    >
+                      {ind.title}
+                    </Link>
+                  ))}
+
+                  <Link
+                    href="/industries"
+                    onClick={closeMenu}
+                    style={{ fontSize: '13.5px', color: 'var(--sunrise-300)', padding: '5px 0', fontWeight: 600 }}
+                  >
+                    View All 12 Industries →
+                  </Link>
+                </div>
+              )}
+
               <Link href="/resources" className="mobile-drawer-link" onClick={closeMenu}>
                 Resources <ArrowRight size={16} />
               </Link>

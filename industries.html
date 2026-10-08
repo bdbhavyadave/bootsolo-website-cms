@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industries We Serve | AI-Powered Marketing for SaaS, Ecommerce, Real Estate, Healthcare & More | Bootsolo</title>
+  <meta name="description" content="Bootsolo builds AI-powered marketing for SaaS, ecommerce, real estate, healthcare, education, Web3 and more. Strategy by humans, speed by AI, no long-term contracts.">
+  <link rel="canonical" href="https://bootsolo.com/industries">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .ind-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-1);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    .ind-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-2);
+      border-color: var(--border-strong);
+    }
+    .ind-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--font-mono);
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .ind-pill {
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: var(--r-sm);
+      background: var(--bg-inset);
+      color: var(--fg1);
+      border: 1px solid var(--border);
+    }
+    .accordion-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .accordion-header {
+      width: 100%;
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      text-align: left;
+      font-size: 16.5px;
+      font-weight: 600;
+      color: var(--fg1);
+      cursor: pointer;
+    }
+    .accordion-content {
+      padding: 0 24px 20px;
+      font-size: 15px;
+      color: var(--fg2);
+      line-height: 1.6;
+      display: none;
+    }
+    .accordion-item.active .accordion-content {
+      display: block;
+    }
+    .accordion-item.active .accordion-header svg {
+      transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand-link" href="index.html" aria-label="Bootsolo Home" style="display:inline-flex;align-items:center;text-decoration:none;">
+        <svg height="30" viewBox="90 220 660 240" fill="none" style="height:30px;width:auto;display:block;" aria-label="Bootsolo Logo">
+          <g fill="#0E1A2B">
+            <path d="M153.3,364.34c21.77,0,38.8,17.35,38.8,45.11c0,27.76-17.19,45.43-38.8,45.43c-12.93,0-22.24-5.84-27.13-13.57v12.3H99.2V336.89h26.97v41.17C131.06,370.17,140.69,364.34,153.3,364.34z M145.26,387.84c-10.1,0-19.24,7.73-19.24,21.77s9.15,21.77,19.24,21.77c10.25,0,19.4-7.89,19.4-21.93C164.66,395.41,155.51,387.84,145.26,387.84z"/>
+            <path d="M240.06,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S265.92,454.88,240.06,454.88z M240.06,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C222.07,424.43,230.28,431.53,240.06,431.53z"/>
+            <path d="M334.22,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S360.09,454.88,334.22,454.88z M334.22,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C316.24,424.43,324.44,431.53,334.22,431.53z"/>
+            <path d="M392.58,388h-10.73v-22.4h10.73l26.97-21.45l0,0v21.45h17.67V388h-17.67v35.33c0,5.21,2.21,7.41,8.2,7.41h9.62v22.87h-13.72c-18.3,0-31.07-7.73-31.07-30.6V388z"/>
+            <path d="M481.86,454.88c-23.5,0-39.28-13.09-40.54-30.13h26.66c0.63,6.15,6.15,10.25,13.57,10.25c6.94,0,10.57-3.15,10.57-7.1c0-14.2-47.95-3.94-47.95-36.28c0-14.98,12.78-27.29,35.81-27.29c22.71,0,35.33,12.62,37.07,29.97h-24.92c-0.79-5.99-5.36-9.94-12.93-9.94c-6.31,0-9.78,2.52-9.78,6.78c0,14.04,47.64,4.1,48.11,36.91C517.51,443.36,503.94,454.88,481.86,454.88z"/>
+            <path d="M564.67,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S590.54,454.88,564.67,454.88z M564.67,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C546.69,424.43,554.89,431.53,564.67,431.53z"/>
+            <path d="M615.62,336.89h26.97v116.72h-26.97V336.89z"/>
+            <path d="M692.75,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S718.62,454.88,692.75,454.88z M692.75,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C674.77,424.43,682.97,431.53,692.75,431.53z"/>
+            <polygon points="434.6,361.16 578.33,313.88 576.39,308 423.99,358.13 423.99,361.16"/>
+            <rect x="471.28" y="289.53" transform="matrix(0.9499 -0.3126 0.3126 0.9499 -65.1008 179.2003)" width="110.09" height="6.19"/>
+            <path d="M423.99,347.77l118.95-39L541,302.9l-117.86,38.64c0.53,0.73,0.85,1.63,0.85,2.61V347.77z"/>
+          </g>
+          <path fill="#F37321" fill-rule="evenodd" clip-rule="evenodd" d="M599.61,310.96l9.42-17.78l3.68,9.6L599.61,310.96z M620.09,282.79l100.36-40.3l-65.33,77.54L620.09,282.79z M690.81,233.71l-84.53,24.33l-7.46,2.15l-22.72-24.15L690.81,233.71z M743.64,225.71l-135.55,54.43l-26.66,50.34l39.79-24.86l-7.46-19.46l41.65,44.28L743.64,225.71l-183.26,3.72l36.3,38.59l0.28-0.08l-6.5,28.88l12.91-30.73L743.64,225.71z"/>
+        </svg>
+      </a>
+
+      <div class="nav-links">
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html" style="color:var(--brand-fg);font-weight:600;">Industries</a>
+        <a href="resources.html">Resources</a>
+        <a href="blogs.html">Blogs</a>
+      </div>
+
+      <div class="nav-spacer"></div>
+      <a class="btn btn-ghost btn-sm" href="custom-quote.html">Request custom quote</a>
+      <a class="btn btn-primary btn-sm" href="#roadmap-form">Book a Growth Call</a>
+
+      <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html" style="color:var(--brand-fg);font-weight:600;">Industries</a>
+      <a href="resources.html">Resources</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="custom-quote.html" class="btn btn-ghost" style="text-align:center;">Request Custom Quote</a>
+      <a href="#roadmap-form" class="btn btn-primary" style="text-align:center;">Book a Growth Call</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="section" style="padding-top:72px;padding-bottom:64px;text-align:center;">
+    <div class="wrap">
+      <div style="max-width:840px;margin:0 auto;">
+        <span class="eyebrow">Industries We Serve</span>
+        <h1 style="font-size:clamp(36px, 5vw, 60px);line-height:1.06;margin:0 0 22px;letter-spacing:-0.03em;">
+          Marketing that speaks your industry's <span style="color:var(--sunrise);">language.</span>
+        </h1>
+        <p style="font-size:19px;line-height:1.55;color:var(--fg2);max-width:720px;margin:0 auto 36px;">
+          Every industry has different buyers, different rules, and different reasons people say yes. We combine industry-specific strategy with AI-powered execution to bring you more leads, more sales, and more visibility, wherever your customers are searching.
+        </p>
+        
+        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+          <a class="btn btn-primary" href="#roadmap-form" style="height:50px;padding:0 28px;font-size:16px;">
+            Get My Free Industry Growth Roadmap &rarr;
+          </a>
+          <a class="btn btn-ghost" href="#find-your-industry" style="height:50px;padding:0 24px;font-size:15px;">
+            Find Your Industry &darr;
+          </a>
+        </div>
+
+        <div style="font-size:14px;color:var(--fg2);padding:10px 20px;border-radius:999px;background:rgba(14,26,43,0.04);display:inline-block;">
+          No long-term contracts &middot; Strategy by humans, speed by AI &middot; Plain-language reporting
+        </div>
+      </div>
+
+      <!-- Proof strip -->
+      <div style="margin-top:54px;background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--r-card);padding:24px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;text-align:left;">
+        <div>
+          <div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--brand-fg);">+312%</div>
+          <div style="font-size:13.5px;color:var(--fg2);margin-top:4px;">signups for a solo SaaS founder in one quarter</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--ice-700);">−58%</div>
+          <div style="font-size:13.5px;color:var(--fg2);margin-top:4px;">cost per sale for a bootstrapped D2C brand</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--brand-fg);">4.1×</div>
+          <div style="font-size:13.5px;color:var(--fg2);margin-top:4px;">visibility for an indie app in 60 days</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--summit);">4,000+</div>
+          <div style="font-size:13.5px;color:var(--fg2);margin-top:4px;">solopreneurs in our community</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section class="section" style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 0;">
+    <div class="wrap">
+      <div style="max-width:800px;margin:0 auto;text-align:center;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--destructive);font-family:var(--font-mono);">The Problem</span>
+        <h2 style="font-size:38px;line-height:1.15;margin:12px 0 24px;">Generic marketing gets generic results.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:960px;margin:36px auto 0;">
+        <div style="background:#FFF6F2;border:1px solid rgba(255,107,53,0.25);border-radius:var(--r-card);padding:32px;">
+          <h3 style="font-size:20px;margin-bottom:12px;">The Agency Playbook Trap</h3>
+          <p style="font-size:15px;color:var(--fg2);line-height:1.65;margin:0;">
+            A campaign that works for an online store won't work for a hospital. A message that sells software won't sell a property. Yet most agencies run the same playbook for everyone, and you pay for them to learn your industry on your budget.
+          </p>
+        </div>
+        <div style="background:var(--frost);border:1px solid rgba(56,182,245,0.25);border-radius:var(--r-card);padding:32px;">
+          <h3 style="font-size:20px;margin-bottom:12px;">How Bootsolo Works</h3>
+          <p style="font-size:15px;color:var(--fg2);line-height:1.65;margin:0;">
+            We start with how your buyers actually decide: what they search for, who they trust, what makes them hesitate, and what rules your industry has to follow. Then we build the marketing around that.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Find Your Industry Grid -->
+  <section class="section" id="find-your-industry" style="padding:90px 0;">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 48px;">
+        <span class="eyebrow">Industry Breakdown</span>
+        <h2 style="font-size:38px;margin:12px 0 16px;">Find Your Industry</h2>
+        <p style="font-size:17px;color:var(--fg2);">Design as a grid of 12 clickable cards with distinct challenges, solutions, and key metrics.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;">
+        
+        <!-- 1. B2B SaaS & Tech -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">B2B SaaS &amp; Technology</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> long sales cycles, crowded categories, and buyers who research everything before booking a demo.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> AI search visibility, demo-focused landing pages, LinkedIn and paid search campaigns, and founder thought leadership that builds trust before the first call.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Trial signups</span><span class="ind-pill">Demo bookings</span><span class="ind-pill">Pipeline</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore SaaS &amp; Technology &rarr;</a>
+        </div>
+
+        <!-- 2. Ecommerce & D2C -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Ecommerce &amp; D2C</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> rising ad costs, abandoned carts, and competing with big brands on a small budget.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> high-converting Shopify stores, checkout and product page optimization, creative-first paid social, and email flows that bring buyers back.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Orders</span><span class="ind-pill">Average order value</span><span class="ind-pill">Lower cost per sale</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Ecommerce &amp; D2C &rarr;</a>
+        </div>
+
+        <!-- 3. Real Estate -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Real Estate</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> expensive leads from portals, slow follow-up, and buyers who browse for months before committing.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> property landing pages, local SEO, targeted Meta and Google campaigns, and automated follow-up that keeps every enquiry warm.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Qualified enquiries</span><span class="ind-pill">Site visits</span><span class="ind-pill">Booked viewings</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Real Estate &rarr;</a>
+        </div>
+
+        <!-- 4. Healthcare & Wellness -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Healthcare &amp; Wellness</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> patients choose providers they trust, and advertising rules limit what you can say.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> local and AI search visibility, trust-building content, appointment-focused websites, and compliance-aware campaigns.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Appointment bookings</span><span class="ind-pill">Patient enquiries</span><span class="ind-pill">Local visibility</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Healthcare &amp; Wellness &rarr;</a>
+        </div>
+
+        <!-- 5. Education & EdTech -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Education &amp; EdTech</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> seasonal enrollment pressure, comparison-heavy decisions, and parents and students researching across many channels.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> enrollment funnels, course launch campaigns, short-form video, webinar and lead magnet systems, and nurture sequences that convert enquiries into admissions.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Enquiries</span><span class="ind-pill">Enrollments</span><span class="ind-pill">Course sales</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Education &amp; EdTech &rarr;</a>
+        </div>
+
+        <!-- 6. Web3 & Blockchain -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Web3 &amp; Blockchain</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> skeptical audiences, restricted ad platforms, and the need to build credibility fast.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> clear positioning, community growth, founder thought leadership, PR, and SEO and AI visibility that builds trust without relying on paid ads.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Community growth</span><span class="ind-pill">Credibility</span><span class="ind-pill">Waitlist &amp; signups</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Web3 &amp; Blockchain &rarr;</a>
+        </div>
+
+        <!-- 7. Fintech & Financial Services -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Fintech &amp; Financial Services</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> high-trust purchases, strict financial promotion rules, and costly customer acquisition.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> trust-led content, compliance-aware ad campaigns, conversion-focused websites, and calculators that turn visitors into leads.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">App signups</span><span class="ind-pill">Qualified leads</span><span class="ind-pill">Lower CAC</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Fintech &rarr;</a>
+        </div>
+
+        <!-- 8. Mobile Apps & Startups -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Mobile Apps &amp; Startups</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> getting noticed in crowded app stores and turning installs into active users.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> launch campaigns, app store and AI answer visibility, short-form video, and onboarding and retention flows.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Installs</span><span class="ind-pill">Active users</span><span class="ind-pill">Retention</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Mobile Apps &amp; Startups &rarr;</a>
+        </div>
+
+        <!-- 9. Professional Services -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Professional Services</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> winning clients on expertise rather than price, with little time for marketing.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> founder and partner thought leadership, local and AI search visibility, professional websites, and lead magnets that attract the right clients.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Consultation bookings</span><span class="ind-pill">Referrals</span><span class="ind-pill">Inbound enquiries</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Professional Services &rarr;</a>
+        </div>
+
+        <!-- 10. Hospitality & Travel -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Hospitality &amp; Travel</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> high commissions to booking platforms and seasonal demand swings.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> direct booking websites, local SEO, visual social content, and retargeting that brings lookers back to book.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Direct bookings</span><span class="ind-pill">Lower commissions</span><span class="ind-pill">Repeat guests</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Hospitality &amp; Travel &rarr;</a>
+        </div>
+
+        <!-- 11. Food & Beverage -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Food &amp; Beverage</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> fierce local competition and staying top of mind in a scroll-heavy world.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> social-first brand building, short-form video, local search, and online ordering and ecommerce growth for packaged brands.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Orders</span><span class="ind-pill">Footfall</span><span class="ind-pill">Repeat customers</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Food &amp; Beverage &rarr;</a>
+        </div>
+
+        <!-- 12. Fitness, Beauty & Lifestyle -->
+        <div class="ind-card">
+          <h3 style="font-size:21px;margin:0 0 14px;color:var(--summit);">Fitness, Beauty &amp; Lifestyle</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.55;margin:0 0 12px;"><strong>The challenge:</strong> standing out in trend-driven markets and turning followers into paying members or customers.</p>
+          <p style="font-size:14.5px;color:var(--fg1);line-height:1.55;margin:0 0 16px;"><strong>How we help:</strong> creator-style video content, vibe marketing, local ads, and booking and membership funnels.</p>
+          <div style="margin-top:auto;padding-top:14px;border-top:1px solid var(--border);margin-bottom:18px;">
+            <div style="font-size:11px;font-weight:700;color:var(--fg3);text-transform:uppercase;margin-bottom:6px;">Key results:</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span class="ind-pill">Memberships</span><span class="ind-pill">Bookings</span><span class="ind-pill">Product sales</span>
+            </div>
+          </div>
+          <a href="#roadmap-form" class="btn btn-ghost btn-sm" style="width:100%;text-align:center;">Explore Fitness, Beauty &amp; Lifestyle &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Section -->
+  <section class="section" style="background:var(--summit);color:#fff;padding:90px 0;">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 54px;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--sunrise-300);font-family:var(--font-mono);">Results</span>
+        <h2 style="font-size:38px;color:#fff;margin:12px 0 14px;">Proof across industries</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;margin-bottom:40px;">
+        <div style="background:var(--navy-800);border:1px solid var(--navy-700);border-radius:var(--r-card);padding:32px;">
+          <div style="font-family:var(--font-mono);font-size:44px;font-weight:700;color:var(--sunrise-300);">+312%</div>
+          <h3 style="font-size:18px;color:#fff;margin:10px 0 8px;">Solo SaaS</h3>
+          <p style="font-size:14.5px;color:var(--navy-300);line-height:1.55;margin:0 0 16px;">How a solo SaaS founder grew signups in a single quarter.</p>
+          <a href="work.html" style="color:var(--sunrise-300);font-weight:600;text-decoration:none;font-size:14px;">Read the story &rarr;</a>
+        </div>
+
+        <div style="background:var(--navy-800);border:1px solid var(--navy-700);border-radius:var(--r-card);padding:32px;">
+          <div style="font-family:var(--font-mono);font-size:44px;font-weight:700;color:var(--ice);">−58%</div>
+          <h3 style="font-size:18px;color:#fff;margin:10px 0 8px;">Bootstrapped D2C</h3>
+          <p style="font-size:14.5px;color:var(--navy-300);line-height:1.55;margin:0 0 16px;">How a D2C brand cut what it paid for every sale.</p>
+          <a href="work.html" style="color:var(--ice);font-weight:600;text-decoration:none;font-size:14px;">Read the story &rarr;</a>
+        </div>
+
+        <div style="background:var(--navy-800);border:1px solid var(--navy-700);border-radius:var(--r-card);padding:32px;">
+          <div style="font-family:var(--font-mono);font-size:44px;font-weight:700;color:var(--summit-gold);">4.1×</div>
+          <h3 style="font-size:18px;color:#fff;margin:10px 0 8px;">Indie app</h3>
+          <p style="font-size:14.5px;color:var(--navy-300);line-height:1.55;margin:0 0 16px;">From invisible to the AI answer box in 60 days.</p>
+          <a href="work.html" style="color:var(--summit-gold);font-weight:600;text-decoration:none;font-size:14px;">Read the story &rarr;</a>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <a href="work.html" class="btn btn-ghost" style="color:#fff;border-color:var(--navy-600);">See all work &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Approach -->
+  <section class="section" style="background:#fff;padding:90px 0;">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 54px;">
+        <span class="eyebrow">Our Approach</span>
+        <h2 style="font-size:38px;margin:12px 0 14px;">Industry insight first. AI speed second.</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+        <div style="background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--r-card);padding:28px 24px;">
+          <div style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--brand-fg);margin-bottom:12px;">STEP 01</div>
+          <h3 style="font-size:18px;margin:0 0 10px;">Learn your market</h3>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.6;margin:0;">We study your buyers, competitors, search behavior, and industry rules before recommending anything.</p>
+        </div>
+        <div style="background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--r-card);padding:28px 24px;">
+          <div style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--brand-fg);margin-bottom:12px;">STEP 02</div>
+          <h3 style="font-size:18px;margin:0 0 10px;">Build your growth route</h3>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.6;margin:0;">We choose the channels that fit your industry, whether that's search, ads, content, video, or outbound, rather than forcing a one-size-fits-all plan.</p>
+        </div>
+        <div style="background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--r-card);padding:28px 24px;">
+          <div style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--brand-fg);margin-bottom:12px;">STEP 03</div>
+          <h3 style="font-size:18px;margin:0 0 10px;">Launch with AI speed</h3>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.6;margin:0;">AI accelerates research, creative testing, and reporting, so you see results sooner.</p>
+        </div>
+        <div style="background:var(--bg-inset);border:1px solid var(--border);border-radius:var(--r-card);padding:28px 24px;">
+          <div style="font-family:var(--font-mono);font-size:13px;font-weight:700;color:var(--brand-fg);margin-bottom:12px;">STEP 04</div>
+          <h3 style="font-size:18px;margin:0 0 10px;">Scale what works</h3>
+          <p style="font-size:14px;color:var(--fg2);line-height:1.6;margin:0;">We track what brings in leads and revenue in your market, and put more behind it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Bring To Every Industry -->
+  <section class="section" style="padding:90px 0;background:var(--snow);">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 54px;">
+        <span class="eyebrow">Capabilities</span>
+        <h2 style="font-size:38px;margin:12px 0 14px;">What We Bring To Every Industry</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px;">
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">SEO, AEO &amp; GEO</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Be found on Google and recommended by ChatGPT, Perplexity, and Gemini.</p>
+          <a href="services/seo-aeo-geo.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">AI-Powered Marketing</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Automated campaigns, audience insights, and nurture flows.</p>
+          <a href="services/ai-powered-marketing.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">Performance &amp; Lead Gen</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Paid search, paid social, CRO, and outbound.</p>
+          <a href="services/performance-lead-generation.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">Content, Video &amp; Authority</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Content that ranks, video that converts, and founder thought leadership.</p>
+          <a href="services/content-video-thought-leadership.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">Web &amp; Ecommerce</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Fast, high-converting websites and Shopify stores.</p>
+          <a href="services/web-ecommerce-experience.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+        <div class="ind-card">
+          <h3 style="font-size:20px;margin:0 0 8px;">Branding</h3>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0 0 14px;">Positioning, visual identity, and pitch-ready brand assets.</p>
+          <a href="services/branding.html" style="color:var(--brand-fg);font-size:14px;font-weight:600;text-decoration:none;">View Service &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Bootsolo -->
+  <section class="section" style="background:#fff;padding:90px 0;">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 54px;">
+        <span class="eyebrow">The Advantage</span>
+        <h2 style="font-size:38px;margin:12px 0 14px;">Why Bootsolo</h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;">
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">Industry-aware strategy</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">We plan around how your buyers decide and the rules your industry follows.</p>
+        </div>
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">Compliance-aware campaigns</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">For regulated industries like healthcare and financial services, we build campaigns with advertising rules in mind.</p>
+        </div>
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">Built for lean teams</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">Senior strategy and AI-powered execution without enterprise retainers.</p>
+        </div>
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">One team, every channel</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">Search, ads, content, web, and branding working together, not across five vendors.</p>
+        </div>
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">You own everything</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">Accounts, content, data, and designs stay yours.</p>
+        </div>
+        <div style="background:var(--bg-inset);padding:28px;border-radius:var(--r-card);border:1px solid var(--border);">
+          <h3 style="font-size:18px;margin:0 0 8px;">No long-term contracts</h3>
+          <p style="font-size:14.5px;color:var(--fg2);line-height:1.6;margin:0;">Stay because it's working.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Don't See Your Industry -->
+  <section class="section" style="padding:72px 0;background:var(--frost);text-align:center;">
+    <div class="wrap">
+      <div style="max-width:740px;margin:0 auto;background:#fff;padding:48px 36px;border-radius:var(--r-card);border:1px solid rgba(56,182,245,0.3);box-shadow:var(--shadow-1);">
+        <h2 style="font-size:32px;margin:0 0 14px;">Don't see your industry?</h2>
+        <p style="font-size:17px;font-weight:600;color:var(--summit);margin:0 0 10px;">If your customers search, scroll, or ask AI, we can help you reach them.</p>
+        <p style="font-size:15px;color:var(--fg2);line-height:1.6;margin:0 0 28px;">Our approach works for any business that wants more leads, sales, or visibility. Tell us about your market, and we'll show you how we'd approach it, for free.</p>
+        <a href="#roadmap-form" class="btn btn-primary">Tell Us About Your Business &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" style="background:#fff;padding:90px 0;">
+    <div class="wrap">
+      <div style="text-align:center;max-width:760px;margin:0 auto 48px;">
+        <span class="eyebrow">FAQ</span>
+        <h2 style="font-size:38px;margin:12px 0 14px;">Frequently Asked Questions</h2>
+      </div>
+
+      <div style="max-width:760px;margin:0 auto;">
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Do you have experience in my industry?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            We've worked with businesses across SaaS, ecommerce, apps, and services. For every client, we start with dedicated research into your market, competitors, and buyers, so strategy is built on your industry's realities, not assumptions.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Can you market businesses in regulated industries?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            Yes. For healthcare, financial services, and Web3, we plan campaigns around the relevant advertising rules and platform policies, and focus on channels that build trust safely.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Do you only work with startups?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            No. We're built for lean teams, which includes startups, growing businesses, and established brands that want senior strategy without agency bloat.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Which marketing channels work best for my industry?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            It depends on how your buyers decide. Your free roadmap will recommend the channels most likely to work for your industry and stage.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>How quickly can we start?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            Most engagements begin within 1–2 weeks of your growth call.
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+            <span>Am I locked into a contract?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="accordion-content">
+            No. Bootsolo has no long-term contracts.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lead Magnet Section -->
+  <section class="section" style="padding:80px 0;background:var(--snow);border-top:1px solid var(--border);">
+    <div class="wrap">
+      <div style="max-width:760px;margin:0 auto;background:#fff;border:1px solid var(--border);border-radius:var(--r-card);padding:44px 36px;box-shadow:var(--shadow-1);">
+        <h2 style="font-size:28px;text-align:center;margin:0 0 12px;">Not ready for a call? Get your industry growth checklist.</h2>
+        <p style="font-size:15px;color:var(--fg2);text-align:center;line-height:1.6;margin:0 0 28px;">
+          The Industry Growth Checklist: the channels, content, and conversion basics that matter most in your industry, so you can see where you're strong and where you're leaving growth on the table.
+        </p>
+        <form action="/api/leads" method="POST" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;align-items:flex-end;">
+          <input type="hidden" name="form_type" value="checklist">
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Name</label>
+            <input type="text" name="name" required placeholder="Your Name" style="width:100%;height:44px;padding:0 12px;border:1px solid var(--border);border-radius:8px;">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Email</label>
+            <input type="email" name="email" required placeholder="you@company.com" style="width:100%;height:44px;padding:0 12px;border:1px solid var(--border);border-radius:8px;">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;display:block;margin-bottom:6px;">Industry</label>
+            <select name="service_interested" style="width:100%;height:44px;padding:0 10px;border:1px solid var(--border);border-radius:8px;">
+              <option value="B2B SaaS & Technology">B2B SaaS &amp; Technology</option>
+              <option value="Ecommerce & D2C">Ecommerce &amp; D2C</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Healthcare & Wellness">Healthcare &amp; Wellness</option>
+              <option value="Education & EdTech">Education &amp; EdTech</option>
+              <option value="Web3 & Blockchain">Web3 &amp; Blockchain</option>
+              <option value="Fintech & Financial Services">Fintech &amp; Financial Services</option>
+              <option value="Mobile Apps & Startups">Mobile Apps &amp; Startups</option>
+              <option value="Professional Services">Professional Services</option>
+              <option value="Hospitality & Travel">Hospitality &amp; Travel</option>
+              <option value="Food & Beverage">Food &amp; Beverage</option>
+              <option value="Fitness, Beauty & Lifestyle">Fitness, Beauty &amp; Lifestyle</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:44px;justify-content:center;">Send My Checklist</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA & Form -->
+  <section class="section" id="roadmap-form" style="padding:90px 0;background:var(--summit);color:#fff;">
+    <div class="wrap">
+      <div style="max-width:760px;margin:0 auto 48px;text-align:center;">
+        <span style="font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--sunrise-300);font-family:var(--font-mono);">Start Climbing</span>
+        <h2 style="font-size:42px;color:#fff;margin:12px 0 16px;">Let's build a growth plan for your industry.</h2>
+        <p style="font-size:17.5px;color:var(--navy-300);line-height:1.6;margin:0 auto;">
+          Get a free industry growth roadmap: how your competitors are winning customers, where you're missing visibility, and the three moves most likely to bring in leads or sales for a business like yours. No pressure, no bloated proposal.
+        </p>
+      </div>
+
+      <div style="max-width:640px;margin:0 auto;background:var(--navy-850);border:1px solid var(--navy-700);border-radius:var(--r-md);padding:40px 36px;">
+        <h3 style="font-size:24px;color:#fff;margin:0 0 6px;">Get your free industry growth roadmap</h3>
+        <p style="font-size:14px;color:var(--navy-300);margin:0 0 24px;">Takes 60 seconds. We'll reply within 24 hours.</p>
+
+        <form action="/api/leads" method="POST" style="display:flex;flex-direction:column;gap:16px;">
+          <input type="hidden" name="form_type" value="roadmap">
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">Name</label>
+            <input type="text" name="name" required placeholder="Jane Doe" style="width:100%;height:46px;padding:0 14px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">Email</label>
+            <input type="email" name="email" required placeholder="jane@startup.com" style="width:100%;height:46px;padding:0 14px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">Website</label>
+            <input type="text" name="website" placeholder="https://yourwebsite.com" style="width:100%;height:46px;padding:0 14px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">Industry</label>
+            <select name="service_interested" style="width:100%;height:46px;padding:0 12px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+              <option value="B2B SaaS & Technology">B2B SaaS &amp; Technology</option>
+              <option value="Ecommerce & D2C">Ecommerce &amp; D2C</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Healthcare & Wellness">Healthcare &amp; Wellness</option>
+              <option value="Education & EdTech">Education &amp; EdTech</option>
+              <option value="Web3 & Blockchain">Web3 &amp; Blockchain</option>
+              <option value="Fintech & Financial Services">Fintech &amp; Financial Services</option>
+              <option value="Mobile Apps & Startups">Mobile Apps &amp; Startups</option>
+              <option value="Professional Services">Professional Services</option>
+              <option value="Hospitality & Travel">Hospitality &amp; Travel</option>
+              <option value="Food & Beverage">Food &amp; Beverage</option>
+              <option value="Fitness, Beauty & Lifestyle">Fitness, Beauty &amp; Lifestyle</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">What's your main goal?</label>
+            <select name="message" style="width:100%;height:46px;padding:0 12px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+              <option value="Goal: More leads">more leads</option>
+              <option value="Goal: More sales">more sales</option>
+              <option value="Goal: More visibility">more visibility</option>
+              <option value="Goal: Not sure yet">not sure yet</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:13px;font-weight:600;color:var(--navy-200);display:block;margin-bottom:6px;">Phone (optional)</label>
+            <input type="tel" name="phone" placeholder="+1 555-0192" style="width:100%;height:46px;padding:0 14px;background:var(--navy-800);border:1px solid var(--navy-700);color:#fff;border-radius:8px;">
+          </div>
+          <button type="submit" class="btn btn-primary" style="height:50px;justify-content:center;font-size:16px;margin-top:8px;">Send My Roadmap</button>
+          <div style="text-align:center;font-size:13px;color:var(--navy-400);margin-top:6px;">No spam. No pressure. Just a plan for your market.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark" style="background:var(--summit);color:#EEF3F8;padding:70px 0 40px;border-top:1px solid var(--navy-700);">
+    <div class="wrap">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;">
+        <div>
+          <strong>Bootsolo</strong> &mdash; AI-powered marketing for brands in a hurry.
+        </div>
+        <div style="display:flex;gap:20px;font-size:14px;color:var(--navy-300);">
+          <a href="services.html" style="color:inherit;text-decoration:none;">Services</a>
+          <a href="pricing.html" style="color:inherit;text-decoration:none;">Pricing</a>
+          <a href="industries.html" style="color:var(--sunrise-300);text-decoration:none;">Industries</a>
+          <a href="work.html" style="color:inherit;text-decoration:none;">Work</a>
+          <a href="resources.html" style="color:inherit;text-decoration:none;">Resources</a>
+          <a href="blogs.html" style="color:inherit;text-decoration:none;">Blogs</a>
+        </div>
+      </div>
+      <div style="margin-top:36px;padding-top:20px;border-top:1px solid var(--navy-700);font-size:13px;color:var(--navy-400);display:flex;justify-content:space-between;">
+        <span>&copy; 2026 Bootsolo, Inc. All rights reserved.</span>
+        <span>For the ones who started solo.</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
