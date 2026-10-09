@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { useState, useEffect, Suspense } from 'react'
+import { usePathname, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import Brand from './Brand'
 import { 
@@ -275,26 +275,11 @@ const INDUSTRIES_NAV_DATA = [
   }
 ];
 
-export default function Header() {
+function HeaderContent() {
   const pathname = usePathname();
-  const [currentTab, setCurrentTab] = useState(null);
-
-  useEffect(() => {
-    const updateTab = () => {
-      if (typeof window !== 'undefined') {
-        const params = new URLSearchParams(window.location.search);
-        const tab = params.get('tab');
-        if (pathname === '/seo-aeo-geo') {
-          setCurrentTab(tab || 'aeo');
-        } else {
-          setCurrentTab(tab);
-        }
-      }
-    };
-    updateTab();
-    window.addEventListener('popstate', updateTab);
-    return () => window.removeEventListener('popstate', updateTab);
-  }, [pathname]);
+  const searchParams = useSearchParams();
+  const rawTab = searchParams ? searchParams.get('tab') : null;
+  const currentTab = pathname === '/seo-aeo-geo' ? (rawTab || 'seo') : rawTab;
 
   if (pathname?.startsWith('/admin')) return null;
   const [isOpen, setIsOpen] = useState(false);
@@ -632,11 +617,11 @@ export default function Header() {
                                 fontSize: '11.5px',
                                 padding: '4px 10px',
                                 borderRadius: '6px',
-                                background: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? 'var(--sunrise)' : 'rgba(255,255,255,0.08)',
+                                background: pathname === '/seo-aeo-geo' && currentTab === 'seo' ? 'var(--sunrise)' : 'rgba(255,255,255,0.08)',
                                 color: '#FFFFFF',
-                                fontWeight: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? 700 : 500,
+                                fontWeight: pathname === '/seo-aeo-geo' && currentTab === 'seo' ? 700 : 500,
                                 textDecoration: 'none',
-                                boxShadow: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? '0 2px 8px rgba(255,107,53,0.35)' : 'none'
+                                boxShadow: pathname === '/seo-aeo-geo' && currentTab === 'seo' ? '0 2px 8px rgba(255,107,53,0.35)' : 'none'
                               }}
                             >
                               SEO Tab
@@ -759,5 +744,19 @@ export default function Header() {
         </>
       )}
     </nav>
+  );
+}
+
+export default function Header() {
+  return (
+    <Suspense fallback={
+      <nav className="nav">
+        <div className="wrap nav-inner">
+          <Brand />
+        </div>
+      </nav>
+    }>
+      <HeaderContent />
+    </Suspense>
   );
 }
