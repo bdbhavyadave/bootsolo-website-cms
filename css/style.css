@@ -371,6 +371,33 @@ html {
   transform: translateX(3px);
 }
 
+.mega-tab-btn.is-current-page:not(.active) {
+  background: rgba(255, 107, 53, 0.05);
+  border-color: rgba(255, 107, 53, 0.25);
+}
+.mega-tab-btn.is-current-page:not(.active) .mega-tab-icon-box {
+  background: rgba(255, 107, 53, 0.12);
+  color: var(--sunrise);
+}
+.mega-tab-btn.is-current-page:not(.active) .mega-tab-label {
+  color: var(--sunrise-800);
+}
+
+.mega-tab-current-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(255, 107, 53, 0.15);
+  color: var(--sunrise);
+  margin-left: 6px;
+  line-height: 1;
+}
+
 /* Right Content Area */
 .mega-content-area {
   flex: 1;

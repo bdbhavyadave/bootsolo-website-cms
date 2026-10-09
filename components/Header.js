@@ -281,11 +281,13 @@ function HeaderContent() {
   const rawTab = searchParams ? searchParams.get('tab') : null;
   const currentTab = pathname === '/seo-aeo-geo' ? (rawTab || 'seo') : rawTab;
 
-  if (pathname?.startsWith('/admin')) return null;
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
-  const [activeServiceTab, setActiveServiceTab] = useState('seo-aeo-geo');
+  const [activeServiceTab, setActiveServiceTab] = useState(() => {
+    const matched = SERVICES_NAV_DATA.find(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`));
+    return matched ? matched.id : 'seo-aeo-geo';
+  });
 
   const isServicesActive = SERVICES_NAV_DATA.some(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`)) || pathname === '/services';
   const isIndustriesActive = pathname?.startsWith('/industries');
@@ -332,6 +334,8 @@ function HeaderContent() {
     setIsIndustriesOpen(false);
   };
 
+  if (pathname?.startsWith('/admin')) return null;
+
   return (
     <nav className="nav">
       <div className="wrap nav-inner">
@@ -350,17 +354,24 @@ function HeaderContent() {
               Services <ChevronDown size={14} />
             </Link>
             
-            <div className="mega-menu mega-split-menu">
+            <div 
+              className="mega-menu mega-split-menu"
+              onMouseLeave={() => {
+                const currentService = SERVICES_NAV_DATA.find(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`));
+                setActiveServiceTab(currentService ? currentService.id : 'seo-aeo-geo');
+              }}
+            >
               {/* Left Sidebar */}
               <div className="mega-sidebar">
                 <div className="mega-sidebar-header">Capabilities</div>
                 {SERVICES_NAV_DATA.map((service) => {
                   const IconComponent = service.icon;
                   const isActive = activeServiceTab === service.id;
+                  const isCurrentPage = pathname === service.slug || pathname?.startsWith(`${service.slug}/`);
                   return (
                     <div
                       key={service.id}
-                      className={`mega-tab-btn ${isActive ? 'active' : ''}`}
+                      className={`mega-tab-btn ${isActive ? 'active' : ''} ${isCurrentPage ? 'is-current-page' : ''}`}
                       onMouseEnter={() => setActiveServiceTab(service.id)}
                     >
                       <Link href={service.slug} className="mega-tab-btn-content">
@@ -369,6 +380,9 @@ function HeaderContent() {
                             <IconComponent size={16} />
                           </div>
                           <span className="mega-tab-label">{service.title}</span>
+                          {isCurrentPage && !isActive && (
+                            <span className="mega-tab-current-badge">Current</span>
+                          )}
                         </div>
                         <ChevronRight size={15} className="mega-tab-arrow" />
                       </Link>
