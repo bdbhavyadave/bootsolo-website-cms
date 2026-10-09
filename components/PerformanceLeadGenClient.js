@@ -88,53 +88,53 @@ export default function PerformanceLeadGenClient() {
   return (
     <div className="perf-leadgen-page-root">
       {/* HERO SECTION */}
-      <header className="hero dark" style={{ padding: '72px 0 84px', borderBottom: '1px solid var(--navy-700)', background: 'radial-gradient(circle at 75% 25%, #18283e 0%, #0a1320 85%)' }}>
-        <div className="wrap" style={{ maxWidth: '1280px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '48px', alignItems: 'center' }}>
+      <header className="hero dark" style={{ minHeight: 'calc(100vh - 66px)', padding: '24px 0 32px', borderBottom: '1px solid var(--navy-700)', background: 'radial-gradient(circle at 75% 25%, #18283e 0%, #0a1320 85%)', display: 'flex', alignItems: 'center', boxSizing: 'border-box' }}>
+        <div className="wrap" style={{ maxWidth: '1280px', width: '100%', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '36px', alignItems: 'center' }}>
           
           {/* Left Column */}
           <div style={{ textAlign: 'left' }}>
-            <span className="kick" style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '6px 14px', background: 'rgba(255,107,53,0.12)', border: '1px solid rgba(255,107,53,0.35)', borderRadius: '999px', fontSize: '12px', color: 'var(--sunrise-300)', marginBottom: '18px', fontWeight: 600 }}>
-              <TrendingUp size={14} />
+            <span className="kick" style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', padding: '5px 12px', background: 'rgba(255,107,53,0.12)', border: '1px solid rgba(255,107,53,0.35)', borderRadius: '999px', fontSize: '11.5px', color: 'var(--sunrise-300)', marginBottom: '12px', fontWeight: 600 }}>
+              <TrendingUp size={13} />
               Performance Marketing &amp; Lead Generation
             </span>
             
-            <h1 className="h-display" style={{ fontSize: 'clamp(32px, 3.8vw, 54px)', margin: '0 0 16px', lineHeight: 1.08, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
+            <h1 className="h-display" style={{ fontSize: 'clamp(28px, 3.2vw, 46px)', margin: '0 0 12px', lineHeight: 1.1, color: '#FFFFFF', letterSpacing: '-0.03em' }}>
               Stop paying for clicks. <span style={{ color: 'var(--sunrise-300)' }}>Start paying for pipeline.</span>
             </h1>
             
-            <p className="h-sub" style={{ fontSize: 'clamp(16px, 1.35vw, 19px)', color: 'var(--navy-200)', margin: '0 0 28px', lineHeight: 1.6, maxWidth: '620px' }}>
+            <p className="h-sub" style={{ fontSize: 'clamp(14.5px, 1.15vw, 17px)', color: 'var(--navy-200)', margin: '0 0 20px', lineHeight: 1.55, maxWidth: '580px' }}>
               We run your ads, fix the pages they land on, and build outbound systems that fill your calendar with qualified leads. Lean plans, clear reporting, and every dollar tracked to an outcome.
             </p>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', gap: '14px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '24px' }}>
-              <a className="btn btn-primary" href="#roadmap-form" style={{ padding: '12px 26px', fontSize: '15px', boxShadow: '0 0 24px rgba(255,107,53,0.45)', textDecoration: 'none' }}>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap', marginBottom: '18px' }}>
+              <a className="btn btn-primary" href="#roadmap-form" style={{ padding: '10px 22px', fontSize: '14px', boxShadow: '0 0 24px rgba(255,107,53,0.45)', textDecoration: 'none' }}>
                 Get My Free Growth Roadmap &rarr;
               </a>
-              <a className="btn btn-ghost" href="#pricing" style={{ padding: '12px 22px', fontSize: '15px', color: '#FFFFFF', borderColor: 'var(--navy-500)', textDecoration: 'none' }}>
+              <a className="btn btn-ghost" href="#pricing" style={{ padding: '10px 18px', fontSize: '14px', color: '#FFFFFF', borderColor: 'var(--navy-500)', textDecoration: 'none' }}>
                 See Plans &amp; Pricing
               </a>
             </div>
 
             {/* Proof Strip directly under the CTAs */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--navy-700)', borderRadius: '12px', padding: '12px 18px', marginTop: '24px', color: 'var(--navy-200)', fontSize: '13.5px', lineHeight: '1.4' }}>
-              <div><strong style={{ color: '#fff' }}>+312%</strong> signups for a solo SaaS founder in one quarter</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--navy-700)', borderRadius: '10px', padding: '9px 14px', color: 'var(--navy-200)', fontSize: '12.5px', lineHeight: '1.4' }}>
+              <div><strong style={{ color: '#fff' }}>+312%</strong> signups in one quarter</div>
               <span style={{ color: 'var(--navy-500)' }}>&middot;</span>
-              <div><strong style={{ color: '#fff' }}>&minus;58%</strong> cost per sale for a bootstrapped D2C brand</div>
+              <div><strong style={{ color: '#fff' }}>&minus;58%</strong> cost per sale for D2C</div>
               <span style={{ color: 'var(--navy-500)' }}>&middot;</span>
-              <div><strong style={{ color: '#fff' }}>4,000+</strong> solopreneurs in our community</div>
+              <div><strong style={{ color: '#fff' }}>4,000+</strong> solopreneurs</div>
             </div>
 
             {/* Trust line */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingTop: '16px', color: 'var(--navy-300)', fontSize: '13.5px' }}>
-              <ShieldCheck size={18} color="#1FBF75" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '12px', color: 'var(--navy-300)', fontSize: '12.5px' }}>
+              <ShieldCheck size={16} color="#1FBF75" />
               <span><strong>No long-term contracts</strong> &middot; <strong>Plain-language reporting</strong> &middot; <strong>Works at any budget</strong></span>
             </div>
           </div>
 
           {/* Right Column (Console Telemetry) */}
           <div>
-            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8', minHeight: '395px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ background: 'rgba(13, 23, 37, 0.96)', border: '1px solid var(--navy-600)', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(0, 0, 0, 0.55), 0 0 30px rgba(255, 107, 53, 0.12)', backdropFilter: 'blur(16px)', color: '#EEF3F8', display: 'flex', flexDirection: 'column' }}>
               <div style={{ background: '#09111c', padding: '12px 18px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '1px solid var(--navy-700)', gap: '12px' }}>
                 <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
                   <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#FF5F56' }}></span>
