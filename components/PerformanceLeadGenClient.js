@@ -762,25 +762,31 @@ export default function PerformanceLeadGenClient() {
               { id: 'search', label: 'Paid Search (Monthly)' },
               { id: 'cro', label: 'CRO (One-Time)' },
               { id: 'leadgen', label: 'Lead Gen (Monthly)' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setPricingCategory(tab.id)}
-                style={{
-                  background: pricingCategory === tab.id ? 'var(--summit)' : 'var(--white)',
-                  color: pricingCategory === tab.id ? '#FFFFFF' : 'var(--summit)',
-                  border: '1px solid var(--border)',
-                  borderRadius: '999px',
-                  padding: '9px 20px',
-                  fontSize: '13.5px',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  transition: 'all 170ms ease'
-                }}
-              >
-                {tab.label}
-              </button>
-            ))}
+            ].map((tab) => {
+              const isActive = pricingCategory === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setPricingCategory(tab.id)}
+                  className={`pricing-filter-pill ${isActive ? 'active' : ''}`}
+                  style={{
+                    background: isActive ? 'var(--summit)' : 'var(--white)',
+                    color: isActive ? '#FFFFFF' : 'var(--summit)',
+                    border: `1.5px solid ${isActive ? 'var(--summit)' : 'var(--border)'}`,
+                    borderRadius: '999px',
+                    padding: '9px 20px',
+                    fontSize: '13.5px',
+                    fontWeight: isActive ? 700 : 500,
+                    cursor: 'pointer',
+                    transition: 'all 180ms ease',
+                    boxShadow: isActive ? '0 4px 14px rgba(14, 26, 43, 0.2), 0 0 0 2px rgba(255, 107, 53, 0.18)' : 'none',
+                    transform: isActive ? 'translateY(-1px)' : 'none'
+                  }}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
           </div>
 
           {/* 1. Paid Social */}

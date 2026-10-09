@@ -687,27 +687,33 @@ export default function AiMarketingClient() {
 
           {/* Pricing Filter Buttons */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', margin: '0 0 36px', flexWrap: 'wrap' }}>
-            {['all', 'ai-mkt', 'vibe', 'automation'].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setPricingCategory(cat)}
-                style={{
-                  padding: '9px 18px',
-                  borderRadius: '999px',
-                  fontSize: '13.5px',
-                  fontWeight: 600,
-                  cursor: 'pointer',
-                  border: '1px solid',
-                  background: pricingCategory === cat ? 'var(--summit)' : 'var(--white)',
-                  color: pricingCategory === cat ? '#fff' : 'var(--fg2)',
-                  borderColor: pricingCategory === cat ? 'var(--summit)' : 'var(--border-strong)'
-                }}>
-                {cat === 'all' && 'All Plans'}
-                {cat === 'ai-mkt' && 'AI-Powered Marketing (Monthly)'}
-                {cat === 'vibe' && 'Vibe Marketing'}
-                {cat === 'automation' && 'Marketing Automation'}
-              </button>
-            ))}
+            {['all', 'ai-mkt', 'vibe', 'automation'].map((cat) => {
+              const isActive = pricingCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setPricingCategory(cat)}
+                  className={`pricing-filter-pill ${isActive ? 'active' : ''}`}
+                  style={{
+                    padding: '9px 20px',
+                    borderRadius: '999px',
+                    fontSize: '13.5px',
+                    fontWeight: isActive ? 700 : 500,
+                    cursor: 'pointer',
+                    border: `1.5px solid ${isActive ? 'var(--summit)' : 'var(--border-strong)'}`,
+                    background: isActive ? 'var(--summit)' : 'var(--white)',
+                    color: isActive ? '#fff' : 'var(--fg2)',
+                    boxShadow: isActive ? '0 4px 14px rgba(14, 26, 43, 0.2), 0 0 0 2px rgba(255, 107, 53, 0.18)' : 'none',
+                    transform: isActive ? 'translateY(-1px)' : 'none',
+                    transition: 'all 180ms ease'
+                  }}>
+                  {cat === 'all' && 'All Plans'}
+                  {cat === 'ai-mkt' && 'AI-Powered Marketing (Monthly)'}
+                  {cat === 'vibe' && 'Vibe Marketing'}
+                  {cat === 'automation' && 'Marketing Automation'}
+                </button>
+              );
+            })}
           </div>
 
           {/* AI-Powered Marketing */}

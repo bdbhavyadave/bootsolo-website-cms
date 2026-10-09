@@ -283,6 +283,12 @@ export default function Header() {
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState('seo-aeo-geo');
 
+  const isServicesActive = SERVICES_NAV_DATA.some(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`)) || pathname === '/services';
+  const isIndustriesActive = pathname?.startsWith('/industries');
+  const isPricingActive = pathname === '/pricing';
+  const isResourcesActive = pathname === '/resources';
+  const isBlogsActive = pathname === '/blogs' || pathname?.startsWith('/blog');
+
   // Close drawer on window resize above 992px or on Escape key
   useEffect(() => {
     const handleResize = () => {
@@ -324,7 +330,11 @@ export default function Header() {
           
           {/* Services Mega Menu */}
           <div className="nav-item-has-mega">
-            <Link href="#services" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Link 
+              href="#services" 
+              className={`nav-link-item ${isServicesActive ? 'active' : ''}`}
+              style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+            >
               Services <ChevronDown size={14} />
             </Link>
             
@@ -421,11 +431,21 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/pricing" style={{ display: 'flex', alignItems: 'center' }}>Pricing</Link>
+          <Link 
+            href="/pricing" 
+            className={`nav-link-item ${isPricingActive ? 'active' : ''}`}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            Pricing
+          </Link>
           
           {/* Industries with Dropdown Sub-Tabs */}
           <div className="nav-item-has-dropdown">
-            <Link href="/industries" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <Link 
+              href="/industries" 
+              className={`nav-link-item ${isIndustriesActive ? 'active' : ''}`}
+              style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+            >
               Industries <ChevronDown size={14} />
             </Link>
 
@@ -486,8 +506,20 @@ export default function Header() {
             </div>
           </div>
 
-          <Link href="/resources" style={{ display: 'flex', alignItems: 'center' }}>Resources</Link>
-          <Link href="/blogs" style={{ display: 'flex', alignItems: 'center' }}>Blogs</Link>
+          <Link 
+            href="/resources" 
+            className={`nav-link-item ${isResourcesActive ? 'active' : ''}`}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            Resources
+          </Link>
+          <Link 
+            href="/blogs" 
+            className={`nav-link-item ${isBlogsActive ? 'active' : ''}`}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            Blogs
+          </Link>
         </div>
 
         <div className="nav-spacer"></div>
@@ -527,7 +559,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className="mobile-drawer-link"
+                className={`mobile-drawer-link ${isServicesActive ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
               >
                 <span>Services</span>
@@ -543,7 +575,7 @@ export default function Header() {
                           <Link
                             href={item.slug}
                             onClick={closeMenu}
-                            style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '4px 0', fontWeight: 600 }}
+                            style={{ fontSize: '14.5px', color: pathname === '/seo-aeo-geo' ? 'var(--sunrise)' : 'var(--sunrise-300)', padding: '4px 0', fontWeight: 600 }}
                           >
                             {item.title}
                           </Link>
@@ -573,12 +605,13 @@ export default function Header() {
                         </div>
                       );
                     }
+                    const isSubActive = pathname === item.slug;
                     return (
                       <Link
                         key={item.slug}
                         href={item.slug}
                         onClick={closeMenu}
-                        style={{ fontSize: '14.5px', color: 'var(--sunrise-300)', padding: '5px 0' }}
+                        style={{ fontSize: '14.5px', color: isSubActive ? 'var(--sunrise)' : 'var(--sunrise-300)', fontWeight: isSubActive ? 600 : 400, padding: '5px 0' }}
                       >
                         {item.title}
                       </Link>
@@ -587,7 +620,7 @@ export default function Header() {
                 </div>
               )}
 
-              <Link href="/pricing" className="mobile-drawer-link" onClick={closeMenu}>
+              <Link href="/pricing" className={`mobile-drawer-link ${isPricingActive ? 'active' : ''}`} onClick={closeMenu}>
                 Pricing <ArrowRight size={16} />
               </Link>
 
@@ -595,7 +628,7 @@ export default function Header() {
               <button
                 type="button"
                 onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
-                className="mobile-drawer-link"
+                className={`mobile-drawer-link ${isIndustriesActive ? 'active' : ''}`}
                 style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
               >
                 <span>Industries</span>
@@ -607,7 +640,7 @@ export default function Header() {
                   <Link
                     href="/industries/b2b-saas-technology"
                     onClick={closeMenu}
-                    style={{ fontSize: '14px', color: 'var(--sunrise)', fontWeight: 700, padding: '4px 0', display: 'flex', alignItems: 'center', gap: '6px' }}
+                    style={{ fontSize: '14px', color: pathname === '/industries/b2b-saas-technology' ? 'var(--sunrise)' : 'var(--fg1)', fontWeight: 700, padding: '4px 0', display: 'flex', alignItems: 'center', gap: '6px' }}
                   >
                     <span>★ B2B SaaS &amp; Technology</span>
                     <span style={{ fontSize: '10px', background: 'rgba(255,107,53,0.16)', padding: '2px 5px', borderRadius: '3px' }}>NEW</span>
@@ -627,17 +660,17 @@ export default function Header() {
                   <Link
                     href="/industries"
                     onClick={closeMenu}
-                    style={{ fontSize: '13.5px', color: 'var(--sunrise-300)', padding: '5px 0', fontWeight: 600 }}
+                    style={{ fontSize: '13.5px', color: pathname === '/industries' ? 'var(--sunrise)' : 'var(--sunrise-300)', padding: '5px 0', fontWeight: 600 }}
                   >
                     View All 12 Industries →
                   </Link>
                 </div>
               )}
 
-              <Link href="/resources" className="mobile-drawer-link" onClick={closeMenu}>
+              <Link href="/resources" className={`mobile-drawer-link ${isResourcesActive ? 'active' : ''}`} onClick={closeMenu}>
                 Resources <ArrowRight size={16} />
               </Link>
-              <Link href="/blogs" className="mobile-drawer-link" onClick={closeMenu}>
+              <Link href="/blogs" className={`mobile-drawer-link ${isBlogsActive ? 'active' : ''}`} onClick={closeMenu}>
                 Blogs <ArrowRight size={16} />
               </Link>
             </div>

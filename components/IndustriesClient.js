@@ -552,27 +552,32 @@ export default function IndustriesClient() {
                 { id: 'commerce', label: 'Ecommerce & D2C' },
                 { id: 'regulated', label: 'Regulated & Fintech' },
                 { id: 'services', label: 'Services & Real Estate' },
-              ].map(f => (
-                <button
-                  key={f.id}
-                  type="button"
-                  onClick={() => setSelectedFilter(f.id)}
-                  style={{
-                    padding: '8px 16px',
-                    borderRadius: 'var(--r-pill)',
-                    fontSize: '13.5px',
-                    fontWeight: 600,
-                    cursor: 'pointer',
-                    transition: 'all 160ms var(--ease)',
-                    background: selectedFilter === f.id ? 'var(--summit)' : 'var(--white)',
-                    color: selectedFilter === f.id ? '#FFFFFF' : 'var(--fg2)',
-                    border: `1px solid ${selectedFilter === f.id ? 'var(--summit)' : 'var(--border)'}`,
-                    boxShadow: selectedFilter === f.id ? 'var(--shadow-1)' : 'none'
-                  }}
-                >
-                  {f.label}
-                </button>
-              ))}
+              ].map(f => {
+                const isActive = selectedFilter === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    onClick={() => setSelectedFilter(f.id)}
+                    className={`filter-pill-btn ${isActive ? 'active' : ''}`}
+                    style={{
+                      padding: '8px 18px',
+                      borderRadius: 'var(--r-pill)',
+                      fontSize: '13.5px',
+                      fontWeight: isActive ? 700 : 500,
+                      cursor: 'pointer',
+                      transition: 'all 180ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                      background: isActive ? 'var(--summit)' : 'var(--white)',
+                      color: isActive ? '#FFFFFF' : 'var(--fg2)',
+                      border: `1.5px solid ${isActive ? 'var(--summit)' : 'var(--border)'}`,
+                      boxShadow: isActive ? '0 4px 14px rgba(14, 26, 43, 0.25), 0 0 0 2px rgba(255, 107, 53, 0.2)' : 'none',
+                      transform: isActive ? 'translateY(-1px)' : 'none'
+                    }}
+                  >
+                    {f.label}
+                  </button>
+                );
+              })}
             </div>
 
             {/* Quick Search Input */}
