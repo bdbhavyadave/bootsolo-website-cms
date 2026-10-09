@@ -277,6 +277,15 @@ const INDUSTRIES_NAV_DATA = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [currentTab, setCurrentTab] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      setCurrentTab(params.get('tab'));
+    }
+  }, [pathname]);
+
   if (pathname?.startsWith('/admin')) return null;
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -288,6 +297,14 @@ export default function Header() {
   const isPricingActive = pathname === '/pricing';
   const isResourcesActive = pathname === '/resources';
   const isBlogsActive = pathname === '/blogs' || pathname?.startsWith('/blog');
+
+  // Synchronize mega-menu active tab with current page route
+  useEffect(() => {
+    const matchedService = SERVICES_NAV_DATA.find(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`));
+    if (matchedService) {
+      setActiveServiceTab(matchedService.id);
+    }
+  }, [pathname]);
 
   // Close drawer on window resize above 992px or on Escape key
   useEffect(() => {
@@ -398,23 +415,41 @@ export default function Header() {
 
                       {/* Clean 3-Column Sub-Cards */}
                       <div className="mega-subcols-grid">
-                        {service.subColumns.map((col, idx) => (
-                          <div key={idx} className="mega-subcol-card">
-                            <div className="mega-subcol-header">
-                              <Link href={col.link} className="mega-subcol-name-link">
-                                <span className="mega-subcol-name">{col.name}</span>
-                                <span className="mega-subcol-tag">{col.tag}</span>
+                        {service.subColumns.map((col, idx) => {
+                          const isSubColActive = (() => {
+                            if (col.link.includes('?tab=')) {
+                              const tabVal = col.link.split('?tab=')[1];
+                              return pathname === '/seo-aeo-geo' && (currentTab === tabVal || (!currentTab && tabVal === 'seo'));
+                            }
+                            return pathname === col.link;
+                          })();
+
+                          return (
+                            <div 
+                              key={idx} 
+                              className={`mega-subcol-card ${isSubColActive ? 'active' : ''}`}
+                              style={isSubColActive ? {
+                                background: '#FFFFFF',
+                                borderColor: 'var(--sunrise)',
+                                boxShadow: '0 4px 18px rgba(255, 107, 53, 0.22), 0 0 0 1px var(--sunrise)'
+                              } : {}}
+                            >
+                              <div className="mega-subcol-header">
+                                <Link href={col.link} className="mega-subcol-name-link">
+                                  <span className="mega-subcol-name" style={isSubColActive ? { color: 'var(--sunrise)' } : {}}>{col.name}</span>
+                                  <span className="mega-subcol-tag" style={isSubColActive ? { background: 'rgba(255, 107, 53, 0.15)', color: 'var(--sunrise)' } : {}}>{col.tag}</span>
+                                </Link>
+                              </div>
+                              <p className="mega-subcol-desc" style={{ minHeight: 'unset', marginBottom: '14px' }}>
+                                {col.desc}
+                              </p>
+                              <Link href={col.link} className="mega-subcol-cta" style={isSubColActive ? { color: 'var(--sunrise)', fontWeight: 700 } : {}}>
+                                <span>{col.cta}</span>
+                                <ArrowRight size={13} />
                               </Link>
                             </div>
-                            <p className="mega-subcol-desc" style={{ minHeight: 'unset', marginBottom: '14px' }}>
-                              {col.desc}
-                            </p>
-                            <Link href={col.link} className="mega-subcol-cta">
-                              <span>{col.cta}</span>
-                              <ArrowRight size={13} />
-                            </Link>
-                          </div>
-                        ))}
+                          );
+                        })}
                       </div>
 
                       {/* Mega Footer Bar */}
@@ -583,21 +618,48 @@ export default function Header() {
                             <Link
                               href="/seo-aeo-geo?tab=seo"
                               onClick={closeMenu}
-                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                              style={{
+                                fontSize: '11.5px',
+                                padding: '4px 10px',
+                                borderRadius: '6px',
+                                background: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? 'var(--sunrise)' : 'rgba(255,255,255,0.08)',
+                                color: '#FFFFFF',
+                                fontWeight: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? 700 : 500,
+                                textDecoration: 'none',
+                                boxShadow: pathname === '/seo-aeo-geo' && (currentTab === 'seo' || !currentTab) ? '0 2px 8px rgba(255,107,53,0.35)' : 'none'
+                              }}
                             >
                               SEO Tab
                             </Link>
                             <Link
                               href="/seo-aeo-geo?tab=aeo"
                               onClick={closeMenu}
-                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                              style={{
+                                fontSize: '11.5px',
+                                padding: '4px 10px',
+                                borderRadius: '6px',
+                                background: pathname === '/seo-aeo-geo' && currentTab === 'aeo' ? 'var(--sunrise)' : 'rgba(255,255,255,0.08)',
+                                color: '#FFFFFF',
+                                fontWeight: pathname === '/seo-aeo-geo' && currentTab === 'aeo' ? 700 : 500,
+                                textDecoration: 'none',
+                                boxShadow: pathname === '/seo-aeo-geo' && currentTab === 'aeo' ? '0 2px 8px rgba(255,107,53,0.35)' : 'none'
+                              }}
                             >
                               AEO Tab
                             </Link>
                             <Link
                               href="/seo-aeo-geo?tab=geo"
                               onClick={closeMenu}
-                              style={{ fontSize: '11.5px', padding: '3px 8px', borderRadius: '4px', background: 'rgba(255,255,255,0.08)', color: '#EEF3F8', textDecoration: 'none' }}
+                              style={{
+                                fontSize: '11.5px',
+                                padding: '4px 10px',
+                                borderRadius: '6px',
+                                background: pathname === '/seo-aeo-geo' && currentTab === 'geo' ? 'var(--sunrise)' : 'rgba(255,255,255,0.08)',
+                                color: '#FFFFFF',
+                                fontWeight: pathname === '/seo-aeo-geo' && currentTab === 'geo' ? 700 : 500,
+                                textDecoration: 'none',
+                                boxShadow: pathname === '/seo-aeo-geo' && currentTab === 'geo' ? '0 2px 8px rgba(255,107,53,0.35)' : 'none'
+                              }}
                             >
                               GEO Tab
                             </Link>

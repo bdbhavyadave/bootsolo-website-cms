@@ -1393,10 +1393,11 @@ body.custom-cursor-active .modal-card textarea {
 }
 
 .tab-switch-btn.active {
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.18) 0%, rgba(255, 107, 53, 0.06) 100%);
-  border-color: rgba(255, 107, 53, 0.4);
-  color: #fff;
-  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.15);
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.28) 0%, rgba(255, 107, 53, 0.12) 100%) !important;
+  border-color: var(--sunrise) !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 1px var(--sunrise), 0 8px 24px rgba(255, 107, 53, 0.35) !important;
+  transform: translateY(-1px);
 }
 
 .tab-btn-inner {
@@ -1412,14 +1413,15 @@ body.custom-cursor-active .modal-card textarea {
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--navy-300);
   transition: all 200ms ease;
 }
 
 .tab-switch-btn.active .tab-icon-box {
-  background: var(--sunrise);
-  color: #fff;
+  background: var(--sunrise) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.5);
 }
 
 .tab-text-box {
@@ -1436,6 +1438,11 @@ body.custom-cursor-active .modal-card textarea {
   letter-spacing: 0.02em;
 }
 
+.tab-switch-btn.active .tab-main-label span:first-child {
+  color: #ffffff !important;
+  text-shadow: 0 0 12px rgba(255, 107, 53, 0.4);
+}
+
 .tab-badge-mini {
   font-size: 10px;
   font-weight: 600;
@@ -1447,8 +1454,9 @@ body.custom-cursor-active .modal-card textarea {
 }
 
 .tab-switch-btn.active .tab-badge-mini {
-  background: rgba(255, 107, 53, 0.25);
-  color: var(--sunrise-200);
+  background: var(--sunrise) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
 }
 
 .tab-sub-label {
@@ -1458,7 +1466,8 @@ body.custom-cursor-active .modal-card textarea {
 }
 
 .tab-switch-btn.active .tab-sub-label {
-  color: var(--navy-200);
+  color: #EEF3F8 !important;
+  font-weight: 600;
 }
 
 /* Service Tab Hero & Layout Elements */
