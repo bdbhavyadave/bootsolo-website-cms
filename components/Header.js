@@ -280,10 +280,20 @@ export default function Header() {
   const [currentTab, setCurrentTab] = useState(null);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      setCurrentTab(params.get('tab'));
-    }
+    const updateTab = () => {
+      if (typeof window !== 'undefined') {
+        const params = new URLSearchParams(window.location.search);
+        const tab = params.get('tab');
+        if (pathname === '/seo-aeo-geo') {
+          setCurrentTab(tab || 'aeo');
+        } else {
+          setCurrentTab(tab);
+        }
+      }
+    };
+    updateTab();
+    window.addEventListener('popstate', updateTab);
+    return () => window.removeEventListener('popstate', updateTab);
   }, [pathname]);
 
   if (pathname?.startsWith('/admin')) return null;
@@ -419,7 +429,7 @@ export default function Header() {
                           const isSubColActive = (() => {
                             if (col.link.includes('?tab=')) {
                               const tabVal = col.link.split('?tab=')[1];
-                              return pathname === '/seo-aeo-geo' && (currentTab === tabVal || (!currentTab && tabVal === 'seo'));
+                              return pathname === '/seo-aeo-geo' && currentTab === tabVal;
                             }
                             return pathname === col.link;
                           })();

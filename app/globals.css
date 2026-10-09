@@ -825,6 +825,29 @@ a{color:inherit;text-decoration:none;}
   transform: translateY(-2px);
 }
 
+.mega-subcol-card.active {
+  background: #ffffff !important;
+  border: 2px solid var(--sunrise) !important;
+  box-shadow: 0 8px 24px rgba(255, 107, 53, 0.22), 0 0 0 1px var(--sunrise) !important;
+  position: relative;
+}
+
+.mega-subcol-card.active .mega-subcol-name {
+  color: var(--sunrise) !important;
+  font-weight: 800 !important;
+}
+
+.mega-subcol-card.active .mega-subcol-tag {
+  background: rgba(255, 107, 53, 0.16) !important;
+  color: var(--sunrise) !important;
+  font-weight: 800 !important;
+}
+
+.mega-subcol-card.active .mega-subcol-cta {
+  color: var(--sunrise) !important;
+  font-weight: 700 !important;
+}
+
 .mega-subcol-cta {
   margin-top: auto;
   display: inline-flex;
