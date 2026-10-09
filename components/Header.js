@@ -380,9 +380,6 @@ function HeaderContent() {
                             <IconComponent size={16} />
                           </div>
                           <span className="mega-tab-label">{service.title}</span>
-                          {isCurrentPage && !isActive && (
-                            <span className="mega-tab-current-badge">Current</span>
-                          )}
                         </div>
                         <ChevronRight size={15} className="mega-tab-arrow" />
                       </Link>
