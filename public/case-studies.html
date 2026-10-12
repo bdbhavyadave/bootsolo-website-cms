@@ -1,0 +1,2239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies &amp; Real Routes | Bootsolo — AI-Native Marketing for Solopreneurs</title>
+  <meta name="description" content="Real routes, real numbers. Explore 7 detailed case studies of bootstrapped founders who scaled signups, slashed acquisition costs, and dominated AI search.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Dedicated Case Studies Experience Styles matching Bootsolo Brand Kit */
+    .cs-jump-bar {
+      position: sticky;
+      top: 72px;
+      z-index: 40;
+      background: rgba(247, 245, 241, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      transition: all var(--dur) var(--ease);
+    }
+    .cs-jump-inner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2px 0;
+    }
+    .cs-jump-inner::-webkit-scrollbar { display: none; }
+    .cs-jump-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg3);
+      margin-right: 6px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cs-jump-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--fg2);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      white-space: nowrap;
+      transition: all var(--dur) var(--ease);
+    }
+    .cs-jump-chip:hover {
+      border-color: var(--sunrise);
+      color: var(--brand-fg);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-1);
+    }
+    .cs-jump-chip .stat-badge {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: rgba(255,107,53,0.12);
+      color: var(--sunrise-700);
+      font-weight: 700;
+    }
+    .cs-jump-chip .stat-badge.ice {
+      background: rgba(56, 182, 245, 0.16);
+      color: var(--ice-700);
+    }
+
+    /* Hero CTA Strip */
+    .cs-hero-cta {
+      margin-top: 28px;
+      padding: 16px 24px;
+      border-radius: var(--r-card);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: var(--shadow-1);
+      flex-wrap: wrap;
+    }
+    .cs-hero-cta-text {
+      font-size: 16px;
+      color: var(--fg1);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Sub-Filter Roadmap Banner */
+    .cs-roadmap-banner {
+      margin: 28px 0 44px;
+      padding: 16px 24px;
+      border-radius: var(--r-card);
+      background: linear-gradient(135deg, rgba(255,107,53,0.06), rgba(56,182,245,0.08));
+      border: 1px dashed rgba(255,107,53,0.32);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .cs-roadmap-text {
+      font-size: 14.5px;
+      color: var(--fg1);
+      font-weight: 500;
+    }
+
+    /* Detailed Story Article Container */
+    .cs-story-section {
+      margin-top: 64px;
+      scroll-margin-top: 140px;
+    }
+    .cs-story-card {
+      border-radius: var(--r-md);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
+      overflow: hidden;
+      margin-bottom: 48px;
+      transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+    }
+    .cs-story-card:hover {
+      box-shadow: var(--shadow-2);
+      border-color: rgba(255,107,53,0.4);
+    }
+    .cs-story-header {
+      padding: 36px 40px 30px;
+      background: var(--navy-850);
+      color: #EEF3F8;
+      position: relative;
+      overflow: hidden;
+    }
+    .cs-story-header::after {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,53,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cs-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .cs-meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      color: var(--navy-200);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .cs-meta-pill.brand {
+      background: rgba(255,107,53,0.2);
+      color: var(--sunrise-300);
+      border-color: rgba(255,107,53,0.35);
+    }
+    .cs-story-headline-row {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .cs-hero-metric {
+      font-family: var(--font-mono);
+      font-size: 58px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--sunrise-300);
+      padding-right: 24px;
+      border-right: 1px solid rgba(255,255,255,0.14);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cs-hero-metric.ice { color: var(--ice-300); }
+    .cs-hero-metric-sub {
+      font-size: 13px;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      color: var(--navy-300);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .cs-story-title-wrap h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+    .cs-story-at-glance {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--navy-200);
+      margin: 0;
+    }
+
+    /* Story Card Body */
+    .cs-story-body {
+      padding: 40px;
+    }
+    .cs-prob-sol-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+    .cs-box {
+      border-radius: var(--r-card);
+      padding: 24px 28px;
+      border: 1px solid var(--border);
+      background: var(--snow);
+    }
+    .cs-box-prob {
+      border-left: 4px solid #E2483D;
+      background: #FFF9F8;
+    }
+    .cs-box-sol {
+      border-left: 4px solid #1FBF75;
+      background: #F6FCF8;
+    }
+    .cs-box-title {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .cs-box-prob .cs-box-title { color: #C5372C; }
+    .cs-box-sol .cs-box-title { color: #16965B; }
+    .cs-box-p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--fg2);
+      margin: 0;
+    }
+
+    /* Approach Roadmaps */
+    .cs-approach-section {
+      margin-bottom: 36px;
+    }
+    .cs-section-subtitle {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--fg3);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cs-approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .cs-step-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: var(--r-card);
+      padding: 20px;
+      position: relative;
+    }
+    .cs-step-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--sunrise-700);
+      background: rgba(255,107,53,0.12);
+      padding: 3px 8px;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .cs-step-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--summit);
+      margin-bottom: 8px;
+    }
+    .cs-step-desc {
+      font-size: 13.5px;
+      line-height: 1.5;
+      color: var(--fg2);
+      margin: 0;
+    }
+
+    /* Client Testimonial Card */
+    .cs-quote-card {
+      border-radius: var(--r-card);
+      background: linear-gradient(135deg, rgba(233,244,254,0.6) 0%, rgba(247,245,241,0.9) 100%);
+      border: 1px solid rgba(56,182,245,0.24);
+      padding: 26px 32px;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .cs-quote-text {
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.6;
+      color: var(--summit);
+      margin: 0 0 16px;
+      position: relative;
+      z-index: 2;
+    }
+    .cs-quote-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--fg2);
+    }
+    .cs-author-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--summit);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    /* Statistics Table & Visuals */
+    .cs-stats-table-wrap {
+      border-radius: var(--r-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--bg-elevated);
+      margin-bottom: 36px;
+    }
+    .cs-stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    .cs-stats-table th {
+      background: var(--snow);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--fg3);
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .cs-stats-table td {
+      padding: 14px 20px;
+      font-size: 14.5px;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg1);
+      vertical-align: middle;
+    }
+    .cs-stats-table tr:last-child td { border-bottom: none; }
+    .cs-stats-result {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--sunrise-700);
+    }
+    .cs-stats-result.ice { color: var(--ice-700); }
+
+    /* Action CTA Box at Bottom of Case Study */
+    .cs-action-box {
+      border-radius: var(--r-card);
+      background: var(--snow);
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cs-action-lead {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cs-action-title {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--summit);
+    }
+    .cs-action-sublinks {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13.5px;
+    }
+    .cs-action-sublink {
+      color: var(--fg2);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--dur) var(--ease);
+    }
+    .cs-action-sublink:hover { color: var(--brand-fg); }
+    .cs-action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Next Route Navigation Strip */
+    .cs-next-route {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-top: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--fg2);
+    }
+    .cs-next-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--brand-fg);
+      text-decoration: none;
+      transition: transform var(--dur) var(--ease);
+    }
+    .cs-next-link:hover {
+      transform: translateX(4px);
+    }
+
+    /* Low-Commitment Pre-Footer Bar */
+    .cs-low-commit {
+      margin-top: 56px;
+      padding: 28px 36px;
+      border-radius: var(--r-md);
+      background: var(--snow);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Mobile Sticky Bar */
+    .cs-mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      background: rgba(14, 26, 43, 0.96);
+      backdrop-filter: blur(10px);
+      padding: 12px 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+    }
+    .cs-mobile-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .cs-mobile-bar-text {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--navy-200);
+    }
+
+    /* Exit Intent Modal */
+    .cs-exit-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10, 19, 32, 0.75);
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .cs-exit-card {
+      background: var(--bg-elevated);
+      border-radius: var(--r-md);
+      max-width: 520px;
+      width: 100%;
+      padding: 36px;
+      position: relative;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-pop);
+      text-align: center;
+      animation: modalFadeIn 0.25s ease-out;
+    }
+
+    @media (max-width: 992px) {
+      .cs-approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .cs-story-headline-row { grid-template-columns: 1fr; }
+      .cs-hero-metric { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.14); padding-right: 0; padding-bottom: 16px; }
+      .cs-prob-sol-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .cs-mobile-bar { display: block; }
+      .cs-approach-grid { grid-template-columns: 1fr; }
+      .cs-story-header { padding: 28px 20px; }
+      .cs-story-body { padding: 24px 20px; }
+      body { padding-bottom: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand-link" href="index.html" aria-label="Bootsolo Home" style="display:inline-flex;align-items:center;text-decoration:none;">
+        <svg height="30" viewBox="90 220 660 240" fill="none" style="height:30px;width:auto;display:block;" aria-label="Bootsolo Logo">
+          <g fill="#0E1A2B">
+            <path d="M153.3,364.34c21.77,0,38.8,17.35,38.8,45.11c0,27.76-17.19,45.43-38.8,45.43c-12.93,0-22.24-5.84-27.13-13.57v12.3H99.2V336.89h26.97v41.17C131.06,370.17,140.69,364.34,153.3,364.34z M145.26,387.84c-10.1,0-19.24,7.73-19.24,21.77s9.15,21.77,19.24,21.77c10.25,0,19.4-7.89,19.4-21.93C164.66,395.41,155.51,387.84,145.26,387.84z"/>
+            <path d="M240.06,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S265.92,454.88,240.06,454.88z M240.06,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C222.07,424.43,230.28,431.53,240.06,431.53z"/>
+            <path d="M334.22,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S360.09,454.88,334.22,454.88z M334.22,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C316.24,424.43,324.44,431.53,334.22,431.53z"/>
+            <path d="M392.58,388h-10.73v-22.4h10.73l26.97-21.45l0,0v21.45h17.67V388h-17.67v35.33c0,5.21,2.21,7.41,8.2,7.41h9.62v22.87h-13.72c-18.3,0-31.07-7.73-31.07-30.6V388z"/>
+            <path d="M481.86,454.88c-23.5,0-39.28-13.09-40.54-30.13h26.66c0.63,6.15,6.15,10.25,13.57,10.25c6.94,0,10.57-3.15,10.57-7.1c0-14.2-47.95-3.94-47.95-36.28c0-14.98,12.78-27.29,35.81-27.29c22.71,0,35.33,12.62,37.07,29.97h-24.92c-0.79-5.99-5.36-9.94-12.93-9.94c-6.31,0-9.78,2.52-9.78,6.78c0,14.04,47.64,4.1,48.11,36.91C517.51,443.36,503.94,454.88,481.86,454.88z"/>
+            <path d="M564.67,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S590.54,454.88,564.67,454.88z M564.67,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C546.69,424.43,554.89,431.53,564.67,431.53z"/>
+            <path d="M615.62,336.89h26.97v116.72h-26.97V336.89z"/>
+            <path d="M692.75,454.88c-25.87,0-45.43-17.35-45.43-45.27s20.03-45.27,45.74-45.27c25.87,0,45.74,17.35,45.74,45.27S718.62,454.88,692.75,454.88z M692.75,431.53c9.62,0,18.61-7.1,18.61-21.93c0-14.98-8.83-21.93-18.3-21.93c-9.78,0-18.3,6.94-18.3,21.93C674.77,424.43,682.97,431.53,692.75,431.53z"/>
+            <polygon points="434.6,361.16 578.33,313.88 576.39,308 423.99,358.13 423.99,361.16"/>
+            <rect x="471.28" y="289.53" transform="matrix(0.9499 -0.3126 0.3126 0.9499 -65.1008 179.2003)" width="110.09" height="6.19"/>
+            <path d="M423.99,347.77l118.95-39L541,302.9l-117.86,38.64c0.53,0.73,0.85,1.63,0.85,2.61V347.77z"/>
+          </g>
+          <path fill="#F37321" fill-rule="evenodd" clip-rule="evenodd" d="M599.61,310.96l9.42-17.78l3.68,9.6L599.61,310.96z M620.09,282.79l100.36-40.3l-65.33,77.54L620.09,282.79z M690.81,233.71l-84.53,24.33l-7.46,2.15l-22.72-24.15L690.81,233.71z M743.64,225.71l-135.55,54.43l-26.66,50.34l39.79-24.86l-7.46-19.46l41.65,44.28L743.64,225.71l-183.26,3.72l36.3,38.59l0.28-0.08l-6.5,28.88l12.91-30.73L743.64,225.71z"/>
+        </svg>
+      </a>
+
+      <div class="nav-links">
+        <div class="nav-item-has-mega">
+          <a href="index.html#services">
+            Services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <div class="mega-menu">
+            <div class="mega-menu-grid">
+              <a href="services/ai-powered-marketing.html" class="mega-item">
+                <div class="mega-item-title">AI-Powered Marketing</div>
+                <div class="mega-item-headline">AI-Powered Campaigns &amp; Automation</div>
+                <div class="mega-item-services">AI marketing, Vibe marketing, automated funnel optimization</div>
+              </a>
+              <div class="mega-item mega-item-has-submenu">
+                <a href="services/seo-aeo-geo.html" class="mega-item-link-wrap">
+                  <div class="mega-item-title-row">
+                    <span class="mega-item-title">SEO / AEO / GEO</span>
+                    <span class="mega-item-pill">3 Tabs</span>
+                  </div>
+                  <div class="mega-item-headline">Search, AI-Engine &amp; Geo Optimization</div>
+                  <div class="mega-item-services">Rank in Google, Perplexity, ChatGPT &amp; local discovery</div>
+                </a>
+                <div class="mega-suboptions-row">
+                  <a href="services/seo-aeo-geo.html?tab=seo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-seo"></span>
+                      <span>SEO</span>
+                    </div>
+                    <span class="suboption-tag">Traditional Search</span>
+                  </a>
+                  <a href="services/seo-aeo-geo.html?tab=aeo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-aeo"></span>
+                      <span>AEO</span>
+                    </div>
+                    <span class="suboption-tag">Answer Engine</span>
+                  </a>
+                  <a href="services/seo-aeo-geo.html?tab=geo" class="mega-suboption-chip">
+                    <div class="mega-suboption-header">
+                      <span class="suboption-dot dot-geo"></span>
+                      <span>GEO</span>
+                    </div>
+                    <span class="suboption-tag">Generative LLM</span>
+                  </a>
+                </div>
+              </div>
+              <a href="services/performance-lead-generation.html" class="mega-item">
+                <div class="mega-item-title">Performance &amp; Lead Generation</div>
+                <div class="mega-item-headline">Paid Media &amp; Pipeline Growth</div>
+                <div class="mega-item-services">Paid search, paid social, conversion rate optimization (CRO)</div>
+              </a>
+              <a href="services/content-video-thought-leadership.html" class="mega-item">
+                <div class="mega-item-title">Content, Video &amp; Thought Leadership</div>
+                <div class="mega-item-headline">Content, Video &amp; Authority Building</div>
+                <div class="mega-item-services">High-converting copywriting, motion design, founder branding</div>
+              </a>
+              <a href="services/web-ecommerce-experience.html" class="mega-item">
+                <div class="mega-item-title">Web &amp; Ecommerce Experience</div>
+                <div class="mega-item-headline">Web Design &amp; Store UX</div>
+                <div class="mega-item-services">High-performance landing pages, store speed &amp; checkout flows</div>
+              </a>
+              <a href="services/branding.html" class="mega-item">
+                <div class="mega-item-title">Branding</div>
+                <div class="mega-item-headline">Brand Identity &amp; Positioning</div>
+                <div class="mega-item-services">Visual systems, tone of voice, narrative &amp; founder storytelling</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="case-studies.html" style="color:var(--brand-fg);font-weight:600;">Case Studies</a>
+        <a href="resources.html">Resources</a>
+        <a href="blogs.html">Blogs</a>
+      </div>
+
+      <div class="nav-spacer"></div>
+      <a class="btn btn-ghost btn-sm" href="custom-quote.html">Request custom quote</a>
+      <a class="btn btn-primary btn-sm" href="#growth-roadmap" onclick="openGrowthModal();return false;">Book a Growth Call</a>
+
+      <button class="nav-mobile-toggle" aria-label="Toggle Navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer">
+      <a href="services/ai-powered-marketing.html" style="font-weight:600;">AI-Powered Marketing</a>
+      <a href="services/seo-aeo-geo.html" style="font-weight:600;">SEO / AEO / GEO</a>
+      <a href="services/performance-lead-generation.html" style="font-weight:600;">Performance &amp; Lead Gen</a>
+      <a href="services/content-video-thought-leadership.html" style="font-weight:600;">Content &amp; Video</a>
+      <a href="services/web-ecommerce-experience.html" style="font-weight:600;">Web &amp; Ecommerce</a>
+      <a href="services/branding.html" style="font-weight:600;">Branding</a>
+      <hr style="border:none;border-top:1px solid var(--border);margin:8px 0;">
+      <a href="pricing.html">Pricing</a>
+      <a href="industries.html">Industries</a>
+      <a href="case-studies.html" style="color:var(--brand-fg);font-weight:600;">Case Studies</a>
+      <a href="resources.html">Resources</a>
+      <a href="blogs.html">Blogs</a>
+      <a href="custom-quote.html" class="btn btn-ghost" style="text-align:center;">Request Custom Quote</a>
+      <a href="#growth-roadmap" onclick="openGrowthModal();return false;" class="btn btn-primary" style="text-align:center;">Book a Growth Call</a>
+    </div>
+  </nav>
+
+  <!-- Sticky Route Navigator Bar -->
+  <div class="cs-jump-bar">
+    <div class="wrap cs-jump-inner">
+      <span class="cs-jump-label">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+        Jump to story:
+      </span>
+      <a href="#northwind" class="cs-jump-chip">
+        <span>Northwind</span>
+        <span class="stat-badge">+312%</span>
+      </a>
+      <a href="#parallel" class="cs-jump-chip">
+        <span>Parallel</span>
+        <span class="stat-badge ice">&minus;58%</span>
+      </a>
+      <a href="#loomly" class="cs-jump-chip">
+        <span>Loomly</span>
+        <span class="stat-badge">4.1&times;</span>
+      </a>
+      <a href="#pier9" class="cs-jump-chip">
+        <span>Pier9</span>
+        <span class="stat-badge ice">0&rarr;1.2k</span>
+      </a>
+      <a href="#cortex" class="cs-jump-chip">
+        <span>Cortex</span>
+        <span class="stat-badge">+89%</span>
+      </a>
+      <a href="#vantage" class="cs-jump-chip">
+        <span>Vantage</span>
+        <span class="stat-badge ice">2.7&times;</span>
+      </a>
+      <a href="#indie-maker" class="cs-jump-chip">
+        <span>Indie Maker</span>
+        <span class="stat-badge">&minus;41%</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Page Header -->
+  <section class="page-head">
+    <div class="wrap ph-inner">
+      <span class="kick">The Work &middot; Case Studies</span>
+      <h1 class="ph-title">Founders who kept climbing</h1>
+      <p class="ph-lead">Real routes, real numbers. No logos we can't back up with a story — every one of these started solo, on a budget that fit in a backpack.</p>
+
+      <!-- 3 Metrics Strip -->
+      <div class="metrics" style="margin-top: 40px; margin-bottom: 0;">
+        <div class="metric">
+          <div class="mv">120+</div>
+          <div class="mk">founders climbing with us</div>
+        </div>
+        <div class="metric">
+          <div class="mv">3.4&times;</div>
+          <div class="mk">median signup lift in 90 days</div>
+        </div>
+        <div class="metric">
+          <div class="mv">&minus;54%</div>
+          <div class="mk">average cost per acquisition</div>
+        </div>
+      </div>
+
+      <!-- Hero CTA placement from copy doc -->
+      <div class="cs-hero-cta">
+        <div class="cs-hero-cta-text">
+          <span style="font-size:20px;">🧗</span>
+          <span><strong>Want results like these?</strong> Tell us where you're stuck and let's map out your route.</span>
+        </div>
+        <a href="custom-quote.html" class="btn btn-primary btn-sm">Book a Growth Call &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <section class="section" style="padding-top: 36px;">
+    <div class="wrap">
+
+      <!-- Category Filter Tabs -->
+      <div class="filters">
+        <button class="filter on" data-filter="All">All Sectors</button>
+        <button class="filter" data-filter="Solo SaaS">Solo SaaS</button>
+        <button class="filter" data-filter="D2C">D2C Skincare</button>
+        <button class="filter" data-filter="Indie app">Indie App</button>
+        <button class="filter" data-filter="Newsletter">Newsletter</button>
+      </div>
+
+      <!-- Executive Overview Grid -->
+      <div class="sec-head" style="margin-bottom: 24px;">
+        <span class="kick">At A Glance</span>
+        <h2 class="sec-title" style="font-size: 28px;">7 Proven Growth Trajectories</h2>
+      </div>
+
+      <div class="work-grid" style="margin-bottom: 64px;">
+        <!-- Card 1: Northwind -->
+        <article class="wcard" data-category="Solo SaaS">
+          <div class="wthumb">
+            <span class="big">+312%</span>
+            <span class="blbl">signups in one quarter</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">N</span>
+              <span class="nm">Northwind</span>
+              <span class="sector">Solo SaaS</span>
+            </div>
+            <h3 class="wtitle">+312% signups in one quarter</h3>
+            <div class="wtags">
+              <span class="wtag">Get found by AI</span>
+              <span class="wtag">Content engine</span>
+              <span class="wtag">Lifecycle</span>
+            </div>
+            <a href="#northwind" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 2: Parallel -->
+        <article class="wcard" data-category="D2C">
+          <div class="wthumb">
+            <span class="big ice">&minus;58%</span>
+            <span class="blbl">cost per sale</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">P</span>
+              <span class="nm">Parallel</span>
+              <span class="sector">D2C</span>
+            </div>
+            <h3 class="wtitle">A bootstrapped skincare brand halved its cost per sale</h3>
+            <div class="wtags">
+              <span class="wtag">Campaigns</span>
+              <span class="wtag">Automation</span>
+            </div>
+            <a href="#parallel" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 3: Loomly -->
+        <article class="wcard" data-category="Indie app">
+          <div class="wthumb">
+            <span class="big">4.1&times;</span>
+            <span class="blbl">AI answer visibility</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">L</span>
+              <span class="nm">Loomly</span>
+              <span class="sector">Indie app</span>
+            </div>
+            <h3 class="wtitle">From invisible to the AI answer box in 60 days</h3>
+            <div class="wtags">
+              <span class="wtag">Get found by AI</span>
+              <span class="wtag">AEO / GEO</span>
+            </div>
+            <a href="#loomly" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 4: Pier9 -->
+        <article class="wcard" data-category="Solo SaaS">
+          <div class="wthumb">
+            <span class="big ice">0&rarr;1.2k</span>
+            <span class="blbl">signups, no ad spend</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">P9</span>
+              <span class="nm">Pier9</span>
+              <span class="sector">Solo SaaS</span>
+            </div>
+            <h3 class="wtitle">Zero to 1,200 signups on a $0 ad budget</h3>
+            <div class="wtags">
+              <span class="wtag">Content engine</span>
+              <span class="wtag">GEO</span>
+            </div>
+            <a href="#pier9" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 5: Cortex -->
+        <article class="wcard" data-category="Newsletter">
+          <div class="wthumb">
+            <span class="big">+89%</span>
+            <span class="blbl">open rate</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">C</span>
+              <span class="nm">Cortex</span>
+              <span class="sector">Newsletter</span>
+            </div>
+            <h3 class="wtitle">A solo writer lifted open rates 89% with lifecycle automation</h3>
+            <div class="wtags">
+              <span class="wtag">Automation</span>
+              <span class="wtag">Lifecycle</span>
+            </div>
+            <a href="#cortex" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 6: Vantage -->
+        <article class="wcard" data-category="Solo SaaS">
+          <div class="wthumb">
+            <span class="big ice">2.7&times;</span>
+            <span class="blbl">qualified demos</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">V</span>
+              <span class="nm">Vantage</span>
+              <span class="sector">Solo SaaS</span>
+            </div>
+            <h3 class="wtitle">Nearly tripled qualified demos without hiring a marketer</h3>
+            <div class="wtags">
+              <span class="wtag">Campaigns</span>
+              <span class="wtag">GEO</span>
+            </div>
+            <a href="#vantage" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+
+        <!-- Card 7: Indie Maker -->
+        <article class="wcard" data-category="Indie app">
+          <div class="wthumb">
+            <span class="big">&minus;41%</span>
+            <span class="blbl">time on marketing</span>
+          </div>
+          <div class="wbody">
+            <div class="wco">
+              <span class="logo">IM</span>
+              <span class="nm">Indie Maker</span>
+              <span class="sector">Indie app</span>
+            </div>
+            <h3 class="wtitle">Got 6 hours a week back by handing off the busywork</h3>
+            <div class="wtags">
+              <span class="wtag">Automation</span>
+              <span class="wtag">AI Workflows</span>
+            </div>
+            <a href="#indie-maker" class="wlink">Read full story &darr;</a>
+          </div>
+        </article>
+      </div>
+
+
+      <!-- ========================================================
+           FULL CASE STUDY DEEP DIVES
+           ======================================================== -->
+      <div class="sec-head" style="margin-top: 80px; margin-bottom: 32px;">
+        <span class="kick">In-Depth Teardowns</span>
+        <h2 class="sec-title">The Complete Route Breakdowns</h2>
+        <p class="sec-lead">Full transparent breakdowns: the challenge, the architectural fix, step-by-step roadmap execution, and verified return on investment.</p>
+      </div>
+
+      <!-- 1. NORTHWIND -->
+      <article id="northwind" class="cs-story-card cs-story-section" data-category="Solo SaaS">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 01</span>
+            <span class="cs-meta-pill">Client: Northwind</span>
+            <span class="cs-meta-pill">Founder: Sam R.</span>
+            <span class="cs-meta-pill">Solo SaaS</span>
+            <span class="cs-meta-pill">Timeline: 1 Quarter (90 Days)</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric">
+              +312%
+              <span class="cs-hero-metric-sub">Signups Lift</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Northwind: +312% signups in one quarter</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> A one-person SaaS company went from founder-run, ad-hoc marketing to a running growth engine, and grew signups by 312% in a single quarter for less than the cost of a part-time hire.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Sam was the founder, the engineer and the entire marketing department. Every hour spent on marketing was an hour away from the product, so marketing happened in bursts: a launch post here, a tweet thread there, then weeks of silence. Signups were flat, the product barely appeared when buyers asked search engines or AI assistants for tools in its category, and trial users who signed up were rarely nurtured into paying customers. Hiring a marketer wasn't affordable yet.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                Bootsolo became Northwind's marketing department. We combined three services into one system: <strong>Get found by AI</strong> to put Northwind into the answers buyers were already asking for, a <strong>Content engine</strong> to publish consistently without Sam writing every word, and <strong>Lifecycle automation</strong> to turn new signups into active users.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Weeks 1–2</span>
+                <div class="cs-step-title">Map the route</div>
+                <p class="cs-step-desc">Audited site, funnel and visibility across Google, ChatGPT, Perplexity and Gemini. Identified 25 core questions buyers ask before choosing tools in Northwind's category.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Weeks 2–6</span>
+                <div class="cs-step-title">Get found by AI</div>
+                <p class="cs-step-desc">Rewrote key pages in answer-first structure, deployed schema graph data and direct comparison hubs, earning verified citations in AI answer engines.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Weeks 3–12</span>
+                <div class="cs-step-title">Run content engine</div>
+                <p class="cs-step-desc">AI-assisted drafts refined by senior Bootsolo strategists published weekly. Sam's only operational commitment: one 20-minute review call weekly.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Weeks 5–12</span>
+                <div class="cs-step-title">Switch on lifecycle</div>
+                <p class="cs-step-desc">Deployed behavioural onboarding triggers, nudges for stalled trial workspaces, and automated win-back workflows for inactive users.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;I was the founder, the engineer, and the marketing department. Bootsolo became the marketing department — and it cost less than a part-time hire.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">S</div>
+              <div>
+                <strong>Sam R.</strong> &middot; Founder, Northwind
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Signups Lift (Quarter over Quarter)</strong></td>
+                  <td><span class="cs-stats-result">+312%</span></td>
+                  <td>Validated in core product telemetry</td>
+                </tr>
+                <tr>
+                  <td>Time to Result</td>
+                  <td><strong>1 quarter (90 days)</strong></td>
+                  <td>Rapid time-to-value without long ramp</td>
+                </tr>
+                <tr>
+                  <td>Cost vs. Part-time Marketing Hire</td>
+                  <td><strong>Significantly Lower</strong></td>
+                  <td>Fraction of agency or employee overhead</td>
+                </tr>
+                <tr>
+                  <td>Trial-to-Paid Conversion Rate</td>
+                  <td><span class="cs-stats-result">+164%</span> (2.8% &rarr; 7.4%)</td>
+                  <td>Driven by behavioural lifecycle automations</td>
+                </tr>
+                <tr>
+                  <td>Pages Cited in AI Answer Engines</td>
+                  <td><strong>38 authoritative pages</strong></td>
+                  <td>Indexed by Perplexity, ChatGPT &amp; Gemini</td>
+                </tr>
+                <tr>
+                  <td>Founder Weekly Marketing Hours</td>
+                  <td><strong>18 hrs/wk &rarr; 1.5 hrs/wk</strong></td>
+                  <td>Freed up 16.5 engineering hours every week</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Action & CTA Placements -->
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">Doing everything yourself? Let us be your marketing department.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/ai-powered-marketing.html" class="cs-action-sublink">See the AI-Powered Marketing service &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="custom-quote.html" class="cs-action-sublink">Want Northwind's quarter? Request your custom quote &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=ai-powered-marketing" class="btn btn-primary btn-sm">Book a Growth Call &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#parallel" class="cs-next-link">Next route: Parallel (Halved cost per sale) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 2. PARALLEL -->
+      <article id="parallel" class="cs-story-card cs-story-section" data-category="D2C">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 02</span>
+            <span class="cs-meta-pill">Client: Parallel</span>
+            <span class="cs-meta-pill">Founder: Maya K.</span>
+            <span class="cs-meta-pill">D2C Skincare</span>
+            <span class="cs-meta-pill">Services: Campaigns, Automation</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric ice">
+              &minus;58%
+              <span class="cs-hero-metric-sub">Cost Per Sale</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Parallel: A bootstrapped skincare brand halved its cost per sale</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> A bootstrapped D2C skincare brand cut its cost per sale by 58% by rebuilding its paid campaigns and automating the follow-up that ads alone couldn't do.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Parallel was growing, but every sale was costing too much. Paid social was the main sales channel, and as ad costs rose the margins on a self-funded product shrank. Campaigns were managed in spare hours, creative was refreshed rarely, and shoppers who added to cart or visited twice were left to drift away. The brand needed more sales from the same budget, not a bigger budget.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                We restructured Parallel's paid Campaigns around the products and audiences that actually converted, and added Automation so every ad click had a follow-up path: abandoned cart, browse abandonment and post-purchase repeat flows across email and SMS.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 1</span>
+                <div class="cs-step-title">Audit the spend</div>
+                <p class="cs-step-desc">Traced exact acquisition cost per order by product, audience and creative variant. Paused bleed campaigns burning cash without conversions.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 2</span>
+                <div class="cs-step-title">Rebuild campaigns</div>
+                <p class="cs-step-desc">Consolidated ad sets, anchored on hero skincare bundles, and launched an AI-assisted creative pipeline generating fresh visual hooks weekly.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 3</span>
+                <div class="cs-step-title">Automate follow-up</div>
+                <p class="cs-step-desc">Built abandoned-cart, browse-abandonment and replenishment notification journeys timed precisely to skincare jar usage cycles.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 4</span>
+                <div class="cs-step-title">Optimise weekly</div>
+                <p class="cs-step-desc">Shifted spend dynamically into top-converting ads weekly, paired with an executive 1-page financial scoreboard for founder clarity.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;We didn't need more ad budget, we needed every rupee to work harder. Bootsolo cut our cost per sale by more than half, and the automated flows now bring in sales while I sleep.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">M</div>
+              <div>
+                <strong>Maya K.</strong> &middot; Founder, Parallel
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cost Per Sale</strong></td>
+                  <td><span class="cs-stats-result ice">&minus;58%</span></td>
+                  <td>Acquisition cost slashed in half</td>
+                </tr>
+                <tr>
+                  <td>Return On Ad Spend (ROAS)</td>
+                  <td><span class="cs-stats-result">1.6&times; &rarr; 3.8&times;</span></td>
+                  <td>Profitable paid acquisition loop</td>
+                </tr>
+                <tr>
+                  <td>Share of Revenue from Automated Flows</td>
+                  <td><span class="cs-stats-result">34% of total sales</span></td>
+                  <td>High-margin email/SMS recovery flows</td>
+                </tr>
+                <tr>
+                  <td>Repeat Purchase Rate</td>
+                  <td><span class="cs-stats-result">14% &rarr; 29%</span></td>
+                  <td>Automated replenishment sequences</td>
+                </tr>
+                <tr>
+                  <td>Campaign Restructure Timeline</td>
+                  <td><strong>8 weeks</strong></td>
+                  <td>Immediate margin relief for the brand</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">Paying too much for every order? Let's find where your budget is leaking.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/performance-lead-generation.html" class="cs-action-sublink">Explore Performance &amp; Lead Generation &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('Parallel Ad Audit');" class="cs-action-sublink">Get a free ad-spend audit &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=performance-lead-generation" class="btn btn-primary btn-sm">Lower My Cost per Sale &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#loomly" class="cs-next-link">Next route: Loomly (AI Answer Box in 60 Days) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 3. LOOMLY -->
+      <article id="loomly" class="cs-story-card cs-story-section" data-category="Indie app">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 03</span>
+            <span class="cs-meta-pill">Client: Loomly</span>
+            <span class="cs-meta-pill">Founder: Arjun D.</span>
+            <span class="cs-meta-pill">Indie App</span>
+            <span class="cs-meta-pill">Services: Get Found by AI (AEO/GEO)</span>
+            <span class="cs-meta-pill">Timeline: 60 Days</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric">
+              4.1&times;
+              <span class="cs-hero-metric-sub">AI Answer Visibility</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Loomly: From invisible to the AI answer box in 60 days</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> An indie app that didn't show up when people asked AI assistants for recommendations became 4.1&times; more visible in AI answers within 60 days.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                More of Loomly's potential users were asking ChatGPT, Perplexity and Google's AI Overviews which app to use, and Loomly wasn't in the answers. Competitors with bigger budgets were named again and again. The app had good reviews and a loyal user base, but AI engines had little clear, trusted information to cite about it.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                Our Get found by AI programme (AEO and GEO) gave AI engines what they need to recommend an app: clear answers to the questions users ask, structured information about what the app does and who it's for, and credible mentions across the web.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Day 1–15</span>
+                <div class="cs-step-title">Measure baseline</div>
+                <p class="cs-step-desc">Audited 50 top buyer queries across ChatGPT, Claude and Perplexity. Tracked Loomly's mention share vs. heavily backed category incumbents.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Day 15–30</span>
+                <div class="cs-step-title">Fix foundations</div>
+                <p class="cs-step-desc">Restructured site copy into concise, answer-first paragraphs, deployed structured schema graphs, and built a searchable category FAQ hub.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Day 30–45</span>
+                <div class="cs-step-title">Build citable proof</div>
+                <p class="cs-step-desc">Published honest head-to-head comparison matrices and seeded authoritative citations across software communities that LLMs ingest.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Day 45–60</span>
+                <div class="cs-step-title">Re-measure &amp; refine</div>
+                <p class="cs-step-desc">Re-queried models on bi-weekly cadence, optimizing content gaps until Loomly became the default cited software choice.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;People kept telling us they'd found our competitors through ChatGPT. Sixty days later, they were finding us. Bootsolo made us part of the answer.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">A</div>
+              <div>
+                <strong>Arjun D.</strong> &middot; Founder, Loomly
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>AI Answer Visibility Lift</strong></td>
+                  <td><span class="cs-stats-result">4.1&times; increase</span></td>
+                  <td>Verified across ChatGPT, Perplexity &amp; Gemini</td>
+                </tr>
+                <tr>
+                  <td>Time to Result</td>
+                  <td><strong>60 days</strong></td>
+                  <td>Fast indexing into LLM web-retrieval indexes</td>
+                </tr>
+                <tr>
+                  <td>Tracked Prompts with Loomly Cited</td>
+                  <td><span class="cs-stats-result">4 of 50 &rarr; 32 of 50</span></td>
+                  <td>From 8% to 64% category market capture</td>
+                </tr>
+                <tr>
+                  <td>Traffic Referred from AI Assistants</td>
+                  <td><span class="cs-stats-result">+240%</span></td>
+                  <td>Direct high-intent conversational clicks</td>
+                </tr>
+                <tr>
+                  <td>App Installs / Signups from Organic</td>
+                  <td><span class="cs-stats-result">+85%</span></td>
+                  <td>Compounding growth with zero additional ad spend</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">Ask ChatGPT about your category. If you're not in the answer, let's fix that.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/seo-aeo-geo.html" class="cs-action-sublink">Explore SEO / AEO / GEO &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('AI Visibility Check');" class="cs-action-sublink">See where you show up in AI answers &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=seo-aeo-geo" class="btn btn-primary btn-sm">Get My Free AI Visibility Check &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#pier9" class="cs-next-link">Next route: Pier9 (0 to 1,200 Signups on $0 Ad Spend) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 4. PIER9 -->
+      <article id="pier9" class="cs-story-card cs-story-section" data-category="Solo SaaS">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 04</span>
+            <span class="cs-meta-pill">Client: Pier9</span>
+            <span class="cs-meta-pill">Founder: Lena O.</span>
+            <span class="cs-meta-pill">Solo SaaS</span>
+            <span class="cs-meta-pill">Services: Content Engine, GEO</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric ice">
+              0 &rarr; 1,200
+              <span class="cs-hero-metric-sub">Signups ($0 Ad Budget)</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Pier9: Zero to 1,200 signups on a $0 ad budget</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> A newly launched solo SaaS product reached 1,200 signups without spending anything on ads, using content built to rank in search and get cited by AI engines.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Pier9 launched with a working product and no audience: no email list, no traffic and no budget for paid acquisition. The founder knew content could work but didn't have the time to research, write and publish consistently, or the know-how to make content that both search engines and AI assistants would pick up.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                We built a Content engine designed for GEO (generative engine optimisation) from day one: content focused on the exact problems Pier9 solves, written to be found in Google and quoted by AI assistants, with every piece leading readers to a free signup.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 1</span>
+                <div class="cs-step-title">Find the demand</div>
+                <p class="cs-step-desc">Researched search queries and pain points of Pier9's exact prospective users, prioritizing low-competition, high-intent problem keywords.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 2</span>
+                <div class="cs-step-title">Build topic clusters</div>
+                <p class="cs-step-desc">Built 3 authoritative pillar clusters, supporting templates, and comparison guides structured for immediate LLM extraction.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 3</span>
+                <div class="cs-step-title">Convert readers</div>
+                <p class="cs-step-desc">Integrated high-value free micro-calculators and contextual signup prompts turning passive readers into product signups.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 4</span>
+                <div class="cs-step-title">Distribute for free</div>
+                <p class="cs-step-desc">Syndicated modular breakdowns into developer communities, Substack newsletters and tech forums where target users gather.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;We had no list, no traffic and no ad budget. Bootsolo built a content engine that brought in our first 1,200 users without spending a dollar on ads.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">L</div>
+              <div>
+                <strong>Lena O.</strong> &middot; Founder, Pier9
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>New Product Signups</strong></td>
+                  <td><span class="cs-stats-result ice">0 &rarr; 1,200 users</span></td>
+                  <td>100% organic without ad dependencies</td>
+                </tr>
+                <tr>
+                  <td>Total Advertising Budget</td>
+                  <td><span class="cs-stats-result">$0.00 spent</span></td>
+                  <td>Pure compounding inbound traffic</td>
+                </tr>
+                <tr>
+                  <td>Ramp Timeline</td>
+                  <td><strong>90 days</strong></td>
+                  <td>From zero domain authority to category rank</td>
+                </tr>
+                <tr>
+                  <td>Monthly Organic Traffic</td>
+                  <td><span class="cs-stats-result">0 &rarr; 8,400 monthly visitors</span></td>
+                  <td>Qualified problem-aware visitors</td>
+                </tr>
+                <tr>
+                  <td>Content Assets Published</td>
+                  <td><strong>24 guides + 3 interactive tools</strong></td>
+                  <td>Asset library continuing to generate leads</td>
+                </tr>
+                <tr>
+                  <td>Visitor-to-Signup Conversion</td>
+                  <td><span class="cs-stats-result">14.2%</span></td>
+                  <td>Exceptional conversion from interactive tools</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">No ad budget? Good. Let's grow you with content that compounds.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/content-video-thought-leadership.html" class="cs-action-sublink">Explore Content, Video &amp; Authority &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('90-Day Content Plan');" class="cs-action-sublink">Get a free 90-day content plan &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=content-video-thought-leadership" class="btn btn-primary btn-sm">Build My Content Engine &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#cortex" class="cs-next-link">Next route: Cortex (Lifted Open Rates 89%) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 5. CORTEX -->
+      <article id="cortex" class="cs-story-card cs-story-section" data-category="Newsletter">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 05</span>
+            <span class="cs-meta-pill">Client: Cortex</span>
+            <span class="cs-meta-pill">Writer &amp; Founder: Priya N.</span>
+            <span class="cs-meta-pill">Newsletter</span>
+            <span class="cs-meta-pill">Services: Automation, Lifecycle</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric">
+              +89%
+              <span class="cs-hero-metric-sub">Open Rate Lift</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Cortex: A solo writer lifted open rates 89% with lifecycle automation</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> A one-person newsletter turned a growing but disengaged list into an engaged readership by replacing one-size-fits-all sends with automated, behaviour-based journeys.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Cortex's subscriber list was growing, but fewer readers were opening each issue. Every subscriber got the same emails no matter when they joined or what they cared about, new subscribers never got a proper welcome, and inactive readers dragged down deliverability. As a solo writer, the founder had time to write, not to manage segments and sequences.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                We set up Lifecycle journeys powered by Automation, so every reader got the right email at the right moment: a welcome series for new subscribers, interest-based segments, re-engagement for quiet readers, and list hygiene to protect inbox placement.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 1</span>
+                <div class="cs-step-title">Diagnose engagement</div>
+                <p class="cs-step-desc">Inspected deliverability, sender reputation, and cohort drop-off rates across subscriber signup origins and subscription age.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 2</span>
+                <div class="cs-step-title">Welcome properly</div>
+                <p class="cs-step-desc">Engineered an automated 4-part welcome onboarding journey introducing evergreen best editions and surveying topical reader interests.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 3</span>
+                <div class="cs-step-title">Segment &amp; personalize</div>
+                <p class="cs-step-desc">Implemented automated reader tagging by reading activity, incorporating AI subject line variation testing on each blast.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Phase 4</span>
+                <div class="cs-step-title">Re-engage or clean</div>
+                <p class="cs-step-desc">Executed a 3-stage re-engagement trigger, automatically pruning cold subscribers to protect 99.2% primary inbox delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;I just want to write. Bootsolo built the systems around my writing, and now more people actually open what I send.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">P</div>
+              <div>
+                <strong>Priya N.</strong> &middot; Writer &amp; Founder, Cortex
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Newsletter Open Rate</strong></td>
+                  <td><span class="cs-stats-result">+89%</span> (26% &rarr; 49.1%)</td>
+                  <td>Massive surge in reader attention</td>
+                </tr>
+                <tr>
+                  <td>Click-Through Rate (CTR)</td>
+                  <td><span class="cs-stats-result">3.2% &rarr; 8.7%</span></td>
+                  <td>Driven by interest-tagged links</td>
+                </tr>
+                <tr>
+                  <td>Welcome Series Completion Rate</td>
+                  <td><strong>82% completion</strong></td>
+                  <td>High reader retention in first 14 days</td>
+                </tr>
+                <tr>
+                  <td>Inactive Subscribers Re-engaged</td>
+                  <td><span class="cs-stats-result">28% win-back rate</span></td>
+                  <td>Re-ignited quiet readers without ad costs</td>
+                </tr>
+                <tr>
+                  <td>Paid / Premium Conversions</td>
+                  <td><span class="cs-stats-result">+42% lift</span></td>
+                  <td>More readers converting to paid tier</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">Your list is growing. Let's make sure it's listening.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/ai-powered-marketing.html" class="cs-action-sublink">Explore AI-Powered Marketing &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('Email Audit');" class="cs-action-sublink">Get a free email engagement audit &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=ai-powered-marketing" class="btn btn-primary btn-sm">Automate My Lifecycle &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#vantage" class="cs-next-link">Next route: Vantage (Tripled Qualified Demos) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 6. VANTAGE -->
+      <article id="vantage" class="cs-story-card cs-story-section" data-category="Solo SaaS">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 06</span>
+            <span class="cs-meta-pill">Client: Vantage</span>
+            <span class="cs-meta-pill">Founder: Daniel M.</span>
+            <span class="cs-meta-pill">Solo SaaS (B2B)</span>
+            <span class="cs-meta-pill">Services: Campaigns, GEO</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric ice">
+              2.7&times;
+              <span class="cs-hero-metric-sub">Qualified Demos</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Vantage: Nearly tripled qualified demos without hiring a marketer</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> A solo B2B SaaS founder got 2.7&times; more qualified demo requests by pairing targeted campaigns with GEO, so buyers found Vantage both in their feeds and in AI answers.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Vantage sells to businesses, where a demo is the step that matters. The founder was getting demo requests, but too many were from poor-fit leads, and running sales calls left no time for marketing. The plan had been to hire a marketer; the budget said not yet.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                We combined targeted Campaigns aimed at Vantage's ideal customer profile with GEO, so buyers researching the category in AI assistants met Vantage before they met a competitor, and every path led to a demo booking built to screen for fit.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 1</span>
+                <div class="cs-step-title">Define &ldquo;qualified&rdquo;</div>
+                <p class="cs-step-desc">Aligned strictly on ICP boundaries (ARR, headcount, pain trigger), building mandatory qualification logic directly into demo intake.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 2</span>
+                <div class="cs-step-title">Launch focused campaigns</div>
+                <p class="cs-step-desc">Targeted decision-makers on LinkedIn and Google Search with problem-led pain positioning, refreshing ad variants weekly.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 3</span>
+                <div class="cs-step-title">Show up in AI research</div>
+                <p class="cs-step-desc">Published structured comparison, alternatives and enterprise use-case matrices primed for LLM citations in ChatGPT and Perplexity.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 4</span>
+                <div class="cs-step-title">Tighten the demo path</div>
+                <p class="cs-step-desc">Redesigned the booking page with proof and calendar routing, redirecting bad-fit prospects automatically to self-serve documentation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;I was about to hire a marketer. Instead, Bootsolo nearly tripled my qualified demos, and my calendar is full of people who are actually a fit.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">D</div>
+              <div>
+                <strong>Daniel M.</strong> &middot; Founder, Vantage
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Qualified Demos Booked</strong></td>
+                  <td><span class="cs-stats-result ice">2.7&times; increase</span></td>
+                  <td>Calendar filled with vetted decision-makers</td>
+                </tr>
+                <tr>
+                  <td>Marketing Full-Time Hires Needed</td>
+                  <td><strong>0 internal hires</strong></td>
+                  <td>Saved $95k+/yr in early payroll commitments</td>
+                </tr>
+                <tr>
+                  <td>Cost Per Qualified Demo</td>
+                  <td><span class="cs-stats-result ice">&minus;61%</span> ($184 &rarr; $72)</td>
+                  <td>Drastic efficiency gain across paid channels</td>
+                </tr>
+                <tr>
+                  <td>Demo-to-Customer Close Rate</td>
+                  <td><span class="cs-stats-result">18% &rarr; 31%</span></td>
+                  <td>Better fit leads = shorter sales cycles</td>
+                </tr>
+                <tr>
+                  <td>Program Timeline</td>
+                  <td><strong>10 weeks</strong></td>
+                  <td>Self-funding outbound pipeline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">Not ready to hire a marketer? You don't have to be.</div>
+              <div class="cs-action-sublinks">
+                <a href="services/performance-lead-generation.html" class="cs-action-sublink">Explore Performance &amp; Lead Generation &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('Demo Funnel Teardown');" class="cs-action-sublink">Get a free demo-funnel teardown &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=performance-lead-generation" class="btn btn-primary btn-sm">Get More Qualified Demos &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#indie-maker" class="cs-next-link">Next route: Indie Maker (6 Hours/Week Saved) &rarr;</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- 7. INDIE MAKER -->
+      <article id="indie-maker" class="cs-story-card cs-story-section" data-category="Indie app">
+        <header class="cs-story-header">
+          <div class="cs-meta-row">
+            <span class="cs-meta-pill brand">Case Study 07</span>
+            <span class="cs-meta-pill">Client: Indie Maker</span>
+            <span class="cs-meta-pill">Founder: Tom H.</span>
+            <span class="cs-meta-pill">Indie App</span>
+            <span class="cs-meta-pill">Services: Automation</span>
+          </div>
+          <div class="cs-story-headline-row">
+            <div class="cs-hero-metric">
+              &minus;41%
+              <span class="cs-hero-metric-sub">Marketing Hours</span>
+            </div>
+            <div class="cs-story-title-wrap">
+              <h2>Indie Maker: Got 6 hours a week back by handing off the busywork</h2>
+              <p class="cs-story-at-glance">
+                <strong>At a glance:</strong> An indie app maker cut the time spent on marketing by 41%, about 6 hours every week, by automating the repetitive work and keeping only the parts that need a human.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div class="cs-story-body">
+          <div class="cs-prob-sol-grid">
+            <div class="cs-box cs-box-prob">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                The Problem
+              </div>
+              <p class="cs-box-p">
+                Marketing was eating the founder's week: scheduling social posts, resizing visuals, answering the same questions, updating spreadsheets and pulling reports by hand. None of it was hard, but all of it was time taken from building the app, and things slipped whenever product work got busy.
+              </p>
+            </div>
+            <div class="cs-box cs-box-sol">
+              <div class="cs-box-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                The Solution
+              </div>
+              <p class="cs-box-p">
+                We used Automation to take the busywork off the founder's plate: AI-assisted content repurposing and scheduling, automated reporting, and workflows that connect the tools the founder already uses, so marketing kept running even in heavy build weeks.
+              </p>
+            </div>
+          </div>
+
+          <div class="cs-approach-section">
+            <div class="cs-section-subtitle">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Our Approach &amp; Milestones
+            </div>
+            <div class="cs-approach-grid">
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 1</span>
+                <div class="cs-step-title">Track the hours</div>
+                <p class="cs-step-desc">Time-audited every single marketing duty for 14 days, classifying operations into automate, delegate, or founder-owned.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 2</span>
+                <div class="cs-step-title">Automate the repeatable</div>
+                <p class="cs-step-desc">Automated cross-format asset repurposing, queue scheduling, and standardized canned responses for recurring pre-purchase inquiries.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 3</span>
+                <div class="cs-step-title">Connect the stack</div>
+                <p class="cs-step-desc">Wired analytics, Stripe, posthog and mail systems into a single self-updating weekly Slack growth brief.</p>
+              </div>
+              <div class="cs-step-card">
+                <span class="cs-step-badge">Step 4</span>
+                <div class="cs-step-title">Protect founder voice</div>
+                <p class="cs-step-desc">Kept Tom in the loop strictly for quick 1-click approvals and personal authentic dev updates that convert highest.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-quote-card">
+            <p class="cs-quote-text">
+              &ldquo;I didn't need more marketing, I needed less busywork. Bootsolo gave me six hours a week back, and I spend them building.&rdquo;
+            </p>
+            <div class="cs-quote-author">
+              <div class="cs-author-avatar">T</div>
+              <div>
+                <strong>Tom H.</strong> &middot; Founder, Indie Maker
+              </div>
+            </div>
+          </div>
+
+          <div class="cs-stats-table-wrap">
+            <table class="cs-stats-table">
+              <thead>
+                <tr>
+                  <th>Performance Metric</th>
+                  <th>Outcome / Verification</th>
+                  <th>Impact Note</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Time Spent on Marketing</strong></td>
+                  <td><span class="cs-stats-result">&minus;41% reduction</span></td>
+                  <td>From ~15 hours down to 9 hours weekly</td>
+                </tr>
+                <tr>
+                  <td>Hours Saved Per Week</td>
+                  <td><span class="cs-stats-result">~6 hours reclaimed every week</span></td>
+                  <td>Re-allocated straight into shipping product features</td>
+                </tr>
+                <tr>
+                  <td>Recurring Tasks Automated</td>
+                  <td><strong>14 tasks</strong></td>
+                  <td>Repurposing, scheduling, analytics digests, syncs</td>
+                </tr>
+                <tr>
+                  <td>Posting Consistency</td>
+                  <td><span class="cs-stats-result">2/mo &rarr; 12/mo (+500%)</span></td>
+                  <td>Unbroken cadence even during product crunch weeks</td>
+                </tr>
+                <tr>
+                  <td>App Active Installs / Growth</td>
+                  <td><span class="cs-stats-result">+38% active users</span></td>
+                  <td>Consistent marketing flywheel running in background</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="cs-action-box">
+            <div class="cs-action-lead">
+              <div class="cs-action-title">How many hours did marketing take from you this week?</div>
+              <div class="cs-action-sublinks">
+                <a href="services/ai-powered-marketing.html" class="cs-action-sublink">Explore AI-Powered Marketing &rarr;</a>
+                <span style="color:var(--border-strong);">&bull;</span>
+                <a href="javascript:void(0)" onclick="openGrowthModal('Automation Audit');" class="cs-action-sublink">Get a free automation audit &rarr;</a>
+              </div>
+            </div>
+            <div class="cs-action-buttons">
+              <a href="custom-quote.html?service=ai-powered-marketing" class="btn btn-primary btn-sm">Get My Hours Back &rarr;</a>
+            </div>
+          </div>
+
+          <div class="cs-next-route">
+            <a href="#northwind" class="cs-next-link">&larr; Return to Northwind (Featured Study)</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Low-Commitment Option (CTA Library: Low-commitment option) -->
+      <div class="cs-low-commit">
+        <div>
+          <h4 style="font-size:18px;font-weight:600;margin:0 0 6px;">Not ready for a formal call yet?</h4>
+          <p style="font-size:14.5px;color:var(--fg2);margin:0;">No pressure. Drop us a note with your product link and current goal, and we'll reply with 3 ideas.</p>
+        </div>
+        <a href="mailto:hello@bootsolo.com?subject=Growth%20Goal%20for%20Bootsolo" class="btn btn-ghost" style="border-color:var(--border-strong);">
+          Email Us Your Goal &rarr;
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta dark">
+    <div class="wrap">
+      <div class="cta-box">
+        <div class="cta-glow"></div>
+        <h2 class="cta-t">Ready to add your logo to the route?</h2>
+        <p class="cta-s">We're looking for the next 5 bootstrapped founders to partner with this quarter on a backpack budget.</p>
+        <a class="btn btn-primary" href="custom-quote.html" style="position:relative;height:48px;padding:0 28px;">
+          Build Custom Quote &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer dark">
+    <div class="wrap">
+      <div class="foot-grid">
+        <div class="foot-col">
+          <a class="brand" href="index.html">
+            <span class="tile">
+              <svg width="18" height="18" viewBox="0 0 64 64" fill="none">
+                <path d="M26 12 L46 52 H6 L26 12 Z" fill="#FF6B35" />
+                <path d="M26 12 L34 30 L26 26 L18 30 L26 12 Z" fill="#F7F5F1" />
+                <circle cx="47" cy="20" r="6" fill="#F4B740" />
+              </svg>
+            </span>
+            bootsolo
+          </a>
+          <p class="foot-tag">The AI-native marketing team for bootstrapped founders. Start solo, climb fast — on a budget that fits in a backpack.</p>
+        </div>
+        <div class="foot-col">
+          <h5>What we do</h5>
+          <a href="services/ai-powered-marketing.html">AI Marketing</a>
+          <a href="services/seo-aeo-geo.html">Get Found by AI (GEO)</a>
+          <a href="services/performance-lead-generation.html">Lead Generation</a>
+          <a href="services/content-video-thought-leadership.html">Content Engine</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="case-studies.html">Case Studies (The Routes)</a>
+          <a href="pricing.html">Pricing Directory</a>
+          <a href="custom-quote.html">Custom Quote</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="foot-col">
+          <h5>Resources</h5>
+          <a href="resources.html">Founder Guides</a>
+          <a href="resources.html">Free Route Map</a>
+          <a href="blogs.html">Field Notes (Blog)</a>
+          <a href="resources.html">Help Center</a>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; 2026 Bootsolo, Inc. All rights reserved.</span>
+        <span>For the ones who started solo.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky Bar (CTA Library: Sticky bar) -->
+  <div class="cs-mobile-bar">
+    <div class="cs-mobile-bar-inner">
+      <div class="cs-mobile-bar-text">Started solo? Let's climb faster.</div>
+      <a href="custom-quote.html" class="btn btn-primary btn-sm" style="height:34px;padding:0 14px;">Book a Call &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Exit Intent Modal (CTA Library: Exit intent) -->
+  <div id="cs-exit-modal" class="cs-exit-modal" role="dialog" aria-modal="true">
+    <div class="cs-exit-card">
+      <button type="button" onclick="closeExitModal();" style="position:absolute;top:16px;right:16px;background:none;border:none;cursor:pointer;color:var(--fg3);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div style="width:48px;height:48px;border-radius:12px;background:rgba(255,107,53,0.12);color:var(--sunrise-700);display:inline-flex;align-items:center;justify-content:center;margin-bottom:16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+      </div>
+      <h3 style="font-size:22px;font-weight:700;margin:0 0 10px;">Before you go...</h3>
+      <p style="font-size:15px;color:var(--fg2);line-height:1.55;margin:0 0 24px;">
+        Get the exact <strong>Growth Route Map</strong> that 120+ bootstrapped founders used to triple signups and lower acquisition costs.
+      </p>
+      <div style="display:flex;gap:10px;justify-content:center;">
+        <a href="resources.html" class="btn btn-primary" style="flex:1;">Send Me the Route Map &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Growth Call Modal -->
+  <div id="growth-call-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <div class="modal-card">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Step 1: Info & Goal -->
+      <div id="growth-modal-step-1">
+        <div class="modal-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+          </svg>
+          30-Min Strategy Session &middot; Zero Pitch
+        </div>
+        <h3 id="modal-headline" class="modal-title">Book a Growth Call</h3>
+        <p class="modal-sub">Tell us a bit about your brand so we come prepared with actionable data and live competitor teardowns.</p>
+
+        <form class="modal-form-grid" onsubmit="return false;">
+          <div class="modal-field">
+            <label for="growth-name">Your Name *</label>
+            <input type="text" id="growth-name" placeholder="e.g. Alex Rivera" required>
+          </div>
+          <div class="modal-field">
+            <label for="growth-email">Work Email *</label>
+            <input type="email" id="growth-email" placeholder="alex@company.com" required>
+          </div>
+          <div class="modal-field">
+            <label for="growth-company">Company / Website</label>
+            <input type="text" id="growth-company" placeholder="yoursite.com">
+          </div>
+          <div class="modal-field">
+            <label for="growth-goal">Primary Growth Goal</label>
+            <select id="growth-goal">
+              <option value="AI Search & AEO Visibility">AI Search &amp; AEO Visibility (ChatGPT, Perplexity)</option>
+              <option value="Performance Marketing & Paid Media">Performance Marketing &amp; Paid Ads (&minus;58% CPA)</option>
+              <option value="Content Engine & Authority">Content Engine &amp; Thought Leadership</option>
+              <option value="Website & Conversion Optimization">Website &amp; Conversion Rate Optimization</option>
+              <option value="Full-Funnel Growth Architecture">Full-Funnel Autonomous Marketing Team</option>
+            </select>
+          </div>
+          <button type="button" id="modal-to-step-2" class="btn btn-primary" style="margin-top:8px;justify-content:center;">
+            Next: Select Time Slot &rarr;
+          </button>
+        </form>
+      </div>
+
+      <!-- Step 2: Time Slot -->
+      <div id="growth-modal-step-2" style="display:none;">
+        <div class="modal-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          Direct Calendar Sync
+        </div>
+        <h3 class="modal-title">Select Preferred Time</h3>
+        <p class="modal-sub">Pick a time that works best for your schedule. All times shown in your local timezone.</p>
+
+        <div class="time-slots">
+          <button type="button" class="time-slot-btn selected">
+            <span class="slot-day">Tomorrow (Wed)</span>
+            <span class="slot-time">2:00 PM &ndash; 2:30 PM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Tomorrow (Wed)</span>
+            <span class="slot-time">4:30 PM &ndash; 5:00 PM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Thursday</span>
+            <span class="slot-time">11:00 AM &ndash; 11:30 AM EST</span>
+          </button>
+          <button type="button" class="time-slot-btn">
+            <span class="slot-day">Thursday</span>
+            <span class="slot-time">3:00 PM &ndash; 3:30 PM EST</span>
+          </button>
+        </div>
+
+        <div class="modal-field" style="margin-top:12px;">
+          <label for="growth-notes">Anything specific you want us to research? (Optional)</label>
+          <textarea id="growth-notes" placeholder="e.g. Look at our pricing page conversion or our competitors on Perplexity"></textarea>
+        </div>
+
+        <div style="display:flex;gap:10px;margin-top:16px;">
+          <button type="button" onclick="document.getElementById('growth-modal-step-2').style.display='none';document.getElementById('growth-modal-step-1').style.display='block';" class="btn btn-ghost" style="flex:1;justify-content:center;">Back</button>
+          <button type="button" id="modal-confirm-call" class="btn btn-primary" style="flex:2;justify-content:center;">Confirm Growth Call &check;</button>
+        </div>
+      </div>
+
+      <!-- Step 3: Success -->
+      <div id="growth-modal-success" style="display:none;" class="modal-success-box">
+        <div class="modal-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 class="modal-title">Growth Call Confirmed!</h3>
+        <p class="modal-sub">We've reserved 30 minutes with our growth architects. A Google Meet invitation and calendar event have been dispatched to your inbox.</p>
+        <button type="button" id="modal-done-btn" class="btn btn-primary" style="width:100%;justify-content:center;">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Exit intent detection
+    let exitShown = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY <= 0 && !exitShown && !sessionStorage.getItem('bootsolo_exit_seen')) {
+        exitShown = true;
+        sessionStorage.setItem('bootsolo_exit_seen', 'true');
+        const modal = document.getElementById('cs-exit-modal');
+        if (modal) modal.style.display = 'flex';
+      }
+    });
+
+    function closeExitModal() {
+      const modal = document.getElementById('cs-exit-modal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function openGrowthModal(goalPrefill) {
+      const modal = document.getElementById('growth-call-modal');
+      if (modal) {
+        modal.classList.add('active');
+        if (goalPrefill) {
+          const goalSelect = document.getElementById('growth-goal');
+          if (goalSelect) {
+            // Find option or append note
+            const notesField = document.getElementById('growth-notes');
+            if (notesField) notesField.value = 'Interested in: ' + goalPrefill;
+          }
+        }
+      }
+    }
+
+    // Enhance filter buttons to filter both wcards and detailed cs-story-card articles
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.filters .filter');
+      const storyCards = document.querySelectorAll('.cs-story-card');
+      const overviewCards = document.querySelectorAll('.work-grid .wcard');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const filterVal = (this.getAttribute('data-filter') || this.textContent.trim()).toLowerCase();
+
+          storyCards.forEach(card => {
+            const cat = (card.getAttribute('data-category') || '').toLowerCase();
+            if (filterVal === 'all' || cat.includes(filterVal)) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

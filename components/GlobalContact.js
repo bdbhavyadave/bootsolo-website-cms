@@ -9,13 +9,15 @@ export default function GlobalContact() {
   const pathname = usePathname();
   if (pathname?.startsWith('/admin')) return null;
 
-  // Dedicated service pages already have their own bespoke conversion forms at the bottom
+  // Dedicated service pages and case studies have their own bespoke sections and CTAs
   const pagesWithCustomForms = [
     '/ai-powered-marketing',
     '/performance-lead-generation',
     '/content-video-thought-leadership',
     '/web-ecommerce-experience',
-    '/contact'
+    '/contact',
+    '/case-studies',
+    '/work'
   ];
   if (pagesWithCustomForms.includes(pathname)) return null;
 

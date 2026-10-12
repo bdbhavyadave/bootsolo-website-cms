@@ -292,6 +292,7 @@ function HeaderContent() {
   const isServicesActive = SERVICES_NAV_DATA.some(s => pathname === s.slug || pathname?.startsWith(`${s.slug}/`)) || pathname === '/services';
   const isIndustriesActive = pathname?.startsWith('/industries');
   const isPricingActive = pathname === '/pricing';
+  const isCaseStudiesActive = pathname === '/case-studies' || pathname === '/work';
   const isResourcesActive = pathname === '/resources';
   const isBlogsActive = pathname === '/blogs' || pathname?.startsWith('/blog');
 
@@ -548,6 +549,13 @@ function HeaderContent() {
           </div>
 
           <Link 
+            href="/case-studies" 
+            className={`nav-link-item ${isCaseStudiesActive ? 'active' : ''}`}
+            style={{ display: 'flex', alignItems: 'center' }}
+          >
+            Case Studies
+          </Link>
+          <Link 
             href="/resources" 
             className={`nav-link-item ${isResourcesActive ? 'active' : ''}`}
             style={{ display: 'flex', alignItems: 'center' }}
@@ -735,6 +743,9 @@ function HeaderContent() {
                 </div>
               )}
 
+              <Link href="/case-studies" className={`mobile-drawer-link ${isCaseStudiesActive ? 'active' : ''}`} onClick={closeMenu}>
+                Case Studies <ArrowRight size={16} />
+              </Link>
               <Link href="/resources" className={`mobile-drawer-link ${isResourcesActive ? 'active' : ''}`} onClick={closeMenu}>
                 Resources <ArrowRight size={16} />
               </Link>

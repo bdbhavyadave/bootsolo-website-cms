@@ -36,6 +36,7 @@ export default function Footer() {
   ];
 
   const FOOT_COMPANY = [
+    { name: "Case Studies", href: "/case-studies" },
     { name: "Industries", href: "/industries" },
     { name: "Work & Results", href: "/work" },
     { name: "Pricing", href: "/pricing" },
